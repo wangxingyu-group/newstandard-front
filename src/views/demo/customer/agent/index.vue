@@ -2,7 +2,7 @@
   <el-container>
     <el-row>
       <el-col :span="24">
-        <el-button @click="prop('客户来电','',false,'keep')">代理人</el-button>
+        <el-button @click="prop($store.confirmCustomer?$store.confirmCustomer.name:'客户来电','',false,'keep')">代理人</el-button>
       </el-col>
     </el-row>
   </el-container>

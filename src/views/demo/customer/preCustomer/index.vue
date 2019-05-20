@@ -67,13 +67,13 @@
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
-          <el-button type="primary" size="small " width="100">
+          <el-button type="primary" size="small " width="100" @click="confirmCustomer(row)">
             确认客户
           </el-button>
           <el-button type="primary" size="small" @click="handleUpdate(row)">
             编辑
           </el-button>
-          <el-button type="danger" size="small" @click="handleModifyStatus(row,'deleted')">
+          <el-button type="danger" size="small" @click="handleModifyStatus(row)">
             删除
           </el-button>
         </template>
@@ -84,35 +84,31 @@
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="Type" prop="type">
-          <el-select v-model="temp.type" class="filter-item" placeholder="Please select">
-            <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name" :value="item.key" />
-          </el-select>
+        <el-form-item label="姓名" prop="name">
+          <el-input v-model="temp.name" />
         </el-form-item>
-        <el-form-item label="Date" prop="timestamp">
-          <el-date-picker v-model="temp.timestamp" type="datetime" placeholder="Please pick a date" />
+        <el-form-item label="性别" prop="gender">
+          <el-input v-model="temp.gender" />
         </el-form-item>
-        <el-form-item label="Title" prop="title">
-          <el-input v-model="temp.title" />
+        <el-form-item label="身份证号" prop="IDCord">
+          <el-input v-model="temp.IDCord" />
         </el-form-item>
-        <el-form-item label="Status">
-          <el-select v-model="temp.status" class="filter-item" placeholder="Please select">
-            <el-option v-for="item in statusOptions" :key="item" :label="item" :value="item" />
-          </el-select>
+        <el-form-item label="来电电话" prop="callInNo">
+          <el-input v-model="temp.callInNo" />
         </el-form-item>
-        <el-form-item label="Imp">
-          <el-rate v-model="temp.importance" :colors="['#99A9BF', '#F7BA2A', '#FF9900']" :max="3" style="margin-top:8px;" />
+        <el-form-item label="来电时间" prop="callInTime">
+          <el-input v-model="temp.callInTime" />
         </el-form-item>
-        <el-form-item label="Remark">
-          <el-input v-model="temp.remark" :autosize="{ minRows: 2, maxRows: 4}" type="textarea" placeholder="Please input" />
+        <el-form-item label="备注" prop="remark">
+          <el-input v-model="temp.remark" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">
-          Cancel
+          取消
         </el-button>
         <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">
-          Confirm
+          确认
         </el-button>
       </div>
     </el-dialog>
@@ -230,9 +226,16 @@ export default {
       this.getList()
     },
     handleModifyStatus(row) {
-      this.$message({
-        message: '操作成功',
-        type: 'success'
+      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.list.splice(row, 1)
+        this.$message({
+          message: '操作成功',
+          type: 'success'
+        })
       })
     },
     sortChange(data) {
@@ -272,13 +275,13 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           this.temp.id = parseInt(Math.random() * 100) + 1024 // mock a id
-          this.temp.author = 'vue-element-admin'
+          this.temp.customerType = '准客户'
           createArticle(this.temp).then(() => {
             this.list.unshift(this.temp)
             this.dialogFormVisible = false
             this.$notify({
               title: 'Success',
-              message: 'Created Successfully',
+              message: '创建成功',
               type: 'success',
               duration: 2000
             })
@@ -299,7 +302,6 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           const tempData = Object.assign({}, this.temp)
-          tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
           updateArticle(tempData).then(() => {
             for (const v of this.list) {
               if (v.id === this.temp.id) {
@@ -311,7 +313,7 @@ export default {
             this.dialogFormVisible = false
             this.$notify({
               title: 'Success',
-              message: 'Update Successfully',
+              message: '更新成功',
               type: 'success',
               duration: 2000
             })
@@ -357,6 +359,9 @@ export default {
           return v[j]
         }
       }))
+    },
+    confirmCustomer(row) {
+      this.$store.confirmCustomer = row
     }
   }
 }
