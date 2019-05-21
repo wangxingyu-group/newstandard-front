@@ -1,14 +1,14 @@
 import Mock from 'mockjs'
 
 const List = []
-const count = 10
+const count = 20
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: '@increment',
     name: '@cname()',
-    'gender|1': ['男', '女'],
-    IDCord: '@integer(152106199003050316, 152106201903050999)',
+    'gender|1': ['0', '1'],
+    IDCard: '@integer(152106199001010011, 152106199012319999)',
     callInNo: /^1[385][1-9]\d{8}/,
     callInTime: '@datetime',
     customerType: '准客户',
@@ -17,67 +17,6 @@ for (let i = 0; i < count; i++) {
 }
 
 export default [
-  {
-    url: '/preCustomer/list',
-    type: 'get',
-    response: config => {
-      const { name, IDCord, page = 1, limit = 20, sort } = config.query
-      let mockList = List.filter(item => {
-        if (name && item.name !== name) return false
-        if (IDCord && item.IDCord !== IDCord) return false
-        return true
-      })
-
-      if (sort === '-id') {
-        mockList = mockList.reverse()
-      }
-
-      const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
-
-      return {
-        code: 20000,
-        data: {
-          total: mockList.length,
-          items: pageList
-        }
-      }
-    }
-  },
-
-  {
-    url: '/preCustomer/detail',
-    type: 'get',
-    response: config => {
-      const { id } = config.query
-      for (const article of List) {
-        if (article.id === +id) {
-          return {
-            code: 20000,
-            data: article
-          }
-        }
-      }
-    }
-  },
-
-  {
-    url: '/preCustomer/pv',
-    type: 'get',
-    response: _ => {
-      return {
-        code: 20000,
-        data: {
-          pvData: [
-            { key: 'PC', pv: 1024 },
-            { key: 'mobile', pv: 1024 },
-            { key: 'ios', pv: 1024 },
-            { key: 'android', pv: 1024 }
-          ]
-        }
-      }
-    }
-  },
-
   {
     url: '/preCustomer/create',
     type: 'post',
@@ -88,7 +27,6 @@ export default [
       }
     }
   },
-
   {
     url: '/preCustomer/update',
     type: 'post',
@@ -98,6 +36,43 @@ export default [
         data: 'success'
       }
     }
+  },
+  {
+    url: '/preCustomer/list',
+    type: 'get',
+    response: config => {
+      const { name, IDCard, page = 1, limit = 10, sort } = config.query
+      let mockList = List.filter(item => {
+        if (name && item.name !== name) return false
+        if (IDCard && item.IDCard != IDCard) return false
+        return true
+      })
+      if (sort === '-id') {
+        mockList = mockList.reverse()
+      }
+      const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
+      return {
+        code: 20000,
+        data: {
+          total: mockList.length,
+          items: pageList
+        }
+      }
+    }
+  },
+  {
+    url: '/preCustomer/detail',
+    type: 'get',
+    response: config => {
+      const { id } = config.query
+      for (const preCustomer of List) {
+        if (preCustomer.id === +id) {
+          return {
+            code: 20000,
+            data: preCustomer
+          }
+        }
+      }
+    }
   }
 ]
-

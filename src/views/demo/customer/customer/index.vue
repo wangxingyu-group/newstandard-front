@@ -2,7 +2,7 @@
   <el-container>
     <el-row>
       <el-col :span="24">
-        <el-button @click="prop('138****0758','',false,'keep')">代理人</el-button>
+        代理人
       </el-col>
     </el-row>
   </el-container>
@@ -12,6 +12,7 @@
 import { mapGetters } from 'vuex'
 import naranja from '@/components/demo/naranja'
 import 'naranja/lib/naranja.min.css'
+
 export default {
   computed: {
     ...mapGetters([

@@ -21,6 +21,15 @@ const customerRouter =
         }
       },
       {
+        path: 'customer',
+        component: () => import('@/views/demo/customer/customer'),
+        name: 'customer',
+        meta: {
+          title: '客户',
+          roles: ['admin']
+        }
+      },
+      {
         path: 'agent',
         component: () => import('@/views/demo/customer/agent'),
         name: 'agent',
