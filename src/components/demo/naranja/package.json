@@ -1,0 +1,40 @@
+{
+  "_from": "naranja",
+  "_id": "naranja@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-FVdXTZi75tIeM+r8oW9Jg1VKaB4UallR5LV3UggbCz1XP1775FaVHd1fcT8R2XtyqwC4xw2tchQE/zCr4S8S7A==",
+  "_location": "/naranja",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "naranja",
+    "name": "naranja",
+    "escapedName": "naranja",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/naranja/-/naranja-1.0.2.tgz",
+  "_shasum": "d9e95f44c5c8c5b22855a4f7652174df90eb367d",
+  "_spec": "naranja",
+  "_where": "D:\\eric-group\\newstandard-front",
+  "author": {
+    "name": "Eliseo Geraldo",
+    "email": "e10169610@gmail.com"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Notifications for modern web design",
+  "directories": {
+    "lib": "lib"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "naranja",
+  "version": "1.0.2"
+}

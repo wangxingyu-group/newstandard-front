@@ -10,7 +10,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import naranja from 'naranja'
+import naranja from '@/components/demo/naranja'
 import 'naranja/lib/naranja.min.css'
 export default {
   computed: {
