@@ -35,7 +35,7 @@ export default [
     url: '/user/fires',
     type: 'post',
     response: config => {
-    const { type, projectNum, customer, page = 1, limit = 20, sort } = config.query
+    const { type, projectNum, customer, page = 1, limit = 5, sort } = config.query
 
     let mockList = ListUser.filter(item => {
       if (projectNum && item.projectNum.indexOf(projectNum) < 0) return false

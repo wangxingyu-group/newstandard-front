@@ -41,12 +41,12 @@
     >
       <el-table-column label="模板名称" prop="id" align="center" width="90">
         <template slot-scope="scope">
-          <span>{{ scope.row.model }}</span>
+          <span>{{ scope.row.modelName }}</span>
         </template>
       </el-table-column>
       <el-table-column label="模板内容" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.projectNum }}</span>
+          <span>{{ scope.row.content }}</span>
         </template>
       </el-table-column>
       <el-table-column label="创建人" width="110px" align="center">
@@ -88,6 +88,12 @@
             type="textarea"
             style="font-size:20px;font-family:'Microsoft YaHei'"
           />
+        </el-form-item>
+        <el-form-item label="创建日期" prop="timeCre">
+          <el-date-picker v-model="temp.timeCre" type="datetime" />
+        </el-form-item>
+        <el-form-item label="修改日期" prop="timeUp">
+          <el-date-picker v-model="temp.timeUp" type="datetime" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
