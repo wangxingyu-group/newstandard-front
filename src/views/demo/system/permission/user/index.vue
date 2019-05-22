@@ -188,17 +188,33 @@ export default {
       pvData: [],
       rules: {
         type: [{ required: true, message: 'type is required', trigger: 'change' }],
-        timestamp: [{ type: 'date', required: true, message: 'timestamp is required', trigger: 'change' }],
-        title: [{ required: true, message: 'title is required', trigger: 'blur' }]
+        timestamp: [{ type: 'date', required: true, message: 'timestamp is required', trigger: 'change' }]
       },
       downloadLoading: false
     }
   },
   created() {
     this.getList()
-    this.uuid()
   },
   methods: {
+    guid() {
+      var s = []
+      var hexDigits = '0123456789'
+      for (var i = 0; i < 18; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 10), 1)
+      }
+      var uuid = s.join('')
+      return uuid
+    },
+    cuid() {
+      var s = []
+      var hexDigits = '0123456789'
+      for (var i = 0; i < 4; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 10), 1)
+      }
+      var uuid = s.join('')
+      return uuid
+    },
     getList() {
       this.listLoading = true
       firesList(this.listQuery).then(response => {
@@ -208,7 +224,7 @@ export default {
         // Just to simulate the time of the request
         setTimeout(() => {
           this.listLoading = false
-        }, 0.2 * 1000)
+        }, 1.5 * 1000)
       })
     },
     handleFilter() {
@@ -257,8 +273,9 @@ export default {
     createData() {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
-          this.temp.id = parseInt(Math.random() * 1000) + 1200 // mock a id
+          this.temp.id = this.cuid() // mock a id
           createFires(this.temp).then(() => {
+            this.temp.projectNum = this.guid()
             this.list.unshift(this.temp)
             this.dialogFormVisible = false
             this.$notify({

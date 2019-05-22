@@ -1,16 +1,24 @@
 import request from '@/utils/request'
 
+export function fetchList(query) {
+  return request({
+    url: '/model/list',
+    method: 'get',
+    params: query
+  })
+}
+
 export function firesList(query) {
   return request({
-    url: '/user/fires',
-    method: 'post',
+    url: '/model/fires',
+    method: 'get',
     params: query
   })
 }
 
 export function fetchArticle(id) {
   return request({
-    url: '/user/detail',
+    url: '/model/detail',
     method: 'get',
     params: { id }
   })
@@ -18,7 +26,7 @@ export function fetchArticle(id) {
 
 export function fetchPv(pv) {
   return request({
-    url: '/user/pv',
+    url: '/model/pv',
     method: 'get',
     params: { pv }
   })
@@ -26,7 +34,7 @@ export function fetchPv(pv) {
 
 export function createFires(data) {
   return request({
-    url: '/user/createF',
+    url: '/model/createF',
     method: 'post',
     data
   })
@@ -34,7 +42,7 @@ export function createFires(data) {
 
 export function createArticle(data) {
   return request({
-    url: '/user/create',
+    url: '/model/create',
     method: 'post',
     data
   })
@@ -42,7 +50,7 @@ export function createArticle(data) {
 
 export function updateArticle(data) {
   return request({
-    url: '/user/update',
+    url: '/model/update',
     method: 'post',
     data
   })
