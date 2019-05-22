@@ -339,17 +339,17 @@ export default {
     },
     handleDownload() {
       this.downloadLoading = true
-        import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
-          const filterVal = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
-          const data = this.formatJson(filterVal, this.list)
-          excel.export_json_to_excel({
-            header: tHeader,
-            data,
-            filename: 'user-list'
-          })
-          this.downloadLoading = false
+      import('@/vendor/Export2Excel').then(excel => {
+        const tHeader = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
+        const filterVal = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
+        const data = this.formatJson(filterVal, this.list)
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: 'user-list'
         })
+        this.downloadLoading = false
+      })
     },
     formatJson(filterVal, jsonData) {
       return jsonData.map(v => filterVal.map(j => {
