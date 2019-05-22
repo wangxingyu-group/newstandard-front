@@ -2,7 +2,7 @@
   <div class="app-container">
     <div class="filter-container">
       <el-input v-model="listQuery.projectNum" placeholder="用户编号" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-input v-model="listQuery.custormer" placeholder="用户姓名" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-input v-model="listQuery.customer" placeholder="用户姓名" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
       <el-select v-model="listQuery.type" placeholder="用户状态" clearable class="filter-item" style="width: 130px">
         <el-option v-for="item in userModeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
       </el-select>
