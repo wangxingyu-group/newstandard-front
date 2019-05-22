@@ -2,10 +2,10 @@ import Layout from '@/layout'
 
 const customerRouter =
   {
-    path: '/customer',
+    path: '/customerManagement',
     component: Layout,
-    redirect: '/customer/preCustomer',
-    name: 'customer',
+    redirect: '/customerManagement/preCustomer',
+    name: 'customerManagement',
     meta: {
       title: '客户管理',
       icon: 'peoples'
@@ -13,7 +13,7 @@ const customerRouter =
     children: [
       {
         path: 'preCustomer',
-        component: () => import('@/views/demo/customer/preCustomer'),
+        component: () => import('@/views/demo/customerManagement/preCustomer'),
         name: 'preCustomer',
         meta: {
           title: '准客户',
@@ -22,7 +22,7 @@ const customerRouter =
       },
       {
         path: 'customer',
-        component: () => import('@/views/demo/customer/customer'),
+        component: () => import('@/views/demo/customerManagement/customer'),
         name: 'customer',
         meta: {
           title: '客户',
@@ -31,7 +31,7 @@ const customerRouter =
       },
       {
         path: 'agent',
-        component: () => import('@/views/demo/customer/agent'),
+        component: () => import('@/views/demo/customerManagement/agent'),
         name: 'agent',
         meta: {
           title: '代理人',

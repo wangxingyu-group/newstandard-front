@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-row>
-      <el-col :span="24">已发短信</el-col>
+      <el-col :span="24">工单管理</el-col>
     </el-row>
   </el-container>
 </template>

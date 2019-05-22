@@ -5,7 +5,7 @@ const qualityAssuranceManagementRouter =
     path: '/qualityAssuranceManagement',
     component: Layout,
     redirect: '/qualityAssuranceManagement/ruleManagement',
-    name: 'qualityAssurance',
+    name: 'qualityAssuranceManagement',
     meta: {
       title: '质检管理',
       icon: 'component'
@@ -21,9 +21,9 @@ const qualityAssuranceManagementRouter =
         }
       },
       {
-        path: 'qualityAssuranceManagement',
-        component: () => import('@/views/qualityAssuranceManagement/qualityAssuranceManagement'),
-        name: 'qaManagement',
+        path: 'qualityAssurance',
+        component: () => import('@/views/qualityAssuranceManagement/qualityAssurance'),
+        name: 'qualityAssurance',
         meta: {
           title: '质检管理',
           roles: ['admin']
