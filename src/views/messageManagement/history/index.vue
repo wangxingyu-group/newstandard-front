@@ -1,284 +1,169 @@
 <template>
   <div class="app-container">
-    <el-container style="height: 500px;">
-      <el-aside width="47%">
-        <el-input v-model="listQuery.projectNum" placeholder="手机号码查询" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-          查询
-        </el-button>
-        <el-table
-          :key="tableKey"
-          v-loading="listLoading"
-          :data="list"
-          fit
-          highlight-current-row
-          style="width: 100%;"
-          align="center"
-          @sort-change="sortChange"
-        >
-          <el-table-column label="客户姓名" width="150%" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.customer }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="手机号码" width="150%" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.mobilephone }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="发送时间" width="150%" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-            </template>
-          </el-table-column>
-        </el-table>
-        <pagination v-show="total>0" :total="total" @pagination="getList" />
-      </el-aside>
+    <div class="filter-container">
+      <el-input v-model="listQuery.creater" placeholder="创建人" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-input v-model="listQuery.receiver" placeholder="收信人" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-input v-model="listQuery.phoneNo" placeholder="发送手机号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
 
-      <el-main />
+      <el-date-picker
+        v-model="listQuery.sendDate"
+        style="width: 180px;"
+        class="filter-item"
+        type="date"
+        placeholder="发送日期"
+        :picker-options="pickerOptions0"
+        @keyup.enter.native="handleFilter"
+      />
+      <el-date-picker
+        v-model="listQuery.createDate"
+        style="width: 180px;"
+        class="filter-item"
+        type="date"
+        placeholder="创建日期"
+        :picker-options="pickerOptions0"
+        @keyup.enter.native="handleFilter"
+      />
 
-    </el-container>
+      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
+        查询
+      </el-button>
+      <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-close" @click="handleBatchDelete">
+        清空
+      </el-button>
+    </div>
+
+    <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+      <el-table-column type="selection" width="55" />
+      <el-table-column label="手机号" prop="phoneNo" sortable="custom" align="center" width="150">
+        <template slot-scope="scope"><span>{{ scope.row.phoneNo }}</span></template>
+      </el-table-column>
+      <el-table-column label="短信内容" align="center" width="100">
+        <template slot-scope="scope"><span>{{ scope.row.msgContent }}</span></template>
+      </el-table-column>
+      <el-table-column label="发送状态" align="center" width="80">
+        <template slot-scope="scope"><span>{{ scope.row.status==='0'?'':'' }}</span></template>
+      </el-table-column>
+      <el-table-column label="发送人" align="center" width="200">
+        <template slot-scope="scope"><span>{{ scope.row.sender }}</span></template>
+      </el-table-column>
+      <el-table-column label="发送日期" align="center" width="150">
+        <template slot-scope="scope"><span>{{ scope.row.sendDate }}</span></template>
+      </el-table-column>
+
+      <el-table-column label="发送时间" align="center" width="200">
+        <template slot-scope="scope"><span>{{ scope.row.sendTime }}</span></template>
+      </el-table-column>
+      <el-table-column label="创建日期" align="center" width="200">
+        <template slot-scope="scope"><span>{{ scope.row.createDate }}</span></template>
+      </el-table-column>
+
+    </el-table>
+
+    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+
+    <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
+      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 500px; margin-left:100px;">
+        <el-form-item label="手机号" prop="phoneno">
+          <el-input v-model="temp.phoneno" />
+        </el-form-item>
+        <el-form-item label="短信内容" prop="msgcontent">
+          <el-input v-model="temp.msgcontent" />
+        </el-form-item>
+        <el-form-item label="发送状态" prop="status">
+          <el-radio-group v-model="temp.status">
+            <el-radio :label="0">成功</el-radio>
+            <el-radio :label="1">失败</el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="发送人" prop="sender">
+          <el-input v-model="temp.sender" />
+        </el-form-item>
+        <el-form-item label="发送日期" prop="senddate">
+          <el-input v-model="temp.senddate" />
+        </el-form-item>
+        <el-form-item label="发送时间" prop="sendtime">
+          <el-input v-model="temp.sendtime" />
+        </el-form-item>
+        <el-form-item label="创建日期" prop="createtime">
+          <el-input v-model="temp.createtime" />
+        </el-form-item>
+      </el-form>
+    </el-dialog>
   </div>
+
 </template>
+
 <script>
-import { createFires, fetchPv, firesList, updateArticle } from '@/api/demo/system/permission/user'
-import waves from '@/directive/waves' // waves directive
-import { parseTime } from '@/utils'
+import { fetchList } from '@/api/demo/customer/preCustomer'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
-const userModeOptions = [
-  { key: 'normal', display_name: '正常' },
-  { key: 'locked', display_name: '锁定' },
-  { key: 'delete', display_name: '删除' }
-]
-
-// arr to obj, such as { normal : "正常", lock : "已锁定" }
-const userModeKeyValue = userModeOptions.reduce((acc, cur) => {
-  acc[cur.key] = cur.display_name
-  return acc
-}, {})
-
 export default {
-  name: 'ComplexTable',
+  name: 'History',
   components: { Pagination },
-  directives: { waves },
-  filters: {
-    statusFilter(status) {
-      const statusMap = {
-        published: 'success',
-        draft: 'info',
-        deleted: 'danger'
-      }
-      return statusMap[status]
-    },
-    typeFilter(type) {
-      return userModeKeyValue[type]
-    }
-  },
+
   data() {
     return {
       tableKey: 0,
       list: null,
+      selectionList: null,
       total: 0,
       listLoading: true,
       listQuery: {
         page: 1,
-        limit: 8,
-        customer: undefined,
-        projectNum: undefined,
-        type: undefined,
+        limit: 10,
         sort: '+id'
       },
-      userModeOptions,
-      sortOptions: [{ label: 'ID Ascending', key: '+id' }, { label: 'ID Descending', key: '-id' }],
-      temp: {
+      temp: {// 操作时的临时对象
         id: undefined,
-        projectNum: undefined,
-        timestamp: new Date(),
-        type: ''
+        name: '',
+        gender: 0,
+        IDCard: undefined,
+        callInNo: '',
+        callInTime: '',
+        customerType: '准客户',
+        remark: ''
       },
       dialogFormVisible: false,
       dialogStatus: '',
-      textMap: {
-        update: 'Edit',
-        create: 'Create'
-      },
-      dialogPvVisible: false,
-      pvData: [],
-      rules: {
-        type: [{ required: true, message: 'type is required', trigger: 'change' }],
-        timestamp: [{ type: 'date', required: true, message: 'timestamp is required', trigger: 'change' }]
-      },
-      downloadLoading: false
+      textMap: {// 操作弹窗标题
+        update: '编辑',
+        create: '新建'
+      }
     }
   },
+
   created() {
     this.getList()
   },
   methods: {
-    guid() {
-      var s = []
-      var hexDigits = '0123456789'
-      for (var i = 0; i < 18; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 10), 1)
-      }
-      var uuid = s.join('')
-      return uuid
-    },
-    cuid() {
-      var s = []
-      var hexDigits = '0123456789'
-      for (var i = 0; i < 4; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 10), 1)
-      }
-      var uuid = s.join('')
-      return uuid
-    },
     getList() {
       this.listLoading = true
-      firesList(this.listQuery).then(response => {
+      fetchList(this.listQuery).then(response => {
         this.list = response.data.items
         this.total = response.data.total
-
-        // Just to simulate the time of the request
+        // 模拟延迟
         setTimeout(() => {
           this.listLoading = false
-        }, 1.5 * 1000)
+        }, 0.5 * 1000)
       })
     },
     handleFilter() {
       this.listQuery.page = 1
       this.getList()
     },
-    handleModifyStatus(row, status) {
-      this.$message({
-        message: '操作Success',
-        type: 'success'
-      })
-      row.status = status
+
+    handleBatchDelete() {
+      this.listQuery.creater = ''
+      this.listQuery.receiver = ''
+      this.listQuery.phoneNo = ''
+      this.listQuery.sendDate = ''
+      this.listQuery.createDate = ''
     },
-    sortChange(data) {
-      const { prop, order } = data
-      if (prop === 'id') {
-        this.sortByID(order)
-      }
-    },
-    sortByID(order) {
-      if (order === 'ascending') {
-        this.listQuery.sort = '+id'
-      } else {
-        this.listQuery.sort = '-id'
-      }
-      this.handleFilter()
-    },
-    resetTemp() {
-      this.temp = {
-        id: undefined,
-        projectNum: '',
-        customer: '',
-        timestamp: new Date(),
-        company: '',
-        status: 'normal/locked/delete'
-      }
-    },
-    handleCreate() {
-      this.resetTemp()
-      this.dialogStatus = 'create'
-      this.dialogFormVisible = true
-      this.$nextTick(() => {
-        this.$refs['dataForm'].clearValidate()
-      })
-    },
-    createData() {
-      this.$refs['dataForm'].validate((valid) => {
-        if (valid) {
-          this.temp.id = this.cuid() // mock a id
-          createFires(this.temp).then(() => {
-            this.temp.projectNum = this.guid()
-            this.list.unshift(this.temp)
-            this.dialogFormVisible = false
-            this.$notify({
-              title: 'Success',
-              message: 'Created Successfully',
-              type: 'success',
-              duration: 2000
-            })
-          })
-        }
-      })
-    },
-    handleUpdate(row) {
-      this.temp = Object.assign({}, row) // copy obj
-      this.temp.timestamp = new Date()
-      this.dialogStatus = 'update'
-      this.dialogFormVisible = true
-      this.$nextTick(() => {
-        this.$refs['dataForm'].clearValidate()
-      })
-    },
-    updateData() {
-      this.$refs['dataForm'].validate((valid) => {
-        if (valid) {
-          const tempData = Object.assign({}, this.temp)
-          tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
-          updateArticle(tempData).then(() => {
-            for (const v of this.list) {
-              if (v.id === this.temp.id) {
-                const index = this.list.indexOf(v)
-                this.list.splice(index, 1, this.temp)
-                break
-              }
-            }
-            this.dialogFormVisible = false
-            this.$notify({
-              title: 'Success',
-              message: 'Update Successfully',
-              type: 'success',
-              duration: 2000
-            })
-          })
-        }
-      })
-    },
-    handleDelete(row) {
-      this.$notify({
-        title: 'Success',
-        message: 'Delete Successfully',
-        type: 'success',
-        duration: 2000
-      })
-      const index = this.list.indexOf(row)
-      this.list.splice(index, 1)
-    },
-    handleFetchPv(pv) {
-      fetchPv(pv).then(response => {
-        this.pvData = response.data.pvData
-        this.dialogPvVisible = true
-      })
-    },
-    handleDownload() {
-      this.downloadLoading = true
-        import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
-          const filterVal = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
-          const data = this.formatJson(filterVal, this.list)
-          excel.export_json_to_excel({
-            header: tHeader,
-            data,
-            filename: 'user-list'
-          })
-          this.downloadLoading = false
-        })
-    },
-    formatJson(filterVal, jsonData) {
-      return jsonData.map(v => filterVal.map(j => {
-        if (j === 'timestamp') {
-          return parseTime(v[j])
-        } else {
-          return v[j]
-        }
-      }))
+
+    selectionChange(val) {
+      this.selectionList = val
     }
+
   }
 }
 </script>
