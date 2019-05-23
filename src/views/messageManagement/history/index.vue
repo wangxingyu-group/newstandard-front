@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/demo/customer/preCustomer'
+import { createPreCustomer, fetchList, updatePreCustomer } from '@/api/demo/customer/preCustomer'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
 export default {
@@ -147,6 +147,46 @@ export default {
         }, 0.5 * 1000)
       })
     },
+
+    updateData() {
+      this.$refs['dataForm'].validate((valid) => {
+        if (valid) {
+          const tempData = Object.assign({}, this.temp)
+          updatePreCustomer(tempData).then(() => {
+            for (const v of this.list) {
+              if (v.id === this.temp.id) {
+                const index = this.list.indexOf(v)
+                this.list.splice(index, 1, this.temp)
+                break
+              }
+            }
+            this.dialogFormVisible = false
+            this.$message({
+              message: '更新成功',
+              type: 'success'
+            })
+          })
+        }
+      })
+    },
+
+    createData() {
+      this.$refs['dataForm'].validate((valid) => {
+        if (valid) {
+          this.temp.id = parseInt(Math.random() * 100) + 1024
+          this.temp.customerType = '准客户'
+          createPreCustomer(this.temp).then(() => {
+            this.list.unshift(this.temp)
+            this.dialogFormVisible = false
+            this.$message({
+              message: '创建成功',
+              type: 'success'
+            })
+          })
+        }
+      })
+    },
+
     handleFilter() {
       this.listQuery.page = 1
       this.getList()
