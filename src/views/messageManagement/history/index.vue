@@ -147,7 +147,6 @@ export default {
         }, 0.5 * 1000)
       })
     },
-
     updateData() {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
