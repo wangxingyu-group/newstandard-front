@@ -61,34 +61,6 @@
 
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
 
-    <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
-      <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 500px; margin-left:100px;">
-        <el-form-item label="手机号" prop="phoneno">
-          <el-input v-model="temp.phoneno" />
-        </el-form-item>
-        <el-form-item label="短信内容" prop="msgcontent">
-          <el-input v-model="temp.msgcontent" />
-        </el-form-item>
-        <el-form-item label="发送状态" prop="status">
-          <el-radio-group v-model="temp.status">
-            <el-radio :label="0">成功</el-radio>
-            <el-radio :label="1">失败</el-radio>
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="发送人" prop="sender">
-          <el-input v-model="temp.sender" />
-        </el-form-item>
-        <el-form-item label="发送日期" prop="senddate">
-          <el-input v-model="temp.senddate" />
-        </el-form-item>
-        <el-form-item label="发送时间" prop="sendtime">
-          <el-input v-model="temp.sendtime" />
-        </el-form-item>
-        <el-form-item label="创建日期" prop="createtime">
-          <el-input v-model="temp.createtime" />
-        </el-form-item>
-      </el-form>
-    </el-dialog>
   </div>
 
 </template>
@@ -112,22 +84,6 @@ export default {
         page: 1,
         limit: 10,
         sort: '+id'
-      },
-      temp: {// 操作时的临时对象
-        id: undefined,
-        name: '',
-        gender: 0,
-        IDCard: undefined,
-        callInNo: '',
-        callInTime: '',
-        customerType: '准客户',
-        remark: ''
-      },
-      dialogFormVisible: false,
-      dialogStatus: '',
-      textMap: {// 操作弹窗标题
-        update: '编辑',
-        create: '新建'
       }
     }
   },
@@ -202,7 +158,6 @@ export default {
     selectionChange(val) {
       this.selectionList = val
     }
-
   }
 }
 </script>
