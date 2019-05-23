@@ -1,22 +1,13 @@
 <template>
   <div class="app-container">
     <div class="filter-container">
-      <el-input v-model="listQuery.projectNum" placeholder="用户编号" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-input v-model="listQuery.customer" placeholder="用户姓名" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-select v-model="listQuery.type" placeholder="用户状态" clearable class="filter-item" style="width: 130px">
-        <el-option v-for="item in userModeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
-      </el-select>
-      <el-select v-model="listQuery.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-        <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key" />
-      </el-select>
+      <el-input v-model="listQuery.projectNum" placeholder="中文名称" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-input v-model="listQuery.customer" placeholder="英文名称" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
         查询
       </el-button>
       <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
         添加
-      </el-button>
-      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">
-        下载
       </el-button>
     </div>
 
@@ -30,42 +21,37 @@
       style="width: 100%;"
       @sort-change="sortChange"
     >
-      <el-table-column label="ID" prop="id" sortable="custom" align="center" width="70">
+      <el-table-column label="ID" prop="id" sortable="custom" align="center" width="100px">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="UserNumber" align="center">
+      <el-table-column label="中文名" align="center" width="100px">
         <template slot-scope="scope">
-          <span>{{ scope.row.projectNum }}</span>
+          <span>{{ scope.row.cName }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="UserName" width="110px" align="center">
+      <el-table-column label="英文名" width="100px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.customer }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Organization" width="110px" align="center">
+      <el-table-column label="类型" width="100px" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.company }}</span>
+          <span>{{ scope.row.compsadsaany }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="MobilePhone" width="150px" align="center">
+      <el-table-column label="连接" width="100px" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.mobilephone }}</span>
+          <span>{{ scope.row.dsa }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Status" class-name="status-col" width="100">
-        <template slot-scope="{row}">
-          <el-tag>{{ row.type | typeFilter }}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="Data" width="150px" align="center">
+      <el-table-column label="操作人" width="100px" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
+          <span>{{ scope.row.cName }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Action" align="center" width="230" class-name="small-padding fixed-width">
+      <el-table-column label="Action" align="center" width="100px" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
           <el-button type="primary" size="mini" @click="handleUpdate(row)">
             Edit
@@ -197,6 +183,18 @@ export default {
     this.getList()
   },
   methods: {
+    getList() {
+      this.listLoading = true
+      firesList(this.listQuery).then(response => {
+        this.list = response.data.items
+        this.total = response.data.total
+
+        // Just to simulate the time of the request
+        setTimeout(() => {
+          this.listLoading = false
+        }, 1.5 * 1000)
+      })
+    },
     guid() {
       var s = []
       var hexDigits = '0123456789'
@@ -214,18 +212,6 @@ export default {
       }
       var uuid = s.join('')
       return uuid
-    },
-    getList() {
-      this.listLoading = true
-      firesList(this.listQuery).then(response => {
-        this.list = response.data.items
-        this.total = response.data.total
-
-        // Just to simulate the time of the request
-        setTimeout(() => {
-          this.listLoading = false
-        }, 1.5 * 1000)
-      })
     },
     handleFilter() {
       this.listQuery.page = 1

@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-const count = 1000
+const count = 10
 
 const List = []
 
@@ -13,10 +13,12 @@ const image_uri = 'https://wpimg.wallstcn.com/e4558086-631c-425c-9430-56ffb46e70
 for (let i = 0; i < count; i++) {
   ListUser.push(Mock.mock({
     id: '@increment',
+    'roleType|1':['有效', '冻结', '删除'],
     projectNum: Mock.Random.id(), // 用户编号
     timestamp: Mock.Random.date('T'),
     mobilephone: /^1[385][1-9]\d{8}/, // 用户手机号码
     customer: Mock.Random.name(), // 用户姓名
+    cName:Mock.Random.cname(), //中文姓名
     'company|1': ['京东', '阿里巴巴', '腾讯', '网易'],
     content_short: 'mock data',
     content: baseContent,
