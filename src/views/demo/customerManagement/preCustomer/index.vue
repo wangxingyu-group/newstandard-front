@@ -263,7 +263,7 @@ export default {
       this.selectionList = val
     },
     confirmCustomer(row) {
-      this.$store.confirmCustomer = row
+      this.$store.commit('setCurrentCustomer', row)
       this.$notify({
         title: row.name,
         message: '确认客户成功',

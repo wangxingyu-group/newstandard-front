@@ -2,17 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/layout'
 /* Router Modules */
-import customerRouter from './modules/demo/customer'
+import customerManagementRouter from './modules/demo/customerManagement'
 import searchRouter from './modules/demo/search'
-import businessRouter from './modules/demo/business'
+import workOrderManagementRouter from './modules/workOrderManagement'
 import qualityAssuranceManagementRouter from './modules/qualityAssuranceManagement'
-import messageRouter from './modules/demo/message'
 import chartRouter from './modules/demo/chart'
 import systemRouter from './modules/demo/system/system'
 
 import notificationManagementRouter from './modules/notificationManagement'
 import messageManagementRouter from './modules/messageManagement'
-
 
 Vue.use(Router)
 
@@ -67,11 +65,10 @@ export const constantRoutes = [
 
 // 动态路由
 export const asyncRoutes = [
-  customerRouter,
+  customerManagementRouter,
   searchRouter,
-  businessRouter,
+  workOrderManagementRouter,
   qualityAssuranceManagementRouter,
-  messageRouter,
   chartRouter,
   systemRouter,
 

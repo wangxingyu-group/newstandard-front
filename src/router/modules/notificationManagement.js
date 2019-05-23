@@ -2,19 +2,19 @@ import Layout from '@/layout'
 
 const notificationManagementRouter =
   {
-    path: '',
+    path: '/notificationManagement',
     component: Layout,
-    redirect: '/notificationManagement',
-    name: 'customer',
+    redirect: '/notificationManagement/index',
+    name: 'notificationManagement',
     meta: {
       title: '客户管理',
       icon: 'peoples'
     },
     children: [
       {
-        path: '/notificationManagement',
+        path: 'index',
         component: () => import('@/views/notificationManagement'),
-        name: 'notificationManagement',
+        name: 'index',
         meta: {
           title: '公告管理',
           roles: ['admin']

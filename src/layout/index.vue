@@ -19,7 +19,7 @@
 import RightPanel from '@/components/RightPanel'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Layout',
@@ -40,6 +40,10 @@ export default {
       needTagsView: state => state.settings.tagsView,
       fixedHeader: state => state.settings.fixedHeader
     }),
+    ...mapGetters([
+      'device',
+      'callInNo']),
+
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,
@@ -48,6 +52,9 @@ export default {
         mobile: this.device === 'mobile'
       }
     }
+  },
+  mounted() {
+    this.callNotification(this.device, this.callInNo, null, false, 'keep')
   },
   methods: {
     handleClickOutside() {

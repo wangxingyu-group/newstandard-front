@@ -1,23 +1,18 @@
 <template>
   <div class="app-container">
     <div class="filter-container">
-      <el-input v-model="listQuery.projectNum" placeholder="用户编号" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-input v-model="listQuery.customer" placeholder="用户姓名" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-select v-model="listQuery.type" placeholder="用户状态" clearable class="filter-item" style="width: 130px">
+      <el-input v-model="listQuery.customer" placeholder="角色名称" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-select v-model="listQuery.type" placeholder="角色状态" clearable class="filter-item" style="width: 130px">
         <el-option v-for="item in userModeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
       </el-select>
-      <el-select v-model="listQuery.sort" style="width: 140px" class="filter-item" @change="handleFilter">
-        <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key" />
-      </el-select>
+
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
         查询
       </el-button>
       <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
         添加
       </el-button>
-      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">
-        下载
-      </el-button>
+
     </div>
 
     <el-table
@@ -35,32 +30,24 @@
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="UserNumber" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.projectNum }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="UserName" width="110px" align="center">
+
+      <el-table-column label="角色名称" width="110px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.customer }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Organization" width="110px" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.company }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="MobilePhone" width="150px" align="center">
-        <template slot-scope="scope">
-          <span>{{ scope.row.mobilephone }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Status" class-name="status-col" width="100">
+
+      <el-table-column label="角色状态" class-name="status-col" width="100">
         <template slot-scope="{row}">
-          <el-tag>{{ row.type | typeFilter }}</el-tag>
+          <el-tag>{{ row.roleType | typeFilter }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Data" width="150px" align="center">
+      <el-table-column label="操作人" width="110px" align="center">
+        <template slot-scope="scope">
+          <span>{{ scope.row.customer }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作日期" width="150px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
@@ -72,31 +59,23 @@
           </el-button>
         </template>
       </el-table-column>
+
     </el-table>
 
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="用户状态" prop="type">
-          <el-select v-model="temp.type" class="filter-item" placeholder="请选择状态">
+        <el-form-item label="角色状态" prop="type">
+          <el-select v-model="temp.roleType" class="filter-item" placeholder="请选择状态">
             <el-option v-for="item in userModeOptions" :key="item.key" :label="item.display_name" :value="item.key" />
           </el-select>
         </el-form-item>
         <el-form-item label="操作日期" prop="timestamp">
           <el-date-picker v-model="temp.timestamp" type="datetime" />
         </el-form-item>
-        <el-form-item label="用户姓名" prop="customer">
+        <el-form-item label="角色名称" prop="customer">
           <el-input v-model="temp.customer" />
-        </el-form-item>
-        <el-form-item label="组织机构" prop="company">
-          <el-input v-model="temp.company" />
-        </el-form-item>
-        <el-form-item label="手机号码" prop="mobilephone">
-          <el-input v-model="temp.mobilephone" />
-        </el-form-item>
-        <el-form-item v-if="dialogStatus==='create'?false:true" label="用户编号" prop="projectNum">
-          <el-input v-model="temp.projectNum" readonly="true" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -128,9 +107,9 @@ import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
 const userModeOptions = [
-  { key: 'normal', display_name: '正常' },
-  { key: 'locked', display_name: '锁定' },
-  { key: 'delete', display_name: '删除' }
+  { key: '有效', display_name: '有效' },
+  { key: '冻结', display_name: '冻结' },
+  { key: '删除', display_name: '删除' }
 ]
 
 // arr to obj, such as { normal : "正常", lock : "已锁定" }

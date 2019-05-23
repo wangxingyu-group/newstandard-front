@@ -2,7 +2,7 @@ import Layout from '@/layout'
 
 const messageManagementRouter =
   {
-    path: '',
+    path: '/messageManagement',
     component: Layout,
     redirect: '/messageManagement/send',
     name: 'messageManagement',
