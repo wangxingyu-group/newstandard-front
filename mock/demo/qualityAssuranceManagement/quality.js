@@ -3,7 +3,7 @@ import Mock from 'mockjs'
 const List = []
 const count = 10
 
-for (let i = 0; i < count; i++) {
+for (let i = 0; i < count; i++) { // List付值
   List.push(Mock.mock({
     id: '@increment(1)',
     name: '@cname()',

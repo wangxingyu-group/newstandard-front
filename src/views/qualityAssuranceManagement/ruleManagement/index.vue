@@ -63,7 +63,7 @@ import { createPreCustomer, fetchList, updatePreCustomer } from '@/api/demo/qual
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
 export default {
-  name: 'Quality', // 该组件名称为Quality大写Q或者驼峰
+  name: 'Quality', // 该组件名称为Quality大写Q或者驼峰标志
   components: { Pagination },
   data() {
     return {
