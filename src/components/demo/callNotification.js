@@ -3,10 +3,10 @@ import '@/components/demo/naranja/lib/naranja.min.css'
 
 // 添加来电通知
 exports.install = function(Vue, options) {
-  Vue.prototype.callNotification = (device, title, text, icon, timeout) => {
+  Vue.prototype.callNotification = (device, title, text, icon, timeout, store, notify) => {
     document.onkeydown = function(event) {
       var e = event || window.event
-      if (e && e.keyCode === 67) { // 按 c
+      if (e && e.keyCode === 66) { // 按 c
         if (device !== 'mobile') {
           naranja()['log']({
             title: title.replace(/(\d{3})(\d{4})(\d{4})/, '$1****$3'),
@@ -17,11 +17,23 @@ exports.install = function(Vue, options) {
               {
                 text: '接听',
                 click: function(e) {
-                  // click event close notifiaction
-                  // unless you use preventClose method
-                  e.preventClose()
-                  // if you want close notifiaction
-                  // manually, use closeNotification
+                  const temp = {// 操作时的临时对象
+                    id: 123,
+                    name: '张三',
+                    gender: 0,
+                    IDCard: '撒旦法撒旦法23123',
+                    callInNo: '1381060758',
+                    callInTime: '',
+                    customerType: '准客户',
+                    remark: ''
+                  }
+                  store.commit('commonData/SET_CURRENT_CUSTOMER', temp)
+                  notify({
+                    title: temp.name,
+                    message: '当前客户',
+                    type: 'success',
+                    duration: 2000
+                  })
                   e.closeNotification()
                 }
               }

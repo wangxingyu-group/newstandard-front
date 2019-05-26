@@ -9,6 +9,7 @@ import preCustomer from './demo/customer/preCustomer'
 import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
 import orderSettings from './workOrderManagement/orderSettings'
+import quality from './demo/qualityAssuranceManagement/quality' // 质检管理
 
 const mocks = [
   ...user,
@@ -18,7 +19,8 @@ const mocks = [
   ...preCustomer,
   ...demoUser,
   ...template,
-  ...orderSettings
+  ...orderSettings,
+  ...quality
 ]
 
 // for front mock

@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
 const topNode = []
-const count = 20
+const count = 10
 
 topNode.push(Mock.mock({
   parentId: null,

@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-row :gutter="20">
+    <el-row :gutter="5">
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
@@ -10,7 +10,7 @@
             <el-tree
               ref="tree"
               v-loading="listLoading"
-              class="fit-height"
+              class="fit-height-211"
               node-key="id"
               highlight-current
               default-expand-all
@@ -26,16 +26,12 @@
           <div slot="header" class="clearfix">
             <span>当前选择项:{{ displayLabel }}</span>
             <div class="fr">
-              <el-button type="danger" size="mini" @click="handleBatchDelete">
-                删除
-              </el-button>
-              <el-button type="primary" size="mini" @click="handleCreate">
-                新建
-              </el-button>
+              <el-button type="success" size="mini" @click="handleCreate">新建</el-button>
+              <el-button type="danger" size="mini" @click="handleBatchDelete">批量删除</el-button>
             </div>
           </div>
           <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
-            <div class="fit-height">
+            <div class="fit-height-211">
               <el-table ref="table" :key="tableKey" :data="tableData" row-key="id" stripe highlight-current-row @selection-change="selectionChange" @row-click="toggleSelection">
                 <el-table-column type="selection" width="55" />
                 <el-table-column label="编号" align="center">

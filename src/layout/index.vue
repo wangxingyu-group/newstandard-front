@@ -54,7 +54,7 @@ export default {
     }
   },
   mounted() {
-    this.callNotification(this.device, this.callInNo, null, false, 'keep')
+    this.callNotification(this.device, this.callInNo, null, false, 'keep', this.$store, this.$notify)
   },
   methods: {
     handleClickOutside() {
