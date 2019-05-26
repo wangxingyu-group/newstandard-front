@@ -8,6 +8,7 @@ import search from './remote-search'
 import preCustomer from './demo/customer/preCustomer'
 import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
+import orderSettings from './workOrderManagement/orderSettings'
 
 const mocks = [
   ...user,
@@ -16,7 +17,8 @@ const mocks = [
   ...search,
   ...preCustomer,
   ...demoUser,
-  ...template
+  ...template,
+  ...orderSettings
 ]
 
 // for front mock
