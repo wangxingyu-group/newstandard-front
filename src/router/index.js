@@ -9,7 +9,6 @@ import qualityAssuranceManagementRouter from './modules/qualityAssuranceManageme
 import chartRouter from './modules/demo/chart'
 import systemRouter from './modules/demo/system/system'
 
-import notificationManagementRouter from './modules/notificationManagement'
 import messageManagementRouter from './modules/messageManagement'
 import intelligentQuestionsRouter from './modules/intelligentQuestions'
 
@@ -73,7 +72,6 @@ export const asyncRoutes = [
   chartRouter,
   systemRouter,
 
-  notificationManagementRouter,
   messageManagementRouter,
   intelligentQuestionsRouter,
 
