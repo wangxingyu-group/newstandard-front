@@ -9,7 +9,6 @@ import qualityAssuranceManagementRouter from './modules/qualityAssuranceManageme
 import chartRouter from './modules/demo/chart'
 import systemRouter from './modules/demo/system/system'
 
-import notificationManagementRouter from './modules/notificationManagement'
 import messageManagementRouter from './modules/messageManagement'
 
 Vue.use(Router)
@@ -72,7 +71,6 @@ export const asyncRoutes = [
   chartRouter,
   systemRouter,
 
-  notificationManagementRouter,
   messageManagementRouter,
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
