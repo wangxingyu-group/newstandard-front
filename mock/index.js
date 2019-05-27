@@ -10,6 +10,7 @@ import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
 import orderSettings from './workOrderManagement/orderSettings'
 import quality from './demo/qualityAssuranceManagement/quality' // 质检管理
+import question from './intelligentQuestions/question' // 智能题库 => 问题管理
 
 const mocks = [
   ...user,
@@ -20,7 +21,8 @@ const mocks = [
   ...demoUser,
   ...template,
   ...orderSettings,
-  ...quality
+  ...quality,
+  ...question
 ]
 
 // for front mock

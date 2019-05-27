@@ -11,6 +11,7 @@ import systemRouter from './modules/demo/system/system'
 
 import notificationManagementRouter from './modules/notificationManagement'
 import messageManagementRouter from './modules/messageManagement'
+import intelligentQuestionsRouter from './modules/intelligentQuestions'
 
 Vue.use(Router)
 
@@ -74,6 +75,8 @@ export const asyncRoutes = [
 
   notificationManagementRouter,
   messageManagementRouter,
+  intelligentQuestionsRouter,
+
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
 ]
