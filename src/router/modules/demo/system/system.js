@@ -2,7 +2,7 @@ import Layout from '@/layout'
 import permission from './permission'
 import base from './base'
 import flow from './flow'
-
+import announce from './announce'
 const systemRouter = {
   path: '/system',
   component: Layout,
@@ -15,7 +15,8 @@ const systemRouter = {
   children: [
     permission,
     base,
-    flow
+    flow,
+    announce
   ]
 }
 export default systemRouter
