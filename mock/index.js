@@ -11,6 +11,7 @@ import template from './demo/messageManagement/template/model'
 import quality from './demo/qualityAssuranceManagement/quality' // 规则配置
 import qualityAssurance from './demo/quality/qualityAssurance/qualityAssurance' // 质检管理
 import history from './demo/quality/history/history' // 记录查询
+import queryQualityAssurance from './demo/quality/queryQualityAssurance/queryQualityAssurance' // 质检查询
 
 const mocks = [
   ...user,
@@ -22,7 +23,8 @@ const mocks = [
   ...template,
   ...quality,
   ...qualityAssurance,
-  ...history
+  ...history,
+  ...queryQualityAssurance
 ]
 
 // for front mock
