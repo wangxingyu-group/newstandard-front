@@ -54,7 +54,7 @@ export default {
     }
   },
   mounted() {
-    this.callNotification(this.device, this.callInNo, null, false, 'keep')
+    this.callNotification(this.device, this.callInNo, null, false, 'keep', this.$store, this.$notify)
   },
   methods: {
     handleClickOutside() {
@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
   @import "~@/styles/mixin.scss";
   @import "~@/styles/variables.scss";
-
+  @import "~@/styles/common.css";
   .app-wrapper {
     @include clearfix;
     position: relative;

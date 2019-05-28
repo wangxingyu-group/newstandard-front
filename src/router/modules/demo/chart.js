@@ -25,7 +25,7 @@ const chartRouter =
         component: () => import('@/views/demo/chart/chart2'),
         name: 'chart2',
         meta: {
-          title: '服务单表表',
+          title: '服务单统计表',
           roles: ['admin']
         }
       },
@@ -43,7 +43,7 @@ const chartRouter =
         component: () => import('@/views/demo/chart/chart4'),
         name: 'chart4',
         meta: {
-          title: '质检报表',
+          title: '质检统计报表',
           roles: ['admin']
         }
       }

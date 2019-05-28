@@ -1,0 +1,12 @@
+.card-title-without-option {
+  display: block;
+  height: 28px;
+}
+
+.fit-height-211 {
+  height: calc(100vh - 211px)
+}
+
+.fit-height-200 {
+  height: calc(100vh - 200px)
+}
