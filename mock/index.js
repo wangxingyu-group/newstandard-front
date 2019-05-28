@@ -8,7 +8,8 @@ import search from './remote-search'
 import preCustomer from './demo/customer/preCustomer'
 import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
-import quality from './demo/qualityAssuranceManagement/quality' // 质检管理
+import quality from './demo/qualityAssuranceManagement/quality' // 规则配置
+import qualityAssurance from './demo/quality/qualityAssurance/qualityAssurance' // 质检管理
 
 const mocks = [
   ...user,
@@ -18,7 +19,8 @@ const mocks = [
   ...preCustomer,
   ...demoUser,
   ...template,
-  ...quality
+  ...quality,
+  ...qualityAssurance
 ]
 
 // for front mock
