@@ -13,7 +13,8 @@ for (let i = 0; i < count; i++) { // List付值
     callInTime: '@time(\'HH:mm:ss\')',
     customerType: '@ctitle',
     remark: '@ctitle',
-    callInDate: '@date(\'yyyy-MM-dd\')'
+    callInDate: '@date(\'yyyy-MM-dd\')',
+    'num|1': ['I级', 'Ⅱ级']
   }))
 }
 

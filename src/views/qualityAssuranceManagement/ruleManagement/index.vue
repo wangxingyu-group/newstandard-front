@@ -26,16 +26,16 @@
         <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
       </el-table-column>
       <el-table-column label="规则名称" align="center" width="100">
-        <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+        <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
       </el-table-column>
-      <el-table-column label="规则说明" align="center" width="80">
-        <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
+      <el-table-column label="规则说明" align="center" width="120">
+        <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
       </el-table-column>
       <el-table-column label="操作人" align="center" width="200">
         <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
       </el-table-column>
       <el-table-column label="规则类型" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
+        <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
       </el-table-column>
       <el-table-column label="启用状态" align="center" width="200">
         <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
@@ -50,7 +50,7 @@
         <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
       </el-table-column>
       <el-table-column label="分级" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
+        <template slot-scope="scope"><span>{{ scope.row.num }}</span></template>
       </el-table-column>
     </el-table>
 
