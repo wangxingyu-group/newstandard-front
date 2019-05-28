@@ -46,7 +46,7 @@
       <el-table-column label="通话流水号" prop="id" sortable="custom" align="center" width="180">
         <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
       </el-table-column>
-      <el-table-column label="坐席工号" align="center" width="100">
+      <el-table-column label="坐席工号" align="center" width="200">
         <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
       </el-table-column>
       <el-table-column label="来电号码" align="center" width="120">
@@ -61,7 +61,7 @@
       <el-table-column label="服务单类型" align="center" width="200">
         <template slot-scope="scope"><span>{{ scope.row.gender }}</span></template>
       </el-table-column>
-      <el-table-column label="录音url" align="center" width="250">
+      <el-table-column label="录音url" align="center" width="300">
         <template slot-scope="scope"><span>{{ scope.row.url }}</span></template>
       </el-table-column>
       <el-table-column label="客户姓名" align="center" width="200">
