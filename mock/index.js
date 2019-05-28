@@ -10,6 +10,7 @@ import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
 import quality from './demo/qualityAssuranceManagement/quality' // 规则配置
 import qualityAssurance from './demo/quality/qualityAssurance/qualityAssurance' // 质检管理
+import history from './demo/quality/history/history' // 记录查询
 
 const mocks = [
   ...user,
@@ -20,7 +21,8 @@ const mocks = [
   ...demoUser,
   ...template,
   ...quality,
-  ...qualityAssurance
+  ...qualityAssurance,
+  ...history
 ]
 
 // for front mock
