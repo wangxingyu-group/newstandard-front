@@ -42,8 +42,8 @@ export default {
     }),
     ...mapGetters([
       'device',
-      'callInNo']),
-
+      'callInNo'
+    ]),
     classObj() {
       return {
         hideSidebar: !this.sidebar.opened,
@@ -55,6 +55,10 @@ export default {
   },
   mounted() {
     this.callNotification(this.device, this.callInNo, null, false, 'keep', this.$store, this.$notify)
+    this.$store.commit('commonData/SET_CLIENT_WIDTH', `${document.documentElement.clientWidth}`)
+    window.onresize = () => {
+      this.$store.commit('commonData/SET_CLIENT_WIDTH', `${document.documentElement.clientWidth}`)
+    }
   },
   methods: {
     handleClickOutside() {
@@ -68,6 +72,7 @@ export default {
   @import "~@/styles/mixin.scss";
   @import "~@/styles/variables.scss";
   @import "~@/styles/common.css";
+
   .app-wrapper {
     @include clearfix;
     position: relative;

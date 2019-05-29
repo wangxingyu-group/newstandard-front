@@ -13,31 +13,15 @@
       </template>
     </el-input>
     <el-input placeholder="电话号码" />
-    <el-button class="phone-button">
-      <img src="./img/call-out.png">外呼
-    </el-button>
-    <el-button v-if="clientWidth>=minWidth" class="phone-button">
-      <img src="./img/consultation.png">咨询
-    </el-button>
-    <el-button v-if="clientWidth>=minWidth" class="phone-button">
-      <img src="./img/third-party.png">三方
-    </el-button>
-    <el-button v-if="clientWidth>=minWidth" class="phone-button">
-      <img src="./img/transfer.png">转移
-    </el-button>
-    <el-button v-if="clientWidth>=minWidth" class="phone-button">
-      <img src="./img/hold-on.png">音乐
-    </el-button>
-    <el-button v-if="clientWidth>=minWidth" class="phone-button">
-      <img src="./img/mute.png">静音
-    </el-button>
-    <el-button v-if="clientWidth>=minWidth" class="phone-button">
-      <img src="./img/satisfaction.png">满意度
-    </el-button>
-    <el-dropdown v-if="clientWidth<minWidth" style="margin-left: 10px;">
-      <el-button>
-        功能<i class="el-icon-arrow-down el-icon--right" />
-      </el-button>
+    <el-button class="phone-button"><img src="./img/call-out.png">外呼</el-button>
+    <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/consultation.png">咨询</el-button>
+    <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/third-party.png">三方</el-button>
+    <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/transfer.png">转移</el-button>
+    <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/hold-on.png">音乐</el-button>
+    <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/mute.png">静音</el-button>
+    <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/satisfaction.png">满意度</el-button>
+    <el-dropdown v-if="clientWidth<minClientWidth" style="margin-left: 10px;">
+      <el-button>功能<i class="el-icon-arrow-down el-icon--right" /></el-button>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item class="phone-button"><img src="./img/call-out.png">咨询</el-dropdown-item>
         <el-dropdown-item class="phone-button"><img src="./img/third-party.png">三方</el-dropdown-item>
@@ -73,22 +57,18 @@ export default {
       s: 0,
       ms: 0,
       timeMark: 0,
-      timer: null,
-      clientWidth: 0,
-      minWidth: 1250
+      timer: null
     }
   },
   computed: {
     ...mapGetters([
-      'device'
+      'device',
+      'clientWidth',
+      'minClientWidth'
     ])
   },
   mounted() {
     this.start()
-    this.clientWidth = `${document.documentElement.clientWidth}`
-    window.onresize = () => {
-      this.clientWidth = `${document.documentElement.clientWidth}`
-    }
   },
   methods: {
     forward() {

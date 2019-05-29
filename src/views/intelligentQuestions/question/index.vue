@@ -27,8 +27,8 @@
                   </el-col>
                 </el-form-item>
               </el-col>
-              <el-col :span="3" :offset="5" class="fr">
-                <el-button type="info" size="mini" @click ="resetQuery">清空</el-button>
+              <el-col :span="clientWidth<minClientWidth?4:3" :offset="clientWidth<minClientWidth?4:5" class="fr">
+                <el-button type="info" size="mini" @click="resetQuery">清空</el-button>
                 <el-button type="primary" size="mini" @click="getList">查询</el-button>
               </el-col>
             </el-row>
@@ -39,7 +39,7 @@
                 <el-col :span="6">
                   <span>查询结果</span>
                 </el-col>
-                <el-col :span="3" :offset="14" class="fr">
+                <el-col :span="clientWidth<minClientWidth?4:3" :offset="clientWidth<minClientWidth?13:14" class="fr">
                   <el-button type="success" size="mini" @click="handleCreate">新建</el-button>
                   <el-button type="danger" size="mini" @click="handleBatchDelete">批量删除</el-button>
                 </el-col>
@@ -112,10 +112,17 @@
 <script>
 import { create, fetchList, update } from '@/api/intelligentQuestions/question'
 import Pagination from '@/components/Pagination'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Question',
   components: { Pagination },
+  computed: {
+    ...mapGetters([
+      'clientWidth',
+      'minClientWidth'
+    ])
+  },
   data() {
     return {
       queryForm: {
@@ -274,4 +281,3 @@ export default {
   }
 }
 </script>
-
