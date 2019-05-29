@@ -5,22 +5,24 @@ const count = 10
 
 for (let i = 0; i < count; i++) { // List付值
   List.push(Mock.mock({
-    id: '@increment(1)',
-    name: '@cname()',
-    'gender|1': ['男', '女'],
+    id: '@integer(152106199003050316, 152106201903050999)',
+    name: '@increment(1)',
+    tel: /^1[34578]\d{9}/,
     IDCard: '@integer(152106199003050316, 152106201903050999)',
     callInNo: /^1[385][1-9]\d{8}/,
     callInTime: '@time(\'HH:mm:ss\')',
-    customerType: '@ctitle',
-    remark: '@ctitle',
+    customerType: '@integer(166106199003050316, 166106201903050999)',
+    nameCus: '@name()',
     callInDate: '@date(\'yyyy-MM-dd\')',
-    'num|1': ['I级', 'Ⅱ级']
+    'gender|1': ['类型1', '类型2', '类型3'],
+    'num|1': ['I级', 'Ⅱ级'],
+    url: /^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?/
   }))
 }
 
 export default [
   {
-    url: '/quality/list',
+    url: '/qualityAssurance/list',
     type: 'get',
     response: config => {
       const { name, IDCard, page = 1, limit = 20, sort } = config.query
@@ -47,7 +49,7 @@ export default [
   },
 
   {
-    url: '/quality/detail',
+    url: '/qualityAssurance/detail',
     type: 'get',
     response: config => {
       const { id } = config.query
@@ -63,7 +65,7 @@ export default [
   },
 
   {
-    url: '/quality/pv',
+    url: '/qualityAssurance/pv',
     type: 'get',
     response: _ => {
       return {
@@ -81,7 +83,7 @@ export default [
   },
 
   {
-    url: '/quality/create',
+    url: '/qualityAssurance/create',
     type: 'post',
     response: _ => {
       return {
@@ -92,7 +94,7 @@ export default [
   },
 
   {
-    url: '/quality/update',
+    url: '/qualityAssurance/update',
     type: 'post',
     response: _ => {
       return {

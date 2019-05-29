@@ -9,8 +9,12 @@ import preCustomer from './demo/customer/preCustomer'
 import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
 import orderSettings from './workOrderManagement/orderSettings'
-import quality from './demo/qualityAssuranceManagement/quality' // 质检管理
+import quality from './demo/qualityAssuranceManagement/quality' // 规则配置
 import question from './intelligentQuestions/question' // 智能题库 => 问题管理
+import qualityAssurance from './demo/quality/qualityAssurance/qualityAssurance' // 质检管理
+import history from './demo/quality/history/history' // 记录查询
+import queryQualityAssurance from './demo/quality/queryQualityAssurance/queryQualityAssurance' // 质检查询
+import voiceToText from './demo/quality/voiceToText/voiceToText' // 语音转文本
 
 const mocks = [
   ...user,
@@ -22,7 +26,11 @@ const mocks = [
   ...template,
   ...orderSettings,
   ...quality,
-  ...question
+  ...question,
+  ...qualityAssurance,
+  ...history,
+  ...queryQualityAssurance,
+  ...voiceToText
 ]
 
 // for front mock

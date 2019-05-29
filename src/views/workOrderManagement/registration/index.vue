@@ -8,10 +8,10 @@
               <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
                 <div class="fit-height-200">
                   <el-form ref="form" :model="form" label-width="100px" size="small">
-                  <el-card >
-                    <div slot="header" class="clearfix">
-                      <span>基本信息</span>
-                    </div>
+                    <el-card>
+                      <div slot="header" class="clearfix">
+                        <span>基本信息</span>
+                      </div>
                       <el-row>
                         <el-col :span="6" :offset="1">
                           <el-form-item label="服务单号">
@@ -80,111 +80,108 @@
                           </el-form-item>
                         </el-col>
                       </el-row>
-                  </el-card>
-                  <el-card  style="margin-top: 10px;">
-                    <div slot="header" class="clearfix">
-                      <span>服务项目明细</span>
-                    </div>
-                    <el-scrollbar ref="treeScrollbar" wrap-class="scrollbar-wrapper">
-                      <el-tree
-                        v-if="categorizedSettings"
-                        ref="tree"
-                        style="height:244px"
-                        node-key="id"
-                        highlight-current
-                        :show-checkbox="true"
-                        :data="[categorizedSettings]"
-                        :expand-on-click-node="true"
-                      />
-                    </el-scrollbar>
-                  </el-card>
-                  <el-card  style="margin-top: 10px;">
-                    <div slot="header" class="clearfix">
-                      <span>取回保单</span>
-                    </div>
-                    <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
-                      <div style="height:244px">
-                        <el-table ref="table" :key="0" :data="policyData" row-key="id" stripe highlight-current-row>
-                          <el-table-column type="selection" width="55" />
-                          <el-table-column label="保单号码" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="投保人" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.applicant }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="客户号" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.customerNo }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="被保人姓名" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.insured }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="代理机构" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.agent }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="生效日期" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.effectiveData }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="保费金额" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.premium }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="险种名称" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.typeOfInsurance }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="募集计划名称" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.planck }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="保单状态" align="center">
-                            <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
-                          </el-table-column>
-                          <el-table-column label="操作" align="center" width="200">
-                            <template>
-                              <el-button type="primary" size="mini">
-                                取回保单
-                              </el-button>
-                              <el-button type="danger" size="mini">
-                                删除保单
-                              </el-button>
-                            </template>
-                          </el-table-column>
-                        </el-table>
+                    </el-card>
+                    <el-card style="margin-top: 10px;">
+                      <div slot="header" class="clearfix">
+                        <span>服务项目明细</span>
                       </div>
-                    </el-scrollbar>
-                  </el-card>
-                  <el-card  style="margin-top: 10px;">
-                    <div slot="header" class="clearfix">
-                      <span>坐席摘要</span>
-                    </div>
-                    <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
-                      <div style="height:244px">
-                        <quill-editor ref="text" v-model="content" style="height:200px" class="myQuillEditor" :options="editorOption" :disabled="true" />
+                      <el-scrollbar ref="treeScrollbar" wrap-class="scrollbar-wrapper">
+                        <el-tree
+                          v-if="categorizedSettings"
+                          ref="tree"
+                          style="height:244px"
+                          node-key="id"
+                          highlight-current
+                          :show-checkbox="true"
+                          :data="[categorizedSettings]"
+                          :expand-on-click-node="true"
+                        />
+                      </el-scrollbar>
+                    </el-card>
+                    <el-card style="margin-top: 10px;">
+                      <div slot="header" class="clearfix">
+                        <span>取回保单</span>
                       </div>
-                    </el-scrollbar>
-                  </el-card>
-                  <el-card  style="margin-top: 10px;">
-                    <div slot="header" class="clearfix">
-                      <span>工单转办</span>
-                    </div>
-                    <el-row>
-                      <el-col :span="6" :offset="1">
-                        <el-form-item label="转办机构">
-                          <el-select v-model="form.a" placeholder="转办机构"  :disabled="true" >
-                          </el-select>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :span="6" :offset="2">
-                        <el-form-item label="转办部门">
-                          <el-select v-model="form.b" placeholder="转办部门"  :disabled="true" >
-                          </el-select>
-                        </el-form-item>
-                      </el-col>
-                      <el-col :span="6" :offset="2">
-                        <el-form-item label="转办岗位">
-                          <el-select v-model="form.c" placeholder="转办岗位"  :disabled="true" >
-                          </el-select>
-                        </el-form-item>
-                      </el-col>
-                    </el-row>
-                  </el-card>
+                      <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
+                        <div style="height:244px">
+                          <el-table ref="table" :key="0" :data="policyData" row-key="id" stripe highlight-current-row>
+                            <el-table-column type="selection" width="55" />
+                            <el-table-column label="保单号码" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="投保人" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.applicant }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="客户号" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.customerNo }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="被保人姓名" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.insured }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="代理机构" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.agent }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="生效日期" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.effectiveData }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="保费金额" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.premium }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="险种名称" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.typeOfInsurance }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="募集计划名称" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.planck }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="保单状态" align="center">
+                              <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
+                            </el-table-column>
+                            <el-table-column label="操作" align="center" width="200">
+                              <template>
+                                <el-button type="primary" size="mini">
+                                  取回保单
+                                </el-button>
+                                <el-button type="danger" size="mini">
+                                  删除保单
+                                </el-button>
+                              </template>
+                            </el-table-column>
+                          </el-table>
+                        </div>
+                      </el-scrollbar>
+                    </el-card>
+                    <el-card style="margin-top: 10px;">
+                      <div slot="header" class="clearfix">
+                        <span>坐席摘要</span>
+                      </div>
+                      <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
+                        <div style="height:244px">
+                          <quill-editor ref="text" v-model="content" style="height:200px" class="myQuillEditor" :options="editorOption" :disabled="true" />
+                        </div>
+                      </el-scrollbar>
+                    </el-card>
+                    <el-card style="margin-top: 10px;">
+                      <div slot="header" class="clearfix">
+                        <span>工单转办</span>
+                      </div>
+                      <el-row>
+                        <el-col :span="6" :offset="1">
+                          <el-form-item label="转办机构">
+                            <el-select v-model="form.a" placeholder="转办机构" :disabled="true" />
+                          </el-form-item>
+                        </el-col>
+                        <el-col :span="6" :offset="2">
+                          <el-form-item label="转办部门">
+                            <el-select v-model="form.b" placeholder="转办部门" :disabled="true" />
+                          </el-form-item>
+                        </el-col>
+                        <el-col :span="6" :offset="2">
+                          <el-form-item label="转办岗位">
+                            <el-select v-model="form.c" placeholder="转办岗位" :disabled="true" />
+                          </el-form-item>
+                        </el-col>
+                      </el-row>
+                    </el-card>
                   </el-form>
                 </div>
               </el-scrollbar>
