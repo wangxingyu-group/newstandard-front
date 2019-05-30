@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="filter-container">
-      <el-row>
+      <el-row class="clearfix">
         <el-input v-model="listQuery.IDCard" placeholder="证件号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
         <el-input v-model="listQuery.name" placeholder="姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
         <el-input v-model="listQuery.callInNo" placeholder="保单号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
@@ -9,7 +9,7 @@
       </el-row>
       <el-row>
         <el-col :span="24">
-          <div class="fr" style="margin-right: 40%">
+          <div class="fr">
             <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
             <el-button type="info" size="small">清空</el-button>
             <el-button type="danger" size="small" @click="handleBatchDelete">客户合并</el-button>
