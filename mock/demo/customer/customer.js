@@ -11,7 +11,7 @@ for (let i = 0; i < count; i++) {
     IDCard: '@integer(152106199003050316, 152106201903050999)',
     callInNo: /^1[385][1-9]\d{8}/,
     callInTime: '@datetime',
-    customerType: '准客户',
+    customerType: '客户',
     remark: '@ctitle'
   }))
 }
