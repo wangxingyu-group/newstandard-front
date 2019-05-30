@@ -1,9 +1,9 @@
 import Layout from '@/layout'
 
 const searchRouter = {
-  path: '/search',
+  path: '/integratedQuery',
   component: Layout,
-  redirect: '/search/personalInsurance',
+  redirect: '/integratedQuery/personalInsurance',
   name: 'search',
   meta: {
     title: '综合查询',
@@ -12,16 +12,28 @@ const searchRouter = {
   children: [
     {
       path: 'personalInsurance ',
-      component: () => import('@/views/demo/search/personalInsurance'),
+      component: () => import('@/views/integratedQuery/personalInsurance'),
       name: 'personalInsurance',
       meta: {
         title: '个人保单查询',
         roles: ['admin']
-      }
+      },
+      children: [
+        {
+          path: 'details ',
+          hidden: true,
+          component: () => import('@/views/integratedQuery/personalInsurance/details'),
+          name: 'details',
+          meta: {
+            title: '个人保险详情',
+            roles: ['admin']
+          }
+        }
+      ]
     },
     {
       path: 'groupInsurance ',
-      component: () => import('@/views/demo/search/groupInsurance'),
+      component: () => import('@/views/integratedQuery/groupInsurance'),
       name: 'groupInsurance',
       meta: {
         title: '团险查询',
@@ -30,7 +42,7 @@ const searchRouter = {
     },
     {
       path: 'whiteList ',
-      component: () => import('@/views/demo/search/whiteList'),
+      component: () => import('@/views/integratedQuery/whiteList'),
       name: 'whiteList',
       meta: {
         title: '白名单审核结果查询',
@@ -39,7 +51,7 @@ const searchRouter = {
     },
     {
       path: 'electroDocument ',
-      component: () => import('@/views/demo/search/electroDocument'),
+      component: () => import('@/views/integratedQuery/electroDocument'),
       name: 'electroDocument',
       meta: {
         title: '单证下载',

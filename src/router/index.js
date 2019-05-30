@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Layout from '@/layout'
 /* Router Modules */
 import customerManagementRouter from './modules/demo/customerManagement'
-import searchRouter from './modules/demo/search'
+import integratedQueryRouter from './modules/integratedQuery'
 import workOrderManagementRouter from './modules/workOrderManagement'
 import qualityAssuranceManagementRouter from './modules/qualityAssuranceManagement'
 import chartRouter from './modules/demo/chart'
@@ -66,7 +66,7 @@ export const constantRoutes = [
 // 动态路由
 export const asyncRoutes = [
   customerManagementRouter,
-  searchRouter,
+  integratedQueryRouter,
   workOrderManagementRouter,
   qualityAssuranceManagementRouter,
   chartRouter,

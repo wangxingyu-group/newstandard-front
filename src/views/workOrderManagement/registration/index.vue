@@ -123,7 +123,7 @@
                                 <template slot-scope="scope"><span>{{ scope.row.agent }}</span></template>
                               </el-table-column>
                               <el-table-column label="生效日期" align="center">
-                                <template slot-scope="scope"><span>{{ scope.row.effectiveData }}</span></template>
+                                <template slot-scope="scope"><span>{{ scope.row.effectiveDate }}</span></template>
                               </el-table-column>
                               <el-table-column label="保费金额" align="center">
                                 <template slot-scope="scope"><span>{{ scope.row.premium }}</span></template>
@@ -241,7 +241,7 @@ export default {
           customerNo: '0001',
           insured: '李四',
           agent: '代理机构',
-          effectiveData: '2019-01-01',
+          effectiveDate: '2019-01-01',
           premium: '10000',
           typeOfInsurance: '重疾险',
           plan: '募集计划',

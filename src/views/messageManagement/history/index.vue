@@ -49,7 +49,7 @@
             <el-table-column label="手机号" prop="phoneNo" sortable="custom" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.phoneNo }}</span></template>
             </el-table-column>
-            <el-table-column label="短信内容" align="center"  >
+            <el-table-column label="短信内容" align="center">
               <template slot-scope="scope"><span>{{ scope.row.content }}</span></template>
             </el-table-column>
             <el-table-column label="发送状态" align="center" width="100">
