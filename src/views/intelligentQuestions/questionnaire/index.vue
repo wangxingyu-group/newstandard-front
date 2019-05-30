@@ -2,9 +2,9 @@
   <div class="app-container">
     <el-row>
       <el-col :span="24">
-        <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
-          <el-card>
-            <div slot="header" class="clearfix">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问卷标题">
@@ -48,7 +48,6 @@
                     </el-select>
                   </el-form-item>
                 </el-col>
-
               </el-row>
               <el-row>
                 <el-col :span="24">
@@ -60,64 +59,64 @@
                   </div>
                 </el-col>
               </el-row>
-            </div>
-            <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" height="calc(100vh - 391px)" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
-              <el-table-column type="selection" width="55" />
-              <el-table-column label="问卷标题" align="center" width="200">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.title }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="出题人" align="center" width="100">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.author }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="问卷描述" align="center" width="500">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.description }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="创建时间" align="center" width="150">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.createTime }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="是否发布" align="center" width="100">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.publish==='yes'?'是':'否' }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="性别" align="center" width="100">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.gender==='0'?'女':'男' }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="是否老年" align="center" width="100">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.isOld==='0'?'否':'是' }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="地区" align="center" width="100">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.region }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="状态" align="center" width="100">
-                <template slot-scope="scope">
-                  <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
-                </template>
-              </el-table-column>
-              <el-table-column label="操作" align="center" fixed="right" width="150">
-                <template slot-scope="{row}">
-                  <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
-                  <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
-                </template>
-              </el-table-column>
-            </el-table>
-            <pagination v-show="total>0" :total="total" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getList" />
-          </el-card>
-        </el-form>
+            </el-form>
+          </div>
+          <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow1" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
+            <el-table-column type="selection" width="55" />
+            <el-table-column label="问卷标题" align="center" width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.title }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="出题人" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.author }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="问卷描述" align="center" width="500">
+              <template slot-scope="scope">
+                <span>{{ scope.row.description }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="创建时间" align="center" width="150">
+              <template slot-scope="scope">
+                <span>{{ scope.row.createTime }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="是否发布" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.publish==='yes'?'是':'否' }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="性别" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.gender==='0'?'女':'男' }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="是否老年" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.isOld==='0'?'否':'是' }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="地区" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.region }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="状态" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" fixed="right" width="150">
+              <template slot-scope="{row}">
+                <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
+                <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getList" />
+        </el-card>
       </el-col>
     </el-row>
 
@@ -178,7 +177,7 @@
 <script>
 import { create, fetchList, update } from '@/api/intelligentQuestions/questionnaire'
 import Pagination from '@/components/Pagination'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Question',
@@ -187,7 +186,13 @@ export default {
     ...mapGetters([
       'clientWidth',
       'minClientWidth'
-    ])
+    ]),
+    ...mapState({
+      searchRow1: state => state.commonData.searchRow1,
+      searchRow2: state => state.commonData.searchRow2,
+      searchRow3: state => state.commonData.searchRow3,
+      searchRow4: state => state.commonData.searchRow4
+    })
   },
   data() {
     return {

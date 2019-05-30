@@ -7,13 +7,7 @@
             <el-tab-pane v-for="categorizedSettings in workOrderSettings.children" :key="categorizedSettings.id" :name="String(categorizedSettings.id)" :label="categorizedSettings.label">
               <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
                 <div class="fit-height-200">
-                  <el-form
-                    ref="form"
-                    :model="form"
-                    label-width="100px"
-                    size="small"
-                    style="display:-webkit-box;-webkit-box-orient:vertical;height:100%;"
-                  >
+                  <el-form ref="form" :model="form" label-width="100px" size="small" style="display:-webkit-box;-webkit-box-orient:vertical;height:100%;">
                     <div style="-webkit-box-flex:1;-webkit-flex:1;flex:1;overflow:auto;">
                       <el-card>
                         <div slot="header" class="clearfix">
@@ -190,15 +184,15 @@
                         </el-row>
                       </el-card>
                     </div>
-                    <el-card style="overflow: hidden;width: calc(100% - 6px);">
+                    <el-card style="width: calc(100% - 6px);">
                       <el-row>
                         <el-col :span="24">
                           <div class="fr">
-                            <el-button type="success" size="small" @click="">新建</el-button>
-                            <el-button type="info" size="small" @click="">取消</el-button>
-                            <el-button type="primary" size="small" @click="">保存</el-button>
-                            <el-button type="primary" size="small" @click="">完成</el-button>
-                            <el-button type="primary" size="small" @click="">发送短信</el-button>
+                            <el-button type="success" size="small">新建</el-button>
+                            <el-button type="info" size="small">取消</el-button>
+                            <el-button type="primary" size="small">保存</el-button>
+                            <el-button type="primary" size="small">完成</el-button>
+                            <el-button type="primary" size="small">发送短信</el-button>
                           </div>
                         </el-col>
                       </el-row>
@@ -276,13 +270,3 @@ export default {
   }
 }
 </script>
-<style>
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-::-webkit-scrollbar-thumb {
-      background-color: rgba(144, 147, 153, 0.3);
-      border-radius: 3px;
-    }
-</style>

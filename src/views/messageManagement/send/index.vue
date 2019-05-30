@@ -1,283 +1,87 @@
 <template>
   <div class="app-container">
-    <el-container style="height: 500px;">
-      <el-aside width="47%">
-        <el-input v-model="listQuery.projectNum" placeholder="手机号码查询" style="width: 180px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-          查询
-        </el-button>
-        <el-table
-          :key="tableKey"
-          v-loading="listLoading"
-          :data="list"
-          fit
-          highlight-current-row
-          style="width: 100%;"
-          align="center"
-          @sort-change="sortChange"
-        >
-          <el-table-column label="客户姓名" width="150%" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.customer }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="手机号码" width="150%" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.mobilephone }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="发送时间" width="150%" align="center">
-            <template slot-scope="scope">
-              <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
-            </template>
-          </el-table-column>
-        </el-table>
-        <pagination v-show="total>0" :total="total" @pagination="getList" />
-      </el-aside>
-
-      <el-main />
-
-    </el-container>
+    <el-row :gutter="10">
+      <el-col :sm="24" :lg="8">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <span>电话列表</span>
+          </div>
+          <el-row :gutter="10">
+            <el-col :span="16">
+              <el-input v-model="customerName" placeholder="输入客户姓名" class="filter-item" @keyup.enter.native="()=>{}" />
+            </el-col>
+            <el-col :span="4">
+              <el-button type="primary">查询</el-button>
+            </el-col>
+            <el-col :span="4">
+              <el-button type="primary">确认</el-button>
+            </el-col>
+          </el-row>
+          <el-table :key="0" v-loading="listLoading" height="calc(100vh - 311px)" :data="list" fit stripe highlight-current-row @sort-change="()=>{}" @selection-change="()=>{}">
+            <el-table-column type="selection" width="55" />
+            <el-table-column label="客户姓名" prop="id" sortable="custom" align="center">
+              <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+            </el-table-column>
+            <el-table-column label="客户电话" prop="id" sortable="custom" align="center">
+              <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+        </el-card>
+      </el-col>
+      <el-col :sm="24" :lg="16">
+        <send :form="form" :template="template" />
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
-import { createFires, fetchPv, firesList, updateArticle } from '@/api/demo/system/permission/user'
-import waves from '@/directive/waves' // waves directive
-import { parseTime } from '@/utils'
-import Pagination from '@/components/Pagination' // secondary package based on el-pagination
-
-const userModeOptions = [
-  { key: 'normal', display_name: '正常' },
-  { key: 'locked', display_name: '锁定' },
-  { key: 'delete', display_name: '删除' }
-]
-
-// arr to obj, such as { normal : "正常", lock : "已锁定" }
-const userModeKeyValue = userModeOptions.reduce((acc, cur) => {
-  acc[cur.key] = cur.display_name
-  return acc
-}, {})
+import { fetchList } from '@/api/demo/customer/preCustomer'
+import Pagination from '@/components/Pagination'
+import Send from './send'
 
 export default {
-  name: 'ComplexTable',
-  components: { Pagination },
-  directives: { waves },
-  filters: {
-    statusFilter(status) {
-      const statusMap = {
-        published: 'success',
-        draft: 'info',
-        deleted: 'danger'
-      }
-      return statusMap[status]
-    },
-    typeFilter(type) {
-      return userModeKeyValue[type]
-    }
-  },
+  name: 'SendIndex',
+  components: { Pagination, Send },
   data() {
     return {
-      tableKey: 0,
+      customerName: null,
+      listLoading: false,
       list: null,
       total: 0,
-      listLoading: true,
       listQuery: {
         page: 1,
-        limit: 8,
-        customer: undefined,
-        projectNum: undefined,
-        type: undefined,
-        sort: '+id'
+        limit: 20
       },
-      userModeOptions,
-      sortOptions: [{ label: 'ID Ascending', key: '+id' }, { label: 'ID Descending', key: '-id' }],
-      temp: {
-        id: undefined,
-        projectNum: undefined,
-        timestamp: new Date(),
-        type: ''
+      form: {
+        sendNo: null,
+        template: null,
+        content: null
       },
-      dialogFormVisible: false,
-      dialogStatus: '',
-      textMap: {
-        update: 'Edit',
-        create: 'Create'
-      },
-      dialogPvVisible: false,
-      pvData: [],
-      rules: {
-        type: [{ required: true, message: 'type is required', trigger: 'change' }],
-        timestamp: [{ type: 'date', required: true, message: 'timestamp is required', trigger: 'change' }]
-      },
-      downloadLoading: false
+      template: [
+        { label: '投保短信', value: '0' },
+        { label: '模版一', value: '1' },
+        { label: '模版二', value: '2' },
+        { label: '模版三', value: '3' },
+        { label: '模版四', value: '4' },
+        { label: '模版五', value: '5' }
+      ]
     }
   },
   created() {
     this.getList()
   },
   methods: {
-    guid() {
-      var s = []
-      var hexDigits = '0123456789'
-      for (var i = 0; i < 18; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 10), 1)
-      }
-      var uuid = s.join('')
-      return uuid
-    },
-    cuid() {
-      var s = []
-      var hexDigits = '0123456789'
-      for (var i = 0; i < 4; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 10), 1)
-      }
-      var uuid = s.join('')
-      return uuid
-    },
     getList() {
       this.listLoading = true
-      firesList(this.listQuery).then(response => {
+      fetchList(this.listQuery).then(response => {
         this.list = response.data.items
         this.total = response.data.total
-
-        // Just to simulate the time of the request
+        // 模拟延迟
         setTimeout(() => {
           this.listLoading = false
-        }, 1.5 * 1000)
+        }, 0.5 * 1000)
       })
-    },
-    handleFilter() {
-      this.listQuery.page = 1
-      this.getList()
-    },
-    handleModifyStatus(row, status) {
-      this.$message({
-        message: '操作Success',
-        type: 'success'
-      })
-      row.status = status
-    },
-    sortChange(data) {
-      const { prop, order } = data
-      if (prop === 'id') {
-        this.sortByID(order)
-      }
-    },
-    sortByID(order) {
-      if (order === 'ascending') {
-        this.listQuery.sort = '+id'
-      } else {
-        this.listQuery.sort = '-id'
-      }
-      this.handleFilter()
-    },
-    resetTemp() {
-      this.temp = {
-        id: undefined,
-        projectNum: '',
-        customer: '',
-        timestamp: new Date(),
-        company: '',
-        status: 'normal/locked/delete'
-      }
-    },
-    handleCreate() {
-      this.resetTemp()
-      this.dialogStatus = 'create'
-      this.dialogFormVisible = true
-      this.$nextTick(() => {
-        this.$refs['dataForm'].clearValidate()
-      })
-    },
-    createData() {
-      this.$refs['dataForm'].validate((valid) => {
-        if (valid) {
-          this.temp.id = this.cuid() // mock a id
-          createFires(this.temp).then(() => {
-            this.temp.projectNum = this.guid()
-            this.list.unshift(this.temp)
-            this.dialogFormVisible = false
-            this.$notify({
-              title: 'Success',
-              message: 'Created Successfully',
-              type: 'success',
-              duration: 2000
-            })
-          })
-        }
-      })
-    },
-    handleUpdate(row) {
-      this.temp = Object.assign({}, row) // copy obj
-      this.temp.timestamp = new Date()
-      this.dialogStatus = 'update'
-      this.dialogFormVisible = true
-      this.$nextTick(() => {
-        this.$refs['dataForm'].clearValidate()
-      })
-    },
-    updateData() {
-      this.$refs['dataForm'].validate((valid) => {
-        if (valid) {
-          const tempData = Object.assign({}, this.temp)
-          tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
-          updateArticle(tempData).then(() => {
-            for (const v of this.list) {
-              if (v.id === this.temp.id) {
-                const index = this.list.indexOf(v)
-                this.list.splice(index, 1, this.temp)
-                break
-              }
-            }
-            this.dialogFormVisible = false
-            this.$notify({
-              title: 'Success',
-              message: 'Update Successfully',
-              type: 'success',
-              duration: 2000
-            })
-          })
-        }
-      })
-    },
-    handleDelete(row) {
-      this.$notify({
-        title: 'Success',
-        message: 'Delete Successfully',
-        type: 'success',
-        duration: 2000
-      })
-      const index = this.list.indexOf(row)
-      this.list.splice(index, 1)
-    },
-    handleFetchPv(pv) {
-      fetchPv(pv).then(response => {
-        this.pvData = response.data.pvData
-        this.dialogPvVisible = true
-      })
-    },
-    handleDownload() {
-      this.downloadLoading = true
-        import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
-          const filterVal = ['projectNum', 'customer', 'company', 'mobilephone', 'status']
-          const data = this.formatJson(filterVal, this.list)
-          excel.export_json_to_excel({
-            header: tHeader,
-            data,
-            filename: 'user-list'
-          })
-          this.downloadLoading = false
-        })
-    },
-    formatJson(filterVal, jsonData) {
-      return jsonData.map(v => filterVal.map(j => {
-        if (j === 'timestamp') {
-          return parseTime(v[j])
-        } else {
-          return v[j]
-        }
-      }))
     }
   }
 }
