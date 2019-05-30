@@ -3,7 +3,11 @@ const state = {
   currentCustomer: null,
   callInNo: '13810600758',
   clientWidth: 0,
-  minClientWidth: 1400
+  minClientWidth: 1400,
+  searchRow1: 'calc(100vh - 340px)',
+  searchRow2: 'calc(100vh - 391px)',
+  searchRow3: 'calc(100vh - 442px)',
+  searchRow4: 'calc(100vh - 493px)'
 }
 const mutations = {
   SET_CURRENT_CUSTOMER: (state, currentCustomer) => {

@@ -1,61 +1,78 @@
 <template>
   <div class="app-container">
-    <div class="filter-container">
-      <el-input v-model="listQuery.name" placeholder="姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-input v-model="listQuery.IDCard" placeholder="证件号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-        查询
-      </el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
-        添加
-      </el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-close" @click="handleBatchDelete">
-        删除
-      </el-button>
-    </div>
-
-    <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
-      <el-table-column type="selection" width="55" />
-      <el-table-column label="准客户编号" prop="id" sortable="custom" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
-      </el-table-column>
-      <el-table-column label="姓名" align="center" width="100">
-        <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
-      </el-table-column>
-      <el-table-column label="性别" align="center" width="80">
-        <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
-      </el-table-column>
-      <el-table-column label="身份证号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
-      </el-table-column>
-      <el-table-column label="来电电话" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
-      </el-table-column>
-      <el-table-column label="来电时间" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
-      </el-table-column>
-      <el-table-column label="客户身份" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
-      </el-table-column>
-      <el-table-column label="备注" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
-      </el-table-column>
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="{row}">
-          <el-button type="primary" size="small " width="100" @click="confirmCustomer(row)">
-            确认客户
-          </el-button>
-          <el-button type="primary" size="small" @click="handleUpdate(row)">
-            编辑
-          </el-button>
-          <el-button type="danger" size="small" @click="handleDelete(row)">
-            删除
-          </el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    <el-row>
+      <el-col :span="24">
+        <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
+          <el-card>
+            <div slot="header" class="clearfix">
+              <el-row>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="姓名">
+                    <el-input v-model="listQuery.name" placeholder="姓名" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="姓名">
+                    <el-input v-model="listQuery.IDCard" placeholder="证件号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                <el-col :span="24">
+                  <div class="fr">
+                    <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
+                    <el-button type="info" size="small" @click="">清空</el-button>
+                    <el-button type="success" size="small" @click="handleCreate">新建</el-button>
+                    <el-button type="danger" size="small" @click="handleBatchDelete">批量删除</el-button>
+                  </div>
+                </el-col>
+              </el-row>
+            </div>
+            <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
+              <el-table-column type="selection" width="55" />
+              <el-table-column label="准客户编号" prop="id" sortable="custom" align="center" width="150">
+                <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
+              </el-table-column>
+              <el-table-column label="姓名" align="center" width="100">
+                <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+              </el-table-column>
+              <el-table-column label="性别" align="center" width="80">
+                <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
+              </el-table-column>
+              <el-table-column label="身份证号" align="center" width="200">
+                <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
+              </el-table-column>
+              <el-table-column label="来电电话" align="center" width="150">
+                <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
+              </el-table-column>
+              <el-table-column label="来电时间" align="center" width="200">
+                <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
+              </el-table-column>
+              <el-table-column label="客户身份" align="center" width="200">
+                <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
+              </el-table-column>
+              <el-table-column label="备注" align="center" width="200">
+                <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
+              </el-table-column>
+              <el-table-column label="操作" align="center" fixed="right" width="240">
+                <template slot-scope="{row}">
+                  <el-button type="primary" size="mini "  @click="confirmCustomer(row)">
+                    确认客户
+                  </el-button>
+                  <el-button type="primary" size="mini" @click="handleUpdate(row)">
+                    编辑
+                  </el-button>
+                  <el-button type="danger" size="mini" @click="handleDelete(row)">
+                    删除
+                  </el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+            <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+          </el-card>
+        </el-form>
+      </el-col>
+    </el-row>
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 500px; margin-left:100px;">
@@ -96,10 +113,18 @@
 <script>
 import { createPreCustomer, fetchList, updatePreCustomer } from '@/api/demo/customer/preCustomer'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
-
+import { mapState } from 'vuex'
 export default {
   name: 'PreCustomer',
   components: { Pagination },
+  computed: {
+    ...mapState({
+      searchRow1: state => state.commonData.searchRow1,
+      searchRow2: state => state.commonData.searchRow2,
+      searchRow3: state => state.commonData.searchRow3,
+      searchRow4: state => state.commonData.searchRow4
+    })
+  },
   data() {
     return {
       tableKey: 0,
@@ -274,3 +299,9 @@ export default {
   }
 }
 </script>
+<style>
+  .pagination-container {
+    padding: 16px 16px !important;
+    float: right;
+  }
+</style>

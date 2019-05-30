@@ -11,6 +11,7 @@ import template from './demo/messageManagement/template/model'
 import orderSettings from './workOrderManagement/orderSettings'
 import quality from './demo/qualityAssuranceManagement/quality' // 规则配置
 import question from './intelligentQuestions/question' // 智能题库 => 问题管理
+import questionnaire from './intelligentQuestions/questionnaire' // 智能题库 => 问卷管理
 import qualityAssurance from './demo/quality/qualityAssurance/qualityAssurance' // 质检管理
 import history from './demo/quality/history/history' // 记录查询
 import queryQualityAssurance from './demo/quality/queryQualityAssurance/queryQualityAssurance' // 质检查询
@@ -27,6 +28,7 @@ const mocks = [
   ...orderSettings,
   ...quality,
   ...question,
+  ...questionnaire,
   ...qualityAssurance,
   ...history,
   ...queryQualityAssurance,
