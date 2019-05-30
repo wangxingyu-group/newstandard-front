@@ -12,7 +12,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="姓名">
+                  <el-form-item label="证件号">
                     <el-input v-model="listQuery.IDCard" placeholder="证件号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
