@@ -2,9 +2,9 @@
   <div class="app-container">
     <div class="filter-container">
       <el-row>
-        <el-input v-model="listQuery.name" placeholder="代理人姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        <el-input v-model="listQuery.IDCard" placeholder="证件号码" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        <el-input v-model="listQuery.gender" placeholder="代理机构" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        代理人姓名<el-input v-model="listQuery.name" placeholder="代理人姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        证件号码<el-input v-model="listQuery.IDCard" placeholder="证件号码" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        代理机构<el-input v-model="listQuery.gender" placeholder="代理机构" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
       </el-row>
       <el-row>
         <el-col :span="24">
@@ -27,14 +27,14 @@
       <el-table-column label="性别" align="center" width="80">
         <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
       </el-table-column>
-      <el-table-column label="身份证号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
-      </el-table-column>
       <el-table-column label="手机号" align="center" width="150">
         <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
       </el-table-column>
+      <el-table-column label="身份证号" align="center" width="200">
+        <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
+      </el-table-column>
       <el-table-column label="座机号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
+        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
       </el-table-column>
       <el-table-column label="客户身份" align="center" width="200">
         <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
@@ -90,11 +90,11 @@
 </template>
 
 <script>
-import { createPreCustomer, fetchList, updatePreCustomer } from '@/api/demo/customer/preCustomer'
+import { createAgent, fetchList, updateAgent } from '@/api/demo/customer/agent'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
 export default {
-  name: 'PreCustomer',
+  name: 'Agent',
   components: { Pagination },
   data() {
     return {
@@ -115,7 +115,7 @@ export default {
         IDCard: undefined,
         callInNo: '',
         callInTime: '',
-        customerType: '准客户',
+        customerType: '代理人',
         remark: ''
       },
       dialogFormVisible: false,
@@ -171,7 +171,7 @@ export default {
         IDCard: undefined,
         callInNo: '',
         callInTime: '',
-        customerType: '准客户',
+        customerType: '代理人',
         remark: ''
       }
     },
@@ -187,8 +187,8 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           this.temp.id = parseInt(Math.random() * 100) + 1024
-          this.temp.customerType = '准客户'
-          createPreCustomer(this.temp).then(() => {
+          this.temp.customerType = '代理人'
+          createAgent(this.temp).then(() => {
             this.list.unshift(this.temp)
             this.dialogFormVisible = false
             this.$message({
@@ -211,7 +211,7 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           const tempData = Object.assign({}, this.temp)
-          updatePreCustomer(tempData).then(() => {
+          updateAgent(tempData).then(() => {
             for (const v of this.list) {
               if (v.id === this.temp.id) {
                 const index = this.list.indexOf(v)

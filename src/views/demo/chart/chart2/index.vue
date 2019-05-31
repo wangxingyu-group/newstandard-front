@@ -3,15 +3,15 @@
     <div class="filter-container">
       <el-row>
         <el-col>
-          <el-date-picker placeholder="起始日期" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-          <el-date-picker placeholder="截止日期" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+          起始日期 <el-date-picker v-model="input2" placeholder="请选择日期" suffix-icon="el-icon-date" />
+          截止日期 <el-date-picker v-model="input2" placeholder="请选择日期" suffix-icon="el-icon-date" />
         </el-col>
       </el-row>
       <el-row>
         <el-col>
           <el-form ref="form" :model="form" size="small">
             <el-form-item>
-              <el-select style="width:20%;" placeholder="服务单类型">
+              服务单类型 <el-select style="width:20%;" placeholder="请选择服务单类型">
                 <el-option label="1--产品咨询" value="shanghai" />
                 <el-option label="2--一般咨询" value="shanghai" />
                 <el-option label="3--保全咨询" value="shanghai" />

@@ -3,19 +3,19 @@
     <div class="filter-container">
       <el-row>
         <el-col>
-          <el-date-picker placeholder="起始日期" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-          <el-date-picker placeholder="截止日期" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+          起始日期 <el-date-picker v-model="input2" placeholder="请选择日期" suffix-icon="el-icon-date" />
+          截止日期 <el-date-picker v-model="input2" placeholder="请选择日期" suffix-icon="el-icon-date" />
         </el-col>
       </el-row>
       <el-row>
         <el-col>
-          <el-input placeholder="质检人员" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-          <el-input placeholder="来电号码" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+          质检人员 <el-input placeholder="请填写质检信息" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+          来电号码<el-input placeholder="请输入来电号码" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
         </el-col>
       </el-row>
       <el-row>
         <el-col>
-          <el-input placeholder="坐席姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+          坐席姓名<el-input placeholder="请输入坐席姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
         </el-col>
       </el-row>
 

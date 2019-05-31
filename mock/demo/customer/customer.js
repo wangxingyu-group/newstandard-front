@@ -53,7 +53,7 @@ export default [
         if (article.id === +id) {
           return {
             code: 20000,
-            data: article
+            data: customer
           }
         }
       }

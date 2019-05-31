@@ -2,10 +2,10 @@
   <div class="app-container">
     <div class="filter-container">
       <el-row class="clearfix">
-        <el-input v-model="listQuery.IDCard" placeholder="证件号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        <el-input v-model="listQuery.name" placeholder="姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        <el-input v-model="listQuery.callInNo" placeholder="保单号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        <el-input v-model="listQuery.customerType" placeholder="保单角色" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        证件号<el-input v-model="listQuery.IDCard" placeholder="证件号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        姓名<el-input v-model="listQuery.name" placeholder="姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        保单号<el-input v-model="listQuery.callInNo" placeholder="保单号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        保单角色<el-input v-model="listQuery.customerType" placeholder="保单角色" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
       </el-row>
       <el-row>
         <el-col :span="24">
@@ -29,14 +29,14 @@
       <el-table-column label="性别" align="center" width="80">
         <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
       </el-table-column>
-      <el-table-column label="身份证号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
-      </el-table-column>
       <el-table-column label="手机号" align="center" width="150">
         <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
       </el-table-column>
+      <el-table-column label="身份证号" align="center" width="200">
+        <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
+      </el-table-column>
       <el-table-column label="座机号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
+        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
       </el-table-column>
       <el-table-column label="客户身份" align="center" width="200">
         <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
