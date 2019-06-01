@@ -6,9 +6,9 @@ const count = 100
 for (let i = 0; i < count; i++) {
   list.push(Mock.mock({
     id: '@increment',
-    policyNo: '@Integer(11)',
+    contractNo: '@Integer(11)',
     applicant: '@cname',
-    idCard: /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/,
+    idNo: /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/,
     customerNo: '@Integer(100000,900000)',
     insured: '@cname',
     'agent|1': ['代理机构1', '代理机构2', '代理机构3'],

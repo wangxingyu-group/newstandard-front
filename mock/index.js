@@ -6,8 +6,8 @@ import role from './role'
 import article from './article'
 import search from './remote-search'
 import preCustomer from './demo/customer/preCustomer'
-import customer from './demo/customer/customer'//客户
-import agent from './demo/customer/agent'//代理人
+import customer from './demo/customer/customer'// 客户
+import agent from './demo/customer/agent'// 代理人
 import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
 import orderSettings from './workOrderManagement/orderSettings'

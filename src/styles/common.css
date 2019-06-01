@@ -1,3 +1,36 @@
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
 .card-title-without-option {
   display: block;
   height: 28px;
@@ -20,14 +53,35 @@
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: rgba(135,141,153,.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(135,141,153,.3);
+  background: rgba(135, 141, 153, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(135, 141, 153, .3);
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(135,141,153,.3);
+  background: rgba(135, 141, 153, .3);
 }
+
 /*分页插件右侧显示*/
 .pagination-container {
-  padding: 16px 16px !important;
+  padding: 8px 16px !important;
   float: right;
+}
+
+/*使内部元素高度一致*/
+.flex-accordant-height {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+/*使内部元素在中心区域*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*保单详情页面,table左侧区域填充色*/
+.table-left-bg {
+  background-color: #e9e9ea;
 }

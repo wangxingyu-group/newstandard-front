@@ -30,7 +30,7 @@
         <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
       </el-table-column>
       <el-table-column label="失败数量" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
+        <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
       </el-table-column>
     </el-table>
   </div>

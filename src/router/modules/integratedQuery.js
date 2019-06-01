@@ -11,28 +11,26 @@ const searchRouter = {
   },
   children: [
     {
-      path: 'personalInsurance ',
+      path: 'personalInsurance',
       component: () => import('@/views/integratedQuery/personalInsurance'),
       name: 'personalInsurance',
       meta: {
         title: '个人保单查询',
         roles: ['admin']
-      },
-      children: [
-        {
-          path: 'details ',
-          hidden: true,
-          component: () => import('@/views/integratedQuery/personalInsurance/details'),
-          name: 'details',
-          meta: {
-            title: '个人保险详情',
-            roles: ['admin']
-          }
-        }
-      ]
+      }
     },
     {
-      path: 'groupInsurance ',
+      path: 'personalInsurance/details',
+      hidden: true,
+      component: () => import('@/views/integratedQuery/personalInsurance/details'),
+      name: 'personalInsurance/details',
+      meta: {
+        title: '个人保险详情',
+        roles: ['admin']
+      }
+    },
+    {
+      path: 'groupInsurance',
       component: () => import('@/views/integratedQuery/groupInsurance'),
       name: 'groupInsurance',
       meta: {
@@ -41,7 +39,7 @@ const searchRouter = {
       }
     },
     {
-      path: 'whiteList ',
+      path: 'whiteList',
       component: () => import('@/views/integratedQuery/whiteList'),
       name: 'whiteList',
       meta: {
@@ -50,7 +48,7 @@ const searchRouter = {
       }
     },
     {
-      path: 'electroDocument ',
+      path: 'electroDocument',
       component: () => import('@/views/integratedQuery/electroDocument'),
       name: 'electroDocument',
       meta: {

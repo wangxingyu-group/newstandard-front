@@ -8,7 +8,7 @@ for (let i = 0; i < count; i++) { // List付值
     id: '@integer(152106199003050316, 152106201903050999)',
     name: '@increment(1)',
     tel: /^1[34578]\d{9}/,
-    IDCard: '@integer(152106199003050316, 152106201903050999)',
+    idNo: '@integer(152106199003050316, 152106201903050999)',
     callInNo: /^1[385][1-9]\d{8}/,
     callInTime: '@time(\'HH:mm:ss\')',
     customerType: '@integer(166106199003050316, 166106201903050999)',
@@ -31,10 +31,10 @@ export default [
     url: '/history/list',
     type: 'get',
     response: config => {
-      const { name, IDCard, page = 1, limit = 20, sort } = config.query
+      const { name, idNo, page = 1, limit = 20, sort } = config.query
       let mockList = List.filter(item => {
         if (name && item.name !== name) return false
-        if (IDCard && item.IDCard !== IDCard) return false
+        if (idNo && item.idNo !== idNo) return false
         return true
       })
 

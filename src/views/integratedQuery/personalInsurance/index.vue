@@ -8,17 +8,17 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="保单号">
-                    <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                    <el-input v-model="listQuery.contractNo" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="投保单号">
-                    <el-input v-model="listQuery.prePolicyNo" placeholder="投保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                    <el-input v-model="listQuery.preContractNo" placeholder="投保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="身份证号">
-                    <el-input v-model="listQuery.idCard" placeholder="身份证号" class="filter-item" @keyup.enter.native="()=>{}" />
+                    <el-input v-model="listQuery.idNo" placeholder="身份证号" class="filter-item" @keyup.enter.native="()=>{}" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -35,15 +35,15 @@
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row @sort-change="()=>{}" @selection-change="()=>{}">
             <el-table-column type="selection" width="55" />
             <el-table-column label="保单号" align="center" width="150">
-              <template slot-scope="scope">
-                <span class="link-type" @click="gotoDetails(row)">{{ scope.row.policyNo }}</span>
+              <template slot-scope="{row}">
+                <span class="link-type" @click="gotoDetails(row)">{{ row.contractNo }}</span>
               </template>
             </el-table-column>
             <el-table-column label="投保人" align="center" width="80">
               <template slot-scope="scope"><span>{{ scope.row.applicant }}</span></template>
             </el-table-column>
             <el-table-column label="投保人身份证号" align="center" width="180">
-              <template slot-scope="scope"><span>{{ scope.row.idCard }}</span></template>
+              <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
             <el-table-column label="客户号" align="center" width="80">
               <template slot-scope="scope"><span>{{ scope.row.customerNo }}</span></template>
@@ -73,7 +73,7 @@
               <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
             <el-table-column label="操作" align="center" fixed="right" width="100">
-              <template slot-scope="scope">
+              <template slot-scope="{row}">
                 <el-button type="primary" size="mini " @click="confirmCustomer(row)">确认客户</el-button>
               </template>
             </el-table-column>
@@ -137,7 +137,7 @@ export default {
       })
     },
     gotoDetails(row) {
-      this.$router.push({ name: '/integratedQuery/personalInsurance/details', params: { policyNo: row.policyNo }})
+      this.$router.push({ name: 'personalInsurance/details', params: { contractNo: row.contractNo }})
     }
   }
 }

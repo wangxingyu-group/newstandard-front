@@ -82,7 +82,7 @@
                           </el-col>
                         </el-row>
                       </el-card>
-                      <el-card style="margin-top: 10px;">
+                      <el-card class="mt-10">
                         <div slot="header" class="clearfix">
                           <span>服务项目明细</span>
                         </div>
@@ -99,7 +99,7 @@
                           />
                         </el-scrollbar>
                       </el-card>
-                      <el-card style="margin-top: 10px;">
+                      <el-card class="mt-10">
                         <div slot="header" class="clearfix">
                           <span>取回保单</span>
                         </div>
@@ -151,7 +151,7 @@
                           </div>
                         </el-scrollbar>
                       </el-card>
-                      <el-card style="margin-top: 10px;">
+                      <el-card class="mt-10">
                         <div slot="header" class="clearfix">
                           <span>坐席摘要</span>
                         </div>

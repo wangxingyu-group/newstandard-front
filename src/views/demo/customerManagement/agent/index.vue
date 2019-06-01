@@ -3,7 +3,7 @@
     <div class="filter-container">
       <el-row>
         代理人姓名<el-input v-model="listQuery.name" placeholder="代理人姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        证件号码<el-input v-model="listQuery.IDCard" placeholder="证件号码" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+        证件号码<el-input v-model="listQuery.idNo" placeholder="证件号码" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
         代理机构<el-input v-model="listQuery.gender" placeholder="代理机构" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
       </el-row>
       <el-row>
@@ -31,7 +31,7 @@
         <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
       </el-table-column>
       <el-table-column label="身份证号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
+        <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
       </el-table-column>
       <el-table-column label="座机号" align="center" width="200">
         <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
@@ -58,8 +58,8 @@
         <el-form-item label="姓名" prop="name">
           <el-input v-model="temp.name" />
         </el-form-item>
-        <el-form-item label="身份证号" prop="IDCard">
-          <el-input v-model="temp.IDCard" />
+        <el-form-item label="身份证号" prop="idNo">
+          <el-input v-model="temp.idNo" />
         </el-form-item>
         <el-form-item label="性别" prop="gender">
           <el-radio-group v-model="temp.gender">
@@ -112,7 +112,7 @@ export default {
         id: undefined,
         name: '',
         gender: 0,
-        IDCard: undefined,
+        idNo: undefined,
         callInNo: '',
         callInTime: '',
         customerType: '代理人',
@@ -126,7 +126,7 @@ export default {
       },
       rules: {// 验证规则
         name: [{ required: true, message: '必填项', trigger: 'change' }],
-        IDCard: [{ required: true, message: '必填项', trigger: 'change' }]
+        idNo: [{ required: true, message: '必填项', trigger: 'change' }]
       }
     }
   },
@@ -168,7 +168,7 @@ export default {
         id: undefined,
         name: '',
         gender: 0,
-        IDCard: undefined,
+        idNo: undefined,
         callInNo: '',
         callInTime: '',
         customerType: '代理人',

@@ -13,7 +13,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="证件号">
-                    <el-input v-model="listQuery.IDCard" placeholder="证件号" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="listQuery.idNo" placeholder="证件号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -29,7 +29,7 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
             <el-table-column label="准客户编号" prop="id" sortable="custom" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
@@ -41,7 +41,7 @@
               <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
             </el-table-column>
             <el-table-column label="身份证号" align="center" width="200">
-              <template slot-scope="scope"><span>{{ scope.row.IDCard }}</span></template>
+              <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
             <el-table-column label="来电电话" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
@@ -79,8 +79,8 @@
         <el-form-item label="姓名" prop="name">
           <el-input v-model="temp.name" />
         </el-form-item>
-        <el-form-item label="身份证号" prop="IDCard">
-          <el-input v-model="temp.IDCard" />
+        <el-form-item label="身份证号" prop="idNo">
+          <el-input v-model="temp.idNo" />
         </el-form-item>
         <el-form-item label="性别" prop="gender">
           <el-radio-group v-model="temp.gender">
@@ -134,7 +134,7 @@ export default {
         id: undefined,
         name: '',
         gender: 0,
-        IDCard: undefined,
+        idNo: undefined,
         callInNo: '',
         callInTime: '',
         customerType: '准客户',
@@ -148,7 +148,7 @@ export default {
       },
       rules: {// 验证规则
         name: [{ required: true, message: '必填项', trigger: 'change' }],
-        IDCard: [{ required: true, message: '必填项', trigger: 'change' }]
+        idNo: [{ required: true, message: '必填项', trigger: 'change' }]
       }
     }
   },
@@ -198,7 +198,7 @@ export default {
         id: undefined,
         name: '',
         gender: 0,
-        IDCard: undefined,
+        idNo: undefined,
         callInNo: '',
         callInTime: '',
         customerType: '准客户',

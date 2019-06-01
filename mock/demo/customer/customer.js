@@ -8,7 +8,7 @@ for (let i = 0; i < count; i++) {
     id: '@increment',
     name: '@cname()',
     'gender|1': ['男', '女'],
-    IDCard: '@integer(152106199003050316, 152106201903050999)',
+    idNo: '@integer(152106199003050316, 152106201903050999)',
     callInNo: /^1[385][1-9]\d{8}/,
     callInTime: '@datetime',
     customerType: '客户',
@@ -21,10 +21,10 @@ export default [
     url: '/customer/list',
     type: 'get',
     response: config => {
-      const { name, IDCard, page = 1, limit = 20, sort } = config.query
+      const { name, idNo, page = 1, limit = 20, sort } = config.query
       let mockList = List.filter(item => {
         if (name && item.name !== name) return false
-        if (IDCard && item.IDCard !== IDCard) return false
+        if (idNo && item.idNo !== idNo) return false
         return true
       })
 
@@ -49,8 +49,8 @@ export default [
     type: 'get',
     response: config => {
       const { id } = config.query
-      for (const article of List) {
-        if (article.id === +id) {
+      for (const customer of List) {
+        if (customer.id === +id) {
           return {
             code: 20000,
             data: customer
