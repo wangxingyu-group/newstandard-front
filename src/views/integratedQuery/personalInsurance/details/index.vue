@@ -11,9 +11,7 @@
               <new-contract :contract-no="contractNo" />
             </el-tab-pane>
             <el-tab-pane :key="tabs.renewalInfo.key" :name="tabs.renewalInfo.name" :label="tabs.renewalInfo.label">
-              <el-scrollbar ref="scrollbar" wrap-class="scrollbar-wrapper">
-                <div class="fit-height-200">{{ tabs.renewalInfo.label }}</div>
-              </el-scrollbar>
+              <renewal-info :contract-no="contractNo" />
             </el-tab-pane>
             <el-tab-pane :key="tabs.customerService.key" :name="tabs.customerService.name" :label="tabs.customerService.label">
               <el-scrollbar ref="scrollbar" wrap-class="scrollbar-wrapper">

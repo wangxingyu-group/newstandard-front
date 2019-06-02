@@ -188,69 +188,6 @@ export default {
           deductionAmount: '12000',
           bankName: '中国银行',
           bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
-        }, {
-          id: null,
-          deductionDate: '2019-05-23',
-          deductionResult: '已收费',
-          deductionAmount: '12000',
-          bankName: '中国银行',
-          bankAccount: '6217858000065713585'
         }
       ],
       revisitResult: [
