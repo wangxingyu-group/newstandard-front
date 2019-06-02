@@ -214,7 +214,7 @@ export default {
     },
     handleFilter() {
       /* this.listQuery.page = 1
-       this.getList()*/
+         this.getList()*/
     },
     handleModifyStatus(row) {
       this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {

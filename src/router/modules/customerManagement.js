@@ -13,7 +13,7 @@ const customerRouter =
     children: [
       {
         path: 'preCustomer',
-        component: () => import('@/views/demo/customerManagement/preCustomer'),
+        component: () => import('@/views/customerManagement/preCustomer'),
         name: 'preCustomer',
         meta: {
           title: '准客户',
@@ -22,7 +22,7 @@ const customerRouter =
       },
       {
         path: 'customer',
-        component: () => import('@/views/demo/customerManagement/customer'),
+        component: () => import('@/views/customerManagement/customer'),
         name: 'customer',
         meta: {
           title: '客户',
@@ -31,7 +31,7 @@ const customerRouter =
       },
       {
         path: 'agent',
-        component: () => import('@/views/demo/customerManagement/agent'),
+        component: () => import('@/views/customerManagement/agent'),
         name: 'agent',
         meta: {
           title: '代理人',

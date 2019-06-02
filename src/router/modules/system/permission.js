@@ -11,7 +11,7 @@ const permissionRouter = {
   children: [
     {
       path: 'group ',
-      component: () => import('@/views/demo/system/permission/group'),
+      component: () => import('@/views/system/permission/group'),
       name: 'group',
       meta: {
         title: '机构信息管理',
@@ -20,7 +20,7 @@ const permissionRouter = {
     },
     {
       path: 'user ',
-      component: () => import('@/views/demo/system/permission/user'),
+      component: () => import('@/views/system/permission/user'),
       name: 'user',
       meta: {
         title: '用户管理',
@@ -29,7 +29,7 @@ const permissionRouter = {
     },
     {
       path: 'rule ',
-      component: () => import('@/views/demo/system/permission/rule'),
+      component: () => import('@/views/system/permission/rule'),
       name: 'rule',
       meta: {
         title: '角色管理',
@@ -38,7 +38,7 @@ const permissionRouter = {
     },
     {
       path: 'menu ',
-      component: () => import('@/views/demo/system/permission/menu'),
+      component: () => import('@/views/system/permission/menu'),
       name: 'menu',
       meta: {
         title: '菜单管理',
@@ -47,7 +47,7 @@ const permissionRouter = {
     },
     {
       path: 'resource ',
-      component: () => import('@/views/demo/system/permission/resource'),
+      component: () => import('@/views/system/permission/resource'),
       name: 'resource',
       meta: {
         title: '资源管理',

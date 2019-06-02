@@ -12,7 +12,7 @@ const businessRouter = {
   children: [
     {
       path: 'registration ',
-      component: () => import('@/views/demo/business/registration'),
+      component: () => import('@/views/business/registration'),
       name: 'registration',
       meta: {
         title: '服务单登记',
@@ -21,7 +21,7 @@ const businessRouter = {
     },
     {
       path: 'management ',
-      component: () => import('@/views/demo/business/management'),
+      component: () => import('@/views/business/management'),
       name: 'management',
       meta: {
         title: '服务单管理',
@@ -30,7 +30,7 @@ const businessRouter = {
     },
     {
       path: 'setDetails ',
-      component: () => import('@/views/demo/business/setDetails'),
+      component: () => import('@/views/business/setDetails'),
       name: 'setDetails',
       meta: {
         title: '服务项目明细设置',
@@ -39,7 +39,7 @@ const businessRouter = {
     },
     {
       path: 'transferal ',
-      component: () => import('@/views/demo/business/transferal'),
+      component: () => import('@/views/business/transferal'),
       name: 'transferal',
       meta: {
         title: '转办单管理(业务管理岗)',

@@ -11,7 +11,7 @@ const baseRouter = {
   children: [
     {
       path: 'dictionary ',
-      component: () => import('@/views/demo/system/base/dictionary'),
+      component: () => import('@/views/system/base/dictionary'),
       name: 'dictionary',
       meta: {
         title: '数据字典',
@@ -20,19 +20,10 @@ const baseRouter = {
     },
     {
       path: 'workdays ',
-      component: () => import('@/views/demo/system/base/workdays'),
+      component: () => import('@/views/system/base/workdays'),
       name: 'workdays',
       meta: {
         title: '工作日设置',
-        roles: ['admin']
-      }
-    },
-    {
-      path: 'businessType ',
-      component: () => import('@/views/demo/system/base/businessType'),
-      name: 'businessType',
-      meta: {
-        title: '业务类型设置',
         roles: ['admin']
       }
     }

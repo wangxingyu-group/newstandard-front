@@ -13,7 +13,7 @@ const chartRouter =
     children: [
       {
         path: 'chart1',
-        component: () => import('@/views/demo/chart/chart1'),
+        component: () => import('@/views/chart/chart1'),
         name: 'chart1',
         meta: {
           title: '保监服务指标',
@@ -22,7 +22,7 @@ const chartRouter =
       },
       {
         path: 'chart2',
-        component: () => import('@/views/demo/chart/chart2'),
+        component: () => import('@/views/chart/chart2'),
         name: 'chart2',
         meta: {
           title: '服务单统计表',
@@ -31,7 +31,7 @@ const chartRouter =
       },
       {
         path: 'chart3',
-        component: () => import('@/views/demo/chart/chart3'),
+        component: () => import('@/views/chart/chart3'),
         name: 'chart3',
         meta: {
           title: '短信发送统计',
@@ -40,7 +40,7 @@ const chartRouter =
       },
       {
         path: 'chart4',
-        component: () => import('@/views/demo/chart/chart4'),
+        component: () => import('@/views/chart/chart4'),
         name: 'chart4',
         meta: {
           title: '质检统计报表',
