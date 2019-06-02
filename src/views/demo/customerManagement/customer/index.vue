@@ -1,65 +1,87 @@
 <template>
   <div class="app-container">
-    <div class="filter-container">
-      <el-row class="clearfix">
-        证件号<el-input v-model="listQuery.idNo" placeholder="证件号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        姓名<el-input v-model="listQuery.name" placeholder="姓名" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        保单号<el-input v-model="listQuery.callInNo" placeholder="保单号" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-        保单角色<el-input v-model="listQuery.customerType" placeholder="保单角色" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      </el-row>
-      <el-row>
-        <el-col :span="24">
-          <div class="fr">
-            <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
-            <el-button type="info" size="small">清空</el-button>
-            <el-button type="danger" size="small" @click="handleBatchDelete">客户合并</el-button>
+    <el-row>
+      <el-col :span="24">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
+              <el-row>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="证件号">
+                    <el-input v-model="listQuery.idNo" placeholder="证件号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="姓名">
+                    <el-input v-model="listQuery.name" placeholder="姓名" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="保单号">
+                    <el-input v-model="listQuery.callInNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="保单角色">
+                    <el-input v-model="listQuery.customerType" placeholder="保单角色" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                <el-col :span="24">
+                  <div class="fr">
+                    <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
+                    <el-button type="info" size="small">清空</el-button>
+                    <el-button type="danger" size="small" @click="handleBatchDelete">客户合并</el-button>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-form>
           </div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
-      <el-table-column type="selection" width="55" />
-      <el-table-column label="客户编号" prop="id" sortable="custom" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
-      </el-table-column>
-      <el-table-column label="姓名" align="center" width="100">
-        <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
-      </el-table-column>
-      <el-table-column label="性别" align="center" width="80">
-        <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
-      </el-table-column>
-      <el-table-column label="手机号" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
-      </el-table-column>
-      <el-table-column label="身份证号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
-      </el-table-column>
-      <el-table-column label="座机号" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
-      </el-table-column>
-      <el-table-column label="客户身份" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
-      </el-table-column>
-      <el-table-column label="备注信息" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
-      </el-table-column>
-      <el-table-column label="操作" align="center" fixed="right" width="240">
-        <template slot-scope="{row}">
-          <el-button type="primary" size="mini " @click="confirmCustomer(row)">
-            确认客户
-          </el-button>
-          <el-button type="primary" size="mini" @click="handleUpdate(row)">
-            详情
-          </el-button>
-          <el-button type="danger" size="mini" @click="handleDelete(row)">
-            删除
-          </el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+            <el-table-column type="selection" width="55" />
+            <el-table-column label="客户编号" prop="id" sortable="custom" align="center" width="150">
+              <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
+            </el-table-column>
+            <el-table-column label="姓名" align="center" width="100">
+              <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+            </el-table-column>
+            <el-table-column label="性别" align="center" width="80">
+              <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
+            </el-table-column>
+            <el-table-column label="手机号" align="center" width="150">
+              <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
+            </el-table-column>
+            <el-table-column label="身份证号" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
+            </el-table-column>
+            <el-table-column label="座机号" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
+            </el-table-column>
+            <el-table-column label="客户身份" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
+            </el-table-column>
+            <el-table-column label="备注信息" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" fixed="right" width="240">
+              <template slot-scope="{row}">
+                <el-button type="primary" size="mini " @click="confirmCustomer(row)">
+                  确认客户
+                </el-button>
+                <el-button type="primary" size="mini" @click="handleUpdate(row)">
+                  详情
+                </el-button>
+                <el-button type="danger" size="mini" @click="handleDelete(row)">
+                  删除
+                </el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+        </el-card>
+      </el-col>
+    </el-row>
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 500px; margin-left:100px;">
@@ -99,8 +121,8 @@
 
 <script>
 import { createCustomer, fetchList, updateCustomer } from '@/api/demo/customer/customer'
-import Pagination from '@/components/Pagination' // secondary package based on el-pagination
-
+import Pagination from '@/components/Pagination'
+import { mapState } from 'vuex'
 export default {
   name: 'Customer',
   components: { Pagination },
@@ -137,6 +159,14 @@ export default {
         idNo: [{ required: true, message: '必填项', trigger: 'change' }]
       }
     }
+  },
+  computed: {
+    ...mapState({
+      searchRow1: state => state.commonData.searchRow1,
+      searchRow2: state => state.commonData.searchRow2,
+      searchRow3: state => state.commonData.searchRow3,
+      searchRow4: state => state.commonData.searchRow4
+    })
   },
   created() {
     this.getList()
