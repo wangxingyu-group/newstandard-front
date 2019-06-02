@@ -19,6 +19,7 @@ import queryQualityAssurance from './demo/quality/queryQualityAssurance/queryQua
 import voiceToText from './demo/quality/voiceToText/voiceToText' // 语音转文本
 import history from './messageManagement/history' // 已发送短信
 import personalInsurance from './integratedQuery/personalInsurance' // 个人保单查询
+import messageTemplate from './messageManagement/messageTemplate' // 短信模板
 const mocks = [
   ...user,
   ...role,
@@ -38,7 +39,8 @@ const mocks = [
   ...queryQualityAssurance,
   ...voiceToText,
   ...history,
-  ...personalInsurance
+  ...personalInsurance,
+  ...messageTemplate
 ]
 
 // for front mock
