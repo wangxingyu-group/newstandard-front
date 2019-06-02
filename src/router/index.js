@@ -11,7 +11,11 @@ import systemRouter from './modules/system/system'
 
 import messageManagementRouter from './modules/messageManagement'
 import intelligentQuestionsRouter from './modules/intelligentQuestions'
-
+import newReVisitRouter from './modules/newReVisit'
+import claimsRevisitRouter from './modules/claimsRevisit'
+import underwritingRevisitRouter from './modules/underwritingRevisit'
+import customerServiceRevisitRouter from './modules/customerServiceRevisit'
+import otherRevisitRouter from './modules/otherRevisit'
 Vue.use(Router)
 
 // 静态路由
@@ -71,10 +75,13 @@ export const asyncRoutes = [
   qualityAssuranceManagementRouter,
   chartRouter,
   systemRouter,
-
   messageManagementRouter,
   intelligentQuestionsRouter,
-
+  newReVisitRouter,
+  claimsRevisitRouter,
+  underwritingRevisitRouter,
+  customerServiceRevisitRouter,
+  otherRevisitRouter,
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
 ]
