@@ -14,24 +14,16 @@
               <renewal-info :contract-no="contractNo" />
             </el-tab-pane>
             <el-tab-pane :key="tabs.customerService.key" :name="tabs.customerService.name" :label="tabs.customerService.label">
-              <el-scrollbar ref="scrollbar" wrap-class="scrollbar-wrapper">
-                <div class="fit-height-200">{{ tabs.customerService.label }}</div>
-              </el-scrollbar>
+              <customer-service :contract-no="contractNo" />
             </el-tab-pane>
             <el-tab-pane :key="tabs.claimsInfo.key" :name="tabs.claimsInfo.name" :label="tabs.claimsInfo.label">
-              <el-scrollbar ref="scrollbar" wrap-class="scrollbar-wrapper">
-                <div class="fit-height-200">{{ tabs.claimsInfo.label }}</div>
-              </el-scrollbar>
+              <claims-info :contract-no="contractNo" />
             </el-tab-pane>
             <el-tab-pane :key="tabs.accountInfo.key" :name="tabs.accountInfo.name" :label="tabs.accountInfo.label">
-              <el-scrollbar ref="scrollbar" wrap-class="scrollbar-wrapper">
-                <div class="fit-height-200">{{ tabs.accountInfo.label }}</div>
-              </el-scrollbar>
+              <account-info :contract-no="contractNo" />
             </el-tab-pane>
             <el-tab-pane :key="tabs.bonusInfo.key" :name="tabs.bonusInfo.name" :label="tabs.bonusInfo.label">
-              <el-scrollbar ref="scrollbar" wrap-class="scrollbar-wrapper">
-                <div class="fit-height-200">{{ tabs.bonusInfo.label }}</div>
-              </el-scrollbar>
+              <bonus-info :contract-no="contractNo" />
             </el-tab-pane>
           </el-tabs>
         </el-card>
@@ -48,6 +40,7 @@ import CustomerService from './customerService.vue'
 import ClaimsInfo from './claimsInfo.vue'
 import AccountInfo from './accountInfo.vue'
 import BonusInfo from './bonusInfo.vue'
+
 export default {
   name: 'PersonalInsuranceDetails',
   components: {

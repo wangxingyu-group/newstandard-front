@@ -60,6 +60,10 @@
   height: calc(100vh - 200px)
 }
 
+.fit-height-104 {
+  height: calc(100vh - 104px)
+}
+
 /*webkit内核自定义滚动条样式*/
 ::-webkit-scrollbar {
   width: 6px;
