@@ -7,22 +7,24 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-select slot="prepend" v-model="select" placeholder="规则名称选择" style="margin-bottom: 10px;vertical-align:middle;display: inline-block;">
-                    <el-option
-                      v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.label"
-                    />
-                  </el-select>
+                  <!--<el-form-item label="规则名称选择">-->
+                  <!--<el-select slot="prepend" v-model="select" placeholder="规则名称选择" style="margin-bottom: 10px;vertical-align:middle;display: inline-block;">-->
+                  <!--<el-option-->
+                  <!--v-for="item in options"-->
+                  <!--:key="item.value"-->
+                  <!--:label="item.label"-->
+                  <!--:value="item.label"-->
+                  <!--/>-->
+                  <!--</el-select>-->
+                  <!--</el-form-item>-->
 
                   <el-form-item label="规则名称选择">
                     <el-select v-model="select" style="width:100%;min-width:135px" placeholder="规则名称选择">
                       <el-option label="1--语感" value="shanghai" />
                       <el-option label="2--音量" value="shanghai" />
                       <el-option label="3--服务感受" value="shanghai" />
-                      <el-option label="3--重大失误" value="shanghai" />
-                      <el-option label="3--业务解答" value="shanghai" />
+                      <el-option label="4--重大失误" value="shanghai" />
+                      <el-option label="5--业务解答" value="shanghai" />
                     </el-select>
                   </el-form-item>
                 </el-col>
