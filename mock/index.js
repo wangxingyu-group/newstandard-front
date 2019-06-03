@@ -21,6 +21,8 @@ import history from './messageManagement/history' // 已发送短信
 import personalInsurance from './integratedQuery/personalInsurance' // 个人保单查询
 import messageTemplate from './messageManagement/messageTemplate' // 短信模板
 import riskSettings from './intelligentQuestions/riskSettings' // 短信模板
+import dictionary from './demo/system/base/dictionary/dictionary' // 数据字典
+import dictionary_detail from './demo/system/base/dictionary/dictionary_detail' // 数据字典详细数据
 const mocks = [
   ...user,
   ...role,
@@ -42,7 +44,9 @@ const mocks = [
   ...history,
   ...personalInsurance,
   ...messageTemplate,
-  ...riskSettings
+  ...riskSettings,
+  ...dictionary,
+  ...dictionary_detail
 ]
 
 // for front mock

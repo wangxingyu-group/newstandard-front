@@ -39,11 +39,11 @@ const intelligentQuestionsRouter =
         }
       },
       {
-        path: 'productSettings',
-        component: () => import('@/views/intelligentQuestions/productSettings'),
-        name: 'productSettings',
+        path: 'FAQSettings',
+        component: () => import('@/views/intelligentQuestions/FAQSettings'),
+        name: 'FAQSettings',
         meta: {
-          title: '产品设置',
+          title: '常见问题配置',
           roles: ['admin']
         }
       }
