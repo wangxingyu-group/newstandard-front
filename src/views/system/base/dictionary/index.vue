@@ -1,51 +1,56 @@
 <template>
   <div class="app-container">
-    <div class="filter-container">
-      <el-card>
-        <div slot="header" class="clearfix">
-          <i class="el-icon-search">查询条件</i>
-        </div>
-        <el-row>
-          <el-input v-model="listQuery.name" placeholder="字典类型" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-          <el-input v-model="listQuery.type" placeholder="字典类型名称" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-          <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-            查询
-          </el-button>
-          <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-circle-plus-outline" @click="handleCreate">
-            添加
-          </el-button>
-          <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-delete" @click="handleBatchDelete">
-            批量删除
-          </el-button>
-        </el-row>
-      </el-card>
-    </div>
-    <el-card>
-      <div slot="header" class="clearfix">
-        <i class="el-icon-video-camera-solid">查询结果</i>
-      </div>
-      <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
-        <el-table-column type="selection" width="55" />
-        <el-table-column label="字典类型" align="center" width="150">
-          <template slot-scope="scope"><span>{{ scope.row.dictionaryType }}</span></template>
-        </el-table-column>
-        <el-table-column label="字典类型名称" align="center" width="200">
-          <template slot-scope="scope"><span>{{ scope.row.dictionaryName }}</span></template>
-        </el-table-column>
-        <el-table-column label="备注信息" align="center" width="350">
-          <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
-        </el-table-column>
-        <el-table-column label="操作" align="center" width="300">
-          <template slot-scope="{row}">
-            <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
-            <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
-            <el-button type="primary" size="mini" @click="handleConfig(row)">字典配置</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-card>
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
-
+    <el-row>
+      <el-col :span="24">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
+              <el-row>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="字典类型">
+                    <el-input v-model="listQuery.type" placeholder="字典类型" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="字典类型名称">
+                    <el-input v-model="listQuery.name" placeholder="字典类型名称" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                <el-col :span="24">
+                  <div class="fr">
+                    <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
+                    <el-button type="success" size="small" @click="handleCreate">新建</el-button>
+                    <el-button type="danger" size="small" @click="handleBatchDelete">批量删除</el-button>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-form>
+          </div>
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
+            <el-table-column type="selection" width="55" />
+            <el-table-column label="字典类型" align="center" width="150">
+              <template slot-scope="scope"><span>{{ scope.row.dictionaryType }}</span></template>
+            </el-table-column>
+            <el-table-column label="字典类型名称" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.dictionaryName }}</span></template>
+            </el-table-column>
+            <el-table-column label="备注信息" align="center" width="350">
+              <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" width="300">
+              <template slot-scope="{row}">
+                <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
+                <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
+                <el-button type="primary" size="mini" @click="handleConfig(row)">字典配置</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+        </el-card>
+      </el-col>
+    </el-row>
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="120px" style="width: 500px; margin-left:80px;">
         <el-form-item label="编号" prop="id">
@@ -81,7 +86,7 @@
           <el-button class="filter-item" type="primary" icon="el-icon-circle-plus-outline" @click="handleDetailCreate">新增</el-button>
         </el-row>
       </el-card>
-      <el-table ref="detailDataForm" :key="tableKey" v-loading="listLoading" :data="detailList" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+      <el-table :key="tableKey" v-loading="listLoading" :data="detailList" :height="searchRow1" style="min-height: 300px;" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
         <el-table-column type="selection" width="55" />
         <el-table-column label="字典类型" align="center" width="100">
           <template slot-scope="scope"><span>{{ scope.row.dictionaryType }}</span></template>
@@ -102,7 +107,7 @@
           </template>
         </el-table-column>
       </el-table>
-      <pagination v-show="total>0" :total="total" :page.sync="detailListQuery.page" :limit.sync="detailListQuery.limit" @pagination="getDetailList" />
+      <pagination v-show="detailTotal>0" :total="detailTotal" :page.sync="detailListQuery.page" :limit.sync="detailListQuery.limit" @pagination="getDetailList" />
       <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogDetailInner" append-to-body>
         <el-form ref="dataForm2" :rules="rules" :model="temp" label-position="left" label-width="120px" style="width: 500px; margin-left:80px;">
           <el-form-item label="字典类型" prop="dictionaryType">
@@ -140,6 +145,7 @@
 <script>
 import { createDictionary, fetchList, updateDictionary, fetchDictionary } from '@/api/demo/system/base/dictionary/dictionary'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
+import { mapState } from 'vuex'
 
 export default {
   name: 'Dictionary',
@@ -201,6 +207,14 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState({
+      searchRow1: state => state.commonData.searchRow1,
+      searchRow2: state => state.commonData.searchRow2,
+      searchRow3: state => state.commonData.searchRow3,
+      searchRow4: state => state.commonData.searchRow4
+    })
+  },
   created() {
     this.getList()
   },
@@ -209,7 +223,7 @@ export default {
       this.listLoading = true
       fetchList(this.listQuery).then(response => {
         this.list = response.data.items
-        this.detailTotal = response.data.total
+        this.total = response.data.total
         // 模拟延迟
         setTimeout(() => {
           this.listLoading = false
@@ -220,7 +234,7 @@ export default {
       this.listLoading = true
       fetchDictionary(this.listQuery).then(response => {
         this.detailList = response.data.items
-        this.total = response.data.total
+        this.detailTotal = response.data.total
         // 模拟延迟
         setTimeout(() => {
           this.listLoading = false
@@ -437,29 +451,6 @@ export default {
 </script>
 
 <style>
-  .el-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 8px 0;
-    background-color: #f9fafc;
-  }
-  .clearfix{
-    height:5px;
-  }
   .customWidth{
     width: 1000px;
     height: 580px;
