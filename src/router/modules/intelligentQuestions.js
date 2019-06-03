@@ -30,9 +30,9 @@ const intelligentQuestionsRouter =
         }
       },
       {
-        path: 'categoriesSettings',
-        component: () => import('@/views/intelligentQuestions/categoriesSettings'),
-        name: 'categoriesSettings',
+        path: 'riskSettings',
+        component: () => import('@/views/intelligentQuestions/riskSettings'),
+        name: 'riskSettings',
         meta: {
           title: '险种设置',
           roles: ['admin']

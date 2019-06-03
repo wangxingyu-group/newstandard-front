@@ -20,6 +20,7 @@ import voiceToText from './demo/quality/voiceToText/voiceToText' // 语音转文
 import history from './messageManagement/history' // 已发送短信
 import personalInsurance from './integratedQuery/personalInsurance' // 个人保单查询
 import messageTemplate from './messageManagement/messageTemplate' // 短信模板
+import riskSettings from './intelligentQuestions/riskSettings' // 短信模板
 const mocks = [
   ...user,
   ...role,
@@ -40,7 +41,8 @@ const mocks = [
   ...voiceToText,
   ...history,
   ...personalInsurance,
-  ...messageTemplate
+  ...messageTemplate,
+  ...riskSettings
 ]
 
 // for front mock

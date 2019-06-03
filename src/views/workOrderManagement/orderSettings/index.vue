@@ -129,7 +129,6 @@ export default {
         setTimeout(() => {
           this.listLoading = false
           this.$refs.treeScrollbar.update()
-          this.$refs.tableScrollbar.update()
         }, 0)
       })
     },
