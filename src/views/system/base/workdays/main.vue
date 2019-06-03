@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import calendar from './calendar'
+import calendar from './index'
 export default {
   components: { calendar },
   data() {

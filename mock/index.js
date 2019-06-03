@@ -23,6 +23,8 @@ import messageTemplate from './messageManagement/messageTemplate' // 短信模�
 import riskSettings from './intelligentQuestions/riskSettings' // 短信模板
 import dictionary from './demo/system/base/dictionary/dictionary' // 数据字典
 import dictionary_detail from './demo/system/base/dictionary/dictionary_detail' // 数据字典详细数据
+import holiday from './demo/system/base/holiday/holiday' // 工作日设置
+import underwritingOutTask from './demo/underwritingRevisit/underwritingOutTask/underwritingOutTask'
 const mocks = [
   ...user,
   ...role,
@@ -46,7 +48,9 @@ const mocks = [
   ...messageTemplate,
   ...riskSettings,
   ...dictionary,
-  ...dictionary_detail
+  ...dictionary_detail,
+  ...holiday,
+  ...underwritingOutTask
 ]
 
 // for front mock

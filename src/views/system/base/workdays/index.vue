@@ -9,13 +9,14 @@
       @event-selected="eventClick"
       @day-click="dayClick"
     />
-    <add-schedule v-if="isAdd" :is-add="isAdd" :edit-item="editItem" @add="addItem" @close="isAdd = false" />
+    <add-schedule v-if="isAdd" :is-add="isAdd" :edit-item="editItem" :delete-event="deleteEvent" @add="addItem" @close="isAdd = false" />
   </div>
 </template>
 <script>
 import { FullCalendar } from 'vue-full-calendar'
 import 'fullcalendar/dist/fullcalendar.css'
 import addSchedule from './add.vue'
+import { fetchList } from '@/api/demo/system/base/holiday/holiday'
 export default {
   name: 'Holiday',
   components: { FullCalendar, addSchedule },
@@ -29,7 +30,7 @@ export default {
         locale: 'zh-cn', // 语言
         defaultView: 'month', // 默认按月显示
         height: 'auto', // 高度
-        fixedWeekCount: false, // 是否固定显示六周
+        fixedWeekCount: true, // 是否固定显示六周
         // weekMode:"liquid",//周数不定，每周的高度可变，整个日历高度不变
         allDaySlot: false,
         // allDay:true,
@@ -42,18 +43,32 @@ export default {
       events: [{
         id: 1,
         title: '出差',
+        flag: '节假日',
         start: '2019-06-03',
         end: '2019-06-05'
       }, {
         id: 2,
         title: '春游',
+        flag: '节假日',
         start: '2019-06-12'
       }],
       newItem: {},
       editItem: {}
     }
   },
+  created() {
+    this.getList()
+  },
   methods: {
+    getList() {
+      fetchList(this.listQuery).then(response => {
+        this.events = response.data.items
+        // 模拟延迟
+        setTimeout(() => {
+          this.listLoading = false
+        }, 0.5 * 1000)
+      })
+    },
     changeDate() {
       // this.$refs.calendar.fireMethod('gotoDate', this.selectDate)
       this.$refs.calendar.fireMethod('prev')
@@ -91,6 +106,23 @@ export default {
       s[8] = s[13] = s[18] = s[23]
       var uuid = s.join('')
       return uuid
+    },
+    deleteEvent(Array) {
+      this.$confirm('确认删除选中的记录?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.events.forEach((el, ind) => {
+          if (el.id === Array) {
+            this.events.splice(ind, 1)
+          }
+        })
+        this.$message({
+          message: '操作成功',
+          type: 'success'
+        })
+      })
     }
 
   }
