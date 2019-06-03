@@ -7,15 +7,23 @@
             <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="模板名称">
-                    <el-input v-model="queryForm.modelName" placeholder="请输入" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="险种编码">
+                    <el-input placeholder="险种编码" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="创建时间">
-                    <el-col :span="11">
-                      <el-date-picker v-model="queryForm.from" type="date" placeholder="---选择日期---" style="width: 100%;" />
-                    </el-col>
+                  <el-form-item label="险种名称">
+                    <el-input placeholder="险种名称" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="险种类型">
+                    <el-select v-model="queryForm.status" style="width:100%;" placeholder="---请选择---">
+                      <el-option label="传统险" value="传统险" />
+                      <el-option label="投连险" value="投连险" />
+                      <el-option label="分红险" value="分红险" />
+                      <el-option label="万能险" value="万能险" />
+                    </el-select>
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -24,8 +32,6 @@
                   <div class="fr">
                     <el-button type="primary" size="small" @click="getList">查询</el-button>
                     <el-button type="info" size="small" @click="resetQuery">清空</el-button>
-                    <el-button type="success" size="small" @click="handleCreate">新建</el-button>
-                    <el-button type="danger" size="small" @click="handleBatchDelete">批量删除</el-button>
                   </div>
                 </el-col>
               </el-row>
@@ -33,50 +39,47 @@
           </div>
           <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow1" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="模板名称" align="center" width="100">
+            <el-table-column label="险种编码" align="center" width="100">
               <template slot-scope="scope">
-                <span>{{ scope.row.modelName }}</span>
+                <span>{{ scope.row.riskCode }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="模板内容" align="center" min-width="500">
+            <el-table-column label="险种名称" align="center" min-width="100">
               <template slot-scope="scope">
-                <span>{{ scope.row.description }}</span>
+                <span>{{ scope.row.riskName }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="创建人" align="center" min-width="100">
+            <el-table-column label="开始时间" align="center" width="200">
               <template slot-scope="scope">
-                <span>{{ scope.row.cName }}</span>
+                <span>{{ scope.row.startTime }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="创建时间" align="center" width="150">
+            <el-table-column label="结束时间" align="center" width="200">
               <template slot-scope="scope">
-                <span>{{ scope.row.timestamp }}</span>
+                <span>{{ scope.row.endTime }}</span>
               </template>
             </el-table-column>
             <el-table-column label="操作" align="center" width="150">
               <template slot-scope="{row}">
-                <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
-                <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
+                <el-button type="primary" size="mini" @click="handleUpdate(row)">配置问卷</el-button>
               </template>
             </el-table-column>
           </el-table>
           <pagination v-show="total>0" :total="total" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getList" />
         </el-card>
-
       </el-col>
     </el-row>
 
-    <el-dialog :title="dialogTitleMap[dialogStatus]" :visible.sync="dialogFormVisible">
+    <el-dialog title="配置问卷" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 500px; margin-left:100px;">
-        <el-form-item label="模板名称" prop="type">
-          <el-select v-model="temp.modelName" placeholder="---请选择---">
-            <el-option label="道歉短信" value="道歉短信" />
-            <el-option label="祝福短信" value="祝福短信" />
-            <el-option label="提醒短信" value="提醒短信" />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="模板内容" prop="description">
+        <el-form-item label="险种编码" prop="description">
           <el-input v-model="temp.description" />
+        </el-form-item>
+        <el-form-item label="问卷类型" prop="status">
+          <el-select v-model="temp.status" placeholder="---请选择---">
+            <el-option label="公共回访问卷" value="effective" />
+            <el-option label="理赔外呼问卷" value="noneffective" />
+          </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -88,7 +91,7 @@
 </template>
 
 <script>
-import { create, fetchList, update } from '@/api/messageManagement/messageTemplate'
+import { create, fetchList, update } from '@/api/intelligentQuestions/riskSettings'
 import Pagination from '@/components/Pagination'
 import { mapGetters, mapState } from 'vuex'
 
@@ -98,7 +101,7 @@ export default {
   data() {
     return {
       queryForm: {
-        modelName: undefined,
+        status: null,
         from: null,
         to: null,
         page: 1,
@@ -115,10 +118,10 @@ export default {
       },
       temp: {
         id: null,
-        type: '选择题',
-        description: null,
-        status: 'effective',
-        createTime: null
+        riskCode: null,
+        riskName: '投连险',
+        startTime: null,
+        endTime: null
       },
       rules: {
         description: [{ required: true, message: '必填项', trigger: 'blur' }]
@@ -154,8 +157,9 @@ export default {
       })
     },
     resetQuery() {
-      this.queryForm.modelName = null
+      this.queryForm.status = 'effective'
       this.queryForm.from = null
+      this.queryForm.to = null
     },
     resetTemp() {
       this.temp = {
@@ -189,8 +193,7 @@ export default {
           if (strDate >= 0 && strDate <= 9) {
             strDate = '0' + strDate
           }
-          this.temp.timestamp = year + seperator + month + seperator + strDate
-          this.temp.cName = '张三'
+          this.temp.createTime = year + seperator + month + seperator + strDate
           create(this.temp).then(() => {
             this.tableData.unshift(this.temp)
             this.dialogFormVisible = false

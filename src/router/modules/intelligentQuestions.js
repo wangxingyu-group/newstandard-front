@@ -30,20 +30,20 @@ const intelligentQuestionsRouter =
         }
       },
       {
-        path: 'categoriesSettings',
-        component: () => import('@/views/intelligentQuestions/categoriesSettings'),
-        name: 'categoriesSettings',
+        path: 'riskSettings',
+        component: () => import('@/views/intelligentQuestions/riskSettings'),
+        name: 'riskSettings',
         meta: {
           title: '险种设置',
           roles: ['admin']
         }
       },
       {
-        path: 'productSettings',
-        component: () => import('@/views/intelligentQuestions/productSettings'),
-        name: 'productSettings',
+        path: 'FAQSettings',
+        component: () => import('@/views/intelligentQuestions/FAQSettings'),
+        name: 'FAQSettings',
         meta: {
-          title: '产品设置',
+          title: '常见问题配置',
           roles: ['admin']
         }
       }

@@ -30,9 +30,9 @@ const customerServiceRevisitRouter =
         }
       },
       {
-        path: 'question',
-        component: () => import('@/views/customerServiceRevisit/question'),
-        name: 'question',
+        path: 'customerServiceQuestion',
+        component: () => import('@/views/customerServiceRevisit/customerServiceQuestion'),
+        name: 'customerServiceQuestion',
         meta: {
           title: '问题管理',
           roles: ['admin']
