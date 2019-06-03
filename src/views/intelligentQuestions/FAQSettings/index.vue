@@ -7,15 +7,33 @@
             <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="模板名称">
-                    <el-input v-model="queryForm.modelName" placeholder="请输入" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="问题编码">
+                    <el-input v-model="queryForm.title" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="创建时间">
-                    <el-col :span="11">
-                      <el-date-picker v-model="queryForm.from" type="date" placeholder="---选择日期---" style="width: 100%;" />
-                    </el-col>
+                  <el-form-item label="问题名称">
+                    <el-input v-model="queryForm.title" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="标识">
+                    <el-input v-model="queryForm.title" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="问题内容">
+                    <el-input v-model="queryForm.title" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="问卷编码">
+                    <el-input v-model="queryForm.title" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="试题编码">
+                    <el-input v-model="queryForm.title" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -31,29 +49,34 @@
               </el-row>
             </el-form>
           </div>
-          <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow1" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
+          <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow2" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="模板名称" align="center" width="100">
+            <el-table-column label="问题名称" align="center" min-width="100">
               <template slot-scope="scope">
-                <span>{{ scope.row.modelName }}</span>
+                <span>{{ scope.row.questionName }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="模板内容" align="center" min-width="500">
+            <el-table-column label="标识" align="center" min-width="100">
               <template slot-scope="scope">
-                <span>{{ scope.row.description }}</span>
+                <span>{{ scope.row.sign }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="创建人" align="center" min-width="100">
+            <el-table-column label="问题内容" align="center" min-width="100">
               <template slot-scope="scope">
-                <span>{{ scope.row.cName }}</span>
+                <span>{{ scope.row.questionContent }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="创建时间" align="center" width="150">
+            <el-table-column label="问卷编码" align="center" min-width="100">
               <template slot-scope="scope">
-                <span>{{ scope.row.timestamp }}</span>
+                <span>{{ scope.row.questionnaireCode }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" width="150">
+            <el-table-column label="试题编码" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.examCode }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" min-width="150">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
@@ -68,15 +91,19 @@
 
     <el-dialog :title="dialogTitleMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 500px; margin-left:100px;">
-        <el-form-item label="模板名称" prop="type">
-          <el-select v-model="temp.modelName" placeholder="---请选择---">
-            <el-option label="道歉短信" value="道歉短信" />
-            <el-option label="祝福短信" value="祝福短信" />
-            <el-option label="提醒短信" value="提醒短信" />
+        <el-form-item label="问题类型" prop="type">
+          <el-select v-model="temp.type" placeholder="---请选择---">
+            <el-option label="选择题" value="选择题" />
           </el-select>
         </el-form-item>
-        <el-form-item label="模板内容" prop="description">
+        <el-form-item label="问题描述" prop="description">
           <el-input v-model="temp.description" />
+        </el-form-item>
+        <el-form-item label="状态" prop="status">
+          <el-select v-model="temp.status" placeholder="---请选择---">
+            <el-option label="有效" value="effective" />
+            <el-option label="无效" value="noneffective" />
+          </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -88,7 +115,7 @@
 </template>
 
 <script>
-import { create, fetchList, update } from '@/api/messageManagement/messageTemplate'
+import { create, fetchList, update } from '@/api/intelligentQuestions/question'
 import Pagination from '@/components/Pagination'
 import { mapGetters, mapState } from 'vuex'
 
@@ -98,15 +125,24 @@ export default {
   data() {
     return {
       queryForm: {
-        modelName: undefined,
+        status: 'effective',
         from: null,
         to: null,
         page: 1,
         limit: 10
       },
-      tableLoading: true,
-      tableData: null,
-      total: 0,
+      tableLoading: false,
+      tableData: [
+        {
+          id: null,
+          questionName: '11111',
+          sign: '有效',
+          questionContent: '核实客户是否为本人？',
+          questionnaireCode: '1234',
+          examCode: '123'
+        }
+      ],
+      total: 1,
       dialogFormVisible: false,
       dialogStatus: '',
       dialogTitleMap: {
@@ -139,7 +175,7 @@ export default {
     })
   },
   created() {
-    this.getList()
+    // this.getList()
   },
   methods: {
     getList() {
@@ -154,8 +190,9 @@ export default {
       })
     },
     resetQuery() {
-      this.queryForm.modelName = null
+      this.queryForm.status = 'effective'
       this.queryForm.from = null
+      this.queryForm.to = null
     },
     resetTemp() {
       this.temp = {
@@ -189,8 +226,7 @@ export default {
           if (strDate >= 0 && strDate <= 9) {
             strDate = '0' + strDate
           }
-          this.temp.timestamp = year + seperator + month + seperator + strDate
-          this.temp.cName = '张三'
+          this.temp.createTime = year + seperator + month + seperator + strDate
           create(this.temp).then(() => {
             this.tableData.unshift(this.temp)
             this.dialogFormVisible = false

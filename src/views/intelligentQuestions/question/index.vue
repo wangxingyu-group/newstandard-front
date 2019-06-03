@@ -161,7 +161,6 @@ export default {
         // 模拟延迟
         setTimeout(() => {
           this.tableLoading = false
-          this.$refs.tableScrollbar.update()
         }, 0.2 * 1000)
       })
     },
