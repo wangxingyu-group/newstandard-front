@@ -12,6 +12,9 @@ for (let i = 0; i < count; i++) {
   listUser.push(Mock.mock({
     id: '@increment',
     'roleType|1':['有效', '冻结', '删除'],
+    'userType|1':['正常', '禁用', '删除'],
+    'roleName|1':['质检员', "销售员", "主管", "经理", "维修人员", "系统管理员"],
+    'menuType|1':['normal', "locked"],
     projectNum: Mock.Random.id(), // 用户编号
     timestamp: Mock.Random.date(),
     mobilephone: /^1[385][1-9]\d{8}/, // 用户手机号码
@@ -26,11 +29,16 @@ for (let i = 0; i < count; i++) {
     pageviews: '@integer(300, 5000)',
     platforms: ['a-platform'],
     type: '选择题',
+    cEmail: '@email',
     'status|1': ['effective', 'noneffective'],
     description: '@ctitle(25, 60)',
+    menuDescription: '@ctitle(2, 5)',
+    englishName: '/[a-z]{2}[A-Z]{2}[0-9]/',
     createTime: '@datetime',
     from: +Mock.Random.date('T'),
     timeUp: '@timeCre',
+    title: '@title',
+    url: '@url("http")',
     'modelName|1': ['道歉短信', "祝福短信", "警告短信"],
     'content|1': ['您刚刚电话咨询的健康投保的链接为：**********************。', '新增短信模板名称及范文内容    ， ，  ， 修改短信模板'],
   }))
