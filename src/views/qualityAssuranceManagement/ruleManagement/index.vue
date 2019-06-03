@@ -1,61 +1,93 @@
 <template>
   <div class="app-container">
-    <div class="filter-container">
-      <el-select slot="prepend" v-model="select" placeholder="规则名称选择" style="margin-bottom: 10px;vertical-align:middle;display: inline-block;">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.label"
-        />
-      </el-select>
-      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-        查询
-      </el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
-        添加
-      </el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" type="danger" icon="el-icon-close" @click="handleBatchDelete">
-        开启/关闭
-      </el-button>
-    </div>
+    <el-row>
+      <el-col :span="24">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
+              <el-row>
+                <el-col :sm="12" :lg="8">
+                  <!--<el-form-item label="规则名称选择">-->
+                  <!--<el-select slot="prepend" v-model="select" placeholder="规则名称选择" style="margin-bottom: 10px;vertical-align:middle;display: inline-block;">-->
+                  <!--<el-option-->
+                  <!--v-for="item in options"-->
+                  <!--:key="item.value"-->
+                  <!--:label="item.label"-->
+                  <!--:value="item.label"-->
+                  <!--/>-->
+                  <!--</el-select>-->
+                  <!--</el-form-item>-->
 
-    <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
-      <el-table-column type="selection" width="55" />
-      <el-table-column label="规则ID" prop="id" sortable="custom" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
-      </el-table-column>
-      <el-table-column label="规则名称" align="center" width="100">
-        <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
-      </el-table-column>
-      <el-table-column label="规则说明" align="center" width="80">
-        <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
-      </el-table-column>
-      <el-table-column label="操作人" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
-      </el-table-column>
-      <el-table-column label="规则类型" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
-      </el-table-column>
-      <el-table-column label="启用状态" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
-      </el-table-column>
-      <el-table-column label="规则内容" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
-      </el-table-column>
-      <el-table-column label="创建日期" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.callInDate }}</span></template>
-      </el-table-column>
-      <el-table-column label="创建时间" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
-      </el-table-column>
-      <el-table-column label="分级" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
-      </el-table-column>
-    </el-table>
+                  <el-form-item label="规则名称选择">
+                    <el-select v-model="select" style="width:100%;min-width:135px" placeholder="规则名称选择">
+                      <el-option label="1--语感" value="shanghai" />
+                      <el-option label="2--音量" value="shanghai" />
+                      <el-option label="3--服务感受" value="shanghai" />
+                      <el-option label="4--重大失误" value="shanghai" />
+                      <el-option label="5--业务解答" value="shanghai" />
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+              </el-row>
 
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+              <el-row>
+                <el-col :span="24">
+                  <div class="fr">
+                    <el-button class="filter-item" size="small" type="primary" icon="el-icon-search" @click="handleFilter">
+                      查询
+                    </el-button>
+                    <el-button class="filter-item" size="small" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
+                      添加
+                    </el-button>
+                    <el-button class="filter-item" size="small" style="margin-left: 10px;" type="danger" icon="el-icon-close" @click="handleBatchDelete">
+                      开启/关闭
+                    </el-button>
+                  </div>
+                </el-col>
+              </el-row>
+
+            </el-form>
+          </div>
+
+          <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+            <el-table-column type="selection" width="55" />
+            <el-table-column label="规则ID" prop="id" sortable="custom" align="center" width="150">
+              <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
+            </el-table-column>
+            <el-table-column label="规则名称" align="center" width="100">
+              <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
+            </el-table-column>
+            <el-table-column label="规则说明" align="center" width="120">
+              <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
+            </el-table-column>
+            <el-table-column label="操作人" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+            </el-table-column>
+            <el-table-column label="规则类型" align="center" width="150">
+              <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
+            </el-table-column>
+            <el-table-column label="启用状态" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
+            </el-table-column>
+            <el-table-column label="规则内容" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
+            </el-table-column>
+            <el-table-column label="创建日期" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.callInDate }}</span></template>
+            </el-table-column>
+            <el-table-column label="创建时间" align="center" class-name="small-padding fixed-width">
+              <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
+            </el-table-column>
+            <el-table-column label="分级" align="center" class-name="small-padding fixed-width">
+              <template slot-scope="scope"><span>{{ scope.row.num }}</span></template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
+
 </template>
 
 <script>
@@ -98,7 +130,7 @@ export default {
         id: undefined,
         name: '',
         gender: 0,
-        IDCard: undefined,
+        idNo: undefined,
         callInNo: '',
         callInTime: '',
         customerType: '准客户',
@@ -144,7 +176,7 @@ export default {
         id: undefined,
         name: '',
         gender: 0,
-        IDCard: undefined,
+        idNo: undefined,
         callInNo: '',
         callInTime: '',
         customerType: '准客户',

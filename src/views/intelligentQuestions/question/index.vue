@@ -2,85 +2,74 @@
   <div class="app-container">
     <el-row>
       <el-col :span="24">
-        <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
-          <el-card>
-            <div slot="header" class="clearfix">
-              <span>查询条件</span>
-            </div>
-            <el-row>
-              <el-col :span="6" :offset="1">
-                <el-form-item label="状态">
-                  <el-select v-model="queryForm.status" style="width:100%;" placeholder="---请选择---">
-                    <el-option label="有效" value="effective" />
-                    <el-option label="无效" value="noneffective" />
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="6" :offset="2">
-                <el-form-item label="创建时间">
-                  <el-col :span="11">
-                    <el-date-picker v-model="queryForm.from" type="date" placeholder="---选择日期---" style="width: 100%;" />
-                  </el-col>
-                  <el-col style="text-align: center" :span="2">-</el-col>
-                  <el-col :span="11">
-                    <el-date-picker v-model="queryForm.to" type="date" placeholder="---选择日期---" style="width: 100%;" />
-                  </el-col>
-                </el-form-item>
-              </el-col>
-              <el-col :span="3" :offset="5" class="fr">
-                <el-button type="info" size="mini" @click ="resetQuery">清空</el-button>
-                <el-button type="primary" size="mini" @click="getList">查询</el-button>
-              </el-col>
-            </el-row>
-          </el-card>
-          <el-card style="margin-top: 10px;">
-            <div slot="header" class="clearfix">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
               <el-row>
-                <el-col :span="6">
-                  <span>查询结果</span>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="状态">
+                    <el-select v-model="queryForm.status" style="width:100%;" placeholder="---请选择---">
+                      <el-option label="有效" value="effective" />
+                      <el-option label="无效" value="noneffective" />
+                    </el-select>
+                  </el-form-item>
                 </el-col>
-                <el-col :span="3" :offset="14" class="fr">
-                  <el-button type="success" size="mini" @click="handleCreate">新建</el-button>
-                  <el-button type="danger" size="mini" @click="handleBatchDelete">批量删除</el-button>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="创建时间">
+                    <el-col :span="11">
+                      <el-date-picker v-model="queryForm.from" type="date" placeholder="---选择日期---" style="width: 100%;" />
+                    </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
+                      <el-date-picker v-model="queryForm.to" type="date" placeholder="---选择日期---" style="width: 100%;" />
+                    </el-col>
+                  </el-form-item>
                 </el-col>
               </el-row>
-            </div>
-            <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
-              <div style="height:calc(100vh - 485px);">
-                <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
-                  <el-table-column type="selection" width="55" />
-                  <el-table-column label="问题类型" align="center" width="100">
-                    <template slot-scope="scope">
-                      <span>{{ scope.row.type }}</span>
-                    </template>
-                  </el-table-column>
-                  <el-table-column label="问题描述" align="center">
-                    <template slot-scope="scope">
-                      <span>{{ scope.row.description }}</span>
-                    </template>
-                  </el-table-column>
-                  <el-table-column label="状态" align="center" width="100">
-                    <template slot-scope="scope">
-                      <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
-                    </template>
-                  </el-table-column>
-                  <el-table-column label="创建时间" align="center" width="150">
-                    <template slot-scope="scope">
-                      <span>{{ scope.row.createTime }}</span>
-                    </template>
-                  </el-table-column>
-                  <el-table-column label="操作" align="center" width="150">
-                    <template slot-scope="{row}">
-                      <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
-                      <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
-                    </template>
-                  </el-table-column>
-                </el-table>
-              </div>
-            </el-scrollbar>
-            <pagination v-show="total>0" :total="total" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getList" />
-          </el-card>
-        </el-form>
+              <el-row>
+                <el-col :span="24">
+                  <div class="fr">
+                    <el-button type="primary" size="small" @click="getList">查询</el-button>
+                    <el-button type="info" size="small" @click="resetQuery">清空</el-button>
+                    <el-button type="success" size="small" @click="handleCreate">新建</el-button>
+                    <el-button type="danger" size="small" @click="handleBatchDelete">批量删除</el-button>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-form>
+          </div>
+          <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow1" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
+            <el-table-column type="selection" width="55" />
+            <el-table-column label="问题类型" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.type }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="问题描述" align="center" min-width="500">
+              <template slot-scope="scope">
+                <span>{{ scope.row.description }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="状态" align="center" width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="创建时间" align="center" width="150">
+              <template slot-scope="scope">
+                <span>{{ scope.row.createTime }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" width="150">
+              <template slot-scope="{row}">
+                <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
+                <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getList" />
+        </el-card>
+
       </el-col>
     </el-row>
 
@@ -112,6 +101,7 @@
 <script>
 import { create, fetchList, update } from '@/api/intelligentQuestions/question'
 import Pagination from '@/components/Pagination'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Question',
@@ -146,6 +136,18 @@ export default {
       },
       selectionData: null
     }
+  },
+  computed: {
+    ...mapGetters([
+      'clientWidth',
+      'minClientWidth'
+    ]),
+    ...mapState({
+      searchRow1: state => state.commonData.searchRow1,
+      searchRow2: state => state.commonData.searchRow2,
+      searchRow3: state => state.commonData.searchRow3,
+      searchRow4: state => state.commonData.searchRow4
+    })
   },
   created() {
     this.getList()

@@ -21,7 +21,7 @@ exports.install = function(Vue, options) {
                     id: 123,
                     name: '张三',
                     gender: 0,
-                    IDCard: '撒旦法撒旦法23123',
+                    idNo: '撒旦法撒旦法23123',
                     callInNo: '1381060758',
                     callInTime: '',
                     customerType: '准客户',

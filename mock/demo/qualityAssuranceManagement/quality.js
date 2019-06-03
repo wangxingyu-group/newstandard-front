@@ -8,12 +8,13 @@ for (let i = 0; i < count; i++) { // List付值
     id: '@increment(1)',
     name: '@cname()',
     'gender|1': ['男', '女'],
-    IDCard: '@integer(152106199003050316, 152106201903050999)',
+    idNo: '@integer(152106199003050316, 152106201903050999)',
     callInNo: /^1[385][1-9]\d{8}/,
     callInTime: '@time(\'HH:mm:ss\')',
     customerType: '@ctitle',
     remark: '@ctitle',
-    callInDate: '@date(\'yyyy-MM-dd\')'
+    callInDate: '@date(\'yyyy-MM-dd\')',
+    'num|1': ['I级', 'Ⅱ级']
   }))
 }
 
@@ -22,10 +23,10 @@ export default [
     url: '/quality/list',
     type: 'get',
     response: config => {
-      const { name, IDCard, page = 1, limit = 20, sort } = config.query
+      const { name, idNo, page = 1, limit = 20, sort } = config.query
       let mockList = List.filter(item => {
         if (name && item.name !== name) return false
-        if (IDCard && item.IDCard !== IDCard) return false
+        if (idNo && item.idNo !== idNo) return false
         return true
       })
 

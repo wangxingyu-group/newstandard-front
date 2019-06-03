@@ -12,6 +12,8 @@ const getters = {
   permission_routes: state => state.permission.routes,
   errorLogs: state => state.errorLog.logs,
   currentCustomer: state => state.commonData.currentCustomer,
-  callInNo: state => state.commonData.callInNo
+  callInNo: state => state.commonData.callInNo,
+  clientWidth: state => state.commonData.clientWidth,
+  minClientWidth: state => state.commonData.minClientWidth
 }
 export default getters

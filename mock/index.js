@@ -6,23 +6,41 @@ import role from './role'
 import article from './article'
 import search from './remote-search'
 import preCustomer from './demo/customer/preCustomer'
+import customer from './demo/customer/customer'// 客户
+import agent from './demo/customer/agent'// 代理人
 import demoUser from './demo/system/permission/user'
 import template from './demo/messageManagement/template/model'
 import orderSettings from './workOrderManagement/orderSettings'
-import quality from './demo/qualityAssuranceManagement/quality' // 质检管理
+import quality from './demo/qualityAssuranceManagement/quality' // 规则配置
 import question from './intelligentQuestions/question' // 智能题库 => 问题管理
-
+import questionnaire from './intelligentQuestions/questionnaire' // 智能题库 => 问卷管理
+import qualityAssurance from './demo/quality/qualityAssurance/qualityAssurance' // 质检管理
+import queryQualityAssurance from './demo/quality/queryQualityAssurance/queryQualityAssurance' // 质检查询
+import voiceToText from './demo/quality/voiceToText/voiceToText' // 语音转文本
+import history from './messageManagement/history' // 已发送短信
+import personalInsurance from './integratedQuery/personalInsurance' // 个人保单查询
+import messageTemplate from './messageManagement/messageTemplate' // 短信模板
 const mocks = [
   ...user,
   ...role,
   ...article,
   ...search,
   ...preCustomer,
+  ...customer,
+  ...agent,
   ...demoUser,
   ...template,
   ...orderSettings,
   ...quality,
-  ...question
+  ...question,
+  ...questionnaire,
+  ...qualityAssurance,
+  ...history,
+  ...queryQualityAssurance,
+  ...voiceToText,
+  ...history,
+  ...personalInsurance,
+  ...messageTemplate
 ]
 
 // for front mock

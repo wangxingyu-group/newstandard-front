@@ -2,16 +2,20 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/layout'
 /* Router Modules */
-import customerManagementRouter from './modules/demo/customerManagement'
-import searchRouter from './modules/demo/search'
+import customerManagementRouter from './modules/customerManagement'
+import integratedQueryRouter from './modules/integratedQuery'
 import workOrderManagementRouter from './modules/workOrderManagement'
 import qualityAssuranceManagementRouter from './modules/qualityAssuranceManagement'
-import chartRouter from './modules/demo/chart'
-import systemRouter from './modules/demo/system/system'
+import chartRouter from './modules/chart'
+import systemRouter from './modules/system/system'
 
 import messageManagementRouter from './modules/messageManagement'
 import intelligentQuestionsRouter from './modules/intelligentQuestions'
-
+import newReVisitRouter from './modules/newReVisit'
+import claimsRevisitRouter from './modules/claimsRevisit'
+import underwritingRevisitRouter from './modules/underwritingRevisit'
+import customerServiceRevisitRouter from './modules/customerServiceRevisit'
+import otherRevisitRouter from './modules/otherRevisit'
 Vue.use(Router)
 
 // 静态路由
@@ -66,15 +70,18 @@ export const constantRoutes = [
 // 动态路由
 export const asyncRoutes = [
   customerManagementRouter,
-  searchRouter,
+  integratedQueryRouter,
   workOrderManagementRouter,
   qualityAssuranceManagementRouter,
   chartRouter,
   systemRouter,
-
   messageManagementRouter,
   intelligentQuestionsRouter,
-
+  newReVisitRouter,
+  claimsRevisitRouter,
+  underwritingRevisitRouter,
+  customerServiceRevisitRouter,
+  otherRevisitRouter,
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
 ]
