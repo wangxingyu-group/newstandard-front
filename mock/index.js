@@ -27,6 +27,8 @@ import holiday from './demo/system/base/holiday/holiday' // 工作日设置
 import underwritingOutTask from './demo/underwritingRevisit/underwritingOutTask/underwritingOutTask' // 核保外呼任务管理
 import underwritingOutRecord from './demo/underwritingRevisit/underwritingOutRecord/underwritingOutRecord' // 核保外呼记录
 import callOutSettings from './demo/underwritingRevisit/callOutSettings/callOutSettings' // 核保内容配置管理
+import taskPool from './demo/otherRevisit/taskPool/taskPool' // 任务池
+import callOutLog from './demo/otherRevisit/callOutLog/callOutLog' // 外呼日志
 const mocks = [
   ...user,
   ...role,
@@ -54,7 +56,9 @@ const mocks = [
   ...holiday,
   ...underwritingOutTask,
   ...underwritingOutRecord,
-  ...callOutSettings
+  ...callOutSettings,
+  ...taskPool,
+  ...callOutLog
 ]
 
 // for front mock
