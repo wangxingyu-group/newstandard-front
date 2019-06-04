@@ -28,7 +28,8 @@ import underwritingOutTask from './demo/underwritingRevisit/underwritingOutTask/
 import underwritingOutRecord from './demo/underwritingRevisit/underwritingOutRecord/underwritingOutRecord' // 核保外呼记录
 import callOutSettings from './demo/underwritingRevisit/callOutSettings/callOutSettings' // 核保内容配置管理
 import taskPool from './demo/otherRevisit/taskPool/taskPool' // 任务池
-import callOutLog from './demo/otherRevisit/callOutLog/callOutLog' // 外呼日志
+import callOutLog from './demo/otherRevisit/callOutLog/callOutLog'
+import quickSearch from './demo/otherRevisit/quickSearch/quickSearch' // 外呼日志
 const mocks = [
   ...user,
   ...role,
@@ -58,7 +59,8 @@ const mocks = [
   ...underwritingOutRecord,
   ...callOutSettings,
   ...taskPool,
-  ...callOutLog
+  ...callOutLog,
+  ...quickSearch
 ]
 
 // for front mock
