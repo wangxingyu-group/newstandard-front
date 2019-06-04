@@ -37,25 +37,25 @@
               <el-table-column label="代理人编号" prop="id" sortable="custom" align="center" width="150">
                 <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
               </el-table-column>
-              <el-table-column label="代理人姓名" align="center" width="100">
+              <el-table-column label="代理人姓名" align="center" min-width="100">
                 <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
               </el-table-column>
-              <el-table-column label="性别" align="center" width="80">
+              <el-table-column label="性别" align="center" min-width="80">
                 <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
               </el-table-column>
-              <el-table-column label="手机号" align="center" width="150">
+              <el-table-column label="手机号" align="center" min-width="150">
                 <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
               </el-table-column>
-              <el-table-column label="身份证号" align="center" width="200">
+              <el-table-column label="身份证号" align="center" min-width="200">
                 <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
               </el-table-column>
-              <el-table-column label="座机号" align="center" width="200">
+              <el-table-column label="座机号" align="center" min-width="200">
                 <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
               </el-table-column>
-              <el-table-column label="客户身份" align="center" width="200">
+              <el-table-column label="客户身份" align="center" min-width="200">
                 <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
               </el-table-column>
-              <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+              <el-table-column label="操作" align="center" min-width="200">
                 <template slot-scope="{row}">
                   <el-button type="primary" size="small " width="100" @click="confirmCustomer(row)">
                     客户确认

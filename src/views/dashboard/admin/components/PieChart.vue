@@ -58,21 +58,23 @@ export default {
         legend: {
           left: 'center',
           bottom: '10',
-          data: ['Industries', 'Technology', 'Forex', 'Gold', 'Forecasts']
+          data: ['产品咨询', '一般咨询', '保全咨询', '系统问题', '理赔报案', '投诉建议', '其他']
         },
         series: [
           {
-            name: 'WEEKLY WRITE ARTICLES',
+            name: '周度工单统计',
             type: 'pie',
             roseType: 'radius',
             radius: [15, 95],
             center: ['50%', '38%'],
             data: [
-              { value: 320, name: 'Industries' },
-              { value: 240, name: 'Technology' },
-              { value: 149, name: 'Forex' },
-              { value: 100, name: 'Gold' },
-              { value: 59, name: 'Forecasts' }
+              { value: 320, name: '产品咨询' },
+              { value: 240, name: '一般咨询' },
+              { value: 149, name: '保全咨询' },
+              { value: 100, name: '系统问题' },
+              { value: 59, name: '理赔报案' },
+              { value: 100, name: '投诉建议' },
+              { value: 100, name: '其他' }
             ],
             animationEasing: 'cubicInOut',
             animationDuration: 2600

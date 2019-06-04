@@ -9,6 +9,31 @@
       </div>
       <app-main />
       <right-panel v-if="showSettings">
+        <el-card style="height: 100vh;">
+          <div slot="header" class="clearfix">
+            坐席状态监控
+          </div>
+          <el-form>
+            <el-form-item label="坐席状态" prop="seatsStatus">
+              <el-select v-model="seatsStatus" :popper-append-to-body="false">
+                <el-option label="空闲" value="空闲" />
+                <el-option label="通话中" value="通话中" />
+                <el-option label="间休" value="间休" />
+                <el-option label="忙碌" value="忙碌" />
+                <el-option label="离线" value="离线" />
+              </el-select>
+            </el-form-item>
+            <el-table :data="seatsList" height="calc(100vh - 270px)" fit stripe highlight-current-row style="width: 100%;" @sort-change="()=>{}" @selection-change="()=>{}">
+              <el-table-column label="坐席姓名" prop="phoneNo" align="center" min-width="100">
+                <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+              </el-table-column>
+              <el-table-column label="状态" prop="phoneNo" sortable="custom" align="center" min-width="80">
+                <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
+              </el-table-column>
+            </el-table>
+            <pagination layout="prev, pager, next" :total="total" :page.sync="page" :limit.sync="limit" @pagination="[]" />
+          </el-form>
+        </el-card>
       </right-panel>
     </div>
   </div>
@@ -19,18 +44,47 @@ import RightPanel from '@/components/RightPanel'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapState } from 'vuex'
-
+import Pagination from '@/components/Pagination'
 export default {
   name: 'Layout',
   components: {
     AppMain,
     Navbar,
     RightPanel,
-    Settings,
+    // Settings,
     Sidebar,
-    TagsView
+    TagsView,
+    Pagination
   },
   mixins: [ResizeMixin],
+  data() {
+    return {
+      total: 500,
+      page: 1,
+      limit: 20,
+      seatsStatus: '空闲',
+      seatsList: [
+        { name: '张三', status: '空闲' },
+        { name: '李四', status: '通话中' },
+        { name: '王五', status: '忙碌' },
+        { name: '赵六', status: '间休' },
+        { name: '李星', status: '离线' },
+        { name: '张丽', status: '忙碌' },
+        { name: '李德才', status: '间休' },
+        { name: '张立东', status: '通话中' },
+        { name: '王建新', status: '通话中' },
+        { name: '张丽艳', status: '忙碌' },
+        { name: '张丽艳', status: '忙碌' },
+        { name: '张丽艳', status: '忙碌' },
+        { name: '张丽艳', status: '忙碌' },
+        { name: '张丽艳', status: '忙碌' },
+        { name: '张丽艳', status: '忙碌' },
+        { name: '张丽艳', status: '忙碌' },
+        { name: '王夏丽', status: '空闲' }
+
+      ]
+    }
+  },
   computed: {
     ...mapState({
       sidebar: state => state.app.sidebar,
