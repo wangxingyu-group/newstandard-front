@@ -30,11 +30,31 @@ const customerRouter =
         }
       },
       {
+        path: 'customer/details',
+        component: () => import('@/views/customerManagement/customer/details'),
+        name: 'customerDetails',
+        hidden: true,
+        meta: {
+          title: '客户详情',
+          roles: ['admin']
+        }
+      },
+      {
         path: 'agent',
         component: () => import('@/views/customerManagement/agent'),
         name: 'agent',
         meta: {
           title: '代理人',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'agent/details',
+        component: () => import('@/views/customerManagement/agent/details'),
+        name: 'agentDetails',
+        hidden: true,
+        meta: {
+          title: '代理人详情',
           roles: ['admin']
         }
       }

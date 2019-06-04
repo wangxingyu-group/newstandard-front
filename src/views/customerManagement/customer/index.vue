@@ -69,7 +69,7 @@
                 <el-button type="primary" size="mini " @click="confirmCustomer(row)">
                   确认客户
                 </el-button>
-                <el-button type="primary" size="mini" @click="handleUpdate(row)">
+                <el-button type="primary" size="mini" @click="goToDetails()">
                   详情
                 </el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">
@@ -304,6 +304,9 @@ export default {
         type: 'success',
         duration: 2000
       })
+    },
+    goToDetails(){
+      this.$router.push('/customerManagement/customer/details')
     }
   }
 }
