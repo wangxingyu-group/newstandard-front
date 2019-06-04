@@ -7,7 +7,8 @@ const state = {
   searchRow1: 'calc(100vh - 340px)',
   searchRow2: 'calc(100vh - 391px)',
   searchRow3: 'calc(100vh - 442px)',
-  searchRow4: 'calc(100vh - 493px)'
+  searchRow4: 'calc(100vh - 493px)',
+  rightPanelShow: false
 }
 const mutations = {
   SET_CURRENT_CUSTOMER: (state, currentCustomer) => {
@@ -18,6 +19,9 @@ const mutations = {
   },
   SET_CLIENT_WIDTH: (state, clientWidth) => {
     state.clientWidth = clientWidth
+  },
+  SET_RIGHT_PANEL_SHOW: (state, rightPanelShow) => {
+    state.rightPanelShow = rightPanelShow
   }
 }
 
@@ -30,6 +34,9 @@ const actions = {
   },
   setClientWidth({ commit }, clientWidth) {
     commit('SET_CLIENT_WIDTH', clientWidth)
+  },
+  setRightPanelShow({ commit }, rightPanelShow) {
+    commit('SET_RIGHT_PANEL_SHOW', rightPanelShow)
   }
 }
 

@@ -81,10 +81,10 @@ export default {
         this.__resizeHandler()
       }
     },
-    setOptions({ expectedData, actualData } = {}) {
+    setOptions({ voiceData, onlineData } = {}) {
       this.chart.setOption({
         xAxis: {
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天'],
           boundaryGap: false,
           axisTick: {
             show: false
@@ -110,10 +110,10 @@ export default {
           }
         },
         legend: {
-          data: ['expected', 'actual']
+          data: ['语音客服', '在线客服']
         },
         series: [{
-          name: 'expected', itemStyle: {
+          name: '语音客服', itemStyle: {
             normal: {
               color: '#FF005A',
               lineStyle: {
@@ -124,12 +124,12 @@ export default {
           },
           smooth: true,
           type: 'line',
-          data: expectedData,
+          data: voiceData,
           animationDuration: 2800,
           animationEasing: 'cubicInOut'
         },
         {
-          name: 'actual',
+          name: '在线客服',
           smooth: true,
           type: 'line',
           itemStyle: {
@@ -144,7 +144,7 @@ export default {
               }
             }
           },
-          data: actualData,
+          data: onlineData,
           animationDuration: 2800,
           animationEasing: 'quadraticOut'
         }]

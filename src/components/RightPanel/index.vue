@@ -2,9 +2,9 @@
   <div ref="rightPanel" :class="{show:show}" class="rightPanel-container">
     <div class="rightPanel-background" />
     <div class="rightPanel">
-      <div class="handle-button" :style="{'top':buttonTop+'px','background-color':theme}" @click="show=!show">
-        <i :class="show?'el-icon-close':'el-icon-setting'" />
-      </div>
+      <!--<div class="handle-button" :style="{'top':buttonTop+'px','background-color':theme}" @click="show=!show">-->
+        <!--<i :class="show?'el-icon-close':'el-icon-setting'" />-->
+      <!--</div>-->
       <div class="rightPanel-items">
         <slot />
       </div>
@@ -29,24 +29,38 @@ export default {
   },
   data() {
     return {
-      show: false
+      // show: false
     }
   },
   computed: {
     theme() {
       return this.$store.state.settings.theme
+    },
+    show: {
+      get() {
+        console.log('get:' + this.$store.state.commonData.rightPanelShow)
+        return this.$store.state.commonData.rightPanelShow
+      },
+      set(val) {
+        console.log('set:' + val)
+        this.$store.commit('commonData/SET_RIGHT_PANEL_SHOW', val)
+      }
     }
   },
   watch: {
-    show(value) {
-      if (value && !this.clickNotClose) {
-        this.addEventClick()
-      }
-      if (value) {
-        addClass(document.body, 'showRightPanel')
-      } else {
-        removeClass(document.body, 'showRightPanel')
-      }
+    show: {
+      handler(newVal, oldVal) {
+        console.log('watch:' + oldVal + ' => ' + newVal)
+        if (newVal && !this.clickNotClose) {
+          this.addEventClick()
+        }
+        if (newVal) {
+          addClass(document.body, 'showRightPanel')
+        } else {
+          removeClass(document.body, 'showRightPanel')
+        }
+      },
+      immediate: false
     }
   },
   mounted() {
@@ -62,7 +76,8 @@ export default {
     },
     closeSidebar(evt) {
       const parent = evt.target.closest('.rightPanel')
-      if (!parent) {
+      const toggleElement = evt.target.closest('.togglePanelTarget')
+      if (!parent && !toggleElement) {
         this.show = false
         window.removeEventListener('click', this.closeSidebar)
       }
@@ -103,7 +118,7 @@ export default {
   position: fixed;
   height: 100vh;
   width: 100%;
-  max-width: 260px;
+  max-width: 580px;
   top: 0px;
   left: 0px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .05);

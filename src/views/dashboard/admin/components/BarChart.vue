@@ -68,7 +68,7 @@ export default {
         },
         xAxis: [{
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天'],
           axisTick: {
             alignWithLabel: true
           }
@@ -80,25 +80,27 @@ export default {
           }
         }],
         series: [{
-          name: 'pageA',
+          name: '满意',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [79, 52, 200, 334, 390, 330, 220],
+          data: [17, 15, 30, 43, 49, 43, 32],
           animationDuration
         }, {
-          name: 'pageB',
+          name: '一般',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [80, 52, 200, 334, 390, 330, 220],
+          data: [2, 5, 4, 4, 4, 4, 2],
+          color:['#FFB980'],
           animationDuration
         }, {
-          name: 'pageC',
+          name: '很差',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [30, 52, 200, 334, 390, 330, 220],
+          data: [0, 1, 2, 3, 4, 4, 2],
+          color:['#D87A80'],
           animationDuration
         }]
       })
