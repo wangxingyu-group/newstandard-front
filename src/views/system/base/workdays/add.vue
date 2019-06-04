@@ -49,6 +49,7 @@ export default {
         id: '',
         title: '',
         flag: '',
+        color: '',
         period: []
       },
       titles: ['元旦', '春节', '劳动节', '端午节', '国庆节', '清明节', '中秋节', '春节调休工作日', '端午节调休工作日'],
@@ -63,6 +64,7 @@ export default {
       this.formDetail.flag = this.editItem.flag
       this.formDetail.period[0] = this.editItem.start._i
       this.formDetail.period[1] = this.editItem.end._i
+      this.formDetail.color = this.editItem.color
       if (this.editItem.id !== '') {
         this.isShow = true
       }

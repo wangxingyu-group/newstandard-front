@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" style="width: 900px;height: 700px">
     <el-date-picker v-model="selectDate" size="small" type="month" placeholder="选择月" value-format="yyyy-MM" />
     <el-button size="small" @click="changeDate">确定</el-button>
     <full-calendar
@@ -29,29 +29,19 @@ export default {
         weekends: true, // 是否在日历中显示周末
         locale: 'zh-cn', // 语言
         defaultView: 'month', // 默认按月显示
-        height: 'auto', // 高度
-        fixedWeekCount: true, // 是否固定显示六周
-        // weekMode:"liquid",//周数不定，每周的高度可变，整个日历高度不变
-        allDaySlot: false,
-        // allDay:true,
+        height: '600px', // 高度
+        loadEventEnd: true,
+        fixedWeekCount: false, // 是否固定显示六周
+        // weekMode: 'liquid', // 周数不定，每周的高度可变，整个日历高度不变
+        // allDaySlot: false,
+        // allDay: true,
         header: { // 表头信息
           left: 'prev, next, today',
           center: 'title',
           right: 'hide, custom'
         }
       },
-      events: [{
-        id: 1,
-        title: '出差',
-        flag: '节假日',
-        start: '2019-06-03',
-        end: '2019-06-05'
-      }, {
-        id: 2,
-        title: '春游',
-        flag: '节假日',
-        start: '2019-06-12'
-      }],
+      events: [],
       newItem: {},
       editItem: {}
     }

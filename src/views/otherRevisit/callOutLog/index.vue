@@ -26,14 +26,14 @@
                 <el-col :span="24">
                   <div class="fr">
                     <el-button type="primary" size="small" @click="handleBatchSubmit">打印</el-button>
-                    <el-button type="info" size="small">清空</el-button>
+                    <el-button type="info" size="small" @click="clearList">清空</el-button>
                     <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
                   </div>
                 </el-col>
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row>
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
             <el-table-column label="外呼服务编号" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.outNo }}</span></template>
@@ -138,7 +138,7 @@ export default {
       this.selectionList = val
     },
     handleBatchSubmit() {
-      this.$confirm('确认提交选中的记录?', '提示', {
+      this.$confirm('确认打印选中的记录?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -149,6 +149,9 @@ export default {
           type: 'success'
         })
       })
+    },
+    clearList() {
+      this.list = []
     }
   }
 }

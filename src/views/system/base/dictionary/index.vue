@@ -29,17 +29,17 @@
             </el-form>
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
-            <el-table-column type="selection" width="55" />
-            <el-table-column label="字典类型" align="center" width="150">
+            <el-table-column type="selection" min-width="55" />
+            <el-table-column label="字典类型" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.dictionaryType }}</span></template>
             </el-table-column>
-            <el-table-column label="字典类型名称" align="center" width="200">
+            <el-table-column label="字典类型名称" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.dictionaryName }}</span></template>
             </el-table-column>
-            <el-table-column label="备注信息" align="center" width="350">
+            <el-table-column label="备注信息" align="center" min-width="350">
               <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
             </el-table-column>
-            <el-table-column label="操作" align="center" width="300">
+            <el-table-column label="操作" align="center" min-width="300">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
@@ -87,20 +87,20 @@
         </el-row>
       </el-card>
       <el-table :key="tableKey" v-loading="listLoading" :data="detailList" :height="searchRow1" style="min-height: 300px;" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
-        <el-table-column type="selection" width="55" />
-        <el-table-column label="字典类型" align="center" width="100">
+        <el-table-column type="selection" min-width="55" />
+        <el-table-column label="字典类型" align="center" min-width="100">
           <template slot-scope="scope"><span>{{ scope.row.dictionaryType }}</span></template>
         </el-table-column>
-        <el-table-column label="字典编码" align="center" width="100">
+        <el-table-column label="字典编码" align="center" min-width="100">
           <template slot-scope="scope"><span>{{ scope.row.dictionaryCode }}</span></template>
         </el-table-column>
-        <el-table-column label="字典名称" align="center" width="200">
+        <el-table-column label="字典名称" align="center" min-width="200">
           <template slot-scope="scope"><span>{{ scope.row.dictionaryName }}</span></template>
         </el-table-column>
-        <el-table-column label="字典顺序" align="center" width="100">
+        <el-table-column label="字典顺序" align="center" min-width="100">
           <template slot-scope="scope"><span>{{ scope.row.sort }}</span></template>
         </el-table-column>
-        <el-table-column label="操作" align="center" width="300">
+        <el-table-column label="操作" align="center" min-width="200">
           <template slot-scope="{row}">
             <el-button type="primary" size="mini" @click="handleDetailUpdate(row)">编辑</el-button>
             <el-button type="danger" size="mini" @click="handleDetailDelete(row)">删除</el-button>
