@@ -25,6 +25,12 @@ import dictionary from './demo/system/base/dictionary/dictionary' // 数据字�
 import dictionary_detail from './demo/system/base/dictionary/dictionary_detail' // 数据字典详细数据
 import holiday from './demo/system/base/holiday/holiday' // 工作日设置
 import underwritingOutTask from './demo/underwritingRevisit/underwritingOutTask/underwritingOutTask'
+import customerServiceQuestion from './demo/customerServiceRevisit/customerServiceQuestion' //保全问题管理
+import customerServiceTransfer from './demo/customerServiceRevisit/customerServiceTransfer' //转办任务池
+import record from './demo/customerServiceRevisit/record' //保全记录查询
+import task from './demo/customerServiceRevisit/task' //保全任务查询
+import claimsCallOutRevisit from './demo/clamsRevisit/claimsCallOutRevisit' //理赔外呼结果查询
+import claimsCallOutTask from './demo/clamsRevisit/claimsCallOutTask' //理赔外呼任务查询
 const mocks = [
   ...user,
   ...role,
@@ -50,7 +56,13 @@ const mocks = [
   ...dictionary,
   ...dictionary_detail,
   ...holiday,
-  ...underwritingOutTask
+  ...underwritingOutTask,
+  ...customerServiceQuestion,
+  ...customerServiceTransfer,
+  ...record,
+  ...task,
+  ...claimsCallOutRevisit,
+  ...claimsCallOutTask
 ]
 
 // for front mock

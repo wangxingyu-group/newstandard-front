@@ -12,9 +12,9 @@ const intelligentQuestionsRouter =
     },
     children: [
       {
-        path: 'question',
+        path: 'customerServiceQuestion',
         component: () => import('@/views/intelligentQuestions/question'),
-        name: 'question',
+        name: 'customerServiceQuestion',
         meta: {
           title: '问题管理',
           roles: ['admin']

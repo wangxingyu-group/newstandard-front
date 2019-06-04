@@ -23,8 +23,7 @@
               </el-select>
             </el-form-item>
           </el-form>
-          <!--      </el-col>
-          <el-col>-->
+
           <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
             查询
           </el-button>
