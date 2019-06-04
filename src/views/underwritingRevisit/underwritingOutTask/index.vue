@@ -7,25 +7,8 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="受理起止日期">
-                    <el-col :span="11">
-                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="" />
-                    </el-col>
-                    <el-col :span="11">
-                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="" />
-                    </el-col>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="转办状态">
-                    <el-drag-select v-model="optiosValue" style="width:100%;" multiple placeholder="请选择">
-                      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-                    </el-drag-select>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="投保单号">
-                    <el-input v-model="listQuery.name" placeholder="投保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="呼出手机号">
+                    <el-input v-model="listQuery.mobile" placeholder="呼出手机号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -40,29 +23,27 @@
             </el-form>
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row>
-            <el-table-column label="外呼时间" align="center" width="150">
-              <template slot-scope="scope"><span>{{ scope.row.dateTime }}</span></template>
+            <el-table-column type="selection" min-width="55" />
+            <el-table-column label="客户编号" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.num }}</span></template>
             </el-table-column>
-            <el-table-column label="外呼结果" align="center" width="100">
-              <template slot-scope="scope"><span>{{ scope.row.result }}</span></template>
+            <el-table-column label="客户姓名" align="center" min-width="100">
+              <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="被保人姓名" align="center" width="150">
-              <template slot-scope="scope"><span>{{ scope.row.insuredName }}</span></template>
+            <el-table-column label="性别" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.sex }}</span></template>
             </el-table-column>
-            <el-table-column label="被保人身份证号" align="center" width="200">
-              <template slot-scope="scope"><span>{{ scope.row.insuredIdCard }}</span></template>
+            <el-table-column label="身份证号" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.idCard }}</span></template>
             </el-table-column>
-            <el-table-column label="投保单号" align="center" width="200">
-              <template slot-scope="scope"><span>{{ scope.row.proposalNo }}</span></template>
+            <el-table-column label="手机号" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.mobile }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人姓名" align="center" width="150">
-              <template slot-scope="scope"><span>{{ scope.row.appName }}</span></template>
+            <el-table-column label="座机号" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.phone }}</span></template>
             </el-table-column>
-            <el-table-column label="受理人员姓名" align="center" width="150">
-              <template slot-scope="scope"><span>{{ scope.row.client }}</span></template>
-            </el-table-column>
-            <el-table-column label="代理机构" align="center" width="150">
-              <template slot-scope="scope"><span>{{ scope.row.agentName }}</span></template>
+            <el-table-column label="客户身份" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.identifier }}</span></template>
             </el-table-column>
           </el-table>
           <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
@@ -73,14 +54,13 @@
 </template>
 
 <script>
-import ElDragSelect from '@/components/DragSelect' // base on element-ui
 import { fetchList } from '@/api/underwritingRevisit/underwritingOutTask/underwritingOutTask'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 import { mapState } from 'vuex'
 
 export default {
   name: 'Dictionary',
-  components: { Pagination, ElDragSelect },
+  components: { Pagination },
   data() {
     return {
       tableKey: 0,
@@ -89,8 +69,7 @@ export default {
       listLoading: true,
       selectionList: null,
       listQuery: {
-        from: '',
-        to: '',
+        mobile: '',
         result: '',
         name: '',
         type: '',
