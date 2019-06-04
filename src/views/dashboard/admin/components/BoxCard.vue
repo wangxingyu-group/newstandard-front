@@ -1,5 +1,8 @@
 <template>
   <el-card class="box-card-component" style="margin-left:8px;">
+    <div slot="header" class="box-card-header">
+      <img src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png">
+    </div>
     <div style="position:relative;">
       <mallki class-name="mallki-text" text="坐席排行榜" />
       <div class="progress-item" style="padding-top:35px;">
@@ -7,8 +10,7 @@
         <div class="el-progress el-progress--line">
           <div class="el-progress-bar">
             <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:78%'">
-              </div>
+              <div class="el-progress-bar__inner" :style="'width:78%'" />
             </div>
           </div>
           <div class="el-progress__text">78</div>
@@ -19,8 +21,7 @@
         <div class="el-progress el-progress--line">
           <div class="el-progress-bar">
             <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:56%'">
-              </div>
+              <div class="el-progress-bar__inner" :style="'width:56%'" />
             </div>
           </div>
           <div class="el-progress__text">56</div>
@@ -31,8 +32,7 @@
         <div class="el-progress el-progress--line">
           <div class="el-progress-bar">
             <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:54%'">
-              </div>
+              <div class="el-progress-bar__inner" :style="'width:54%'" />
             </div>
           </div>
           <div class="el-progress__text">54</div>
@@ -43,71 +43,10 @@
         <div class="el-progress el-progress--line">
           <div class="el-progress-bar">
             <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:32%'">
-              </div>
+              <div class="el-progress-bar__inner" :style="'width:32%'" />
             </div>
           </div>
           <div class="el-progress__text">32</div>
-        </div>
-      </div>
-      <div class="progress-item">
-        <span>李德才</span>
-        <div class="el-progress el-progress--line">
-          <div class="el-progress-bar">
-            <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:27%'">
-              </div>
-            </div>
-          </div>
-          <div class="el-progress__text">27</div>
-        </div>
-      </div>
-      <div class="progress-item">
-        <span>张立东</span>
-        <div class="el-progress el-progress--line">
-          <div class="el-progress-bar">
-            <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:22%'">
-              </div>
-            </div>
-          </div>
-          <div class="el-progress__text">22</div>
-        </div>
-      </div>
-      <div class="progress-item">
-        <span>王建新</span>
-        <div class="el-progress el-progress--line">
-          <div class="el-progress-bar">
-            <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:15%'">
-              </div>
-            </div>
-          </div>
-          <div class="el-progress__text">15</div>
-        </div>
-      </div>
-      <div class="progress-item">
-        <span>张丽艳</span>
-        <div class="el-progress el-progress--line">
-          <div class="el-progress-bar">
-            <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:12%'">
-              </div>
-            </div>
-          </div>
-          <div class="el-progress__text">12</div>
-        </div>
-      </div>
-      <div class="progress-item">
-        <span>王夏丽</span>
-        <div class="el-progress el-progress--line">
-          <div class="el-progress-bar">
-            <div class="el-progress-bar__outer" :style="{height: '6px'}">
-              <div class="el-progress-bar__inner" :style="'width:6%'">
-              </div>
-            </div>
-          </div>
-          <div class="el-progress__text">6</div>
         </div>
       </div>
     </div>
