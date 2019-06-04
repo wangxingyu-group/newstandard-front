@@ -26,6 +26,15 @@ const baseRouter = {
         title: '工作日设置',
         roles: ['admin']
       }
+    },
+    {
+      path: 'querySettings ',
+      component: () => import('@/views/system/base/querySettings'),
+      name: 'querySettings',
+      meta: {
+        title: '查询条件配置',
+        roles: ['admin']
+      }
     }
   ]
 }

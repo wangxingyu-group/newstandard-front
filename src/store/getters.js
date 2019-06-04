@@ -14,6 +14,7 @@ const getters = {
   currentCustomer: state => state.commonData.currentCustomer,
   callInNo: state => state.commonData.callInNo,
   clientWidth: state => state.commonData.clientWidth,
-  minClientWidth: state => state.commonData.minClientWidth
+  minClientWidth: state => state.commonData.minClientWidth,
+  rightPanelShow: state => state.commonData.rightPanelShow
 }
 export default getters

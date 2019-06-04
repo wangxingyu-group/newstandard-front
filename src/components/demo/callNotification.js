@@ -6,7 +6,7 @@ exports.install = function(Vue, options) {
   Vue.prototype.callNotification = (device, title, text, icon, timeout, store, notify) => {
     document.onkeydown = function(event) {
       var e = event || window.event
-      if (e && e.keyCode === 66) { // 按 c
+      if (e && e.keyCode === 66) { // 按 b
         if (device !== 'mobile') {
           naranja()['log']({
             title: title.replace(/(\d{3})(\d{4})(\d{4})/, '$1****$3'),
