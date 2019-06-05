@@ -31,6 +31,7 @@ import record from './demo/customerServiceRevisit/record' //保全记录查询
 import task from './demo/customerServiceRevisit/task' //保全任务查询
 import claimsCallOutRevisit from './demo/clamsRevisit/claimsCallOutRevisit' //理赔外呼结果查询
 import claimsCallOutTask from './demo/clamsRevisit/claimsCallOutTask' //理赔外呼任务查询
+import claimsCallOutChat from './demo/clamsRevisit/claimsCallOutChat' //理赔外呼报表
 const mocks = [
   ...user,
   ...role,
@@ -62,7 +63,8 @@ const mocks = [
   ...record,
   ...task,
   ...claimsCallOutRevisit,
-  ...claimsCallOutTask
+  ...claimsCallOutTask,
+  ...claimsCallOutChat
 ]
 
 // for front mock
