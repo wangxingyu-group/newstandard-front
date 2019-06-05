@@ -6,6 +6,7 @@ const count = 50
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: '@increment',
+    contNo: /^11001023[0-9]\d{5}/,
     signDate: '@date(\'yyyy-MM-dd\')',
     policyNo: /^8611001023[0-9]\d{5}/,
     customSignDate: '@date(\'yyyy-MM-dd\')',
@@ -21,13 +22,16 @@ for (let i = 0; i < count; i++) {
     'result|1': ['完成', '未完成'],
     count: /^[1-9]\d{1}/,
     lastDateTime: '@dateTime(\'yyyy-MM-dd HH:mm:ss\')',
-    number: /^[1-9]\d{2}/
+    number: /^[1-9]\d{2}/,
+    agentName: '@cname',
+    'agent|1': ['淘宝', '惠泽', '淘宝', '苏宁', '京东'],
+    'companyName|1': ['北京分公司', '江苏分公司', '河南分公司']
   }))
 }
 
 export default [
   {
-    url: '/distribution/list',
+    url: '/problemManagement/list',
     type: 'get',
     response: config => {
       const { page = 1, limit = 10 } = config.query
@@ -42,7 +46,7 @@ export default [
     }
   },
   {
-    url: '/distribution/create',
+    url: '/problemManagement/create',
     type: 'post',
     response: _ => {
       return {
@@ -52,7 +56,7 @@ export default [
     }
   },
   {
-    url: '/distribution/update',
+    url: '/problemManagement/update',
     type: 'post',
     response: _ => {
       return {

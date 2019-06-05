@@ -37,6 +37,9 @@ import task from './demo/customerServiceRevisit/task' // 保全任务查询
 import claimsCallOutRevisit from './demo/clamsRevisit/claimsCallOutRevisit' // 理赔外呼结果查询
 import claimsCallOutTask from './demo/clamsRevisit/claimsCallOutTask' // 理赔外呼任务查询
 import claimsCallOutChat from './demo/clamsRevisit/claimsCallOutChat' // 理赔外呼报表
+import distribution from './newReVisit/distribution/distribution' // 回访任务分配
+import personalReVisit from './newReVisit/personalReVisit/personalReVisit' // 私有回访任务
+import problemManagement from './newReVisit/problemManagement/problemManagement' // 问题件管理
 const mocks = [
   ...user,
   ...role,
@@ -74,7 +77,10 @@ const mocks = [
   ...task,
   ...claimsCallOutRevisit,
   ...claimsCallOutTask,
-  ...claimsCallOutChat
+  ...claimsCallOutChat,
+  ...distribution,
+  ...personalReVisit,
+  ...problemManagement
 ]
 
 // for front mock

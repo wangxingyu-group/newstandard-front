@@ -2,14 +2,14 @@ import request from '@/utils/request'
 
 export function fetchList(query) {
   return request({
-    url: '/distribution/list',
+    url: '/problemManagement/list',
     method: 'get',
     params: query
   })
 }
 export function createDistribution(data) {
   return request({
-    url: '/distribution/create',
+    url: '/problemManagement/create',
     method: 'post',
     data
   })
@@ -17,7 +17,7 @@ export function createDistribution(data) {
 
 export function updateDistribution(data) {
   return request({
-    url: '/distribution/update',
+    url: '/problemManagement/update',
     method: 'post',
     data
   })
