@@ -24,14 +24,19 @@ import riskSettings from './intelligentQuestions/riskSettings' // 短信模板
 import dictionary from './demo/system/base/dictionary/dictionary' // 数据字典
 import dictionary_detail from './demo/system/base/dictionary/dictionary_detail' // 数据字典详细数据
 import holiday from './demo/system/base/holiday/holiday' // 工作日设置
-import underwritingOutTask from './demo/underwritingRevisit/underwritingOutTask/underwritingOutTask'
-import customerServiceQuestion from './demo/customerServiceRevisit/customerServiceQuestion' //保全问题管理
-import customerServiceTransfer from './demo/customerServiceRevisit/customerServiceTransfer' //转办任务池
-import record from './demo/customerServiceRevisit/record' //保全记录查询
-import task from './demo/customerServiceRevisit/task' //保全任务查询
-import claimsCallOutRevisit from './demo/clamsRevisit/claimsCallOutRevisit' //理赔外呼结果查询
-import claimsCallOutTask from './demo/clamsRevisit/claimsCallOutTask' //理赔外呼任务查询
-import claimsCallOutChat from './demo/clamsRevisit/claimsCallOutChat' //理赔外呼报表
+import underwritingOutTask from './demo/underwritingRevisit/underwritingOutTask/underwritingOutTask' // 核保外呼任务管理
+import underwritingOutRecord from './demo/underwritingRevisit/underwritingOutRecord/underwritingOutRecord' // 核保外呼记录
+import callOutSettings from './demo/underwritingRevisit/callOutSettings/callOutSettings' // 核保内容配置管理
+import taskPool from './demo/otherRevisit/taskPool/taskPool' // 任务池
+import callOutLog from './demo/otherRevisit/callOutLog/callOutLog'
+import quickSearch from './demo/otherRevisit/quickSearch/quickSearch' // 外呼日志
+import customerServiceQuestion from './demo/customerServiceRevisit/customerServiceQuestion' // 保全问题管理
+import customerServiceTransfer from './demo/customerServiceRevisit/customerServiceTransfer' // 转办任务池
+import record from './demo/customerServiceRevisit/record' // 保全记录查询
+import task from './demo/customerServiceRevisit/task' // 保全任务查询
+import claimsCallOutRevisit from './demo/clamsRevisit/claimsCallOutRevisit' // 理赔外呼结果查询
+import claimsCallOutTask from './demo/clamsRevisit/claimsCallOutTask' // 理赔外呼任务查询
+import claimsCallOutChat from './demo/clamsRevisit/claimsCallOutChat' // 理赔外呼报表
 const mocks = [
   ...user,
   ...role,
@@ -58,6 +63,11 @@ const mocks = [
   ...dictionary_detail,
   ...holiday,
   ...underwritingOutTask,
+  ...underwritingOutRecord,
+  ...callOutSettings,
+  ...taskPool,
+  ...callOutLog,
+  ...quickSearch,
   ...customerServiceQuestion,
   ...customerServiceTransfer,
   ...record,
