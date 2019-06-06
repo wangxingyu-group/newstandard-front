@@ -1,5 +1,6 @@
 <template>
   <div :class="classObj" class="app-wrapper">
+    <!--<div class="touchCustomer" v-el-drag-dialog  @dragDialog="handleDrag"></div>-->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
@@ -46,6 +47,7 @@ import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
+import elDragDialog from '@/directive/el-drag-dialog' // base on element-ui
 export default {
   name: 'Layout',
   components: {
@@ -55,7 +57,8 @@ export default {
     // Settings,
     Sidebar,
     TagsView,
-    Pagination
+    Pagination,
+    elDragDialog
   },
   mixins: [ResizeMixin],
   data() {
@@ -120,11 +123,24 @@ export default {
     },
     closeRightPanel() {
       this.$store.commit('commonData/SET_RIGHT_PANEL_SHOW', false)
+    },
+    handleDrag() {
+      this.$refs.select.blur()
     }
   }
 }
 </script>
-
+<style>
+  .touchCustomer{
+    width: 500px;
+    height:500px;
+    background-color: red;
+    position: absolute;
+    top: 200px;
+    left:100px;
+    z-index: 10000;
+  }
+</style>
 <style lang="scss" scoped>
   @import "~@/styles/mixin.scss";
   @import "~@/styles/variables.scss";
