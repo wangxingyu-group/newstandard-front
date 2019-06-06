@@ -1,5 +1,6 @@
 <template>
   <div :class="classObj" class="app-wrapper">
+    <!--<div class="touchCustomer" v-el-drag-dialog  @dragDialog="handleDrag"></div>-->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
@@ -12,6 +13,7 @@
         <el-card style="height: 100vh;">
           <div slot="header" class="clearfix">
             坐席状态监控
+            <button type="button" aria-label="Close" class="el-dialog__headerbtn" @click="closeRightPanel"><i class="el-dialog__close el-icon el-icon-close" /></button>
           </div>
           <el-form>
             <el-form-item label="坐席状态" prop="seatsStatus">
@@ -41,10 +43,11 @@
 
 <script>
 import RightPanel from '@/components/RightPanel'
-import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
+import { AppMain, Navbar, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
+import elDragDialog from '@/directive/el-drag-dialog' // base on element-ui
 export default {
   name: 'Layout',
   components: {
@@ -55,6 +58,9 @@ export default {
     Sidebar,
     TagsView,
     Pagination
+  },
+  directive: {
+    elDragDialog
   },
   mixins: [ResizeMixin],
   data() {
@@ -116,11 +122,27 @@ export default {
   methods: {
     handleClickOutside() {
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
+    },
+    closeRightPanel() {
+      this.$store.commit('commonData/SET_RIGHT_PANEL_SHOW', false)
+    },
+    handleDrag() {
+      this.$refs.select.blur()
     }
   }
 }
 </script>
-
+<style>
+  .touchCustomer{
+    width: 500px;
+    height:500px;
+    background-color: red;
+    position: absolute;
+    top: 200px;
+    left:100px;
+    z-index: 10000;
+  }
+</style>
 <style lang="scss" scoped>
   @import "~@/styles/mixin.scss";
   @import "~@/styles/variables.scss";

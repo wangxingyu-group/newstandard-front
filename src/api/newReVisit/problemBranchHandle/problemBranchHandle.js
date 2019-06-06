@@ -2,22 +2,22 @@ import request from '@/utils/request'
 
 export function fetchList(query) {
   return request({
-    url: '/distribution/list',
+    url: '/problemBranchHandle/list',
     method: 'get',
     params: query
   })
 }
-export function createDistribution(data) {
+export function createData(data) {
   return request({
-    url: '/distribution/create',
+    url: '/problemBranchHandle/create',
     method: 'post',
     data
   })
 }
 
-export function updateDistribution(data) {
+export function updateData(data) {
   return request({
-    url: '/distribution/update',
+    url: '/problemBranchHandle/update',
     method: 'post',
     data
   })

@@ -44,6 +44,13 @@ import ownershipInstitution from './newReVisit/ownershipInstitution' // 归属�
 import channelConfig from './newReVisit/channelConfig' // 渠道配置
 import revisitTaskMonitor from './newReVisit/revisitTaskMonitor' // 回访任务监控
 import successRate from './newReVisit/successRate' // 成功率统计
+import distribution from './newReVisit/distribution/distribution' // 回访任务分配
+import personalReVisit from './newReVisit/personalReVisit/personalReVisit' // 私有回访任务
+import problemManagement from './newReVisit/problemManagement/problemManagement' // 问题件管理
+import emailManagement from './newReVisit/emailManagement/emailManagement' // 信函件管理
+import problemBranchHandle from './newReVisit/problemBranchHandle/problemBranchHandle' // 问题件分公司处理
+import emailBranchHandle from './newReVisit/emailBranchHandle/emailBranchHandle' // 信函件分公司处理
+import comprehensiveQuery from './newReVisit/comprehensiveQuery/comprehensiveQuery' // 新单回访=>综合查询
 const mocks = [
   ...user,
   ...role,
@@ -88,7 +95,15 @@ const mocks = [
   ...ownershipInstitution,
   ...channelConfig,
   ...revisitTaskMonitor,
-  ...successRate
+  ...successRate,
+  ...claimsCallOutChat,
+  ...distribution,
+  ...personalReVisit,
+  ...problemManagement,
+  ...emailManagement,
+  ...problemBranchHandle,
+  ...emailBranchHandle,
+  ...comprehensiveQuery
 ]
 
 // for front mock

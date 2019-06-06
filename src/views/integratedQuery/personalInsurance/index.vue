@@ -74,7 +74,7 @@
             </el-table-column>
             <el-table-column label="操作" align="center" fixed="right" width="100">
               <template slot-scope="{row}">
-                <el-button type="primary" size="mini " @click="confirmCustomer(row)">确认客户</el-button>
+                <el-button type="primary" size="mini " @click="confirmCustomer(row)">确认</el-button>
               </template>
             </el-table-column>
           </el-table>
