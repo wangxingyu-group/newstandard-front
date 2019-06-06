@@ -1,13 +1,22 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div v-nsf-drag class="touchCustomer" @dragDialog="handleDrag">
-      <div class="nsf-drag" style="width: 100%;height:300px;background-color: green">
-        <div class="nsf-drag__header" style="width: 100%;height:100px;background-color: yellow">
-          asdsad
-        </div>
-      </div>
 
-    </div>
+    <!--<div-->
+      <!--v-nsf-drag-->
+      <!--class="nsf-drag"-->
+      <!--style="-->
+      <!--width: 300px;-->
+      <!--height:300px;-->
+      <!--background-color: green;-->
+      <!--position: absolute;-->
+    <!--top: 300px;-->
+    <!--left:300px;-->
+    <!--z-index: 10000;"-->
+    <!--&gt;-->
+      <!--<div class="nsf-drag__header" style="width: 100%;height:100px;background-color: yellow">-->
+        <!--asdsad-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />

@@ -305,7 +305,7 @@ export default {
         duration: 2000
       })
     },
-    goToDetails(){
+    goToDetails() {
       this.$router.push('/customerManagement/customer/details')
     }
   }

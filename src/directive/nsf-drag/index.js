@@ -1,4 +1,4 @@
-import drag from './dragback'
+import drag from './drag'
 
 const install = function(Vue) {
   Vue.directive('nsf-drag', drag)
