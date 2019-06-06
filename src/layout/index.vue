@@ -1,22 +1,44 @@
 <template>
   <div :class="classObj" class="app-wrapper">
 
-    <!--<div-->
-      <!--v-nsf-drag-->
-      <!--class="nsf-drag"-->
-      <!--style="-->
-      <!--width: 300px;-->
-      <!--height:300px;-->
-      <!--background-color: green;-->
-      <!--position: absolute;-->
-    <!--top: 300px;-->
-    <!--left:300px;-->
-    <!--z-index: 10000;"-->
-    <!--&gt;-->
-      <!--<div class="nsf-drag__header" style="width: 100%;height:100px;background-color: yellow">-->
-        <!--asdsad-->
-      <!--</div>-->
-    <!--</div>-->
+    <div
+      v-show="showDrag"
+      v-nsf-drag
+      class="nsf-drag"
+      style="
+      width:300px;
+      position: absolute;
+    top: 30%;
+    left:70%;
+    z-index: 10000;"
+    >
+      <el-card class="nsf-drag__handler">
+        <div slot="header" class="clearfix">
+          客户概要信息
+          <button type="button" aria-label="Close" class="el-dialog__headerbtn" @click="closeDrag"><i class="el-dialog__close el-icon el-icon-close" /></button>
+        </div>
+        <el-form ref="form" label-width="80px">
+          <el-form-item label="姓名:">
+            张三
+          </el-form-item>
+          <el-form-item label="性别:">
+            男
+          </el-form-item>
+          <el-form-item label="来电号码:">
+            13810680345
+          </el-form-item>
+          <el-form-item label="地区:">
+            北京
+          </el-form-item>
+          <el-form-item label="身份证号:">
+            152106198903040034
+          </el-form-item>
+          <el-form-item label="来电时间:">
+            2019-05-16 14:05:34
+          </el-form-item>
+        </el-form>
+      </el-card>
+    </div>
 
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
@@ -80,7 +102,7 @@ export default {
   mixins: [ResizeMixin],
   data() {
     return {
-      dialogTableVisible: true,
+      showDrag: true,
       total: 500,
       page: 1,
       limit: 20,
@@ -128,6 +150,13 @@ export default {
       }
     }
   },
+  created() {
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && (e.key.toUpperCase() === 'L' || e.keyCode === 76)) {
+        this.showDrag = !this.showDrag
+      }
+    })
+  },
   mounted() {
     this.callNotification(this.device, this.callInNo, null, false, 'keep', this.$store, this.$notify)
     this.$store.commit('commonData/SET_CLIENT_WIDTH', `${document.documentElement.clientWidth}`)
@@ -142,8 +171,8 @@ export default {
     closeRightPanel() {
       this.$store.commit('commonData/SET_RIGHT_PANEL_SHOW', false)
     },
-    handleDrag() {
-      // this.$refs.select.blur()
+    closeDrag() {
+      this.showDrag = false
     }
   }
 }

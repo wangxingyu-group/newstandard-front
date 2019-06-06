@@ -1,7 +1,7 @@
 export default {
   bind(el, binding, vnode) {
     // const dragDom = el.querySelector('.nsf-drag')
-    const dragHeaderEl = el.querySelector('.nsf-drag__header')
+    const dragHeaderEl = el.querySelector('.nsf-drag__handler')
     dragHeaderEl.style.cssText += ';cursor:move;'
 
     // 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);
@@ -28,8 +28,9 @@ export default {
         elHeight = +document.body.clientHeight * (+elHeight.replace(/\%/g, '') / 100)
       } else {
         elWidth = elWidth.replace(/\px/g, '')
-        elHeight = elWidth.replace(/\px/g, '')
+        elHeight = elHeight.replace(/\px/g, '')
       }
+      console.log('elWidth:' + elWidth + ', elHeight:' + elHeight)
       const maxLeft = screenWidth - elWidth
       const maxTop = screenHeight - elHeight
       document.onmousemove = function(e) {
