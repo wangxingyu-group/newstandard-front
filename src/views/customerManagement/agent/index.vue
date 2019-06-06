@@ -58,10 +58,10 @@
             <el-table-column label="操作" align="center" min-width="200">
               <template slot-scope="{row}">
                 <el-button type="primary" size="small " width="100" @click="confirmCustomer(row)">
-                  客户确认
+                  确认
                 </el-button>
                 <el-button type="primary" size="small" @click="goToDetails()">
-                  查看详情
+                  详情
                 </el-button>
               </template>
             </el-table-column>

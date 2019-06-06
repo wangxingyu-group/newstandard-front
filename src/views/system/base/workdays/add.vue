@@ -37,7 +37,18 @@
 </template>
 <script>
 export default {
-  props: ['isAdd', 'editItem', 'deleteEvent'],
+  props: {
+    isAdd: {
+      type: Boolean,
+      default_link_target: false
+    },
+    editItem: {
+      type: Object
+    },
+    deleteEvent: {
+      type: Object
+    }
+  },
   data() {
     return {
       rules: {

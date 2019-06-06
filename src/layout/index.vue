@@ -1,6 +1,14 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <!--<div class="touchCustomer" v-el-drag-dialog  @dragDialog="handleDrag"></div>-->
+    <div v-nsf-drag class="touchCustomer" @dragDialog="handleDrag">
+      <div class="nsf-drag" style="width: 100%;height:300px;background-color: green">
+        <div class="nsf-drag__header" style="width: 100%;height:100px;background-color: yellow">
+          asdsad
+        </div>
+      </div>
+
+    </div>
+
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
@@ -47,7 +55,7 @@ import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
-import elDragDialog from '@/directive/el-drag-dialog' // base on element-ui
+import nsfDrag from '@/directive/nsf-drag' // base on element-ui
 export default {
   name: 'Layout',
   components: {
@@ -57,12 +65,13 @@ export default {
     // Settings,
     Sidebar,
     TagsView,
-    Pagination,
-    elDragDialog
+    Pagination
   },
+  directives: { nsfDrag },
   mixins: [ResizeMixin],
   data() {
     return {
+      dialogTableVisible: true,
       total: 500,
       page: 1,
       limit: 20,
@@ -125,7 +134,7 @@ export default {
       this.$store.commit('commonData/SET_RIGHT_PANEL_SHOW', false)
     },
     handleDrag() {
-      this.$refs.select.blur()
+      // this.$refs.select.blur()
     }
   }
 }
