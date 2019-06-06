@@ -12,7 +12,7 @@ for (let i = 0; i < count; i++) {
     customSignDate: '@date(\'yyyy-MM-dd\')',
     receiptDate: '@date(\'yyyy-MM-dd\')',
     contractedDate: '@date(\'yyyy-MM-dd\')',
-    'productName|1': ['弘康多倍保', '健康一生医疗保险A款', '弘康弘利相传', '常乐泰保险', '智能大白定售'],
+    'product|1': ['弘康多倍保', '健康一生医疗保险A款', '弘康弘利相传', '常乐泰保险', '智能大白定售'],
     prem: /^[1-9]\d{4}/,
     appName: '@cname',
     days: /^[1-9]\d{2}/,
@@ -25,7 +25,26 @@ for (let i = 0; i < count; i++) {
     number: /^[1-9]\d{2}/,
     agentName: '@cname',
     'agent|1': ['淘宝', '惠泽', '淘宝', '苏宁', '京东'],
-    'companyName|1': ['北京分公司', '江苏分公司', '河南分公司']
+    'companyName|1': ['北京分公司', '江苏分公司', '河南分公司'],
+    insuredname: '@cname',
+    appntappage: /^\d{2}/,
+    'appntsex|1': ['男', '女'],
+    appntbirthday: '@date(\'yyyy-MM-dd\')',
+    'idno|1': ['320101198001010079'],
+    mobile: /^1[3568][0-9]\d{8}/,
+    homeaddress: '@caddress',
+    email: '@cemail',
+    amnt: /^\d{6}/,
+    payendyear: '20年',
+    insuyear: '10年',
+    'selltype|1': ['微信', '淘宝'],
+    lastcalldate: '@dateTime(\'yyyy-MM-dd HH:mm:ss\')',
+    lastcallphone: /^1[3568][0-9]\d{8}/,
+    num: /^\d{1}/,
+    yyday: /^\d{2}/,
+    questiontype: '@ctitle',
+    'mettertype|1': ['有效', '终止', '失效'],
+    'appflag|1': ['有效', '终止', '失效']
   }))
 }
 

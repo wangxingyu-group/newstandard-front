@@ -21,7 +21,7 @@ for (let i = 0; i < count; i++) {
     'selltype|1': ['惠泽经纪', '惠泽经纪', '微信'],
     'appflag|1': ['失效', '终止', '有效'],
     'yydata|1': ['是', '否'],
-    examnote: '@ctital',
+    examnote: '@ctitle',
     'mailstatus|1': ['需发信函', '已发信函', '已收信函', '邮寄信函', '上门信函', '信函件返回'],
     'enddepartment|1': ['营业部', '经代部'],
     'fbnowstatus|1': ['已回访', '未回访', '已预约'],
@@ -29,9 +29,6 @@ for (let i = 0; i < count; i++) {
     agentcode: /^23023[1-9]\d{5}/,
     'fbresult|1': ['完成', '未完成'],
     fbcount: /^[1-9]\d{1}/,
-    userno: /^[1-9]\d{3}/,
-    mailsenddate: '@dateTime(\'yyyy-MM-dd HH:mm:ss\')',
-    lastprobtime: '@dateTime(\'yyyy-MM-dd HH:mm:ss\')',
     wttype: '@ctitle'
   }))
 }
