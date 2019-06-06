@@ -63,11 +63,14 @@
             <el-table-column label="签单日期" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.signDate }}</span></template>
             </el-table-column>
-            <el-table-column label="产品名称" align="center" min-width="200">
-              <template slot-scope="scope"><span>{{ scope.row.productName }}</span></template>
+            <el-table-column label="投保人编号" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.appntno }}</span></template>
             </el-table-column>
             <el-table-column label="回访结果" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.reVisit }}</span></template>
+            </el-table-column>
+            <el-table-column label="工单状态" align="center" min-width="100">
+              <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
             <el-table-column label="描述" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.describe }}</span></template>
@@ -77,6 +80,21 @@
             </el-table-column>
             <el-table-column label="最后一次呼叫时间" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.lastDateTime }}</span></template>
+            </el-table-column>
+            <el-table-column label="是否预约" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.orderflag }}</span></template>
+            </el-table-column>
+            <el-table-column label="预约时间" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.orderdate }}</span></template>
+            </el-table-column>
+            <el-table-column label="呼叫次数" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.fbcount }}</span></template>
+            </el-table-column>
+            <el-table-column label="是否多单" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.ismany }}</span></template>
+            </el-table-column>
+            <el-table-column label="备注" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.examnote }}</span></template>
             </el-table-column>
           </el-table>
           <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />

@@ -12,6 +12,7 @@ for (let i = 0; i < count; i++) {
     receiptDate: '@date(\'yyyy-MM-dd\')',
     'reVisit|1': ['完成', '未完成'],
     describe: '@ctitle',
+    appntno: /^1001023[1-9]\d{3}/,
     'productName|1': ['弘康多倍保', '健康一生医疗保险A款', '弘康弘利相传', '常乐泰保险', '智能大白定售'],
     prem: /^[1-9]\d{4}/,
     appName: '@cname',
@@ -22,7 +23,12 @@ for (let i = 0; i < count; i++) {
     'result|1': ['完成', '未完成'],
     count: /^[1-9]\d{1}/,
     lastDateTime: '@dateTime(\'yyyy-MM-dd HH:mm:ss\')',
-    number: /^[1-9]\d{2}/
+    number: /^[1-9]\d{2}/,
+    'orderflag|1': ['是', '否'],
+    orderdate: '@dateTime(\'yyyy-MM-dd HH:mm:ss\')',
+    fbcount: /^[1-9]/,
+    'ismany|1': ['是', '否'],
+    examnote: '@ctitle'
   }))
 }
 
