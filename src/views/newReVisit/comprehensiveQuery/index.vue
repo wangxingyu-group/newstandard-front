@@ -7,24 +7,26 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="投保单号">
-                    <el-input v-model="listQuery.appno" placeholder="投保单号" class="filter-item" @keyup.enter.native="handleFilter" />
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
                   <el-form-item label="保单号">
-                    <el-input v-model="listQuery.policyno" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="信函状态">
-                    <el-select v-model="listQuery.emailStatue">
-                      <el-option v-for="(item, index) in emailStatues" :key="index" :label="item" :value="item" />
+                  <el-form-item label="销售渠道">
+                    <el-select v-model="listQuery.channel">
+                      <el-option v-for="(item, index) in channels" :key="index" :label="item" :value="item" />
+                    </el-select>
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="销售方式">
+                    <el-select v-model="listQuery.sellType">
+                      <el-option v-for="(item, index) in sellTypes" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="6" :lg="8">
-                  <el-form-item label="录入起始时间">
+                  <el-form-item label="签单起始时间">
                     <el-col :span="10">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:200px" placeholder="" />
                     </el-col>
@@ -38,24 +40,31 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="归属机构">
-                    <el-select v-model="listQuery.agent">
-                      <el-option v-for="(item, index) in agents" :key="index" :label="item" :value="item" />
-                    </el-select>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
                   <el-form-item label="回访方式">
                     <el-select v-model="listQuery.reVisitType">
                       <el-option v-for="(item, index) in reVisitTypes" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
+                <el-col :sm="6" :lg="8">
+                  <el-form-item label="生效日期起">
+                    <el-col :span="10">
+                      <el-date-picker v-model="listQuery.from1" type="date" style="width:100%;min-width:200px" placeholder="" />
+                    </el-col>
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="截止为">
+                    <el-col :span="12">
+                      <el-date-picker v-model="listQuery.to1" type="date" style="width:100%;min-width:200px" placeholder="" />
+                    </el-col>
+                  </el-form-item>
+                </el-col>
                 <el-col :sm="12" :lg="8" style="align:right" class="fr">
                   <div class="fr">
                     <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
                     <el-button type="info" size="small" @click="reset">重置</el-button>
-                    <el-button type="primary" size="small" @click="handleBatchSubmit">生成报表</el-button>
+                    <el-button type="primary" size="small" @click="handleBatchSubmit">导出</el-button>
                   </div>
                 </el-col>
               </el-row>
@@ -117,7 +126,7 @@
             <el-table-column label="保单状态" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appflag }}</span></template>
             </el-table-column>
-            <el-table-column label="是否犹豫期内回访成功" align="center" min-width="150">
+            <el-table-column label="是否犹豫期内回访成功" align="center" min-width="180">
               <template slot-scope="scope"><span>{{ scope.row.yydata }}</span></template>
             </el-table-column>
             <el-table-column label="备注" align="center" min-width="150">
@@ -146,16 +155,18 @@ export default {
       total: 0,
       listLoading: true,
       selectionList: null,
+      channels: ['网销', '经代', '直销'],
       agents: ['综合电商部', '江苏分公司', '北京分公司', '上海分公司'],
-      emailStatues: ['需发信函', '已发信函', '已收信函', '邮寄信函', '上门信函', '信函件返回'],
+      sellTypes: ['淘宝', '京东', '苏宁'],
       reVisitTypes: ['在线回访', '电话回访', '邮件回访'],
       listQuery: {
-        appno: '', // 投保单号
-        emailStatue: '', // 信函件状态
-        agent: '', // 归属机构
+        sellType: '',
+        channel: '',
         from: '', // 起始时间
         to: '', // 结束时间
-        policyno: '', // 保单号
+        from1: '',
+        to1: '',
+        policyNo: '', // 保单号
         reVisitType: '', // 回访方式
         page: 1,
         limit: 10
@@ -206,7 +217,7 @@ export default {
       this.selectionList = val
     },
     handleBatchSubmit() {
-      this.$confirm('确认选中的记录生成报表?', '提示', {
+      this.$confirm('确认导出选中的记录?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
@@ -223,13 +234,14 @@ export default {
     },
     reset() {
       this.listQuery = {
-        appno: '', // 投保单号
-        emailStatue: '', // 信函件状态
-        agent: '', // 归属机构
+        sellType: '',
+        channel: '',
         from: '', // 起始时间
         to: '', // 结束时间
-        policyno: '', // 保单号
-        reVisitType: '',
+        from1: '',
+        to1: '',
+        policyNo: '', // 保单号
+        reVisitType: '', // 回访方式
         page: 1,
         limit: 10
       }
