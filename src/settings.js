@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'NewStandard Front',
+  title: '中科软悦客联络平台',
 
   /**
    * @type {boolean} true | false

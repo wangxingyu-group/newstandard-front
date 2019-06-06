@@ -26,6 +26,7 @@ import * as filters from './filters' // global filters
 import { mockXHR } from '../mock'
 import callNotification from '@/components/demo/callNotification'
 import './assets/nsf-icon/iconfont.js'
+import './assets/nsf-icon/temp.js'
 import nsfIcon from '@/components/demo/nsfIcon'
 if (process.env.NODE_ENV === 'production') {
   mockXHR()
