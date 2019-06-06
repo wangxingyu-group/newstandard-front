@@ -26,14 +26,14 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="签单起">
+                  <el-form-item label="签单起始为">
                     <el-col :span="12">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="止">
+                  <el-form-item label="截止为">
                     <el-col :span="12">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="" />
                     </el-col>
@@ -201,9 +201,4 @@ export default {
 </script>
 
 <style>
-  .customWidth{
-    width: 1000px;
-    height: 580px;
-    top: -50px;
-  }
 </style>
