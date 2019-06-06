@@ -67,14 +67,12 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="">
-                    <div class="fr">
-                      <el-button type="primary" size="small" @click="handleCreate">新增</el-button>
-                      <el-button type="info" size="small" @click="clearList">清空</el-button>
-                      <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
-                      <el-button type="primary" size="small" @click="handleBatchDelete">批量删除</el-button>
-                    </div>
-                  </el-form-item>
+                  <div class="fr">
+                    <el-button type="primary" size="small" @click="handleCreate">新增</el-button>
+                    <el-button type="info" size="small" @click="clearList">清空</el-button>
+                    <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
+                    <el-button type="primary" size="small" @click="handleBatchDelete">批量删除</el-button>
+                  </div>
                 </el-col>
               </el-row>
             </el-form>
