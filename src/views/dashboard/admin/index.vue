@@ -4,6 +4,12 @@
     <panel-group @handleSetLineChartData="()=>{}" />
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <el-button-group class="fr">
+        <el-button type="" plain>今天</el-button>
+        <el-button type="" plain>昨天</el-button>
+        <el-button type="" plain>过去7天</el-button>
+        <el-button type="" plain>过去30天</el-button>
+      </el-button-group>
       <line-chart :chart-data="lineChartData" />
     </el-row>
 

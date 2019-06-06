@@ -12,6 +12,7 @@
         <el-card style="height: 100vh;">
           <div slot="header" class="clearfix">
             坐席状态监控
+            <button type="button" aria-label="Close" class="el-dialog__headerbtn" @click="closeRightPanel"><i class="el-dialog__close el-icon el-icon-close" /></button>
           </div>
           <el-form>
             <el-form-item label="坐席状态" prop="seatsStatus">
@@ -116,6 +117,9 @@ export default {
   methods: {
     handleClickOutside() {
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
+    },
+    closeRightPanel() {
+      this.$store.commit('commonData/SET_RIGHT_PANEL_SHOW', false)
     }
   }
 }
