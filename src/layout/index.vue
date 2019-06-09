@@ -1,6 +1,45 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <!--<div class="touchCustomer" v-el-drag-dialog  @dragDialog="handleDrag"></div>-->
+
+    <div
+      v-show="showDrag"
+      v-nsf-drag
+      class="nsf-drag"
+      style="
+      width:300px;
+      position: absolute;
+    top: 30%;
+    left:70%;
+    z-index: 10000;"
+    >
+      <el-card class="nsf-drag__handler">
+        <div slot="header" class="clearfix">
+          客户概要信息
+          <button type="button" aria-label="Close" class="el-dialog__headerbtn" @click="closeDrag"><i class="el-dialog__close el-icon el-icon-close" /></button>
+        </div>
+        <el-form ref="form" label-width="80px">
+          <el-form-item label="姓名:">
+            张三
+          </el-form-item>
+          <el-form-item label="性别:">
+            男
+          </el-form-item>
+          <el-form-item label="来电号码:">
+            13810680345
+          </el-form-item>
+          <el-form-item label="地区:">
+            北京
+          </el-form-item>
+          <el-form-item label="身份证号:">
+            152106198903040034
+          </el-form-item>
+          <el-form-item label="来电时间:">
+            2019-05-16 14:05:34
+          </el-form-item>
+        </el-form>
+      </el-card>
+    </div>
+
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
@@ -47,7 +86,7 @@ import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
-import elDragDialog from '@/directive/el-drag-dialog' // base on element-ui
+import nsfDrag from '@/directive/nsf-drag' // base on element-ui
 export default {
   name: 'Layout',
   components: {
@@ -57,12 +96,13 @@ export default {
     // Settings,
     Sidebar,
     TagsView,
-    Pagination,
-    elDragDialog
+    Pagination
   },
+  directives: { nsfDrag },
   mixins: [ResizeMixin],
   data() {
     return {
+      showDrag: true,
       total: 500,
       page: 1,
       limit: 20,
@@ -110,6 +150,13 @@ export default {
       }
     }
   },
+  created() {
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && (e.key.toUpperCase() === 'L' || e.keyCode === 76)) {
+        this.showDrag = !this.showDrag
+      }
+    })
+  },
   mounted() {
     this.callNotification(this.device, this.callInNo, null, false, 'keep', this.$store, this.$notify)
     this.$store.commit('commonData/SET_CLIENT_WIDTH', `${document.documentElement.clientWidth}`)
@@ -124,8 +171,8 @@ export default {
     closeRightPanel() {
       this.$store.commit('commonData/SET_RIGHT_PANEL_SHOW', false)
     },
-    handleDrag() {
-      this.$refs.select.blur()
+    closeDrag() {
+      this.showDrag = false
     }
   }
 }

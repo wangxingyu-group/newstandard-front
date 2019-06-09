@@ -73,7 +73,7 @@
                   详情
                 </el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">
-                  删除
+                  融合
                 </el-button>
               </template>
             </el-table-column>
@@ -305,7 +305,7 @@ export default {
         duration: 2000
       })
     },
-    goToDetails(){
+    goToDetails() {
       this.$router.push('/customerManagement/customer/details')
     }
   }

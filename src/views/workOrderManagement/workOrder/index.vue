@@ -120,14 +120,6 @@ export default {
     ElDragSelect,
     Pagination
   },
-  computed: {
-    ...mapState({
-      searchRow1: state => state.commonData.searchRow1,
-      searchRow2: state => state.commonData.searchRow2,
-      searchRow3: state => state.commonData.searchRow3,
-      searchRow4: state => state.commonData.searchRow4
-    })
-  },
   data() {
     return {
       total: 1,
@@ -166,6 +158,14 @@ export default {
         label: '被退回'
       }]
     }
+  },
+  computed: {
+    ...mapState({
+      searchRow1: state => state.commonData.searchRow1,
+      searchRow2: state => state.commonData.searchRow2,
+      searchRow3: state => state.commonData.searchRow3,
+      searchRow4: state => state.commonData.searchRow4
+    })
   },
   methods: {
     handleClick(tab, event) {

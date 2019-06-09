@@ -37,6 +37,13 @@ import task from './demo/customerServiceRevisit/task' // 保全任务查询
 import claimsCallOutRevisit from './demo/clamsRevisit/claimsCallOutRevisit' // 理赔外呼结果查询
 import claimsCallOutTask from './demo/clamsRevisit/claimsCallOutTask' // 理赔外呼任务查询
 import claimsCallOutChat from './demo/clamsRevisit/claimsCallOutChat' // 理赔外呼报表
+import revisitBlackListManagement from './newReVisit/revisitBlackListManagement' // 回访黑名单管理
+import revisitLogRecord from './newReVisit/revisitLogRecord' // 回访日志记录
+import taskGetRevisitData from './newReVisit/taskGetRevisitData' // 批处理获取回访数据
+import ownershipInstitution from './newReVisit/ownershipInstitution' // 归属机构
+import channelConfig from './newReVisit/channelConfig' // 渠道配置
+import revisitTaskMonitor from './newReVisit/revisitTaskMonitor' // 回访任务监控
+import successRate from './newReVisit/successRate' // 成功率统计
 import distribution from './newReVisit/distribution/distribution' // 回访任务分配
 import personalReVisit from './newReVisit/personalReVisit/personalReVisit' // 私有回访任务
 import problemManagement from './newReVisit/problemManagement/problemManagement' // 问题件管理
@@ -81,6 +88,14 @@ const mocks = [
   ...task,
   ...claimsCallOutRevisit,
   ...claimsCallOutTask,
+  ...claimsCallOutChat,
+  ...revisitBlackListManagement,
+  ...revisitLogRecord,
+  ...taskGetRevisitData,
+  ...ownershipInstitution,
+  ...channelConfig,
+  ...revisitTaskMonitor,
+  ...successRate,
   ...claimsCallOutChat,
   ...distribution,
   ...personalReVisit,
