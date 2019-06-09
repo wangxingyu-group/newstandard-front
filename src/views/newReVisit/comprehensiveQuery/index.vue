@@ -13,51 +13,43 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售渠道">
-                    <el-select v-model="listQuery.channel">
+                    <el-select v-model="listQuery.channel" placeholder="---请选择---">
                       <el-option v-for="(item, index) in channels" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售方式">
-                    <el-select v-model="listQuery.sellType">
+                    <el-select v-model="listQuery.sellType" placeholder="---请选择---">
                       <el-option v-for="(item, index) in sellTypes" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="6" :lg="8">
-                  <el-form-item label="签单起始时间">
+                  <el-form-item label="签单时间">
                     <el-col :span="10">
-                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:200px" placeholder="" />
+                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
+                    </el-col>
+                    <el-col :span="12">
+                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="截止为">
+                <el-col :sm="6" :lg="8">
+                  <el-form-item label="生效时间">
+                    <el-col :span="10">
+                      <el-date-picker v-model="listQuery.from1" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
+                    </el-col>
                     <el-col :span="12">
-                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:200px" placeholder="" />
+                      <el-date-picker v-model="listQuery.to1" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="回访方式">
-                    <el-select v-model="listQuery.reVisitType">
+                    <el-select v-model="listQuery.reVisitType" placeholder="---请选择---">
                       <el-option v-for="(item, index) in reVisitTypes" :key="index" :label="item" :value="item" />
                     </el-select>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="6" :lg="8">
-                  <el-form-item label="生效日期起">
-                    <el-col :span="10">
-                      <el-date-picker v-model="listQuery.from1" type="date" style="width:100%;min-width:200px" placeholder="" />
-                    </el-col>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="截止为">
-                    <el-col :span="12">
-                      <el-date-picker v-model="listQuery.to1" type="date" style="width:100%;min-width:200px" placeholder="" />
-                    </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8" style="align:right" class="fr">
@@ -70,30 +62,30 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 280px;" :data="list" fit stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
-            <el-table-column label="保单号" align="center" min-width="150">
+            <el-table-column label="保单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.contno }}</span></template>
             </el-table-column>
-            <el-table-column label="回访方式" align="center" min-width="100">
+            <el-table-column label="回访方式" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.calltype }}</span></template>
             </el-table-column>
-            <el-table-column label="签单日期" align="center" min-width="150">
+            <el-table-column label="签单日期" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.signdate }}</span></template>
             </el-table-column>
-            <el-table-column label="客户签收日期" align="agentcode" min-width="150">
+            <el-table-column label="客户签收日期" align="agentcode" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.customgetpoldate }}</span></template>
             </el-table-column>
-            <el-table-column label="回单日期" align="center" min-width="150">
+            <el-table-column label="回单日期" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.getpoldate }}</span></template>
             </el-table-column>
-            <el-table-column label="代理人姓名" align="center" min-width="100">
+            <el-table-column label="代理人姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.agentname }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人姓名" align="center" min-width="100">
+            <el-table-column label="投保人姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appntname }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人性别" align="center" min-width="100">
+            <el-table-column label="投保人性别" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appntsex }}</span></template>
             </el-table-column>
             <el-table-column label="移动电话" align="center" min-width="150">
@@ -126,7 +118,7 @@
             <el-table-column label="保单状态" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appflag }}</span></template>
             </el-table-column>
-            <el-table-column label="是否犹豫期内回访成功" align="center" min-width="180">
+            <el-table-column label="是否犹豫期内回访成功" align="center" min-width="220">
               <template slot-scope="scope"><span>{{ scope.row.yydata }}</span></template>
             </el-table-column>
             <el-table-column label="备注" align="center" min-width="150">

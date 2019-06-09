@@ -8,14 +8,14 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="归属机构">
-                    <el-select v-model="listQuery.agent">
+                    <el-select v-model="listQuery.agent" placeholder="---请选择---">
                       <el-option v-for="(item, index) in agents" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="工单状态">
-                    <el-select v-model="listQuery.statue">
+                    <el-select v-model="listQuery.statue" placeholder="---请选择---">
                       <el-option v-for="(item, index) in statues" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
@@ -26,17 +26,20 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="签单起始为">
+                  <el-form-item label="签单时间">
                     <el-col :span="12">
-                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
+                    </el-col>
+                    <el-col :span="12">
+                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="截止为">
-                    <el-col :span="12">
-                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="" />
-                    </el-col>
+                  <el-form-item label="销售渠道">
+                    <el-select v-model="listQuery.channel" placeholder="---请选择---">
+                      <el-option v-for="(item, index) in channels" :key="index" :label="item" :value="item" />
+                    </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -44,13 +47,8 @@
                     <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="销售渠道">
-                    <el-select v-model="listQuery.channel">
-                      <el-option v-for="(item, index) in channels" :key="index" :label="item" :value="item" />
-                    </el-select>
-                  </el-form-item>
-                </el-col>
+              </el-row>
+              <el-row>
                 <el-col :sm="12" :lg="8" style="align:right" class="fr">
                   <div class="fr">
                     <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
@@ -146,7 +144,7 @@
             <el-table-column label="回访结果" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.result }}</span></template>
             </el-table-column>
-            <el-table-column label="描述" align="center" min-width="100">
+            <el-table-column label="描述" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.questiontype }}</span></template>
             </el-table-column>
             <el-table-column label="工单状态" align="center" min-width="100">

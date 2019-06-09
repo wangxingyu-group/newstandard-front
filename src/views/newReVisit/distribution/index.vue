@@ -8,40 +8,40 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售渠道">
-                    <el-select v-model="listQuery.channel">
+                    <el-select v-model="listQuery.channel" placeholder="---请选择---">
                       <el-option v-for="(item, index) in channelList" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="销售方式">
-                    <el-select v-model="listQuery.sellType">
+                  <el-form-item label="销售方式" label-width="140px">
+                    <el-select v-model="listQuery.sellType" placeholder="---请选择---">
                       <el-option v-for="(item, index) in sellTypes" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="代理机构">
-                    <el-select v-model="listQuery.agent">
+                    <el-select v-model="listQuery.agent" placeholder="---请选择---">
                       <el-option v-for="(item, index) in agents" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="分支机构">
-                    <el-select v-model="listQuery.agent">
+                    <el-select v-model="listQuery.customer" placeholder="---请选择---">
                       <el-option v-for="(item, index) in agents" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
+                  <el-form-item label="保单号" label-width="140px">
                     <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="险种类型">
-                    <el-select v-model="listQuery.risk">
+                    <el-select v-model="listQuery.risk" placeholder="---请选择---">
                       <el-option v-for="(item, index) in risks" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
@@ -49,24 +49,26 @@
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="签单日期">
                     <el-col :span="11">
-                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
                     <el-col :span="11">
-                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="客户签单日期">
+                  <el-form-item label="客户签单日期" label-width="140px">
                     <el-col :span="11">
-                      <el-date-picker v-model="listQuery.cusfrom" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="listQuery.cusfrom" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
                     <el-col :span="11">
-                      <el-date-picker v-model="listQuery.custo" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="listQuery.custo" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="8">
+              </el-row>
+              <el-row>
+                <el-col :span="24">
                   <div class="fr">
                     <el-button type="primary" size="small" @click="handleCreate">新增</el-button>
                     <el-button type="info" size="small" @click="clearList">清空</el-button>
@@ -100,10 +102,10 @@
             <el-table-column label="保费" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.prem }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人姓名" align="center" min-width="100">
+            <el-table-column label="投保人姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appName }}</span></template>
             </el-table-column>
-            <el-table-column label="犹豫期剩余天数" align="center" min-width="100">
+            <el-table-column label="犹豫期剩余天数" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.days }}</span></template>
             </el-table-column>
             <el-table-column label="销售渠道" align="center" min-width="100">
@@ -121,7 +123,7 @@
             <el-table-column label="最后一次呼叫时间" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.lastDateTime }}</span></template>
             </el-table-column>
-            <el-table-column label="回访坐席号" align="center" min-width="100">
+            <el-table-column label="回访坐席号" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.number }}</span></template>
             </el-table-column>
             <el-table-column label="操作" align="center" fixed="right" width="100">
@@ -148,7 +150,7 @@
           <el-input v-model="temp.productName" />
         </el-form-item>
         <el-form-item label="销售渠道" prop="channel">
-          <el-select v-model="temp.channel">
+          <el-select v-model="temp.channel" placeholder="---请选择---">
             <el-option v-for="(item, index) in channelList" :key="index" :label="item.name" :value="item.id" />
           </el-select>
         </el-form-item>
@@ -181,22 +183,23 @@ export default {
       listLoading: true,
       selectionList: null,
       listQuery: {
-        channel: 1,
-        sellType: '11',
-        agent: '19',
+        channel: '',
+        sellType: '',
+        customer: '', // 分支机构
+        agent: '',
         policyNo: '',
         cusfrom: '',
         custo: '',
         from: '',
         to: '',
-        risk: '01',
+        risk: '',
         idcard: '',
         outNo: '', // 外呼服务单号
         page: 1,
         limit: 10
       },
       channelList: [{ id: 1, name: '经代' }, { id: 2, name: '网销' }, { id: 3, name: '直销' }, { id: 4, name: '银行代理' }],
-      sellTypes: [{ id: '01', name: '业务员' }, { id: '07', name: '官网销售' }, { id: '11', name: '中介' }, { id: '19', name: '微信销售' }],
+      sellTypes: [{ id: 1, name: '业务员' }, { id: 2, name: '官网销售' }, { id: 3, name: '中介' }, { id: 4, name: '微信销售' }],
       agents: [{ id: '01', name: '惠泽' }, { id: '07', name: '北京分公司' }, { id: '11', name: '淘宝' }, { id: '19', name: '苏宁' }],
       risks: [{ id: '01', name: '保障险' }, { id: '02', name: '投连险' }, { id: '03', name: '万能险' }],
       temp: {// 操作时的临时对象
