@@ -7,7 +7,7 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="业务类型标识">
+                  <el-form-item label="业务类型标识" label-width="150px">
                     <el-input v-model="listQuery.type" placeholder="业务类型标识" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>

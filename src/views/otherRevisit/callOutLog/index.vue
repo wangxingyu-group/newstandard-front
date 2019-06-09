@@ -7,12 +7,12 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="投保人姓名">
+                  <el-form-item label="投保人姓名" label-width="130px">
                     <el-input v-model="listQuery.name" placeholder="投保人姓名" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="外呼服务单号">
+                  <el-form-item label="外呼服务单号" label-width="130px">
                     <el-input v-model="listQuery.outNo" placeholder="外呼服务单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>

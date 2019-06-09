@@ -72,37 +72,37 @@
             <el-table-column label="回单日期" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.contractedDate }}</span></template>
             </el-table-column>
-            <el-table-column label="保单号" align="center" min-width="150">
+            <el-table-column label="保单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.policyNo }}</span></template>
             </el-table-column>
-            <el-table-column label="归属机构" align="center" min-width="100">
+            <el-table-column label="归属机构" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.companyName }}</span></template>
             </el-table-column>
-            <el-table-column label="代理人姓名" align="center" min-width="100">
+            <el-table-column label="代理人姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.agentName }}</span></template>
             </el-table-column>
             <el-table-column label="代理机构" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.agent }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人姓名" align="center" min-width="130">
+            <el-table-column label="投保人姓名" align="center" min-width="180">
               <template slot-scope="scope"><span>{{ scope.row.appName }}</span></template>
             </el-table-column>
-            <el-table-column label="被保险人姓名" align="center" min-width="130">
+            <el-table-column label="被保险人姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.insuredname }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人年龄" align="center" min-width="100">
+            <el-table-column label="投保人年龄" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appntappage }}</span></template>
             </el-table-column>
             <el-table-column label="性别" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.appntsex }}</span></template>
             </el-table-column>
-            <el-table-column label="出生日期" align="center" min-width="100">
+            <el-table-column label="出生日期" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appntbirthday }}</span></template>
             </el-table-column>
             <el-table-column label="投保人证件号码" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.idno }}</span></template>
             </el-table-column>
-            <el-table-column label="移动电话" align="center" min-width="130">
+            <el-table-column label="移动电话" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.mobile }}</span></template>
             </el-table-column>
             <el-table-column label="通讯地址" align="center" min-width="200">
@@ -129,10 +129,10 @@
             <el-table-column label="销售方式" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.selltype }}</span></template>
             </el-table-column>
-            <el-table-column label="最后一次回访时间" align="center" min-width="150">
+            <el-table-column label="最后一次回访时间" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.lastcalldate }}</span></template>
             </el-table-column>
-            <el-table-column label="最后一次回访电话" align="center" min-width="150">
+            <el-table-column label="最后一次回访电话" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.lastcallphone }}</span></template>
             </el-table-column>
             <el-table-column label="回访次数" align="center" min-width="100">

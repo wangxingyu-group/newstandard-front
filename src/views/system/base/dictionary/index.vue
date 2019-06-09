@@ -12,7 +12,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="字典类型名称">
+                  <el-form-item label="字典类型名称" label-width="140px">
                     <el-input v-model="listQuery.name" placeholder="字典类型名称" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>

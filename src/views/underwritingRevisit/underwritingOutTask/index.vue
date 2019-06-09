@@ -7,7 +7,7 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="呼出手机号">
+                  <el-form-item label="呼出手机号" label-width="140px">
                     <el-input v-model="listQuery.mobile" placeholder="呼出手机号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
