@@ -51,9 +51,11 @@ import emailManagement from './newReVisit/emailManagement/emailManagement' // �
 import problemBranchHandle from './newReVisit/problemBranchHandle/problemBranchHandle' // 问题件分公司处理
 import emailBranchHandle from './newReVisit/emailBranchHandle/emailBranchHandle' // 信函件分公司处理
 import comprehensiveQuery from './newReVisit/comprehensiveQuery/comprehensiveQuery' // 新单回访=>综合查询
-import chart2 from './demo/chart/chart2' //报表=>服务单统计表
-import chart3 from './demo/chart/chart3' //报表=>短信发送统计
-import chart4 from './demo/chart/chart4'  //报表=>质检报表
+import backlogTaskPool from './backPool/backlogTaskPool' // 转办事项 => 待办任务池
+import newSettingList from './backPool/newSettingList' // 转办事项 => 新增需配置清单
+import chart2 from './demo/chart/chart2' // 报表=>服务单统计表
+import chart3 from './demo/chart/chart3' // 报表=>短信发送统计
+import chart4 from './demo/chart/chart4' // 报表=>质检报表
 
 const mocks = [
   ...user,
@@ -107,6 +109,9 @@ const mocks = [
   ...emailManagement,
   ...problemBranchHandle,
   ...emailBranchHandle,
+  ...comprehensiveQuery,
+  ...backlogTaskPool,
+  ...newSettingList,
   ...comprehensiveQuery,
   ...chart2,
   ...chart3,

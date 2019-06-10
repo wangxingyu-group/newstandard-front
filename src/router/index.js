@@ -16,6 +16,7 @@ import claimsRevisitRouter from './modules/claimsRevisit'
 import underwritingRevisitRouter from './modules/underwritingRevisit'
 import customerServiceRevisitRouter from './modules/customerServiceRevisit'
 import otherRevisitRouter from './modules/otherRevisit'
+import backlogRouter from './modules/backlog'
 Vue.use(Router)
 
 // 静态路由
@@ -82,6 +83,7 @@ export const asyncRoutes = [
   underwritingRevisitRouter,
   customerServiceRevisitRouter,
   otherRevisitRouter,
+  backlogRouter,
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
 ]
