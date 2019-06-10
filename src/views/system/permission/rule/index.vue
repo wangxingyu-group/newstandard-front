@@ -8,7 +8,7 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="角色名称">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="角色名称" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -53,12 +53,12 @@
                 <span>{{ scope.row.cName }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作时间" align="center" width="150">
+            <el-table-column label="操作时间" align="center" width="200">
               <template slot-scope="scope">
                 <span>{{ scope.row.createTime }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" width="150">
+            <el-table-column label="操作" align="center" width="200">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>

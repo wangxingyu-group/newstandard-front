@@ -8,12 +8,12 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="中文名称">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="中文名称" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="英文名称">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="英文名称" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -38,17 +38,17 @@
                 <span>{{ scope.row.menuDescription }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="英文名称" align="center" min-width="100">
+            <el-table-column label="英文名称" align="center" min-width="350">
               <template slot-scope="scope">
                 <span>{{ scope.row.title }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="类型" align="center" min-width="100">
+            <el-table-column label="类型" align="center" min-width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.roleType }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="链接" align="center" min-width="100">
+            <el-table-column label="链接" align="center" min-width="300">
               <template slot-scope="scope">
                 <span>{{ scope.row.url }}</span>
               </template>
@@ -58,12 +58,12 @@
                 <span>{{ scope.row.cName }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作时间" align="center" width="150">
+            <el-table-column label="操作时间" align="center" width="200">
               <template slot-scope="scope">
                 <span>{{ scope.row.createTime }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" width="150">
+            <el-table-column label="操作" align="center" fixed="right" width="200">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>

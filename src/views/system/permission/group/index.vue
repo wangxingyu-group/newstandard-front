@@ -4,37 +4,38 @@
       <el-col :span="24">
         <el-card>
           <div slot="header" class="clearfix">
-            <span>机构信息</span>
             <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="编号">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="编号" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="名称">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="名称" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="负责人">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="负责人" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="简称">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="简称" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="地址">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" class="filter-item" placeholder="地址" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="成立时间">
-                    <el-input v-model="queryForm.modelName" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-col :span="11">
+                      <el-date-picker v-model="queryForm.from" type="date" style="width:100%;min-width:135px" placeholder="成立时间" />
+                    </el-col>
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -64,7 +65,7 @@
                 <span>{{ scope.row.cName }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="电子邮件" align="center" min-width="100">
+            <el-table-column label="电子邮件" align="center" min-width="150">
               <template slot-scope="scope">
                 <span>{{ scope.row.cEmail }}</span>
               </template>
@@ -74,12 +75,12 @@
                 <span>{{ scope.row.mobilephone }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作时间" align="center" width="150">
+            <el-table-column label="操作时间" align="center" width="200">
               <template slot-scope="scope">
                 <span>{{ scope.row.createTime }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" width="150">
+            <el-table-column label="操作" align="center" width="200">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
