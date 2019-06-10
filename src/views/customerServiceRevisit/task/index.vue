@@ -12,35 +12,31 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="投保人客户号">
+                  <el-form-item label="投保人客户号" label-width="150px">
                     <el-input v-model="listQuery.idNo" placeholder="投保人客户号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="申请方式">
-                    <el-select style="width:20%;" placeholder="请选择">
+                    <el-select placeholder="---请选择---">
                       <el-option label="1--信函申请" value="shanghai" />
                       <el-option label="2--官微申请" value="shanghai" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="时间区间起">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="时间区间起" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                  <el-form-item label="签单日期">
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
+                    </el-col>
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
+                    </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="时间区间止">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="时间区间止" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="外呼类别">
-                    <el-select style="width:20%;" placeholder="请选择">
+                  <el-form-item label="外呼类别" label-width="150px">
+                    <el-select placeholder="---请选择---">
                       <el-option label="1--非直系亲属" value="shanghai" />
                       <el-option label="2--委托类" value="shanghai" />
                     </el-select>
@@ -62,19 +58,19 @@
             <el-table-column label="保单号" prop="id" sortable="custom" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人客户号" align="center" width="170">
+            <el-table-column label="投保人客户号" align="center" width="200">
               <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人姓名" align="center" width="100">
+            <el-table-column label="投保人姓名" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
             <el-table-column label="投保人电话" align="center" width="200">
               <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
             </el-table-column>
-            <el-table-column label="保全项目名称" align="center" width="150">
+            <el-table-column label="保全项目名称" align="center" width="400">
               <template slot-scope="scope"><span>{{ scope.row.description }}</span></template>
             </el-table-column>
-            <el-table-column label="保全受理号" align="center" width="200">
+            <el-table-column label="保全受理号" align="center" width="250">
               <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
             <el-table-column label="保全申请日期" align="center" width="200">
@@ -92,10 +88,10 @@
             <el-table-column label="代办人姓名" align="center" width="200">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="代办人证件类型" align="center" width="200">
+            <el-table-column label="代办人证件类型" align="center" width="250">
               <template slot-scope="scope"><span>{{ scope.row.idType }}</span></template>
             </el-table-column>
-            <el-table-column label="代办人证件号码" align="center" width="200">
+            <el-table-column label="代办人证件号码" align="center" width="250">
               <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
             <el-table-column label="代办人联系方式" align="center" width="200">
