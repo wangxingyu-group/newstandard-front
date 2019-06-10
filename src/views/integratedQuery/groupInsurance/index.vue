@@ -9,33 +9,33 @@
                 <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
                   <el-row>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="团体保单号码">
-                        <el-input v-model="listQuery.groupContractNo" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="团体保单号">
+                        <el-input v-model="listQuery.groupContractNo" placeholder="请输入团体保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="投保单号吗">
-                        <el-input v-model="listQuery.groupPreContractNo" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="投保单号">
+                        <el-input v-model="listQuery.groupPreContractNo" placeholder="请输入投保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
                       <el-form-item label="单位名称">
-                        <el-input v-model="listQuery.unitName" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                        <el-input v-model="listQuery.unitName" placeholder="请输入单位名称" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="个人保单号码">
-                        <el-input v-model="listQuery.contractNo" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="个人保单号">
+                        <el-input v-model="listQuery.contractNo" placeholder="请输入个人保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
                       <el-form-item label="个人客户号">
-                        <el-input v-model="listQuery.customerNo" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                        <el-input v-model="listQuery.customerNo" placeholder="请输入个人客户号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="证件号码">
-                        <el-input v-model="listQuery.idNo" placeholder="保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="证件号">
+                        <el-input v-model="listQuery.idNo" placeholder="请输入证件号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                   </el-row>

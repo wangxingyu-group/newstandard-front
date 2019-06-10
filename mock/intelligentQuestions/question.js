@@ -7,7 +7,7 @@ for (let i = 0; i < count; i++) {
   list.push(Mock.mock({
     id: '@increment',
     type: '选择题',
-    description: '@ctitle(25, 60)',
+    description: '@ctitle(10, 20)',
     'status|1': ['effective', 'noneffective'],
     createTime: '@datetime'
   }))

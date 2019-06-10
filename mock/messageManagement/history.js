@@ -7,7 +7,7 @@ for (let i = 0; i < count; i++) {
   list.push(Mock.mock({
     id: '@increment',
     phoneNo: /^1[385][1-9]\d{8}/,
-    content: '@ctitle(25, 60)',
+    content: '@ctitle(8, 16)',
     'status|1': ['未发送', '发送中', '已发送'],
     sender: '@cname',
     sendDate: '@date',

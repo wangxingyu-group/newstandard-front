@@ -16,51 +16,51 @@
                         <el-row>
                           <el-col :span="6" :offset="1">
                             <el-form-item label="服务单号">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="服务单号" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
                             <el-form-item label="来电人姓名">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="来电人姓名" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
                             <el-form-item label="性别">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="性别" />
                             </el-form-item>
                           </el-col>
                         </el-row>
                         <el-row>
                           <el-col :span="6" :offset="1">
                             <el-form-item label="来电号码">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="来电号码" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
                             <el-form-item label="来电时间">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="来电时间" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
                             <el-form-item label="来电地区">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="来电地区" />
                             </el-form-item>
                           </el-col>
                         </el-row>
                         <el-row>
                           <el-col :span="6" :offset="1">
                             <el-form-item label="身份证号码">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="身份证号码" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
                             <el-form-item label="客户身份">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="客户身份" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
                             <el-form-item label="备注">
-                              <el-input v-model="form.name" :disabled="true" />
+                              <el-input v-model="form.name" :disabled="true" placeholder="备注" />
                             </el-form-item>
                           </el-col>
                         </el-row>
