@@ -141,13 +141,13 @@
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="120px" style="width: 500px; margin-left:80px;">
         <el-form-item label="保单号" prop="policyNo">
-          <el-input v-model="temp.policyNo" />
+          <el-input v-model="temp.policyNo" placeholder="保单号" />
         </el-form-item>
         <el-form-item label="投保人姓名" prop="appName">
-          <el-input v-model="temp.appName" />
+          <el-input v-model="temp.appName" placeholder="投保人姓名" />
         </el-form-item>
         <el-form-item label="产品名称" prop="productName">
-          <el-input v-model="temp.productName" />
+          <el-input v-model="temp.productName" placeholder="产品名称" />
         </el-form-item>
         <el-form-item label="销售渠道" prop="channel">
           <el-select v-model="temp.channel" placeholder="---请选择---">

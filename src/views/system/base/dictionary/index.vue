@@ -54,16 +54,16 @@
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="120px" style="width: 500px; margin-left:80px;">
         <el-form-item label="编号" prop="id">
-          <el-input v-model="temp.id" />
+          <el-input v-model="temp.id" placeholder="编号" />
         </el-form-item>
         <el-form-item label="字典类型" prop="dictionaryType">
-          <el-input v-model="temp.dictionaryType" />
+          <el-input v-model="temp.dictionaryType" placeholder="字典类型" />
         </el-form-item>
         <el-form-item label="字典类型名称" prop="dictionaryName">
-          <el-input v-model="temp.dictionaryName" />
+          <el-input v-model="temp.dictionaryName" placeholder="字典类型名称" />
         </el-form-item>
         <el-form-item label="备注" prop="remark">
-          <el-input v-model="temp.remark" />
+          <el-input v-model="temp.remark" placeholder="备注" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -366,6 +366,7 @@ export default {
       this.dialogStatus = 'config'
       this.getDetailList()
       this.dialogDetailOut = true
+      this.dialogDetailInner = false
     },
     handleDetailUpdate(row) {
       this.temp1 = Object.assign({}, row)
@@ -452,8 +453,10 @@ export default {
 
 <style>
   .customWidth{
-    width: 1000px;
-    height: 580px;
+    min-width: 1000px;
+    width: 75%;
+    min-height: 580px;
+    height: 90%;
     top: -50px;
   }
 </style>
