@@ -12,7 +12,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="投保人客户号">
+                  <el-form-item label="投保人客户号" label-width="140px">
                     <el-input v-model="listQuery.idNo" placeholder="投保人客户号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
@@ -25,17 +25,13 @@
                   </el-form-item>
                 </el-col>-->
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="时间区间起">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.datetime" placeholder="时间区间起" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="时间区间起">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.datetime" placeholder="时间区间止" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                  <el-form-item label="受理日期">
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
+                    </el-col>
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
+                    </el-col>
                   </el-form-item>
                 </el-col>
                 <!--                <el-col :sm="12" :lg="8">
@@ -58,32 +54,32 @@
             </el-form>
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
-            <el-table-column type="selection" width="55" />
-            <el-table-column label="保单号" prop="id" sortable="custom" align="center" width="150">
+            <el-table-column type="selection" min-width="55" />
+            <el-table-column label="保单号" prop="id" sortable="custom" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人客户号" align="center" width="170">
+            <el-table-column label="投保人客户号" align="center" min-width="250">
               <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人姓名" align="center" width="80">
+            <el-table-column label="投保人姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人电话" align="center" width="200">
+            <el-table-column label="投保人电话" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
             </el-table-column>
-            <el-table-column label="保全项目名称" align="center" width="150">
+            <el-table-column label="保全项目名称" align="center" min-width="300">
               <template slot-scope="scope"><span>{{ scope.row.description }}</span></template>
             </el-table-column>
-            <el-table-column label="保全受理号" align="center" width="200">
+            <el-table-column label="保全受理号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
-            <el-table-column label="保全申请日期" align="center" width="200">
+            <el-table-column label="保全申请日期" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
             </el-table-column>
-            <el-table-column label="申请人" align="center" width="200">
+            <el-table-column label="申请人" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="申请人电话" align="center" width="200">
+            <el-table-column label="申请人电话" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
             </el-table-column>
           </el-table>
@@ -111,6 +107,8 @@ export default {
       total: 0,
       listLoading: true,
       listQuery: {
+        from: '',
+        to: '',
         page: 1,
         limit: 10,
         sort: '+id'
