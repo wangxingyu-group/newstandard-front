@@ -212,9 +212,6 @@ export default {
       downloadLoading: false
     }
   },
-  created() {
-    this.getList()
-  },
   computed: {
     ...mapState({
       searchRow1: state => state.commonData.searchRow1,
@@ -222,6 +219,9 @@ export default {
       searchRow3: state => state.commonData.searchRow3,
       searchRow4: state => state.commonData.searchRow4
     })
+  },
+  created() {
+    this.getList()
   },
   methods: {
     getList() {
