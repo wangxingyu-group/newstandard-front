@@ -38,7 +38,7 @@
                 <span>{{ scope.row.menuDescription }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="英文名称" align="center" min-width="350">
+            <el-table-column label="英文名称" align="center" min-width="400">
               <template slot-scope="scope">
                 <span>{{ scope.row.title }}</span>
               </template>
@@ -48,7 +48,7 @@
                 <span>{{ scope.row.menuType }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="链接" align="center" min-width="300">
+            <el-table-column label="链接" align="center" min-width="400">
               <template slot-scope="scope">
                 <span>{{ scope.row.url }}</span>
               </template>

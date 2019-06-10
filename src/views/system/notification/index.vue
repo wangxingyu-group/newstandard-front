@@ -1,58 +1,71 @@
 <template>
   <div class="app-container">
-    <div class="filter-container">
-      <el-input v-model="listQuery.name" placeholder="公告主题" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-input v-model="listQuery.name" placeholder="公告内容" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-date-picker v-model="listQuery.name" placeholder="创建日期起" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-date-picker v-model="listQuery.IDCord" placeholder="创建时间止" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-        查询
-      </el-button>
-      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
-        重置
-      </el-button>
+    <div slot="header" class="clearfix">
+      <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
+        <el-row>
+          <el-col :sm="12" :lg="8">
+            <el-form-item label="公告主题">
+              <el-input v-model="listQuery.type" class="filter-item" placeholder="公告主题" @keyup.enter.native="handleFilter" />
+            </el-form-item>
+          </el-col>
+          <el-col :sm="12" :lg="8">
+            <el-form-item label="公告内容">
+              <el-input v-model="listQuery.title" class="filter-item" placeholder="公告内容" @keyup.enter.native="handleFilter" />
+            </el-form-item>
+          </el-col>
+          <el-col :sm="12" :lg="8">
+            <el-form-item label="创建时间">
+              <el-col :span="11">
+                <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
+              </el-col>
+              <el-col :span="11">
+                <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
+              </el-col>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <div class="fr">
+              <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
+                查询
+              </el-button>
+              <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="clearList">
+                重置
+              </el-button>
+            </div>
+          </el-col>
+        </el-row>
+      </el-form>
     </div>
-
-    <el-table
-      :key="tableKey"
-      v-loading="listLoading"
-      :data="list"
-      fit
-      stripe
-      highlight-current-row
-      style="width: 100%;"
-      @sort-change="sortChange"
-    >
-      <el-table-column
-        type="selection"
-        width="55"
-      />
-      <el-table-column label="公告主题" prop="id" sortable="custom" align="center" width="150">
+    <el-table :key="tableKey" v-loading="listLoading" :data="list" :height="searchRow1" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange">
+      <el-table-column type="selection" min-width="55" />
+      <el-table-column label="公告主题" prop="id" sortable="custom" align="center" min-width="150">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="公告内容" align="center" width="100">
+      <el-table-column label="公告内容" align="center" min-width="200">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="创建日期" align="center" width="80">
+      <el-table-column label="创建日期" align="center" min-width="200">
         <template slot-scope="scope">
           <span>{{ scope.row.gender }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="创建者" align="center" width="200">
+      <el-table-column label="创建者" align="center" min-width="100">
         <template slot-scope="scope">
-          <span>{{ scope.row.IDCord }}</span>
+          <span>{{ scope.row.name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" class-name="small-padding fixed-width" min-width="600px">
         <template slot-scope="{row}">
-          <el-button type="primary" size="small " width="100" @click="confirmCustomer(row)">
+          <el-button type="primary" size="small " @click="confirmCustomer(row)">
             置顶
           </el-button>
-          <el-button type="primary" size="small " width="100" @click="confirmCustomer(row)">
+          <el-button type="primary" size="small " @click="confirmCustomer(row)">
             取消置顶
           </el-button>
           <el-button type="primary" size="small" @click="handleUpdate(row)">
@@ -121,6 +134,7 @@ import { createArticle, fetchList, fetchPv, updateArticle } from '@/api/demo/cus
 import waves from '@/directive/waves' // waves directive
 import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
+import { mapState } from 'vuex'
 
 const calendarTypeOptions = [
   { key: 'CN', display_name: 'China' },
@@ -161,6 +175,8 @@ export default {
       listQuery: {
         page: 1,
         limit: 20,
+        from: '',
+        to: '',
         importance: undefined,
         title: undefined,
         type: undefined,
@@ -198,6 +214,14 @@ export default {
   },
   created() {
     this.getList()
+  },
+  computed: {
+    ...mapState({
+      searchRow1: state => state.commonData.searchRow1,
+      searchRow2: state => state.commonData.searchRow2,
+      searchRow3: state => state.commonData.searchRow3,
+      searchRow4: state => state.commonData.searchRow4
+    })
   },
   methods: {
     getList() {
