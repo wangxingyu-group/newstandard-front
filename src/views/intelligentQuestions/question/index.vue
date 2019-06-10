@@ -55,7 +55,7 @@
                 <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="创建时间" align="center" width="150">
+            <el-table-column label="创建时间" align="center" width="160">
               <template slot-scope="scope">
                 <span>{{ scope.row.createTime }}</span>
               </template>

@@ -9,17 +9,17 @@
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="受理日期从">
                     <el-col :span="11">
-                      <el-date-picker v-model="form.from" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="form.from" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
                     </el-col>
                     <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
-                      <el-date-picker v-model="form.to" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="form.to" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="通话号码">
-                    <el-input v-model="form.name" :disabled="false" />
+                    <el-input v-model="form.name" :disabled="false" placeholder="通话号码" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -39,17 +39,17 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="坐席工号">
-                    <el-input v-model="form.name" :disabled="false" />
+                    <el-input v-model="form.name" :disabled="false" placeholder="坐席工号" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="客户姓名">
-                    <el-input v-model="form.name" :disabled="false" />
+                    <el-input v-model="form.name" :disabled="false" placeholder="客户姓名" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="客户身份证号">
-                    <el-input v-model="form.name" :disabled="false" />
+                    <el-input v-model="form.name" :disabled="false" placeholder="客户身份证号" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -66,7 +66,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="服务单号">
-                    <el-input v-model="form.name" :disabled="false" />
+                    <el-input v-model="form.name" :disabled="false" placeholder="服务单号" />
                   </el-form-item>
                 </el-col>
               </el-row>

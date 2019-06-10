@@ -7,18 +7,18 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="姓名">
+                  <el-form-item label="创建人">
                     <el-input v-model="listQuery.creater" placeholder="创建人" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="姓名">
+                  <el-form-item label="收信人">
                     <el-input v-model="listQuery.receiver" placeholder="收信人" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="姓名">
-                    <el-input v-model="listQuery.phoneNo" placeholder="收信人" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="发送手机号">
+                    <el-input v-model="listQuery.phoneNo" placeholder="发送手机号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -29,7 +29,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="发送日期">
+                  <el-form-item label="创建日期">
                     <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="" />
                   </el-form-item>
                 </el-col>
