@@ -13,10 +13,11 @@
                 </el-col>
                 <el-col :sm="6" :lg="8">
                   <el-form-item label="赔付到期日" label-width="140px">
-                    <el-col :span="10">
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.from1" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
-                    <el-col :span="12">
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.to1" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
                   </el-form-item>
