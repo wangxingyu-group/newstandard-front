@@ -1,8 +1,9 @@
 <template>
   <section class="todoapp">
     <!-- header -->
-    <header class="header">
+    <header class="header" style="display: flex;justify-items: center">
       <input class="new-todo" autocomplete="off" placeholder="工作笔记" @keyup.enter="addTodo">
+      <span style="display: flex;align-items: center;font-size: 1.5rem;margin-right: 10px;"><nsf-icon nsf-class="history" /></span>
     </header>
     <!-- main section -->
     <section v-show="todos.length" class="main">
@@ -47,14 +48,14 @@ const filters = {
   completed: todos => todos.filter(todo => todo.done)
 }
 const defalutList = [
-  { text: 'star this repository', done: false },
-  { text: 'fork this repository', done: false },
-  { text: 'follow author', done: false },
-  { text: 'vue-element-admin', done: true },
-  { text: 'vue', done: true },
-  { text: 'element-ui', done: true },
-  { text: 'axios', done: true },
-  { text: 'webpack', done: true }
+  { text: '工作笔记1 2019-06-11 16:20:00', done: false },
+  { text: '工作笔记2 2019-06-11 17:20:00', done: false },
+  { text: '工作笔记3 2019-06-11 18:20:00', done: false },
+  { text: '工作笔记3', done: true },
+  { text: '工作笔记4', done: true },
+  { text: '工作笔记5', done: true },
+  { text: '工作笔记6', done: true },
+  { text: '工作笔记7', done: true }
 ]
 export default {
   components: { Todo },

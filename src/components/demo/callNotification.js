@@ -9,7 +9,7 @@ exports.install = function(Vue, options) {
       if (e && e.keyCode === 66) { // 按 b
         if (device !== 'mobile') {
           naranja()['log']({
-            title: title.replace(/(\d{3})(\d{4})(\d{4})/, '$1****$3'),
+            title: title.replace(/(\d{3})(\d{4})(\d{4})/, '$1****$3') + '【北京】',
             text: text,
             icon: icon,
             timeout: timeout,

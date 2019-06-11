@@ -7,7 +7,7 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="规则名称选择">
+                  <el-form-item label="规则名称选择" label-width="150px">
                     <el-select v-model="select" style="width:100%;min-width:135px" placeholder="规则名称选择">
                       <el-option label="1--语感" value="shanghai" />
                       <el-option label="2--音量" value="shanghai" />

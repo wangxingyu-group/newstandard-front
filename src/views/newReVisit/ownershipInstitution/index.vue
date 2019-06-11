@@ -7,7 +7,7 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="销售渠道" >
+                  <el-form-item label="销售渠道">
                     <el-select style="width:100%;" placeholder="请选择">
                       <el-option label="1--银行代理" value="shanghai" />
                       <el-option label="2--网销" value="shanghai" />
@@ -25,13 +25,13 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="代理机构名称">
-                    <el-input v-model="listQuery.name" placeholder="代理机构名称" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="代理机构">
+                    <el-input v-model="listQuery.name" placeholder="代理机构" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="代理机构编码">
-                    <el-input v-model="listQuery.name" placeholder="代理机构编码" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="机构编码">
+                    <el-input v-model="listQuery.name" placeholder="机构编码" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
