@@ -1,8 +1,9 @@
 <template>
   <section class="todoapp">
     <!-- header -->
-    <header class="header">
+    <header class="header" style="display: flex;justify-items: center">
       <input class="new-todo" autocomplete="off" placeholder="工作笔记" @keyup.enter="addTodo">
+      <span style="display: flex;align-items: center;font-size: 1.5rem;margin-right: 10px;"><nsf-icon nsf-class="history" /></span>
     </header>
     <!-- main section -->
     <section v-show="todos.length" class="main">

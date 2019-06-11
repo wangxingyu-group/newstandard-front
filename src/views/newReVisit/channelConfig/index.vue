@@ -7,7 +7,7 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="销售渠道编码">
+                  <el-form-item label="渠道编码">
                     <el-input v-model="listQuery.name" placeholder="销售渠道编码" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
@@ -17,7 +17,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="销售方式编码">
+                  <el-form-item label="销售方式">
                     <el-input v-model="listQuery.name" placeholder="销售方式编码" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>

@@ -25,12 +25,12 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="代理机构名称">
+                  <el-form-item label="代理机构">
                     <el-input v-model="listQuery.name" placeholder="代理机构名称" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="代理机构编码">
+                  <el-form-item label="机构编码">
                     <el-input v-model="listQuery.name" placeholder="代理机构编码" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
