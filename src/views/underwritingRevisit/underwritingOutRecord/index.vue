@@ -6,17 +6,17 @@
           <div slot="header" class="clearfix">
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
-                <el-col :sm="12" :lg="7">
+                <el-col :sm="12" :lg="8">
                   <el-form-item label="呼出电话号码" label-width="140px">
                     <el-input v-model="listQuery.mobile" placeholder="呼出电话号码" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="7">
+                <el-col :sm="12" :lg="8">
                   <el-form-item label="保单号">
                     <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="7">
+                <el-col :sm="12" :lg="8">
                   <el-form-item label="身份证号码" label-width="140px">
                     <el-input v-model="listQuery.idcard" placeholder="身份证号码" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>

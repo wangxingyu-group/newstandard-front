@@ -2,7 +2,7 @@
   <el-row :gutter="40" class="panel-group">
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('preCustomer')">
-        <div class="card-panel-icon-wrapper icon-people">
+        <div class="card-panel-icon-wrapper icon-people" @click="toSkip('/customerManagement/preCustomer')">
           <svg-icon icon-class="peoples" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description" @click="toSkip('/customerManagement/preCustomer')">
@@ -15,7 +15,7 @@
     </el-col>
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('toDo')">
-        <div class="card-panel-icon-wrapper icon-message">
+        <div class="card-panel-icon-wrapper icon-message" @click="toSkip('/backlog/taskPool')">
           <svg-icon icon-class="list" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description" @click="toSkip('/backlog/taskPool')">
@@ -28,7 +28,7 @@
     </el-col>
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('workOrder')">
-        <div class="card-panel-icon-wrapper icon-money">
+        <div class="card-panel-icon-wrapper icon-money" @click="toSkip('/workOrderManagement/workOrder')">
           <svg-icon icon-class="edit" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description" @click="toSkip('/workOrderManagement/workOrder')">
