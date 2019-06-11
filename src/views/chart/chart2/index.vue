@@ -7,13 +7,13 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="起始日期" placeholder="请选择日期">
-                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="" />
+                  <el-form-item label="起始日期">
+                    <el-date-picker v-model="listQuery.sendDate" placeholder="请选择日期" type="date" style="width:100%;min-width:135px" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="截止日期" placeholder="请选择日期">
-                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="" />
+                  <el-form-item label="截止日期">
+                    <el-date-picker v-model="listQuery.sendDate" placeholder="请选择日期" type="date" style="width:100%;min-width:135px" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">

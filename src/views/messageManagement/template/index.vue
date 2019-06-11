@@ -8,14 +8,12 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="模板名称">
-                    <el-input v-model="queryForm.modelName" placeholder="请输入" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="queryForm.modelName" placeholder="模板名称请输入" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="创建时间">
-                    <el-col :span="11">
-                      <el-date-picker v-model="queryForm.from" type="date" placeholder="---选择日期---" style="width: 100%;" />
-                    </el-col>
+                    <el-date-picker v-model="queryForm.from" type="date" placeholder="请选择日期" style="width: 100%;" />
                   </el-form-item>
                 </el-col>
               </el-row>

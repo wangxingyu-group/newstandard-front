@@ -27,53 +27,53 @@
               </el-row>
             </el-form>
           </div>
+          <el-row :gutter="32" style="margin-top: 15px">
+            <el-col :xs="24" :sm="24" :lg="12">
+              <div class="chart-wrapper">
+                <bar-chart />
+              </div>
+            </el-col>
+            <!-- <el-col :xs="24" :sm="24" :lg="8">
+              <div class="chart-wrapper">
+                <raddar-chart />
+              </div>
+            </el-col>-->
+            <el-col :xs="24" :sm="24" :lg="12">
+              <div class="chart-wrapper">
+                <pie-chart />
+              </div>
+            </el-col>
+          </el-row>
+          <el-table :key="0" height="calc(100vh - 539px)" fit stripe highlight-current-row style="width: 100%;" @sort-change="()=>{}" @selection-change="()=>{}">
+            <el-table-column type="selection" width="55" />
+            <el-table-column label="来电时间" prop="id" sortable="custom" align="center" width="150">
+              <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
+            </el-table-column>
+            <el-table-column label="来电地区" align="center" width="100">
+              <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+            </el-table-column>
+            <el-table-column label="来电号码" align="center" width="80">
+              <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
+            </el-table-column>
+            <el-table-column label="人工接通时间" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
+            </el-table-column>
+            <el-table-column label="挂机时间" align="center" width="150">
+              <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
+            </el-table-column>
+            <el-table-column label="是否接通" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
+            </el-table-column>
+            <el-table-column label="是否评价" align="center" width="200">
+              <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
+            </el-table-column>
+            <el-table-column label="评价结果" align="center" class-name="small-padding fixed-width">
+              <template slot-scope="scope"><span>{{ scope.row.remark1 }}</span></template>
+            </el-table-column>
+          </el-table>
         </el-card>
       </el-col>
     </el-row>
-    <el-row :gutter="32" style="margin-top: 15px">
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div class="chart-wrapper">
-          <bar-chart />
-        </div>
-      </el-col>
-      <!-- <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">
-          <raddar-chart />
-        </div>
-      </el-col>-->
-      <el-col :xs="24" :sm="24" :lg="12">
-        <div class="chart-wrapper">
-          <pie-chart />
-        </div>
-      </el-col>
-    </el-row>
-    <el-table :key="0" height="calc(100vh - 539px)" fit stripe highlight-current-row style="width: 100%;" @sort-change="()=>{}" @selection-change="()=>{}">
-      <el-table-column type="selection" width="55" />
-      <el-table-column label="来电时间" prop="id" sortable="custom" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
-      </el-table-column>
-      <el-table-column label="来电地区" align="center" width="100">
-        <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
-      </el-table-column>
-      <el-table-column label="来电号码" align="center" width="80">
-        <template slot-scope="scope"><span>{{ scope.row.gender==='0'?'女':'男' }}</span></template>
-      </el-table-column>
-      <el-table-column label="人工接通时间" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
-      </el-table-column>
-      <el-table-column label="挂机时间" align="center" width="150">
-        <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
-      </el-table-column>
-      <el-table-column label="是否接通" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
-      </el-table-column>
-      <el-table-column label="是否评价" align="center" width="200">
-        <template slot-scope="scope"><span>{{ scope.row.remark }}</span></template>
-      </el-table-column>
-      <el-table-column label="评价结果" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope"><span>{{ scope.row.remark1 }}</span></template>
-      </el-table-column>
-    </el-table>
   </div>
 </template>
 

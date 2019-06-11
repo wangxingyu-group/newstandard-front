@@ -8,16 +8,12 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="起始日期">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="起始日期" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                    <el-date-picker v-model="listQuery.name" style="width: 100%;" placeholder="请选择日期" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="截止日期">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="截止日期" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                    <el-date-picker v-model="listQuery.name" style="width: 100%;" placeholder="请选择日期" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -33,16 +29,16 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="发送日期" prop="id" sortable="custom" align="center" width="170">
+            <el-table-column label="发送日期" prop="id" sortable="custom" align="center" min-width="170">
               <template slot-scope="scope"><span>{{ scope.row.date }}</span></template>
             </el-table-column>
-            <el-table-column label="发送时间" align="center" width="170">
+            <el-table-column label="发送时间" align="center" min-width="170">
               <template slot-scope="scope"><span>{{ scope.row.time }}</span></template>
             </el-table-column>
-            <el-table-column label="成功数量" align="center" width="170">
+            <el-table-column label="成功数量" align="center" min-width="170">
               <template slot-scope="scope"><span>{{ scope.row.quantityOfSuccess }}</span></template>
             </el-table-column>
-            <el-table-column label="失败数量" align="center" width="200">
+            <el-table-column label="失败数量" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.quantityOfFailure }}</span></template>
             </el-table-column>
           </el-table>
