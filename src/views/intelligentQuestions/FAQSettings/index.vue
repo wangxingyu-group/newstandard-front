@@ -8,32 +8,32 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问题编码">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="问题编码" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问题名称">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="问题名称" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="标识">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="标识" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问题内容">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="问题内容" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问卷编码">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="问卷编码" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="试题编码">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="试题编码" />
                   </el-form-item>
                 </el-col>
               </el-row>
