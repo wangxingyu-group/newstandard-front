@@ -102,7 +102,7 @@ export default {
   mixins: [ResizeMixin],
   data() {
     return {
-      showDrag: true,
+      showDrag: false,
       total: 500,
       page: 1,
       limit: 20,

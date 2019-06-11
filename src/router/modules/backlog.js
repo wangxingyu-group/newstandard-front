@@ -7,7 +7,7 @@ const backlogRouter =
     redirect: '/backlog/taskPool',
     name: 'backlog',
     meta: {
-      title: '代办事项',
+      title: '待办事项',
       icon: 'edit'
     },
     children: [
@@ -16,7 +16,7 @@ const backlogRouter =
         component: () => import('@/views/backlog/taskPool'),
         name: 'taskPool',
         meta: {
-          title: '代办任务池',
+          title: '待办任务池',
           roles: ['admin']
         }
       },

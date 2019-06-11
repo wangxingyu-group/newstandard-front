@@ -18,7 +18,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="时限">
-                    <el-select v-model="listQuery.type">
+                    <el-select v-model="listQuery.type" style="width: 100%;">
                       <el-option label="7天任务信息" value="1" />
                       <el-option label="8-15天内任务信息" value="2" />
                       <el-option label="15天以上内任务信息" value="3" />

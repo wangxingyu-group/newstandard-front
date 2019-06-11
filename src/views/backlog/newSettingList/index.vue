@@ -11,6 +11,7 @@
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
@@ -18,7 +19,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="新增种类">
-                    <el-select v-model="listQuery.type" placeholder="---请选择---">
+                    <el-select v-model="listQuery.type" placeholder="新增种类" style="width: 100%;">
                       <el-option v-for="(item, index) in types" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>

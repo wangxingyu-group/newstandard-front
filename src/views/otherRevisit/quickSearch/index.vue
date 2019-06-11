@@ -8,7 +8,7 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="搜索条件">
-                    <el-input v-model="listQuery.policyNo" placeholder="" class="filter-item" @keyup.enter.native="handleFilter" />
+                    <el-input v-model="listQuery.policyNo" class="filter-item" @keyup.enter.native="handleFilter" placeholder="搜索条件" />
                   </el-form-item>
                 </el-col>
               </el-row>
