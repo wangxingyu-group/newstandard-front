@@ -7,13 +7,13 @@
             <el-form ref="form" :model="form" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="受理日期从">
+                  <el-form-item label="受理日期" label-width="130px">
                     <el-col :span="11">
-                      <el-date-picker v-model="form.from" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                      <el-date-picker v-model="form.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
                     <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
-                      <el-date-picker v-model="form.to" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                      <el-date-picker v-model="form.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
                   </el-form-item>
                 </el-col>
@@ -23,7 +23,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="转办状态">
+                  <el-form-item label="转办状态" label-width="130px">
                     <el-drag-select v-model="optiosValue" style="width:100%;" multiple placeholder="请选择">
                       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                     </el-drag-select>
@@ -32,7 +32,7 @@
               </el-row>
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="坐席工号">
+                  <el-form-item label="坐席工号" label-width="130px">
                     <el-input v-model="form.name" :disabled="false" placeholder="坐席工号" />
                   </el-form-item>
                 </el-col>
@@ -42,14 +42,14 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="客户身份证号">
+                  <el-form-item label="客户身份证号" label-width="130px">
                     <el-input v-model="form.name" :disabled="false" placeholder="客户身份证号" />
                   </el-form-item>
                 </el-col>
               </el-row>
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="服务单状态">
+                  <el-form-item label="服务单状态" label-width="130px">
                     <el-select v-model="form.region" style="width:100%;" placeholder="服务单状态">
                       <el-option label="1--未转办" value="shanghai" />
                       <el-option label="2--已退回" value="shanghai" />

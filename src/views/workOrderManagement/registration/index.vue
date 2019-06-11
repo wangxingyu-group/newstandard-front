@@ -15,12 +15,12 @@
                         </div>
                         <el-row>
                           <el-col :span="6" :offset="1">
-                            <el-form-item label="服务单号">
+                            <el-form-item label="服务单号" label-width="130px">
                               <el-input v-model="form.name" :disabled="true" placeholder="服务单号" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
-                            <el-form-item label="来电人姓名">
+                            <el-form-item label="来电人姓名" label-width="130px">
                               <el-input v-model="form.name" :disabled="true" placeholder="来电人姓名" />
                             </el-form-item>
                           </el-col>
@@ -32,12 +32,12 @@
                         </el-row>
                         <el-row>
                           <el-col :span="6" :offset="1">
-                            <el-form-item label="来电号码">
+                            <el-form-item label="来电号码" label-width="130px">
                               <el-input v-model="form.name" :disabled="true" placeholder="来电号码" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
-                            <el-form-item label="来电时间">
+                            <el-form-item label="来电时间" label-width="130px">
                               <el-input v-model="form.name" :disabled="true" placeholder="来电时间" />
                             </el-form-item>
                           </el-col>
@@ -49,12 +49,12 @@
                         </el-row>
                         <el-row>
                           <el-col :span="6" :offset="1">
-                            <el-form-item label="身份证号码">
+                            <el-form-item label="身份证号码" label-width="130px">
                               <el-input v-model="form.name" :disabled="true" placeholder="身份证号码" />
                             </el-form-item>
                           </el-col>
                           <el-col :span="6" :offset="2">
-                            <el-form-item label="客户身份">
+                            <el-form-item label="客户身份" label-width="130px">
                               <el-input v-model="form.name" :disabled="true" placeholder="客户身份" />
                             </el-form-item>
                           </el-col>
@@ -66,8 +66,8 @@
                         </el-row>
                         <el-row>
                           <el-col :span="6" :offset="1">
-                            <el-form-item label="服务来源">
-                              <el-select v-model="form.source" placeholder="服务来源" :disabled="true">
+                            <el-form-item label="服务来源" label-width="130px">
+                              <el-select v-model="form.source" placeholder="服务来源" :disabled="true" style="width: 100%">
                                 <el-option label="呼入" value="callIn" />
                                 <el-option label="外呼" value="beijing" />
                                 <el-option label="留言处理" value="beijing" />

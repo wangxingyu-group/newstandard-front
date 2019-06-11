@@ -92,7 +92,7 @@
                 </el-col>
                 <el-col :sm="24" :lg="20">
                   <el-table ref="personalContractInfoTable" :data="personalContractInfo" height="264" row-key="id" stripe highlight-current-row>
-                    <el-table-column label="个人保单好" align="center" min-width="150">
+                    <el-table-column label="个人保单号" align="center" min-width="150">
                       <template slot-scope="scope"><span>{{ scope.row.contractNo }}</span></template>
                     </el-table-column>
                     <el-table-column label="个人客户号 " align="center" min-width="150">
