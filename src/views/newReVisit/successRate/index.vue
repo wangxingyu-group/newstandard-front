@@ -8,7 +8,7 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售渠道">
-                    <el-select style="width:70%;" placeholder="请选择">
+                    <el-select style="width:100%;" placeholder="请选择">
                       <el-option label="1--银行代理" value="shanghai" />
                       <el-option label="2--网销" value="shanghai" />
                       <el-option label="2--直销" value="shanghai" />
@@ -18,7 +18,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售方式">
-                    <el-select style="width:70%;" placeholder="请选择">
+                    <el-select style="width:100%;" placeholder="请选择">
                       <el-option label="111" value="shanghai" />
                       <el-option label="222" value="shanghai" />
                     </el-select>
@@ -26,7 +26,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="代理机构">
-                    <el-select style="width:70%;" placeholder="请选择">
+                    <el-select style="width:100%;" placeholder="请选择" >
                       <el-option label="111" value="shanghai" />
                       <el-option label="222" value="shanghai" />
                     </el-select>
@@ -34,16 +34,12 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="签单时间从">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="签单时间从" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                      <el-date-picker v-model="listQuery.name" placeholder="签单时间从" class="filter-item" @keyup.enter.native="handleFilter" style="width: 100%;" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="到">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="到" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                      <el-date-picker v-model="listQuery.name" placeholder="到" class="filter-item" @keyup.enter.native="handleFilter" style="width: 100%;"/>
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -57,7 +53,7 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
             <el-table-column label="归属机构" align="center" min-width="300">
               <template slot-scope="scope"><span>{{ scope.row.AttributiveBody }}</span></template>

@@ -12,17 +12,14 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="添加时间从">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="添加时间从" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="到">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="到" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                  <el-form-item label="添加时间">
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.name" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                    </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.name" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                    </el-col>
                   </el-form-item>
                 </el-col>
               </el-row>

@@ -7,8 +7,8 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="销售渠道" style="width:400%;">
-                    <el-select style="width:20%;" placeholder="请选择">
+                  <el-form-item label="销售渠道" >
+                    <el-select style="width:100%;" placeholder="请选择">
                       <el-option label="1--银行代理" value="shanghai" />
                       <el-option label="2--网销" value="shanghai" />
                       <el-option label="3--直销" value="shanghai" />
@@ -17,8 +17,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="销售方式" style="width:400%;">
-                    <el-select style="width:20%;" placeholder="请选择">
+                  <el-form-item label="销售方式">
+                    <el-select style="width:100%;" placeholder="请选择">
                       <el-option label="1--***" value="shanghai" />
                       <el-option label="2--###" value="shanghai" />
                     </el-select>
@@ -34,17 +34,16 @@
                     <el-input v-model="listQuery.name" placeholder="代理机构编码" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
-              </el-row>
-              <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="归属机构" style="width:400%;">
-                    <el-select style="width:20%;" placeholder="请选择">
+                  <el-form-item label="归属机构">
+                    <el-select style="width:100%;" placeholder="请选择">
                       <el-option label="1--***" value="shanghai" />
                       <el-option label="2--###" value="shanghai" />
                     </el-select>
                   </el-form-item>
                 </el-col>
               </el-row>
+
               <el-row>
                 <el-col :span="24">
                   <div class="fr">
@@ -57,7 +56,7 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
             <el-table-column label="销售渠道代码" align="center" min-width="300">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>

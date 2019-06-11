@@ -29,6 +29,7 @@
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
@@ -53,7 +54,7 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
             <el-table-column label="保单号" prop="id" sortable="custom" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>

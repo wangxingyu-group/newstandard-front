@@ -17,8 +17,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="申请方式">
-                    <el-select placeholder="---请选择---">
+                  <el-form-item label="申请方式" >
+                    <el-select placeholder="申请方式" style="width: 100%;">
                       <el-option label="1--信函申请" value="shanghai" />
                       <el-option label="2--官微申请" value="shanghai" />
                     </el-select>
@@ -29,14 +29,15 @@
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="外呼类别" label-width="140px">
-                    <el-select placeholder="---请选择---">
+                  <el-form-item label="外呼类别" label-width="140px" >
+                    <el-select placeholder="外呼类别" style="width: 100%;">
                       <el-option label="1--非直系亲属" value="shanghai" />
                       <el-option label="2--委托类" value="shanghai" />
                     </el-select>
