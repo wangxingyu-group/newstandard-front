@@ -8,16 +8,12 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="起始日期">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="起始日期" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="截止日期">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="截止日期" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                   </el-form-item>
                 </el-col>
               </el-row>

@@ -73,10 +73,10 @@
               <template slot-scope="scope"><span>{{ scope.row.callInDate }}</span></template>
             </el-table-column>
             <el-table-column label="修改日期" align="center" width="200">
-              <template slot-scope="scope"><span>{{ scope.row.callInDateA }}</span></template>
+              <template slot-scope="scope"><span>{{ scope.row.callInDate }}</span></template>
             </el-table-column>
             <el-table-column label="服务单类型" align="center" width="200">
-              <template slot-scope="scope"><span>{{ scope.row.gender }}</span></template>
+              <template slot-scope="scope"><span>{{ scope.row.callInDate }}</span></template>
             </el-table-column>
             <el-table-column label="申诉原因" align="center" width="200">
               <template slot-scope="scope"><span>{{ scope.row.reason }}</span></template>

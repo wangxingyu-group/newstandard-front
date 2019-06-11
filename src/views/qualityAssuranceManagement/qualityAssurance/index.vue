@@ -161,7 +161,7 @@ export default {
         idNo: undefined,
         callInNo: '',
         callInTime: '',
-        customerType: '准客户',
+        customerType: '质检',
         remark: ''
       }
     }

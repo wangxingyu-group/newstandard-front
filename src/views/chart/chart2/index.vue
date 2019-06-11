@@ -7,18 +7,18 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="起始日期" placeholder="请选择日期">
-                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="" />
+                  <el-form-item label="起始日期">
+                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="截止日期" placeholder="请选择日期">
-                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="" />
+                  <el-form-item label="截止日期">
+                    <el-date-picker v-model="listQuery.sendDate" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="服务单类型">
-                    <el-select style="width:80%;" placeholder="请选择">
+                    <el-select style="width:80%;" placeholder="服务单类型">
                       <el-option label="1--产品咨询" value="shanghai" />
                       <el-option label="2--一般咨询" value="shanghai" />
                       <el-option label="2--保全资讯" value="shanghai" />

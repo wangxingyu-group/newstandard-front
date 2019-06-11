@@ -56,7 +56,7 @@
               <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
             </el-table-column>
             <el-table-column label="启用状态" align="center" width="200">
-              <template slot-scope="scope"><span>{{ scope.row.callInTime }}</span></template>
+              <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
             <el-table-column label="规则内容" align="center" width="200">
               <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>

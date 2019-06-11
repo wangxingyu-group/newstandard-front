@@ -31,7 +31,7 @@ for (let i = 0; i < count; i++) {
     type: '选择题',
     cEmail: '@email',
     'status|1': ['effective', 'noneffective'],
-    description: '@ctitle(25, 60)',
+    description: '@ctitle(10, 20)',
     menuDescription: '@ctitle(2, 5)',
     englishName: '/[a-z]{2}[A-Z]{2}[0-9]/',
     createTime: '@datetime',
