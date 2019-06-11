@@ -8,17 +8,17 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="公司名称">
-                    <el-input v-model="listQuery.companyName" :disabled="false" />
+                    <el-input v-model="listQuery.companyName" :disabled="false" placeholder="公司名称" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="公司邮箱">
-                    <el-input v-model="listQuery.companyEmail" :disabled="false" />
+                    <el-input v-model="listQuery.companyEmail" :disabled="false" placeholder="公司邮箱" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="审核状态">
-                    <el-select v-model="listQuery.status" style="width:100%;" multiple placeholder="请选择">
+                    <el-select v-model="listQuery.status" style="width:100%;" multiple placeholder="审核状态">
                       <el-option label="通过" value="1">通过</el-option>
                       <el-option label="不通过" value="0">不通过</el-option>
                     </el-select>
@@ -26,13 +26,13 @@
                 </el-col>
               </el-row>
               <el-row>
-              <el-col :span="24">
-                <div class="fr">
-                  <el-button type="primary" size="small">查询</el-button>
-                  <el-button type="info" size="small">清空</el-button>
-                </div>
-              </el-col>
-            </el-row>
+                <el-col :span="24">
+                  <div class="fr">
+                    <el-button type="primary" size="small">查询</el-button>
+                    <el-button type="info" size="small">清空</el-button>
+                  </div>
+                </el-col>
+              </el-row>
             </el-form>
           </div>
           <el-table ref="whiteListTable" :data="whiteList" :height="searchRow1" row-key="id" stripe highlight-current-row>
