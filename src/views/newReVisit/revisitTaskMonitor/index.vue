@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="app-container">
     <el-row>
       <el-col :span="24">
@@ -13,16 +13,12 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="保单分配时间从" label-width="150px">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="保单分配时间从" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                      <el-date-picker v-model="listQuery.name" placeholder="保单分配时间从" class="filter-item" @keyup.enter.native="handleFilter" style="width:100%"/>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="到">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="到" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                      <el-date-picker  v-model="listQuery.name" placeholder="到" class="filter-item" @keyup.enter.native="handleFilter"  style="width:100%"/>
                   </el-form-item>
                 </el-col>
               </el-row>

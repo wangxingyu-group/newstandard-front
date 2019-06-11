@@ -14,34 +14,34 @@
               </el-row>
             </el-form>
           </div>
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+            <el-table-column type="selection" min-width="55" />
+            <el-table-column label="问题序号" prop="id" sortable="custom" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
+            </el-table-column>
+            <el-table-column label="问题" align="center" min-width="300">
+              <template slot-scope="scope"><span>{{ scope.row.description }}</span></template>
+            </el-table-column>
+            <el-table-column label="创建时间" align="center" min-width="170">
+              <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
+            </el-table-column>
+            <el-table-column label="创建人" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
+            </el-table-column>
+            <el-table-column label="保全类型" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.type }}</span></template>
+            </el-table-column>
+            <el-table-column label="问题类型" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.questionType }}</span></template>
+            </el-table-column>
+            <el-table-column label="开启/关闭" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
         </el-card>
       </el-col>
     </el-row>
-    <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
-      <el-table-column type="selection" min-width="55" />
-      <el-table-column label="问题序号" prop="id" sortable="custom" align="center" min-width="150">
-        <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
-      </el-table-column>
-      <el-table-column label="问题" align="center" min-width="300">
-        <template slot-scope="scope"><span>{{ scope.row.description }}</span></template>
-      </el-table-column>
-      <el-table-column label="创建时间" align="center" min-width="170">
-        <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
-      </el-table-column>
-      <el-table-column label="创建人" align="center" min-width="200">
-        <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
-      </el-table-column>
-      <el-table-column label="保全类型" align="center" min-width="150">
-        <template slot-scope="scope"><span>{{ scope.row.type }}</span></template>
-      </el-table-column>
-      <el-table-column label="问题类型" align="center" min-width="200">
-        <template slot-scope="scope"><span>{{ scope.row.questionType }}</span></template>
-      </el-table-column>
-      <el-table-column label="开启/关闭" align="center" min-width="200">
-        <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
-      </el-table-column>
-    </el-table>
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
   </div>
 </template>
 

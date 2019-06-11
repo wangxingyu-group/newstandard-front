@@ -7,17 +7,14 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="签单日期 起始于" label-width="150px">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="签单日期 起始于" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="截止于">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="截止于" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                  <el-form-item label="签单起止日期" >
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.name" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                    </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.name" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                    </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -26,17 +23,14 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="回单日期 起始于" label-width="150px">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="回单日期 起始于" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="截止于">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="截止于" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                  <el-form-item label="回单起止日期" >
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.name" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                    </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.name" type="date" style="width:100%;min-width:135px" placeholder="请选择日期" />
+                    </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -45,7 +39,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="回访结果" label-width="120px">
+                  <el-form-item label="回访结果" >
                     <el-input v-model="listQuery.name" placeholder="回访结果" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
@@ -60,7 +54,7 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
             <el-table-column label="保单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
