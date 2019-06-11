@@ -8,33 +8,33 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问卷标题">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="问卷标题" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="出题人">
-                    <el-input v-model="queryForm.author" />
+                    <el-input v-model="queryForm.author" placeholder="出题人" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="创建时间">
                     <el-col :span="11">
-                      <el-date-picker v-model="queryForm.from" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="queryForm.from" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
                     </el-col>
                     <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
-                      <el-date-picker v-model="queryForm.to" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="queryForm.to" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问题描述">
-                    <el-input v-model="queryForm.description" />
+                    <el-input v-model="queryForm.description" placeholder="问题描述" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="是否发布">
-                    <el-select v-model="queryForm.publish" style="width:100%;" placeholder="---请选择---">
+                    <el-select v-model="queryForm.publish" style="width:100%;" placeholder="是否发布">
                       <el-option label="是" value="yes" />
                       <el-option label="否" value="no" />
                     </el-select>
@@ -42,7 +42,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="状态">
-                    <el-select v-model="queryForm.status" style="width:100%;" placeholder="---请选择---">
+                    <el-select v-model="queryForm.status" style="width:100%;" placeholder="状态">
                       <el-option label="有效" value="effective" />
                       <el-option label="无效" value="noneffective" />
                     </el-select>
@@ -62,53 +62,53 @@
             </el-form>
           </div>
           <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow2" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
-            <el-table-column type="selection" width="55" />
-            <el-table-column label="问卷标题" align="center" width="200">
+            <el-table-column type="selection" min-width="55" />
+            <el-table-column label="问卷标题" align="center" min-width="400">
               <template slot-scope="scope">
                 <span>{{ scope.row.title }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="出题人" align="center" width="100">
+            <el-table-column label="出题人" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.author }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="问卷描述" align="center" width="500">
+            <el-table-column label="问卷描述" align="center" min-width="500">
               <template slot-scope="scope">
                 <span>{{ scope.row.description }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="创建时间" align="center" width="150">
+            <el-table-column label="创建时间" align="center" min-width="200">
               <template slot-scope="scope">
                 <span>{{ scope.row.createTime }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="是否发布" align="center" width="100">
+            <el-table-column label="是否发布" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.publish==='yes'?'是':'否' }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="性别" align="center" width="100">
+            <el-table-column label="性别" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.gender==='0'?'女':'男' }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="是否老年" align="center" width="100">
+            <el-table-column label="是否老年" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.isOld==='0'?'否':'是' }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="地区" align="center" width="100">
+            <el-table-column label="地区" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.region }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="状态" align="center" width="100">
+            <el-table-column label="状态" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" fixed="right" width="250">
+            <el-table-column label="操作" align="center" fixed="right" min-width="300">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
