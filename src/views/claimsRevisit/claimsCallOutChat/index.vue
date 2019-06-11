@@ -7,7 +7,7 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="6" :lg="8">
-                  <el-form-item label="赔付到期日">
+                  <el-form-item label="赔付到期日" label-width="130px">
                     <el-col :span="10">
                       <el-date-picker v-model="listQuery.from1" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
@@ -29,25 +29,25 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="外呼时间" prop="id" sortable="custom" align="center" width="170">
+            <el-table-column label="外呼时间" prop="id" sortable="custom" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
             </el-table-column>
-            <el-table-column label="外呼结果" align="center" width="170">
+            <el-table-column label="外呼结果" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.result }}</span></template>
             </el-table-column>
-            <el-table-column label="保单号" align="center" width="170">
+            <el-table-column label="保单号" align="center" min-width="170">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
             </el-table-column>
-            <el-table-column label="出险人姓名" align="center" width="200">
+            <el-table-column label="出险人姓名" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="出险人身份证号" align="center" width="180">
+            <el-table-column label="出险人身份证号" align="center" min-width="250">
               <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
-            <el-table-column label="立案号" align="center" width="200">
+            <el-table-column label="立案号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.number }}</span></template>
             </el-table-column>
-            <el-table-column label="受理人员用户名" align="center" width="200">
+            <el-table-column label="受理人员用户名" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.name1 }}</span></template>
             </el-table-column>
           </el-table>
