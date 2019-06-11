@@ -8,28 +8,28 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售渠道">
-                    <el-select v-model="listQuery.channel" placeholder="---请选择---">
+                    <el-select v-model="listQuery.channel" placeholder="销售渠道" style="width: 100%;">
                       <el-option v-for="(item, index) in channelList" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售方式" label-width="140px">
-                    <el-select v-model="listQuery.sellType" placeholder="---请选择---">
+                    <el-select v-model="listQuery.sellType" placeholder="销售方式" style="width: 100%;">
                       <el-option v-for="(item, index) in sellTypes" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="代理机构">
-                    <el-select v-model="listQuery.agent" placeholder="---请选择---">
+                    <el-select v-model="listQuery.agent" placeholder="代理机构" style="width: 100%;">
                       <el-option v-for="(item, index) in agents" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="分支机构">
-                    <el-select v-model="listQuery.customer" placeholder="---请选择---">
+                    <el-select v-model="listQuery.customer" placeholder="分支机构" style="width: 100%;">
                       <el-option v-for="(item, index) in agents" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
@@ -41,7 +41,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="险种类型">
-                    <el-select v-model="listQuery.risk" placeholder="---请选择---">
+                    <el-select v-model="listQuery.risk" placeholder="险种类型" style="width: 100%;">
                       <el-option v-for="(item, index) in risks" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
@@ -51,6 +51,7 @@
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>
@@ -61,6 +62,7 @@
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.cusfrom" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
                     </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
                       <el-date-picker v-model="listQuery.custo" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
                     </el-col>

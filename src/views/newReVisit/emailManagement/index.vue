@@ -8,14 +8,14 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="信函状态">
-                    <el-select v-model="listQuery.emailStatue" placeholder="---请选择---">
+                    <el-select v-model="listQuery.emailStatue" placeholder="信函状态" style="width: 100%;">
                       <el-option v-for="(item, index) in emailStatues" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="归属机构">
-                    <el-select v-model="listQuery.agent" placeholder="---请选择---">
+                    <el-select v-model="listQuery.agent" placeholder="归属机构" style="width: 100%;">
                       <el-option v-for="(item, index) in agents" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
@@ -27,10 +27,11 @@
                 </el-col>
                 <el-col :sm="6" :lg="8">
                   <el-form-item label="录入时间">
-                    <el-col :span="10">
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
                     </el-col>
-                    <el-col :span="12">
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
