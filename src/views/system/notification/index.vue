@@ -1,90 +1,96 @@
 <template>
   <div class="app-container">
-    <div slot="header" class="clearfix">
-      <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
-        <el-row>
-          <el-col :sm="12" :lg="8">
-            <el-form-item label="公告主题">
-              <el-input v-model="listQuery.type" class="filter-item" placeholder="公告主题" @keyup.enter.native="handleFilter" />
-            </el-form-item>
-          </el-col>
-          <el-col :sm="12" :lg="8">
-            <el-form-item label="公告内容">
-              <el-input v-model="listQuery.title" class="filter-item" placeholder="公告内容" @keyup.enter.native="handleFilter" />
-            </el-form-item>
-          </el-col>
-          <el-col :sm="12" :lg="8">
-            <el-form-item label="创建时间">
-              <el-col :span="11">
-                <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
-              </el-col>
-              <el-col :span="11">
-                <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
-              </el-col>
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="24">
-            <div class="fr">
-              <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-                查询
-              </el-button>
-              <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="clearList">
-                重置
-              </el-button>
-            </div>
-          </el-col>
-        </el-row>
-      </el-form>
-    </div>
-    <el-table :key="tableKey" v-loading="listLoading" :data="list" :height="searchRow1" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange">
-      <el-table-column type="selection" min-width="55" />
-      <el-table-column label="公告主题" prop="id" sortable="custom" align="center" min-width="150">
-        <template slot-scope="scope">
-          <span>{{ scope.row.id }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="公告内容" align="center" min-width="200">
-        <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="创建日期" align="center" min-width="200">
-        <template slot-scope="scope">
-          <span>{{ scope.row.gender }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="创建者" align="center" min-width="100">
-        <template slot-scope="scope">
-          <span>{{ scope.row.name }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width" min-width="600px">
-        <template slot-scope="{row}">
-          <el-button type="primary" size="small " @click="confirmCustomer(row)">
-            置顶
-          </el-button>
-          <el-button type="primary" size="small " @click="confirmCustomer(row)">
-            取消置顶
-          </el-button>
-          <el-button type="primary" size="small" @click="handleUpdate(row)">
-            添加
-          </el-button>
-          <el-button type="primary" size="small" @click="handleUpdate(row)">
-            修改
-          </el-button>
-          <el-button type="primary" size="danger" @click="handleModifyStatus(row)">
-            删除
-          </el-button>
-          <el-button type="primary" size="small" @click="handleModifyStatus(row)">
-            详情
-          </el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" />
+    <el-row>
+      <el-col :span="24">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
+              <el-row>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="公告主题">
+                    <el-input v-model="listQuery.type" class="filter-item" placeholder="公告主题" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="公告内容">
+                    <el-input v-model="listQuery.title" class="filter-item" placeholder="公告内容" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="创建时间">
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
+                    </el-col>
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
+                      <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
+                    </el-col>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row>
+                <el-col :span="24">
+                  <div class="fr">
+                    <el-button type="primary" size="small" @click="handleFilter">
+                      查询
+                    </el-button>
+                    <el-button type="primary" size="small" @click="clearList">
+                      重置
+                    </el-button>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-form>
+          </div>
+          <el-table :key="tableKey" v-loading="listLoading" :data="list" :height="searchRow1" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange">
+            <el-table-column type="selection" min-width="55" />
+            <el-table-column label="公告主题" prop="id" sortable="custom" align="center" min-width="150">
+              <template slot-scope="scope">
+                <span>{{ scope.row.id }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="公告内容" align="center" min-width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.name }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="创建日期" align="center" min-width="200">
+              <template slot-scope="scope">
+                <span>{{ scope.row.gender }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="创建者" align="center" min-width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.name }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作" align="center" class-name="small-padding fixed-width" min-width="600px">
+              <template slot-scope="{row}">
+                <el-button type="primary" size="small " @click="confirmCustomer(row)">
+                  置顶
+                </el-button>
+                <el-button type="primary" size="small " @click="confirmCustomer(row)">
+                  取消置顶
+                </el-button>
+                <el-button type="primary" size="small" @click="handleUpdate(row)">
+                  添加
+                </el-button>
+                <el-button type="primary" size="small" @click="handleUpdate(row)">
+                  修改
+                </el-button>
+                <el-button type="primary" size="danger" @click="handleModifyStatus(row)">
+                  删除
+                </el-button>
+                <el-button type="primary" size="small" @click="handleModifyStatus(row)">
+                  详情
+                </el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" />
+        </el-card>
+      </el-col>
+    </el-row>
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">

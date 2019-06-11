@@ -4,7 +4,7 @@
 
       <div class="title-container">
         <h3 class="title">
-          <nsf-icon nsf-class="xxxx"  />
+          <nsf-icon nsf-class="xxxx" />
           中科软悦客联络平台</h3>
       </div>
 
@@ -382,8 +382,7 @@ export default {
       position: relative;
       width: 520px;
       max-width: 100%;
-      padding: 160px 35px 0;
-      margin: 0 auto;
+      margin: 240px auto 0;
       overflow: hidden;
     }
 
