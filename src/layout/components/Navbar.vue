@@ -4,7 +4,7 @@
     <!--暂时去掉面包屑导航-->
     <!--<breadcrumb id="breadcrumb-container" class="breadcrumb-container" />-->
 
-    <top-tools-bar id="topToolsBar" />
+    <top-tools-bar />
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
@@ -27,8 +27,7 @@
         </div>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item divided>
-            <span>主题颜色</span>
-            <theme-picker style="float: right;height: 26px;margin: 5px;" @change="themeChange" />
+            <span>主题颜色<theme-picker style="float: right;height: 26px;margin: 5px;" @change="themeChange" /></span>
           </el-dropdown-item>
 
           <el-dropdown-item divided>

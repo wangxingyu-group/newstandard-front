@@ -17,7 +17,7 @@
                 </el-form-item>
               </el-col>
               <el-col :sm="24" :lg="8">
-                <el-form-item label="保单好/批单号">
+                <el-form-item label="保单号/批单号">
                   <el-input v-model="query.queryNo" :disabled="false" />
                 </el-form-item>
               </el-col>

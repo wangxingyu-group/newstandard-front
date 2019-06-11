@@ -4,7 +4,7 @@
 
       <div class="title-container">
         <h3 class="title">
-          <nsf-icon nsf-class="tianchongxing-" class-name="card-panel-icon" />
+          <nsf-icon nsf-class="xxxx"  />
           中科软悦客联络平台</h3>
       </div>
 
@@ -160,7 +160,7 @@ export default {
             }
           },
           'opacity': {
-            'value': 0.7,
+            'value': 0.5,
             'random': false,
             'anim': {
               'enable': false,

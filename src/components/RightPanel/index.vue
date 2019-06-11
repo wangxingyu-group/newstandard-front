@@ -118,7 +118,7 @@ export default {
   position: fixed;
   height: 100vh;
   width: 100%;
-  max-width: 580px;
+  max-width: 500px;
   top: 0px;
   left: 0px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .05);
