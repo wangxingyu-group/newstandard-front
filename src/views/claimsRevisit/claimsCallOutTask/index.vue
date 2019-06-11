@@ -27,7 +27,7 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="出险人身份证号">
+                  <el-form-item label="出险人身份证号" label-width="150px">
                     <el-input v-model="listQuery.name" placeholder="出险人身份证号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
