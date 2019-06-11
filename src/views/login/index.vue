@@ -4,7 +4,7 @@
 
       <div class="title-container">
         <h3 class="title">
-          <nsf-icon nsf-class="xxxx" />
+          <nsf-icon nsf-class="tianchongxing-" />
           中科软悦客联络平台</h3>
       </div>
 
@@ -375,8 +375,12 @@ export default {
   .login-container {
     min-height: 100%;
     width: 100%;
-    background-color: $bg;
+    <!--background-color: $bg;-->
     overflow: hidden;
+    background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560673146&di=05f11fae0b287b8620252deafe821ebf&imgtype=jpg&er=1&src=http%3A%2F%2Fb.zol-img.com.cn%2Fdesk%2Fbizhi%2Fstart%2F3%2F1367999444242.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 
     .login-form {
       position: relative;
