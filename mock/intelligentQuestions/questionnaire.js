@@ -8,7 +8,7 @@ for (let i = 0; i < count; i++) {
     id: '@increment',
     title: '@ctitle(5,10)',
     author: '@cname',
-    description: '@ctitle(25, 60)',
+    description: '@ctitle(15, 30)',
     'publish|1': ['yes', 'no'],
     'gender|1': ['0', '1'],
     'isOld|1': ['0', '1'],

@@ -8,28 +8,28 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问卷标题">
-                    <el-input v-model="queryForm.title" />
+                    <el-input v-model="queryForm.title" placeholder="问卷标题" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="出题人">
-                    <el-input v-model="queryForm.author" />
+                    <el-input v-model="queryForm.author" placeholder="出题人" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="创建时间">
                     <el-col :span="11">
-                      <el-date-picker v-model="queryForm.from" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="queryForm.from" type="date" style="width:100%;min-width:135px" placeholder="选择日期" />
                     </el-col>
                     <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
-                      <el-date-picker v-model="queryForm.to" type="date" style="width:100%;min-width:135px" placeholder="" />
+                      <el-date-picker v-model="queryForm.to" type="date" style="width:100%;min-width:135px" placeholder="选择日期" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问题描述">
-                    <el-input v-model="queryForm.description" />
+                    <el-input v-model="queryForm.description" placeholder="问卷标题" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
