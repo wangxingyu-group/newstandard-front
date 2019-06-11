@@ -40,7 +40,7 @@
           </div>
           <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow1" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="问题类型" align="center" width="100">
+            <el-table-column label="问题类型" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.type }}</span>
               </template>
@@ -50,17 +50,17 @@
                 <span>{{ scope.row.description }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="状态" align="center" width="100">
+            <el-table-column label="状态" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="创建时间" align="center" width="160">
+            <el-table-column label="创建时间" align="center" min-width="160">
               <template slot-scope="scope">
                 <span>{{ scope.row.createTime }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" width="150">
+            <el-table-column label="操作" align="center" min-width="150">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
