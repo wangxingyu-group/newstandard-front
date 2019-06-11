@@ -48,8 +48,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="客户身份证号">
-                    <el-input v-model="form.name" :disabled="false" placeholder="客户身份证号" />
+                  <el-form-item label="身份证号">
+                    <el-input v-model="form.name" :disabled="false" placeholder="身份证号" />
                   </el-form-item>
                 </el-col>
               </el-row>

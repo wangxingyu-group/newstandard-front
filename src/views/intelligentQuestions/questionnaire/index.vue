@@ -112,7 +112,7 @@
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
-                <el-button type="primary" size="mini" @click="handleAddQuestion(row)">添加试题</el-button>
+                <el-button type="primary" size="mini" @click="handleAddQuestion(row)">试题</el-button>
               </template>
             </el-table-column>
           </el-table>
