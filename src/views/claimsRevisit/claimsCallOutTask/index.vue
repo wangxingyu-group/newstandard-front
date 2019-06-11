@@ -11,18 +11,14 @@
                     <el-input v-model="listQuery.name" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="赔付到期日期起">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="赔付到期日期起" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="赔付到期日期止">
-                    <el-date-picker>
-                      <el-input v-model="listQuery.name" placeholder="赔付到期日期止" class="filter-item" @keyup.enter.native="handleFilter" />
-                    </el-date-picker>
+                <el-col :sm="6" :lg="8">
+                  <el-form-item label="赔付到期日">
+                    <el-col :span="10">
+                      <el-date-picker v-model="listQuery.from1" type="date" style="width:100%;min-width:135px" placeholder="起始日期" />
+                    </el-col>
+                    <el-col :span="12">
+                      <el-date-picker v-model="listQuery.to1" type="date" style="width:100%;min-width:135px" placeholder="截止日期" />
+                    </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
