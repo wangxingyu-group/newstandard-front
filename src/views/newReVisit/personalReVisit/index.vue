@@ -8,36 +8,37 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="分配时间" label-width="140px">
-                    <el-col :span="12">
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
                     </el-col>
-                    <el-col :span="12">
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8" label-width="140px">
                   <el-form-item label="是否有约">
-                    <el-select v-model="listQuery.appoint" placeholder="---请选择---">
+                    <el-select v-model="listQuery.appoint" placeholder="是否有约" style="width: 100%;">
                       <el-option v-for="(item, index) in appoints" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="7">
+                <el-col :sm="12" :lg="8">
                   <el-form-item label="保单号">
                     <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="回访状态" label-width="140px">
-                    <el-select v-model="listQuery.reVisit" placeholder="---请选择---">
+                    <el-select v-model="listQuery.reVisit" placeholder="回访状态" style="width: 100%;">
                       <el-option v-for="(item, index) in reVisits" :key="index" :label="item.name" :value="item.id" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="拨打次数">
-                    <el-select v-model="listQuery.number" placeholder="---请选择---">
+                    <el-select v-model="listQuery.number" placeholder="拨打次数" style="width: 100%;">
                       <el-option v-for="(item, index) in numbers" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>

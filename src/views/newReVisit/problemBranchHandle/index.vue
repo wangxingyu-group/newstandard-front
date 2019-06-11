@@ -8,39 +8,41 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="问题件生成时间" label-width="150px">
-                    <el-col :span="12">
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
                     </el-col>
-                    <el-col :span="12">
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.to" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="回访结果">
-                    <el-select v-model="listQuery.statue" placeholder="---请选择---">
+                    <el-select v-model="listQuery.statue" placeholder="回访结果" style="width: 100%;">
                       <el-option v-for="(item, index) in statues" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售渠道">
-                    <el-select v-model="listQuery.channel" placeholder="---请选择---">
+                    <el-select v-model="listQuery.channel" placeholder="销售渠道" style="width: 100%;">
                       <el-option v-for="(item, index) in channels" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="签单日期" label-width="150px">
-                    <el-col :span="12">
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.from1" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
                     </el-col>
-                    <el-col :span="12">
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.to1" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
-                <el-col :sm="12" :lg="7">
+                <el-col :sm="12" :lg="8">
                   <el-form-item label="保单号">
                     <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>

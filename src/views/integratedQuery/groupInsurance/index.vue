@@ -9,33 +9,33 @@
                 <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
                   <el-row>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="团体保单号">
-                        <el-input v-model="listQuery.groupContractNo" placeholder="请输入团体保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="团体保单号" label-width="130px">
+                        <el-input v-model="listQuery.groupContractNo" placeholder="团体保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="投保单号">
-                        <el-input v-model="listQuery.groupPreContractNo" placeholder="请输入投保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="投保单号" label-width="130px">
+                        <el-input v-model="listQuery.groupPreContractNo" placeholder="投保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
                       <el-form-item label="单位名称">
-                        <el-input v-model="listQuery.unitName" placeholder="请输入单位名称" class="filter-item" @keyup.enter.native="()=>{}" />
+                        <el-input v-model="listQuery.unitName" placeholder="单位名称" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="个人保单号">
-                        <el-input v-model="listQuery.contractNo" placeholder="请输入个人保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="个人保单号" label-width="130px">
+                        <el-input v-model="listQuery.contractNo" placeholder="个人保单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="个人客户号">
-                        <el-input v-model="listQuery.customerNo" placeholder="请输入个人客户号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="个人客户号" label-width="130px">
+                        <el-input v-model="listQuery.customerNo" placeholder="个人客户号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
                       <el-form-item label="证件号">
-                        <el-input v-model="listQuery.idNo" placeholder="请输入证件号" class="filter-item" @keyup.enter.native="()=>{}" />
+                        <el-input v-model="listQuery.idNo" placeholder="证件号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                   </el-row>
@@ -92,10 +92,10 @@
                 </el-col>
                 <el-col :sm="24" :lg="20">
                   <el-table ref="personalContractInfoTable" :data="personalContractInfo" height="264" row-key="id" stripe highlight-current-row>
-                    <el-table-column label="个人保单好" align="center" min-width="100">
+                    <el-table-column label="个人保单好" align="center" min-width="150">
                       <template slot-scope="scope"><span>{{ scope.row.contractNo }}</span></template>
                     </el-table-column>
-                    <el-table-column label="个人客户号 " align="center" min-width="100">
+                    <el-table-column label="个人客户号 " align="center" min-width="150">
                       <template slot-scope="scope"><span>{{ scope.row.customerNo }}</span></template>
                     </el-table-column>
                     <el-table-column label="姓名" align="center" min-width="100">

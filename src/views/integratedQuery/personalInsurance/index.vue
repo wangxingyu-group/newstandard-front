@@ -34,27 +34,27 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row @sort-change="()=>{}" @selection-change="()=>{}">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="保单号" align="center" width="150">
+            <el-table-column label="保单号" align="center" width="200">
               <template slot-scope="{row}">
                 <span class="link-type" @click="gotoDetails(row)">{{ row.contractNo }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="投保人" align="center" width="80">
+            <el-table-column label="投保人" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.applicant }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人身份证号" align="center" width="180">
+            <el-table-column label="投保人身份证号" align="center" width="250">
               <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
-            <el-table-column label="客户号" align="center" width="80">
+            <el-table-column label="客户号" align="center" width="100">
               <template slot-scope="scope"><span>{{ scope.row.customerNo }}</span></template>
             </el-table-column>
-            <el-table-column label="被保人姓名" align="center" width="80">
+            <el-table-column label="被保人姓名" align="center" width="180">
               <template slot-scope="scope"><span>{{ scope.row.insured }}</span></template>
             </el-table-column>
-            <el-table-column label="代理机构" align="center" width="100">
+            <el-table-column label="代理机构" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.agent }}</span></template>
             </el-table-column>
-            <el-table-column label="生效日期" align="center" width="150">
+            <el-table-column label="生效日期" align="center" width="200">
               <template slot-scope="scope"><span>{{ scope.row.effectiveDate }}</span></template>
             </el-table-column>
             <el-table-column label="基本保险金额" align="center" width="150">
@@ -63,10 +63,10 @@
             <el-table-column label="保费金额" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.premium }}</span></template>
             </el-table-column>
-            <el-table-column label="险种名称" align="center" width="100">
+            <el-table-column label="险种名称" align="center" width="160">
               <template slot-scope="scope"><span>{{ scope.row.risk }}</span></template>
             </el-table-column>
-            <el-table-column label="募集计划名称" align="center" width="120">
+            <el-table-column label="募集计划名称" align="center" width="180">
               <template slot-scope="scope"><span>{{ scope.row.plan }}</span></template>
             </el-table-column>
             <el-table-column label="保单状态" align="center" width="150">

@@ -8,42 +8,43 @@
               <el-row>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="归属机构">
-                    <el-select v-model="listQuery.agent" placeholder="---请选择---">
+                    <el-select v-model="listQuery.agent" placeholder="归属机构" style="width: 100%;">
                       <el-option v-for="(item, index) in agents" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="工单状态">
-                    <el-select v-model="listQuery.statue" placeholder="---请选择---">
+                    <el-select v-model="listQuery.statue" placeholder="工单状态" style="width: 100%;">
                       <el-option v-for="(item, index) in statues" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="回访人工号">
+                  <el-form-item label="回访人工号" label-width="140px">
                     <el-input v-model="listQuery.policyNo" placeholder="回访人工号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="签单时间">
-                    <el-col :span="12">
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="起始时间" />
                     </el-col>
-                    <el-col :span="12">
+                    <el-col style="text-align: center" :span="2">-</el-col>
+                    <el-col :span="11">
                       <el-date-picker v-model="listQuery.from" type="date" style="width:100%;min-width:135px" placeholder="截止时间" />
                     </el-col>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="销售渠道">
-                    <el-select v-model="listQuery.channel" placeholder="---请选择---">
+                    <el-select v-model="listQuery.channel" placeholder="销售渠道" style="width: 100%;">
                       <el-option v-for="(item, index) in channels" :key="index" :label="item" :value="item" />
                     </el-select>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
+                  <el-form-item label="保单号" label-width="140px">
                     <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>

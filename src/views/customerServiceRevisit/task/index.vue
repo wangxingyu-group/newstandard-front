@@ -18,7 +18,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="申请方式">
-                    <el-select placeholder="---请选择---">
+                    <el-select placeholder="申请方式">
                       <el-option label="1--信函申请" value="shanghai" />
                       <el-option label="2--官微申请" value="shanghai" />
                     </el-select>
@@ -37,7 +37,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="外呼类别" label-width="150px">
-                    <el-select placeholder="---请选择---">
+                    <el-select placeholder="外呼类别">
                       <el-option label="1--非直系亲属" value="shanghai" />
                       <el-option label="2--委托类" value="shanghai" />
                     </el-select>
