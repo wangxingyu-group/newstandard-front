@@ -55,6 +55,15 @@ const searchRouter = {
         title: '单证下载',
         roles: ['admin']
       }
+    },
+    {
+      path: 'callStreaming',
+      component: () => import('@/views/integratedQuery/callStreaming'),
+      name: 'callStreaming',
+      meta: {
+        title: '通话流水',
+        roles: ['admin']
+      }
     }
   ]
 }
