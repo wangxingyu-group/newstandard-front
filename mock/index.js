@@ -56,6 +56,7 @@ import newSettingList from './backPool/newSettingList' // 转办事项 => 新增
 import chart2 from './demo/chart/chart2' // 报表=>服务单统计表
 import chart3 from './demo/chart/chart3' // 报表=>短信发送统计
 import chart4 from './demo/chart/chart4' // 报表=>质检报表
+import callStreaming from './integratedQuery/callStreaming' // 综合查询
 
 const mocks = [
   ...user,
@@ -115,7 +116,8 @@ const mocks = [
   ...comprehensiveQuery,
   ...chart2,
   ...chart3,
-  ...chart4
+  ...chart4,
+  ...callStreaming
 ]
 
 // for front mock
