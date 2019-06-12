@@ -1,16 +1,32 @@
 <template>
-  <div class="hello" style="width: 900px;height: 700px">
-    <el-date-picker v-model="selectDate" size="small" type="month" placeholder="选择月" value-format="yyyy-MM" />
-    <el-button size="small" @click="changeDate">确定</el-button>
-    <full-calendar
-      ref="calendar"
-      :config="config"
-      :events="events"
-      @event-selected="eventClick"
-      @day-click="dayClick"
-    />
-    <add-schedule v-if="isAdd" :is-add="isAdd" :edit-item="editItem" :delete-event="deleteEvent" @add="addItem" @close="isAdd = false" />
-  </div>
+  <el-row>
+    <el-row>
+      <el-card class="box-card">
+        <el-col :span="18">
+          <full-calendar
+            ref="calendar"
+            :config="config"
+            :events="events"
+            @event-selected="eventClick"
+            @day-click="dayClick"
+          />
+          <add-schedule v-if="isAdd" :is-add="isAdd" :edit-item="editItem" :delete-event="deleteEvent" @add="addItem" @close="isAdd = false" />
+        </el-col>
+        <el-col :span="6">
+          <el-scrollbar ref="treeScrollbar" wrap-class="scrollbar-wrapper">
+            <div align="center" style="height: 50px">
+              详细信息
+            </div>
+            <div v-for="(item,index) in events" :key="index" style="padding: 10px">
+              时间: {{ item.start }} - {{ item.end }} <br>
+              内容: {{ item.title }} <br>
+              类别: {{ item.flag }} <br>
+            </div>
+          </el-scrollbar>
+        </el-col>
+      </el-card>
+    </el-row>
+  </el-row>
 </template>
 <script>
 import { FullCalendar } from 'vue-full-calendar'
@@ -24,6 +40,7 @@ export default {
     return {
       isAdd: false,
       selectDate: '', // 日期选择器选中的月份
+      conheight: { height: '' },
       config: {
         firstDay: '0', // 以周日为每周的第一天
         weekends: true, // 是否在日历中显示周末
@@ -32,13 +49,10 @@ export default {
         height: '600px', // 高度
         loadEventEnd: true,
         fixedWeekCount: false, // 是否固定显示六周
-        // weekMode: 'liquid', // 周数不定，每周的高度可变，整个日历高度不变
-        // allDaySlot: false,
-        // allDay: true,
         header: { // 表头信息
-          left: 'prev, next, today',
-          center: 'title',
-          right: 'hide, custom'
+          left: ' ',
+          center: 'prevYear, prev, title, next, nextYear',
+          right: 'today'
         }
       },
       events: [],
@@ -120,4 +134,10 @@ export default {
 </script>
 
 <style scoped>
+  /*.fc {
+    background: #4AB7BD;
+  }*/
+  .box-card {
+    background: #4AB7BD;
+  }
 </style>

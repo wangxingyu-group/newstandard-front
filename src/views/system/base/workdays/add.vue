@@ -4,20 +4,20 @@
     center
     :show-close="false"
     :visible.sync="isAdd"
-    width="500px"
+    min-width="500px"
   >
     <el-form ref="formDetail" :model="formDetail" :rules="rules" label-width="80px" class="demo-ruleForm">
-      <el-form-item label="假日名称" prop="title">
-        <el-select v-model="formDetail.title" placeholder="请选择">
+      <el-form-item label="假日名称" prop="title" label-width="130px">
+        <el-select v-model="formDetail.title" placeholder="假日名称" style="width: 100%">
           <el-option v-for="(item,index) in titles" :key="index" :value="item" />
         </el-select>
       </el-form-item>
-      <el-form-item label="日期标志" prop="flag">
-        <el-select v-model="formDetail.flag" placeholder="请选择">
+      <el-form-item label="日期标志" prop="flag" label-width="130px">
+        <el-select v-model="formDetail.flag" placeholder="日期标志" style="width: 100%">
           <el-option v-for="(item,index) in flags" :key="index" :value="item" />
         </el-select>
       </el-form-item>
-      <el-form-item label="日期" prop="period">
+      <el-form-item label="日期" prop="period" label-width="130px">
         <el-date-picker
           v-model="formDetail.period"
           value-format="yyyy-MM-dd"
@@ -74,7 +74,11 @@ export default {
       this.formDetail.title = this.editItem.title
       this.formDetail.flag = this.editItem.flag
       this.formDetail.period[0] = this.editItem.start._i
-      this.formDetail.period[1] = this.editItem.end._i
+      if (this.formDetail.period[1] === null) {
+        this.formDetail.period[1] = this.editItem.start._i
+      } else {
+        this.formDetail.period[1] = this.editItem.end._i
+      }
       this.formDetail.color = this.editItem.color
       if (this.editItem.id !== '') {
         this.isShow = true
