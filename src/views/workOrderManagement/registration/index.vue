@@ -106,38 +106,38 @@
                         <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
                           <div style="height:244px">
                             <el-table ref="table" :key="0" :data="policyData" row-key="id" stripe highlight-current-row>
-                              <el-table-column type="selection" width="55" />
-                              <el-table-column label="保单号码" align="center">
+                              <el-table-column type="selection" min-width="55" />
+                              <el-table-column label="保单号码" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
                               </el-table-column>
-                              <el-table-column label="投保人" align="center">
+                              <el-table-column label="投保人" align="center" min-width="100">
                                 <template slot-scope="scope"><span>{{ scope.row.applicant }}</span></template>
                               </el-table-column>
-                              <el-table-column label="客户号" align="center">
+                              <el-table-column label="客户号" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.customerNo }}</span></template>
                               </el-table-column>
-                              <el-table-column label="被保人姓名" align="center">
+                              <el-table-column label="被保人姓名" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.insured }}</span></template>
                               </el-table-column>
-                              <el-table-column label="代理机构" align="center">
+                              <el-table-column label="代理机构" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.agent }}</span></template>
                               </el-table-column>
-                              <el-table-column label="生效日期" align="center">
+                              <el-table-column label="生效日期" align="center" min-width="200">
                                 <template slot-scope="scope"><span>{{ scope.row.effectiveDate }}</span></template>
                               </el-table-column>
-                              <el-table-column label="保费金额" align="center">
+                              <el-table-column label="保费金额" align="center" min-width="100">
                                 <template slot-scope="scope"><span>{{ scope.row.premium }}</span></template>
                               </el-table-column>
-                              <el-table-column label="险种名称" align="center">
+                              <el-table-column label="险种名称" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.typeOfInsurance }}</span></template>
                               </el-table-column>
-                              <el-table-column label="募集计划名称" align="center">
+                              <el-table-column label="募集计划名称" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.planck }}</span></template>
                               </el-table-column>
-                              <el-table-column label="保单状态" align="center">
+                              <el-table-column label="保单状态" align="center" min-width="100">
                                 <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
                               </el-table-column>
-                              <el-table-column label="操作" align="center" width="200">
+                              <el-table-column label="操作" align="center" fixed="right" min-width="250">
                                 <template>
                                   <el-button type="primary" size="mini">
                                     取回保单

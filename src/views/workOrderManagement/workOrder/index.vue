@@ -77,30 +77,30 @@
             </el-form>
           </div>
           <el-table ref="table" :key="0" :data="workOrderData" :height="searchRow3" row-key="id" stripe highlight-current-row>
-            <el-table-column label="服务单号" align="center">
+            <el-table-column label="服务单号" align="center" min-width="200">
               <template slot-scope="scope">
                 <span class="link-type" @click="gotoDetails(row)">{{ scope.row.id }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="服务单类型" align="center">
+            <el-table-column label="服务单类型" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.type }}</span></template>
             </el-table-column>
-            <el-table-column label="服务单状态" align="center">
+            <el-table-column label="服务单状态" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
-            <el-table-column label="坐席姓名" align="center">
+            <el-table-column label="坐席姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.seats }}</span></template>
             </el-table-column>
-            <el-table-column label="通话时间" align="center">
+            <el-table-column label="通话时间" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.callDuration }}</span></template>
             </el-table-column>
-            <el-table-column label="来电人姓名" align="center">
+            <el-table-column label="来电人姓名" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.callInName }}</span></template>
             </el-table-column>
-            <el-table-column label="来电号码" align="center">
+            <el-table-column label="来电号码" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
             </el-table-column>
-            <el-table-column label="转办状态" align="center">
+            <el-table-column label="转办状态" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.transferStatus }}</span></template>
             </el-table-column>
           </el-table>
