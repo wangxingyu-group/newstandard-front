@@ -88,13 +88,13 @@
                         </div>
                         <el-scrollbar ref="treeScrollbar" wrap-class="scrollbar-wrapper">
                           <el-tree
-                            v-if="categorizedSettings"
+                            v-if="treeList"
                             ref="tree"
                             style="height:244px"
                             node-key="id"
                             highlight-current
                             :show-checkbox="true"
-                            :data="[categorizedSettings]"
+                            :data="treeList"
                             :expand-on-click-node="true"
                           />
                         </el-scrollbar>
@@ -188,11 +188,11 @@
                       <el-row>
                         <el-col :span="24">
                           <div class="fr">
-                            <el-button type="success" size="small">新建</el-button>
-                            <el-button type="info" size="small">取消</el-button>
-                            <el-button type="primary" size="small">保存</el-button>
-                            <el-button type="primary" size="small">完成</el-button>
-                            <el-button type="primary" size="small">发送短信</el-button>
+                            <!--<el-button type="success" size="small">新建</el-button>-->
+                            <!--<el-button type="info" size="small">取消</el-button>-->
+                            <!--<el-button type="primary" size="small">保存</el-button>-->
+                            <el-button type="primary" size="small">修改</el-button>
+                            <el-button type="primary" size="small">工单录音</el-button>
                           </div>
                         </el-col>
                       </el-row>
@@ -201,6 +201,7 @@
                 </div>
               </el-scrollbar>
             </el-tab-pane>
+            <el-tab-pane label="流程明细" name="second">流程明细</el-tab-pane>
           </el-tabs>
         </el-card>
       </el-col>
@@ -213,7 +214,7 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 // 用于获取工单配置信息
-import { fetchList } from '@/api/workOrderManagement/orderSettings'
+import { fetchList } from '@/api/workOrderManagement/registration'
 
 export default {
   components: {
@@ -221,8 +222,16 @@ export default {
   },
   data() {
     return {
-      workOrderSettings: null,
-      activeTab: null,
+      workOrderSettings: {
+        children: [
+          {
+            id: '123',
+            label: '工单详情'
+          }
+        ]
+      },
+      activeTab: String('123'),
+      treeList: null,
       form: {
         source: 'callIn',
         name: '',
@@ -232,7 +241,8 @@ export default {
         delivery: false,
         type: [],
         resource: '',
-        desc: ''
+        desc: '',
+        activeName: 'second'
       },
       policyData: [
         {
@@ -255,8 +265,9 @@ export default {
   created() {
     this.$nextTick(function() {
       fetchList().then((response) => {
-        this.workOrderSettings = response.data.items[0]
-        this.activeTab = String(this.workOrderSettings.children[0].id)
+        // console.log('12312312==' + JSON.stringify(response.data.items[0]))
+        this.treeList = response.data.items[0].children
+        // this.activeTab = String(this.workOrderSettings.children[0].id)
       })
     })
   },
