@@ -201,7 +201,110 @@
                 </div>
               </el-scrollbar>
             </el-tab-pane>
-            <el-tab-pane label="流程明细" name="second">流程明细</el-tab-pane>
+            <el-tab-pane label="流程明细" name="second">
+              <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
+                <div class="fit-height-200">
+                  <div style="-webkit-box-flex:1;-webkit-flex:1;flex:1;overflow:auto;">
+                    <el-row>
+                      <el-col :span="14">
+                        <el-card class="box-card" v-bind:style="{height: widthData2}">
+                          <div slot="header" class="clearfix">
+                            <span>工单流程图</span>
+                          </div>
+                          <img src="http://39.105.54.133:10008/modeler/37518/1/showModelGLTaskPicture">
+                        </el-card>
+                      </el-col>
+                      <el-col :span="7">
+                        <el-row>
+                          <el-card class="box-card" v-bind:style="{height: widthData}">
+                            <div class="text item">
+                              <el-row>
+                                <el-input v-model="input1">
+                                  <template slot="prepend">流程状态：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input1_time">
+                                  <template slot="prepend">操作时间：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input1_user">
+                                  <template slot="prepend">操作人：&#12288; </template>
+                                </el-input>
+                              </el-row>
+                            </div>
+                          </el-card>
+                        </el-row>
+                        <el-row>
+                          <el-card class="box-card" v-bind:style="{height: widthData}">
+                            <div class="text item">
+                              <el-row>
+                                <el-input v-model="input2">
+                                  <template slot="prepend">流程状态：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input2_time">
+                                  <template slot="prepend">操作时间：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input2_user">
+                                  <template slot="prepend">操作人：&#12288; </template>
+                                </el-input>
+                              </el-row>
+                            </div>
+                          </el-card>
+                        </el-row>
+                        <el-row>
+                          <el-card class="box-card" v-bind:style="{height: widthData}">
+                            <div class="text item">
+                              <el-row>
+                                <el-input v-model="input3">
+                                  <template slot="prepend">流程状态：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input3_time">
+                                  <template slot="prepend">操作时间：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input3_user">
+                                  <template slot="prepend">操作人：&#12288; </template>
+                                </el-input>
+                              </el-row>
+                            </div>
+                          </el-card>
+                        </el-row>
+                        <el-row>
+                          <el-card class="box-card" v-bind:style="{height: widthData}">
+                            <div class="text item">
+                              <el-row>
+                                <el-input v-model="input4">
+                                  <template slot="prepend">流程状态：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input4_time">
+                                  <template slot="prepend">操作时间：</template>
+                                </el-input>
+                              </el-row>
+                              <el-row>
+                                <el-input v-model="input4_user">
+                                  <template slot="prepend">操作人：&#12288; </template>
+                                </el-input>
+                              </el-row>
+                            </div>
+                          </el-card>
+                        </el-row>
+                      </el-col>
+                    </el-row>
+                  </div>
+                </div>
+              </el-scrollbar>
+            </el-tab-pane>
           </el-tabs>
         </el-card>
       </el-col>
@@ -232,6 +335,20 @@ export default {
       },
       activeTab: String('123'),
       treeList: null,
+      input1: '发起工单',
+      input1_time: '2019-05-20 12:00:36',
+      input1_user: 'T1',
+      input2: '工单处理',
+      input2_time: '2019-05-20 12:00:36',
+      input2_user: 'T2',
+      input3: '工单转办',
+      input3_time: '2019-05-20 12:00:36',
+      input3_user: 'TY',
+      input4: '工单完成',
+      input4_time: '2019-05-20 12:00:36',
+      input4_user: 'TO',
+      widthData: '150px',
+      widthData2: '600px',
       form: {
         source: 'callIn',
         name: '',
