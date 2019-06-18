@@ -46,7 +46,7 @@ export default {
       type: Object
     },
     deleteEvent: {
-      type: Object
+      type: Function
     }
   },
   data() {
@@ -74,7 +74,7 @@ export default {
       this.formDetail.title = this.editItem.title
       this.formDetail.flag = this.editItem.flag
       this.formDetail.period[0] = this.editItem.start._i
-      if (this.formDetail.period[1] === null) {
+      if (this.editItem.end === null) {
         this.formDetail.period[1] = this.editItem.start._i
       } else {
         this.formDetail.period[1] = this.editItem.end._i

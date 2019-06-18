@@ -40,7 +40,6 @@ export default {
     return {
       isAdd: false,
       selectDate: '', // 日期选择器选中的月份
-      conheight: { height: '' },
       config: {
         firstDay: '0', // 以周日为每周的第一天
         weekends: true, // 是否在日历中显示周末
@@ -48,6 +47,8 @@ export default {
         defaultView: 'month', // 默认按月显示
         height: '600px', // 高度
         loadEventEnd: true,
+        eventLimit: true,
+        textColor: '#EDEDED',
         fixedWeekCount: false, // 是否固定显示六周
         header: { // 表头信息
           left: ' ',
@@ -138,6 +139,9 @@ export default {
     background: #4AB7BD;
   }*/
   .box-card {
-    background: #4AB7BD;
+    background: #1F1F1F;
+  }
+  .box-card {
+    color: white;
   }
 </style>

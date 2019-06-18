@@ -1,11 +1,11 @@
 <template>
   <el-row :gutter="40" class="panel-group">
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('preCustomer')">
-        <div class="card-panel-icon-wrapper icon-people" @click="toSkip('/customerManagement/preCustomer')">
+      <div class="card-panel" @click="handleSetLineChartData('preCustomer'),toSkip('/customerManagement/preCustomer')">
+        <div class="card-panel-icon-wrapper icon-people">
           <svg-icon icon-class="peoples" class-name="card-panel-icon" />
         </div>
-        <div class="card-panel-description" @click="toSkip('/customerManagement/preCustomer')">
+        <div class="card-panel-description">
           <div class="card-panel-text">
             准客户新增
           </div>
@@ -14,11 +14,11 @@
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('toDo')">
-        <div class="card-panel-icon-wrapper icon-message" @click="toSkip('/backlog/taskPool')">
+      <div class="card-panel" @click="handleSetLineChartData('toDo'),toSkip('/backlog/taskPool')">
+        <div class="card-panel-icon-wrapper icon-message">
           <svg-icon icon-class="list" class-name="card-panel-icon" />
         </div>
-        <div class="card-panel-description" @click="toSkip('/backlog/taskPool')">
+        <div class="card-panel-description">
           <div class="card-panel-text">
             待办事项
           </div>
@@ -27,11 +27,11 @@
       </div>
     </el-col>
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-      <div class="card-panel" @click="handleSetLineChartData('workOrder')">
-        <div class="card-panel-icon-wrapper icon-money" @click="toSkip('/workOrderManagement/workOrder')">
+      <div class="card-panel" @click="handleSetLineChartData('workOrder'),toSkip('/workOrderManagement/workOrder')">
+        <div class="card-panel-icon-wrapper icon-money">
           <svg-icon icon-class="edit" class-name="card-panel-icon" />
         </div>
-        <div class="card-panel-description" @click="toSkip('/workOrderManagement/workOrder')">
+        <div class="card-panel-description">
           <div class="card-panel-text">
             今日工单
           </div>
