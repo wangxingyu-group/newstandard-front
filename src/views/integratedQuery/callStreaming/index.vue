@@ -58,7 +58,7 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
             <el-table-column label="联系号码" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.mobile }}</span></template>
