@@ -12,7 +12,7 @@ const chartRouter =
     },
     children: [
       {
-        path: 'class',
+        path: 'class1.js',
         component: () => import('@/views/schedule/class.vue'),
         name: 'scheduleClass',
         meta: {
