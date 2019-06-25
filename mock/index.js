@@ -62,6 +62,8 @@ import class1 from './schedule/class1' // 班次管理
 import group from './schedule/group' // 班组管理
 import adjust from './schedule/adjust' // 排班调整
 import timetable from './schedule/timetable' // 排班调整
+import chart5 from './demo/chart/chart5' // 报表=>坐席服务明细
+import chart6 from './demo/chart/chart6' // 报表=>坐席服务明细
 const mocks = [
   ...user,
   ...role,
@@ -126,7 +128,9 @@ const mocks = [
   ...class1,
   ...group,
   ...adjust,
-  ...timetable
+  ...timetable,
+  ...chart5,
+  ...chart6
 ]
 
 // for front mock
