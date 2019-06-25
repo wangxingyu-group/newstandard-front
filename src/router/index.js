@@ -19,7 +19,7 @@ import otherRevisitRouter from './modules/otherRevisit'
 import backlogRouter from './modules/backlog'
 import activitiRouter from './modules/activiti'
 import schedule from './modules/schedule'
-
+import systemRealTimeMessage from './modules/systemRealTimeMessage'
 Vue.use(Router)
 
 // 静态路由
@@ -89,6 +89,7 @@ export const asyncRoutes = [
   backlogRouter,
   activitiRouter,
   schedule,
+  systemRealTimeMessage,
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
 ]

@@ -4,7 +4,7 @@ const chartRouter =
   {
     path: '/schedule',
     component: Layout,
-    redirect: '/schedule/class',
+    redirect: '/schedule/class1',
     name: 'schedule',
     meta: {
       title: '排班管理',
@@ -12,7 +12,7 @@ const chartRouter =
     },
     children: [
       {
-        path: 'class1.js',
+        path: 'class1',
         component: () => import('@/views/schedule/class1.vue'),
         name: 'scheduleClass',
         meta: {
