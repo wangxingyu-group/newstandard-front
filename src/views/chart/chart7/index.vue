@@ -37,7 +37,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="9">
                   <el-form-item label="对象">
-                    <el-select v-model="listQuery.siteGroup" style="width: 95%;" placeholder="对象">
+                    <el-select v-model="listQuery.siteGroup" style="width: 80%;" placeholder="对象">
                       <el-option label="坐席" value="1" />
                       <el-option label="分机" value="2" />
                     </el-select>
@@ -45,7 +45,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="坐席组名">
-                    <el-select v-model="listQuery.siteGroup" style="width: 95%;" placeholder="坐席组名">
+                    <el-select v-model="listQuery.siteGroup" style="width: 100%;" placeholder="坐席组名">
                       <el-option label="全部" value="1" />
                       <el-option label="广发信用卡" value="2" />
                       <el-option label="海峰教育" value="3" />
@@ -54,7 +54,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="7">
                   <el-form-item label="坐席工号">
-                    <el-select v-model="listQuery.siteGroup" style="width: 95%;" placeholder="坐席组名">
+                    <el-select v-model="listQuery.siteGroup" style="width: 100%;" placeholder="坐席工号">
                       <el-option label="全部" value="1" />
                     </el-select>
                   </el-form-item>

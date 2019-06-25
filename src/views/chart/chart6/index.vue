@@ -37,7 +37,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="9">
                   <el-form-item label="业务类型">
-                    <el-select v-model="listQuery.siteGroup" style="width: 95%;" placeholder="业务类型">
+                    <el-select v-model="listQuery.siteGroup" style="width: 80%;" placeholder="业务类型">
                       <el-option label="合计" value="1" />
                       <el-option label="外拨任务" value="2" />
                       <el-option label="虚拟客户" value="3" />

@@ -97,7 +97,7 @@ const chartRouter =
         component: () => import('@/views/chart/chart10'),
         name: 'chart10',
         meta: {
-          title: '呼入汇总',
+          title: '呼出汇总',
           roles: ['admin']
         }
       },
