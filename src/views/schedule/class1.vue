@@ -7,8 +7,16 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="班组名称">
-                    <el-input v-model="listQuery.name" placeholder="请输入班组名称" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="班次名称">
+                    <el-input v-model="listQuery.name" placeholder="请输入班次名称" class="filter-item" @keyup.enter.native="handleFilter" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label=" ">
+                    <el-select style="width:100%;" placeholder="请选择">
+                      <el-option label="1--###" value="shanghai" />
+                      <el-option label="2--###" value="shanghai" />
+                    </el-select>
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -26,23 +34,38 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
-            <el-table-column label="班组名称" prop="id" sortable="custom" align="center" min-width="150">
+            <el-table-column label="班次名称" prop="id" sortable="custom" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="班组人数" align="center" min-width="300">
-              <template slot-scope="scope"><span>{{ scope.row.number }}</span></template>
+            <el-table-column label="班次类型" align="center" min-width="300">
+              <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
-            <el-table-column label="创建人" align="center" min-width="170">
-              <template slot-scope="scope"><span>{{ scope.row.name2 }}</span></template>
-            </el-table-column>
-            <el-table-column label="创建时间" align="center" min-width="200">
+            <el-table-column label="开始时间" align="center" min-width="170">
               <template slot-scope="scope"><span>{{ scope.row.begintime }}</span></template>
             </el-table-column>
-            <el-table-column label="启用状态" align="center" min-width="150">
+            <el-table-column label="结束时间" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.endtime }}</span></template>
+            </el-table-column>
+            <el-table-column label="工时" align="center" min-width="150">
+              <template slot-scope="scope"><span>{{ scope.row.workhours }}</span></template>
+            </el-table-column>
+            <el-table-column label="班次人数" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.numberOfShifts }}</span></template>
+            </el-table-column>
+            <el-table-column label="启用状态" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.startStatus }}</span></template>
             </el-table-column>
             <el-table-column label="启用控制" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.control }}</span></template>
+            </el-table-column>
+            <el-table-column label="创建人" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.name2 }}</span></template>
+            </el-table-column>
+            <el-table-column label="保单状态" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.Status }}</span></template>
+            </el-table-column>
+            <el-table-column label="创建时间" align="center" min-width="200">
+              <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
             </el-table-column>
             <el-table-column label="操作" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.operate }}</span></template>
@@ -56,12 +79,12 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/schedule/group'
+import { fetchList } from '@/api/schedule/class1'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Group',
+  name: 'Class',
   components: { Pagination },
   data() {
     return {

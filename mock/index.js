@@ -58,7 +58,10 @@ import chart3 from './demo/chart/chart3' // 报表=>短信发送统计
 import chart4 from './demo/chart/chart4' // 报表=>质检报表
 import callStreaming from './integratedQuery/callStreaming' // 综合查询
 import registration from './workOrderManagement/registration' // 工单登记
-
+import class1 from './schedule/class1' // 班次管理
+import group from './schedule/group' // 班组管理
+import adjust from './schedule/adjust' // 排班调整
+import timetable from './schedule/timetable' // 排班调整
 const mocks = [
   ...user,
   ...role,
@@ -119,7 +122,11 @@ const mocks = [
   ...chart3,
   ...chart4,
   ...callStreaming,
-  ...registration
+  ...registration,
+  ...class1,
+  ...group,
+  ...adjust,
+  ...timetable
 ]
 
 // for front mock
