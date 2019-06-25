@@ -69,7 +69,7 @@ import chart8 from './demo/chart/chart8' // 报表=>呼入服务明细
 import chart9 from './demo/chart/chart9' // 报表=>坐席组服务明细
 import chart10 from './demo/chart/chart10' // 报表=>呼出汇总
 import onlineSeating from './systemRealTimeMessage/onlineSeating' // 系统实时信息=>在线坐席
-
+import onlineUser from './systemRealTimeMessage/onlineUser' // 系统实时信息=>在线用户
 const mocks = [
   ...user,
   ...role,
@@ -141,7 +141,8 @@ const mocks = [
   ...chart8,
   ...chart9,
   ...chart10,
-  ...onlineSeating
+  ...onlineSeating,
+  ...onlineUser
 ]
 
 // for front mock
