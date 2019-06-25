@@ -22,7 +22,7 @@ for (let i = 0; i < count; i++) {
 
 export default [
   {
-    url: '/class/list',
+    url: '/class1/list',
     type: 'get',
     response: config => {
       const { name, idNo, page = 1, limit = 20, sort } = config.query
@@ -49,7 +49,7 @@ export default [
   },
 
   {
-    url: '/schedule/detail',
+    url: '/class1/detail',
     type: 'get',
     response: config => {
       const { id } = config.query
@@ -65,7 +65,7 @@ export default [
   },
 
   {
-    url: '/schedule/pv',
+    url: '/class1/pv',
     type: 'get',
     response: _ => {
       return {
@@ -83,7 +83,7 @@ export default [
   },
 
   {
-    url: '/schedule/create',
+    url: '/class1/create',
     type: 'post',
     response: _ => {
       return {
@@ -94,7 +94,7 @@ export default [
   },
 
   {
-    url: '/schedule/update',
+    url: '/class1/update',
     type: 'post',
     response: _ => {
       return {

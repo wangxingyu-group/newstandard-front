@@ -13,7 +13,7 @@ const chartRouter =
     children: [
       {
         path: 'class1.js',
-        component: () => import('@/views/schedule/class.vue'),
+        component: () => import('@/views/schedule/class1.vue'),
         name: 'scheduleClass',
         meta: {
           title: '班次管理',
