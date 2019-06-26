@@ -133,7 +133,7 @@
             <el-table-column label="更新时间" align="center" min-width="160">
               <template slot-scope="scope"><span>{{ scope.row.datetime2 }}</span></template>
             </el-table-column>
-            <el-table-column label="上次登录" align="center" min-width="100">
+            <el-table-column label="上次登录" align="center" min-width="160">
               <template slot-scope="scope"><span>{{ scope.row.lastAnswer }}</span></template>
             </el-table-column>
           </el-table>
