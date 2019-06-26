@@ -114,7 +114,7 @@
             <el-table-column label="呼入通话时间" align="center" min-width="160">
               <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
             </el-table-column>
-            <el-table-column label="呼出应答数量" align="center" min-width="100">
+            <el-table-column label="呼出应答数量" align="center" min-width="120">
               <template slot-scope="scope"><span>{{ scope.row.answer2 }}</span></template>
             </el-table-column>
             <el-table-column label="呼出数量" align="center" min-width="150">
