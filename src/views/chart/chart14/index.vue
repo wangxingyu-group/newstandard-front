@@ -76,6 +76,10 @@
                   <div class="fr">
                     <el-button type="primary" size="small" @click="getList">查询</el-button>
                     <el-button type="success" size="small" @click="getList">下载</el-button>
+                    <el-select v-model="chartTypea" style="width: 30%;" placeholder="下载格式">
+                      <el-option label="html" value="line" />
+                      <el-option label="Img" value="bar" />
+                    </el-select>
                   </div>
                 </el-col>
               </el-row>
@@ -111,6 +115,7 @@ export default {
   data() {
     return {
       lineChartData: lineChartData.preCustomer,
+      chartTypea: '',
       tableKey: 0,
       list: null,
       selectionList: null,

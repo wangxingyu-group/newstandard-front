@@ -99,7 +99,7 @@ export default {
         from: '',
         to: '',
         group: '',
-        siteGroup: '',
+        siteGroup: [],
         site: '',
         type: '',
         page: 1,
@@ -135,6 +135,17 @@ export default {
       searchRow3: state => state.commonData.searchRow3,
       searchRow4: state => state.commonData.searchRow4
     })
+  },
+  watch: {
+    listQuery: {
+      deep: true,
+      handler(val) {
+        const moment = require('moment')
+        this.time1 = moment(val.from).format('YYYY-MM-DD')
+        this.time2 = moment(val.to).format('YYYY-MM-DD')
+        console.log('时间格式化------' + this.time1 + this.time2)
+      }
+    }
   },
   created() {
     this.getList()

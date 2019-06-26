@@ -7,7 +7,7 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="9">
-                  <el-button-group style="text-align: right">
+                  <el-button-group style="float: right">
                     <el-button type="primary" size="small" plain @click="changeDate(1)">今日</el-button>
                     <el-button type="primary" size="small" plain @click="changeDate(2)">昨天</el-button>
                     <el-button type="primary" size="small" plain @click="changeDate(3)">本周</el-button>
@@ -37,7 +37,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="9">
                   <el-form-item label="类型">
-                    <el-select v-model="listQuery.siteGroup" style="width: 80%;" placeholder="选择团队">
+                    <el-select v-model="listQuery.siteGroup" style="width: 100%;" placeholder="选择团队">
                       <el-option label="呼出" value="1" />
                       <el-option label="呼入" value="1" />
                     </el-select>
