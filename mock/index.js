@@ -70,6 +70,9 @@ import chart9 from './demo/chart/chart9' // 报表=>坐席组服务明细
 import chart10 from './demo/chart/chart10' // 报表=>呼出汇总
 import onlineSeating from './systemRealTimeMessage/onlineSeating' // 系统实时信息=>在线坐席
 import onlineUser from './systemRealTimeMessage/onlineUser' // 系统实时信息=>在线用户
+import chart15 from './demo/chart/chart15' // 报表=>评分记录
+import chart16 from './demo/chart/chart16' // 报表=>DID报表
+import chart17 from './demo/chart/chart17' // 报表=>地区分析报表
 const mocks = [
   ...user,
   ...role,
@@ -142,7 +145,10 @@ const mocks = [
   ...chart9,
   ...chart10,
   ...onlineSeating,
-  ...onlineUser
+  ...onlineUser,
+  ...chart15,
+  ...chart16,
+  ...chart17
 ]
 
 // for front mock
