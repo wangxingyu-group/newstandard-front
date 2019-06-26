@@ -30,7 +30,7 @@
                 </el-col>
                 <el-col :sm="12" :lg="7">
                   <el-form-item label="DID号码">
-                    <el-drag-select v-model="listQuery.siteGroup" multiple style="width: 100%;" placeholder="坐席组">
+                    <el-drag-select v-model="listQuery.siteGroup" multiple style="width: 100%;" placeholder="DID号码">
                       <el-option label="80001" value="1" />
                       <el-option label="80002" value="2" />
                       <el-option label="80003" value="3" />
