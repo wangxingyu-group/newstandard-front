@@ -54,8 +54,8 @@
                 <el-col :sm="12" :lg="7">
                   <el-form-item label="城市">
                     <el-select v-model="listQuery.siteGroup" style="width: 100%;" placeholder="城市">
-                      <el-option label="北京市" value="1" />
-                      <el-option label="河北省" value="1" />
+                      <el-option label="郑州市" value="1" />
+                      <el-option label="济南市" value="1" />
                     </el-select>
                   </el-form-item>
                 </el-col>
