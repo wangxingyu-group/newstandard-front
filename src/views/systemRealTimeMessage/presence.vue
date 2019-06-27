@@ -2,19 +2,17 @@
   <div class="app-container">
     <el-row>
       <el-col :span="24">
-        <el-card>
-          <div slot="header" class="clearfix">
-            <el-form label-width="100px" size="small">
-              <el-row>
-                <el-col :xs="24" :sm="24" :lg="12">
-                  <div class="chart-wrapper">
-                    <pie-chart />
-                  </div>
-                </el-col>
-              </el-row>
-            </el-form>
-          </div>
-        </el-card>
+        <div>
+          <el-form label-width="100px" size="small">
+            <el-row>
+              <el-col :xs="24" :sm="24" :lg="12">
+                <div class="chart-wrapper">
+                  <pie-chart />
+                </div>
+              </el-col>
+            </el-row>
+          </el-form>
+        </div>
       </el-col>
     </el-row>
   </div>

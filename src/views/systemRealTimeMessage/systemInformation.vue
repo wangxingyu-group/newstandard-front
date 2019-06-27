@@ -2,11 +2,9 @@
   <div class="app-container">
     <el-row>
       <el-col :span="24">
-        <el-card>
-          <div slot="header" class="clearfix">
-            <img src="./222.png">
-          </div>
-        </el-card>
+        <div>
+          <img src="./222.png" style="width: 100%;height: 80%">
+        </div>
       </el-col>
     </el-row>
   </div>
