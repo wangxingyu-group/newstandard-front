@@ -24,14 +24,14 @@
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="统计类型">
                     <el-col :span="11">
-                      <el-select v-model="listQuery.tys" style="width: 100%;" placeholder="选择团队">
+                      <el-select v-model="tys" style="width: 100%;" placeholder="选择团队">
                         <el-option v-for="(item,index) in StatisticalTypes" :key="index" :value="index" :label="item.name" />
                       </el-select>
                     </el-col>
                     <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
                       <el-select v-model="listQuery.sa" style="width: 100%;" placeholder="选择团队">
-                        <el-option v-for="(item) in sysType" :key="item" :value="item" :label="item" />
+                        <el-option v-for="(item,index) in sysType" :key="index" :value="item" :label="item" />
                       </el-select>
                     </el-col>
                   </el-form-item>
@@ -110,8 +110,8 @@ export default {
       listLoading: true,
       totalList: [{ num: 1 }],
       chartType: 'bar',
+      tys: '',
       listQuery: {
-        tys: '',
         from: '',
         to: '',
         group: '',
@@ -135,10 +135,10 @@ export default {
     }
   },
   watch: {
-    listQuery: {
+    tys: {
       deep: true,
       handler(val) {
-        this.sysType = this.StatisticalTypes[val.tys ].value
+        this.sysType = this.StatisticalTypes[val].value
         this.listQuery.sa = this.sysType[0]
       }
     }

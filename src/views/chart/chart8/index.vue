@@ -70,7 +70,19 @@
               </el-row>
             </el-form>
           </div>
-          <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table
+            :key="tableKey"
+            v-loading="listLoading"
+            :header-cell-style="{background:'#9BCD9B',color:'#606266'}"
+            :summary-method="getSummaries"
+            show-summary
+            :height="searchRow2"
+            :data="list"
+            fit
+            stripe
+            highlight-current-row
+            style="width: 100%;"
+          >
             <el-table-column label="坐席工号" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.setId }}</span></template>
             </el-table-column>
@@ -109,23 +121,6 @@
             </el-table-column>
             <el-table-column label="结束状态" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
-            </el-table-column>
-          </el-table>
-          <el-table :key="tableKey" v-loading="listLoading" :data="totalList" fit stripe highlight-current-row style="width: 100%;">
-            <el-table-column label="" align="center" min-width="850">
-              <template><span>合计</span></template>
-            </el-table-column>
-            <el-table-column label="振铃总时长" align="center" min-width="100">
-              <template><span>00:12:12</span></template>
-            </el-table-column>
-            <el-table-column label="通话总时长" align="center" min-width="100">
-              <template><span>04:22:11</span></template>
-            </el-table-column>
-            <el-table-column label="总时长合计" align="center" min-width="100">
-              <template><span>04:22:11</span></template>
-            </el-table-column>
-            <el-table-column label="次数" align="center" min-width="100">
-              <template><span>22</span></template>
             </el-table-column>
           </el-table>
           <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
@@ -290,6 +285,37 @@ export default {
         this.listQuery.from = new Date(endDate.getFullYear() - 1, 0, 1)
         this.listQuery.to = new Date(endDate.getFullYear() - 1, 11, 31)
       }
+    },
+    getSummaries(param) {
+      const { columns } = param
+      const sums = []
+      columns.forEach((column, index) => {
+        if (index === 0) {
+          sums[index] = '总计'
+          return
+        }
+        if (index === 7) { // 总振铃时长
+          sums[index] = '00:12:34'
+          return
+        }
+        if (index === 8) { // 总通话时长
+          sums[index] = '00:24:22'
+          return
+        }
+        if (index === 9) { // 总时长
+          sums[index] = '00:24:22'
+          return
+        }
+        if (index === 10) { // 总时长
+          sums[index] = '00:33:22'
+          return
+        }
+        if (index === 11) { // 总时长
+          sums[index] = '00:33:22'
+          return
+        }
+      })
+      return sums
     }
   }
 }
