@@ -10,7 +10,7 @@ for (let i = 0; i < count; i++) {
     timer_clock: '00:00:09',
     'status|1': ['是', '否'],
     name: '@cname()',
-    'group|1': ['合计', '广发信用卡', '海风教育'],
+    'group|1': ['信用卡单位', '教育机构'],
     id: '@increment',
     callInNo: /^1[385][1-9]\d{8}/,
     callOutNo: /^1[385][1-9]\d{8}/,

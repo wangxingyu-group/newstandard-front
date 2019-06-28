@@ -9,7 +9,7 @@ for (let i = 0; i < count; i++) {
     name: '@cname()',
     startTime: '@datetime(\'yyyy-MM-dd hh:MM:ss\')',
     endTime: '@datetime(\'yyyy-MM-dd hh:MM:ss\')',
-    'group|1': [ '信用卡单位', '教育机构'],
+    'group|1': ['信用卡单位', '教育机构'],
     id: '@increment',
     callInNo: /^1[385][1-9]\d{8}/,
     setId: /^1[029][1-5]\d{8}/,

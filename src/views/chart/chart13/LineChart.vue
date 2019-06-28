@@ -103,7 +103,7 @@ export default {
           }
         },
         legend: {
-          data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎', '百度', '谷歌', '必应', '其他']
+          data: ['信用卡单位', '教育机构', '坐席6003', '坐席6004']
         },
         grid: {
           left: '3%',
@@ -124,22 +124,22 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '信用卡单位',
             type: this.chartTypeS,
             data: voiceData
           },
           {
-            name: '邮件营销',
+            name: '教育机构',
             type: this.chartTypeS,
             data: onlineData
           },
           {
-            name: '联盟广告',
+            name: '坐席6003',
             type: this.chartTypeS,
             data: inData
           },
           {
-            name: '视频广告',
+            name: '坐席6004',
             type: this.chartTypeS,
             data: talk
           }

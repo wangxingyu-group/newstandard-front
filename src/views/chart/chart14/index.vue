@@ -39,13 +39,13 @@
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="统计类型">
                     <el-col :span="11">
-                      <el-select v-model="listQuery.tys" style="width: 100%;" placeholder="选择团队">
+                      <el-select v-model="listQuery.tys" style="width: 100%;" placeholder="选择类型">
                         <el-option v-for="(item,index) in StatisticalTypes" :key="index" :value="index" :label="item.name" />
                       </el-select>
                     </el-col>
                     <el-col style="text-align: center" :span="2">-</el-col>
                     <el-col :span="11">
-                      <el-select v-model="listQuery.sa" style="width: 100%;" placeholder="选择团队">
+                      <el-select v-model="listQuery.sa" style="width: 100%;" placeholder="类型名称">
                         <el-option v-for="(item) in sysType" :key="item" :value="item" :label="item" />
                       </el-select>
                     </el-col>
