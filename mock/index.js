@@ -74,6 +74,7 @@ import chart15 from './demo/chart/chart15' // 报表=>评分记录
 import chart16 from './demo/chart/chart16' // 报表=>DID报表
 import chart17 from './demo/chart/chart17' // 报表=>地区分析报表
 import seatGroupMonitoring from './systemRealTimeMessage/seatGroupMonitoring' // 坐席组监控
+import knowledgeBase from './knowledgeBase/knowledgeBase' // 知识库
 const mocks = [
   ...user,
   ...role,
@@ -150,7 +151,8 @@ const mocks = [
   ...chart15,
   ...chart16,
   ...chart17,
-  ...seatGroupMonitoring
+  ...seatGroupMonitoring,
+  ...knowledgeBase
 ]
 
 // for front mock
