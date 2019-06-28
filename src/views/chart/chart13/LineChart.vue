@@ -94,153 +94,56 @@ export default {
         this.__resizeHandler()
       }
     },
-    setOptions({ voiceData, onlineData, inData, talk, waite, num } = {}) {
+    setOptions({ voiceData, onlineData, inData, talk } = {}) {
       this.chart.setOption({
-        xAxis: {
-          data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天'],
-          boundaryGap: false,
-          axisTick: {
-            show: false
-          }
-        },
-        grid: {
-          left: 10,
-          right: 10,
-          bottom: 20,
-          top: 30,
-          containLabel: true
-        },
         tooltip: {
           trigger: 'axis',
-          axisPointer: {
-            type: 'cross'
-          },
-          padding: [5, 10]
-        },
-        yAxis: {
-          axisTick: {
-            show: false
+          axisPointer: { // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
         legend: {
-          data: ['在线客服数', '坐席登录数', '坐席迁入数', '通话数', '等待数', '坐席手动暂停数']
+          data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎', '百度', '谷歌', '必应', '其他']
         },
-        series: [{
-          name: '在线客服数', itemStyle: {
-            normal: {
-              color: '#FF005A',
-              lineStyle: {
-                color: '#FF005A',
-                width: 2
-              }
-            }
-          },
-          smooth: true,
-          type: this.chartTypeS,
-          data: voiceData,
-          animationDuration: 2800,
-          animationEasing: 'cubicInOut'
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
         },
-        {
-          name: '坐席登录数',
-          smooth: true,
-          type: this.chartTypeS,
-          itemStyle: {
-            normal: {
-              color: '#3888fa',
-              lineStyle: {
-                color: '#3888fa',
-                width: 2
-              },
-              areaStyle: {
-                color: '#f3f8ff'
-              }
-            }
+        xAxis: [
+          {
+            type: 'category',
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value'
+          }
+        ],
+        series: [
+          {
+            name: '直接访问',
+            type: this.chartTypeS,
+            data: voiceData
           },
-          data: onlineData,
-          animationDuration: 2800,
-          animationEasing: 'quadraticOut'
-        },
-        {
-          name: '坐席迁入数',
-          smooth: true,
-          type: this.chartTypeS,
-          itemStyle: {
-            normal: {
-              color: '#131f80',
-              lineStyle: {
-                color: '#131f80',
-                width: 2
-              },
-              areaStyle: {
-                color: '#f3f8ff'
-              }
-            }
+          {
+            name: '邮件营销',
+            type: this.chartTypeS,
+            data: onlineData
           },
-          data: inData,
-          animationDuration: 2800,
-          animationEasing: 'quadraticOut'
-        },
-        {
-          name: '通话数',
-          smooth: true,
-          type: this.chartTypeS,
-          itemStyle: {
-            normal: {
-              color: '#FFFF00',
-              lineStyle: {
-                color: '#FFFF00',
-                width: 2
-              },
-              areaStyle: {
-                color: '#f3f8ff'
-              }
-            }
+          {
+            name: '联盟广告',
+            type: this.chartTypeS,
+            data: inData
           },
-          data: talk,
-          animationDuration: 2800,
-          animationEasing: 'quadraticOut'
-        },
-        {
-          name: '等待数',
-          smooth: true,
-          type: this.chartTypeS,
-          itemStyle: {
-            normal: {
-              color: '#00FF7F',
-              lineStyle: {
-                color: '#00FF7F',
-                width: 2
-              },
-              areaStyle: {
-                color: '#f3f8ff'
-              }
-            }
-          },
-          data: waite,
-          animationDuration: 2800,
-          animationEasing: 'quadraticOut'
-        },
-        {
-          name: '坐席手动暂停数',
-          smooth: true,
-          type: this.chartTypeS,
-          itemStyle: {
-            normal: {
-              color: '#00BFFF',
-              lineStyle: {
-                color: '#00BFFF',
-                width: 2
-              },
-              areaStyle: {
-                color: '#f3f8ff'
-              }
-            }
-          },
-          data: num,
-          animationDuration: 2800,
-          animationEasing: 'quadraticOut'
-        }]
+          {
+            name: '视频广告',
+            type: this.chartTypeS,
+            data: talk
+          }
+        ]
       })
     },
     initChart() {

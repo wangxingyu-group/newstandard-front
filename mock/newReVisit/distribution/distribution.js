@@ -11,7 +11,7 @@ for (let i = 0; i < count; i++) {
     customSignDate: '@date(\'yyyy-MM-dd\')',
     receiptDate: '@date(\'yyyy-MM-dd\')',
     contractedDate: '@date(\'yyyy-MM-dd\')',
-    'productName|1': ['弘康多倍保', '健康一生医疗保险A款', '弘康弘利相传', '常乐泰保险', '智能大白定售'],
+    'productName|1': ['中科软重疾险', '中科软保障险', '中科软投连险', '中科软保障险', '中科软定期寿险'],
     prem: /^[1-9]\d{4}/,
     appName: '@cname',
     days: /^[1-9]\d{2}/,

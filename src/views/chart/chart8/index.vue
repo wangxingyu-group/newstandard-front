@@ -73,7 +73,6 @@
           <el-table
             :key="tableKey"
             v-loading="listLoading"
-            :header-cell-style="{background:'#9BCD9B',color:'#606266'}"
             :summary-method="getSummaries"
             show-summary
             :height="searchRow2"

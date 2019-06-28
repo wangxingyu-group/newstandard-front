@@ -16,8 +16,8 @@
                 <el-col :sm="12" :lg="8">
                   <el-form-item label="坐席组">
                     <el-drag-select v-model="listQuery.siteGroup" multiple style="width: 100%;" placeholder="坐席组">
-                      <el-option label="广发信用卡" value="1" />
-                      <el-option label="海风教育" value="2" />
+                      <el-option label="信用卡单位" value="1" />
+                      <el-option label="教育机构" value="2" />
                     </el-drag-select>
                   </el-form-item>
                 </el-col>
@@ -103,9 +103,7 @@ const lineChartData = {
     voiceData: [100, 120, 161, 134, 105, 160, 165],
     onlineData: [120, 82, 91, 154, 162, 140, 145],
     inData: [88, 130, 120, 90, 120, 80, 150],
-    talk: [50, 33, 32, 77, 87, 60, 44],
-    waite: [110, 150, 120, 90, 140, 80, 90],
-    num: [110, 130, 140, 90, 80, 110, 140]
+    talk: [50, 33, 32, 77, 87, 60, 44]
   }
 }
 

@@ -7,7 +7,7 @@ for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     datetime: '@datetime',
     name: '@cname()',
-    'group|1': ['合计', '广发信用卡', '海风教育'],
+    'group|1': ['合计', '信用卡单位', '教育机构'],
     id: '@increment',
     callInNo: /^1[385][1-9]\d{8}/,
     'type|1': ['保全'],

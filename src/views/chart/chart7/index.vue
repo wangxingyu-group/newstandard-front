@@ -47,8 +47,8 @@
                   <el-form-item label="坐席组名">
                     <el-select v-model="listQuery.siteGroup" style="width: 100%;" placeholder="坐席组名">
                       <el-option label="全部" value="1" />
-                      <el-option label="广发信用卡" value="2" />
-                      <el-option label="海峰教育" value="3" />
+                      <el-option label="教育机构" value="2" />
+                      <el-option label="信用卡单位" value="3" />
                     </el-select>
                   </el-form-item>
                 </el-col>
@@ -73,7 +73,6 @@
           <el-table
             :key="tableKey"
             v-loading="listLoading"
-            :header-cell-style="{background:'#9BCD9B',color:'#606266'}"
             :height="searchRow2"
             :summary-method="getSummaries"
             :data="list"

@@ -39,8 +39,8 @@
                   <el-form-item label="坐席组">
                     <el-select v-model="listQuery.siteGroup" style="width: 100%;" placeholder="坐席组">
                       <el-option label="合计" value="1" />
-                      <el-option label="广发信用卡" value="2" />
-                      <el-option label="海风教育" value="3" />
+                      <el-option label="信用卡单位" value="2" />
+                      <el-option label="教育机构" value="3" />
                     </el-select>
                   </el-form-item>
                 </el-col>
