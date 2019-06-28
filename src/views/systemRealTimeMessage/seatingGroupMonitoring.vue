@@ -48,7 +48,7 @@
           <el-form ref="form" :model="query" label-width="100px" size="small">
             <el-row>
               <el-col :sm="24" :lg="2">
-                <el-form-item label="广发信用卡" label-width="100px" />
+                <el-form-item label="信用卡单位" label-width="100px" />
               </el-col>
               <el-col :sm="24" :lg="2">
                 <el-form-item label="签入：0" label-width="100px" />
@@ -72,7 +72,7 @@
                 <el-form-item label="排队人数：0" label-width="100px" />
               </el-col>
               <el-col :sm="24" :lg="2">
-                <el-form-item label="最大等待时间：0" label-width="120px" />
+                <el-form-item label="最大等待时间：0" label-width="160px" />
               </el-col>
               <el-col :sm="24" :lg="4">
                 <el-form-item label="服务水平">
@@ -88,7 +88,7 @@
               </el-col>
             </el-row>
           </el-form>
-          <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" border :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column label="坐席" prop="id" align="center" min-width="80">
               <template slot-scope="scope"><span>{{ scope.row.set }}</span></template>
             </el-table-column>
@@ -152,7 +152,7 @@
           <el-form ref="form" :model="query" label-width="100px" size="small">
             <el-row>
               <el-col :sm="24" :lg="2">
-                <el-form-item label="海风教育" label-width="100px" />
+                <el-form-item label="教育机构" label-width="100px" />
               </el-col>
               <el-col :sm="24" :lg="2">
                 <el-form-item label="签入：0" label-width="100px" />
@@ -176,7 +176,7 @@
                 <el-form-item label="排队人数：0" label-width="100px" />
               </el-col>
               <el-col :sm="24" :lg="2">
-                <el-form-item label="最大等待时间：0" label-width="120px" />
+                <el-form-item label="最大等待时间：0" label-width="160px" />
               </el-col>
               <el-col :sm="24" :lg="4">
                 <el-form-item label="服务水平">
@@ -192,7 +192,7 @@
               </el-col>
             </el-row>
           </el-form>
-          <el-table :key="tableKey" v-loading="listLoading" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
+          <el-table :key="tableKey" v-loading="listLoading" border :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column label="坐席" prop="id" align="center" min-width="80">
               <template slot-scope="scope"><span>{{ scope.row.set }}</span></template>
             </el-table-column>

@@ -2,8 +2,8 @@
   <div class="app-container">
     <el-row>
       <el-col :span="24">
-        <el-col :span="6">
-          <div style="text-align: center"><img src="./111.png" style="text-align: center"></div>
+        <el-col :span="12">
+          <div style="text-align: center"><img src="./aa.png" style="width: 80%;height: 100%"></div>
           <div style="text-align: center">团队名称：测试</div>
         </el-col>
         <el-col :span="8">

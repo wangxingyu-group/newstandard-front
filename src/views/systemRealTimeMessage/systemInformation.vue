@@ -3,7 +3,7 @@
     <el-row>
       <el-col :span="24">
         <div>
-          <img src="./222.png" style="width: 100%;height: 80%">
+          <img src="./aa.png" style="width:85%;height: 100%">
         </div>
       </el-col>
     </el-row>

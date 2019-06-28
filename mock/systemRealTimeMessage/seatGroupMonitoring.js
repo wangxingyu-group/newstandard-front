@@ -4,7 +4,7 @@ const List = []
 const chartShow = [{
   in: 13081276534,
   name1: '张三',
-  time: '30min',
+  time: '5s',
   type: '自主',
   name2: '业务名称'
 }]
