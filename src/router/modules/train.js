@@ -28,6 +28,24 @@ const train =
           title: '培训资源',
           roles: ['admin']
         }
+      },
+      {
+        path: 'teacherResource',
+        component: () => import('@/views/train/teacherResource'),
+        name: 'teacherResource',
+        meta: {
+          title: '教师资源',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'institute',
+        component: () => import('@/views/train/institute'),
+        name: 'institute ',
+        meta: {
+          title: '学院资源',
+          roles: ['admin']
+        }
       }
     ]
   }
