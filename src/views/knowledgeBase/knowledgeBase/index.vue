@@ -24,7 +24,20 @@
       <el-col :span="20">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <span>当前选择项:{{ displayLabel }}</span>
+            <el-form ref="form" :model="listQuery" label-width="100px" size="small">
+              <el-row>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="当前选择项" label-width="130px">
+                    <el-input v-model="displayLabel" :disabled="false" placeholder="当前选择项" />
+                  </el-form-item>
+                </el-col>
+                <el-col :sm="12" :lg="8">
+                  <el-form-item label="查询条件">
+                    <el-input v-model="listQuery.name" :disabled="false" placeholder="查询条件" />
+                  </el-form-item>
+                </el-col>
+              </el-row>
+            </el-form>
             <div class="fr">
               <el-button type="success" size="mini" @click="getDetail">查询</el-button>
               <el-button type="danger" size="mini" @click="handleBatchDelete">批量删除</el-button>
@@ -105,6 +118,7 @@ export default {
       total: 0,
       listLoading: true,
       listQuery: {
+        name: '',
         page: 1,
         limit: 10
       },

@@ -21,6 +21,7 @@ import activitiRouter from './modules/activiti'
 import schedule from './modules/schedule'
 import systemRealTimeMessage from './modules/systemRealTimeMessage'
 import knowledgeBase from './modules/knowledgeBase'
+import train from './modules/train'
 Vue.use(Router)
 
 // 静态路由
@@ -92,6 +93,7 @@ export const asyncRoutes = [
   schedule,
   systemRealTimeMessage,
   knowledgeBase,
+  train,
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
 ]
