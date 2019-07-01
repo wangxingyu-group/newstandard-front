@@ -95,22 +95,22 @@
             <el-table-column label="状态" prop="id" align="center" min-width="80">
               <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
-            <el-table-column label="状态起始时间" align="center" min-width="180">
+            <el-table-column label="状态起始时间" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
             </el-table-column>
             <el-table-column label="优先级" align="center" min-width="80">
               <template slot-scope="scope"><span>{{ scope.row.level }}</span></template>
             </el-table-column>
-            <el-table-column label="应答数（呼入/呼出）" align="center" min-width="180">
+            <el-table-column label="应答数（呼入/呼出）" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.inOut }}</span></template>
             </el-table-column>
-            <el-table-column label="拨打数（呼入/呼出）" align="center" min-width="180">
+            <el-table-column label="拨打数（呼入/呼出）" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.inOut2 }}</span></template>
             </el-table-column>
-            <el-table-column label="通话时间（呼入/呼出）" align="center" min-width="180">
+            <el-table-column label="通话时间（呼入/呼出）" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.inOut3 }}</span></template>
             </el-table-column>
-            <el-table-column label="客户号码" align="center" min-width="150">
+            <el-table-column label="客户号码" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
             </el-table-column>
             <el-table-column label="签入时间" align="center" min-width="180">
@@ -199,22 +199,22 @@
             <el-table-column label="状态" prop="id" align="center" min-width="80">
               <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
-            <el-table-column label="状态起始时间" align="center" min-width="180">
+            <el-table-column label="状态起始时间" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
             </el-table-column>
             <el-table-column label="优先级" align="center" min-width="80">
               <template slot-scope="scope"><span>{{ scope.row.level }}</span></template>
             </el-table-column>
-            <el-table-column label="应答数（呼入/呼出）" align="center" min-width="180">
+            <el-table-column label="应答数（呼入/呼出）" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.inOut }}</span></template>
             </el-table-column>
-            <el-table-column label="拨打数（呼入/呼出）" align="center" min-width="180">
+            <el-table-column label="拨打数（呼入/呼出）" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.inOut2 }}</span></template>
             </el-table-column>
-            <el-table-column label="通话时间（呼入/呼出）" align="center" min-width="180">
+            <el-table-column label="通话时间（呼入/呼出）" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.inOut3 }}</span></template>
             </el-table-column>
-            <el-table-column label="客户号码" align="center" min-width="150">
+            <el-table-column label="客户号码" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.callInNo }}</span></template>
             </el-table-column>
             <el-table-column label="签入时间" align="center" min-width="180">
