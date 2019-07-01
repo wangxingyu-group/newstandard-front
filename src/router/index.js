@@ -92,6 +92,19 @@ export const asyncRoutes = [
   schedule,
   systemRealTimeMessage,
   knowledgeBase,
+  {
+    path: '/huanxin',
+    component: Layout,
+    redirect: '/huanxin/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/huanxin/index'),
+        name: 'huanxin',
+        meta: { title: '环信', icon: 'dashboard', role: 'admin' }
+      }
+    ]
+  },
   // 404 必须在最后
   { path: '*', redirect: '/404', hidden: true }
 ]
