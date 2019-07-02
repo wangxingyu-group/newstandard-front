@@ -23,34 +23,34 @@
         <el-card>
           <el-form ref="form" :model="query" label-width="100px" size="small">
             <el-row>
-              <el-col :sm="24" :lg="2">
+              <el-col :sm="24" :lg="12">
                 <el-form-item label="学员信息" label-width="150px" />
               </el-col>
             </el-row>
             <el-row>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="姓名">
                   <el-input class="filter-item" placeholder="姓名" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="证件类型">
                   <el-input class="filter-item" placeholder="证件类型" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="证件编号">
                   <el-input class="filter-item" placeholder="证件编号" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
             </el-row>
             <el-row>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="性别">
                   <el-input class="filter-item" placeholder="性别" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="出生日期">
                   <el-date-picker class="filter-item" placeholder="出生日期" style="width:100%;min-width:135px" @keyup.enter.native="handleFilter" />
                 </el-form-item>
@@ -65,17 +65,17 @@
         <el-card>
           <el-form ref="form" :model="query" label-width="100px" size="small">
             <el-row>
-              <el-col :sm="24" :lg="2">
+              <el-col :sm="24" :lg="12">
                 <el-form-item label="班级信息" placeholder="班级信息" label-width="150px" />
               </el-col>
             </el-row>
             <el-row>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="班级编码">
                   <el-input class="filter-item" placeholder="班级编码" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="班级名称">
                   <el-input class="filter-item" placeholder="班级名称" @keyup.enter.native="handleFilter" />
                 </el-form-item>
@@ -90,47 +90,47 @@
         <el-card>
           <el-form ref="form" :model="query" label-width="100px" size="small">
             <el-row>
-              <el-col :sm="24" :lg="2">
+              <el-col :sm="24" :lg="12">
                 <el-form-item label="请输入筛选条件" label-width="150px" />
               </el-col>
             </el-row>
             <el-row>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="管理机构">
                   <el-input class="filter-item" placeholder="管理机构" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="入司日期始期">
                   <el-date-picker class="filter-item" placeholder="入司日期始期" style="width:100%;min-width:135px" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="入司日期止期">
                   <el-date-picker class="filter-item" placeholder="入司日期止期" style="width:100%;min-width:135px" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
             </el-row>
             <el-row>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="工号">
                   <el-input class="filter-item" placeholder="工号" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
-              <el-col :sm="24" :lg="6">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="姓名">
                   <el-input class="filter-item" placeholder="姓名" @keyup.enter.native="handleFilter" />
                 </el-form-item>
               </el-col>
               <el-row>
-                <el-col :sm="24" :lg="6">
+                <el-col :sm="24" :lg="8">
                   <el-form-item label="学员属性">
                     <el-input class="filter-item" placeholder="学员属性" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
               <el-row>
-                <el-col :sm="24" :lg="6">
+                <el-col :sm="24" :lg="8">
                   <el-form-item label="职级">
                     <el-input class="filter-item" placeholder="职级" @keyup.enter.native="handleFilter" />
                   </el-form-item>
@@ -153,7 +153,7 @@
         <el-card>
           <el-form ref="form" :model="query" label-width="100px" size="small">
             <el-row>
-              <el-col :sm="24" :lg="2">
+              <el-col :sm="24" :lg="8">
                 <el-form-item label="学员信息" label-width="150px" />
               </el-col>
             </el-row>
