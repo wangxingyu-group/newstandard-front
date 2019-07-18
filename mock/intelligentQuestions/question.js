@@ -9,7 +9,15 @@ for (let i = 0; i < count; i++) {
     type: '选择题',
     description: '@ctitle(10, 20)',
     'status|1': ['effective', 'noneffective'],
-    createTime: '@datetime'
+    a: '选项a',
+    aJumpTo: '@Integer(1,99)',
+    b: '选项b',
+    bJumpTo: '@Integer(1,99)',
+    c: '选项c',
+    cJumpTo: '@Integer(1,99)',
+    d: '选项d',
+    dJumpTo: '@Integer(1,99)',
+    createTime: '@date'
   }))
 }
 

@@ -8,7 +8,7 @@ const knowledgeBase =
     name: 'knowledge',
     meta: {
       title: '知识库',
-      icon: 'education'
+      icon: 'fa fa-graduation-cap'
     },
     children: [
       {

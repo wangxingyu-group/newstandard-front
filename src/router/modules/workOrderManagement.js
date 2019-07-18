@@ -8,7 +8,7 @@ const workOrderManagementRouter =
     name: 'workOrderManagement',
     meta: {
       title: '工单管理',
-      icon: 'peoples'
+      icon: 'fa fa-list-ul'
     },
     children: [
       {

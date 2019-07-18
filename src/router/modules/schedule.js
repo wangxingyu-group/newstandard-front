@@ -8,7 +8,7 @@ const chartRouter =
     name: 'schedule',
     meta: {
       title: '排班管理',
-      icon: 'peoples'
+      icon: 'fa fa-calendar'
     },
     children: [
       {

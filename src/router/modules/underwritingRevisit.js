@@ -8,7 +8,7 @@ const underwritingRevisitRouter =
     name: 'underwritingRevisit',
     meta: {
       title: '核保回访',
-      icon: 'edit'
+      icon: 'fa fa-microphone'
     },
     children: [
       {

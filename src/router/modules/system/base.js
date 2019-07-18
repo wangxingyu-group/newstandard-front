@@ -6,7 +6,8 @@ const baseRouter = {
   redirect: '/system/base/dictionary',
   name: 'base',
   meta: {
-    title: '基础配置'
+    title: '基础配置',
+    icon: 'fa fa-toggle-off'
   },
   children: [
     {

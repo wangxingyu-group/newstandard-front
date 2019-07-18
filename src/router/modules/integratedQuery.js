@@ -7,7 +7,7 @@ const searchRouter = {
   name: 'search',
   meta: {
     title: '综合查询',
-    icon: 'search'
+    icon: 'fa fa-search'
   },
   children: [
     {

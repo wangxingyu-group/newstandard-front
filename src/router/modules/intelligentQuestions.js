@@ -8,7 +8,7 @@ const intelligentQuestionsRouter =
     name: 'intelligentQuestion',
     meta: {
       title: '智能题库',
-      icon: 'education'
+      icon: 'fa fa-book'
     },
     children: [
       {

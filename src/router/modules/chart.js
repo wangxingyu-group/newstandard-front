@@ -8,7 +8,7 @@ const chartRouter =
     name: 'chart',
     meta: {
       title: '报表',
-      icon: 'peoples'
+      icon: 'fa fa-bar-chart'
     },
     children: [
       {

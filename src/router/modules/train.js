@@ -8,7 +8,7 @@ const train =
     name: 'train',
     meta: {
       title: '培训',
-      icon: 'edit'
+      icon: 'fa fa-question-circle-o'
     },
     children: [
       {

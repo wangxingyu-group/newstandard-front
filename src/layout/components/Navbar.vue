@@ -36,7 +36,7 @@
         </el-dropdown-menu>
       </el-dropdown>
       <div class="right-menu-item hover-effect togglePanelTarget" @click="toggleRightPanel">
-        <i class="el-icon-d-arrow-left" />
+        <nsf-icon nsf-class="right-panel" />
       </div>
     </div>
   </div>

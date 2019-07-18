@@ -9,7 +9,7 @@ const systemRouter = {
   name: 'system',
   meta: {
     title: '系统设置',
-    icon: 'documentation'
+    icon: 'fa fa-cog'
   },
   children: [
     permission,

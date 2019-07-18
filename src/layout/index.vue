@@ -192,7 +192,7 @@ export default {
   @import "~@/styles/mixin.scss";
   @import "~@/styles/variables.scss";
   @import "~@/styles/common.css";
-
+  @import "~font-awesome/css/font-awesome.min.css";
   .app-wrapper {
     @include clearfix;
     position: relative;

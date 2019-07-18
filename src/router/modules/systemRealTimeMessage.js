@@ -8,7 +8,7 @@ const systemRealTimeMessageRouter =
     name: 'systemRealTimeMessage',
     meta: {
       title: '系统实时信息',
-      icon: 'peoples'
+      icon: 'fa fa-tachometer'
     },
     children: [
       {

@@ -6,7 +6,8 @@ const permissionRouter = {
   redirect: '/system/permission/group',
   name: 'permission',
   meta: {
-    title: '权限管理'
+    title: '权限管理',
+    icon: 'fa fa-user-secret'
   },
   children: [
     {

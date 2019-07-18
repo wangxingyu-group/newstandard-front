@@ -20,6 +20,7 @@
     <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/hold-on.png">音乐</el-button>
     <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/mute.png">静音</el-button>
     <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/satisfaction.png">满意度</el-button>
+    <svg-icon icon-class="peoples" class-name="card-panel-icon" />
     <el-dropdown v-if="clientWidth<minClientWidth" style="margin-left: 10px;">
       <el-button>功能<i class="el-icon-arrow-down el-icon--right" /></el-button>
       <el-dropdown-menu slot="dropdown">

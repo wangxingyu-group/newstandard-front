@@ -8,7 +8,7 @@ const activitiRouter =
     name: 'activiti',
     meta: {
       title: '流程管理',
-      icon: 'edit'
+      icon: 'fa fa-exchange'
     },
     children: [
       {

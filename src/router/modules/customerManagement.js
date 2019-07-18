@@ -8,7 +8,7 @@ const customerRouter =
     name: 'customerManagement',
     meta: {
       title: '客户管理',
-      icon: 'peoples'
+      icon: 'fa fa-users'
     },
     children: [
       {

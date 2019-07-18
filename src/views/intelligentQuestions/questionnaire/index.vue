@@ -108,11 +108,17 @@
                 <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center" fixed="right" min-width="300">
+            <el-table-column label="操作" align="center" fixed="right" min-width="120">
               <template slot-scope="{row}">
-                <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
-                <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
-                <el-button type="primary" size="mini" @click="handleAddQuestion(row)">试题</el-button>
+                <el-dropdown trigger="click" @command="handleOperate">
+                  <el-button type="default" size="mini" @click.stop>更多操作<i class="el-icon-arrow-down el-icon--right" /></el-button>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item :command="{'operate':operate.addQuestion,'row':row}"><i class="el-icon-circle-plus-outline" />添加试题</el-dropdown-item>
+                    <el-dropdown-item :command="{'operate':operate.questionSettings,'row':row}"><i class="el-icon-setting" />配置已添加试题</el-dropdown-item>
+                    <el-dropdown-item :command="{'operate':operate.edit,'row':row}"><i class="el-icon-edit" />编辑</el-dropdown-item>
+                    <el-dropdown-item :command="{'operate':operate.remove,'row':row}"><i class="el-icon-delete" />删除</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </template>
             </el-table-column>
           </el-table>
@@ -173,8 +179,8 @@
       </div>
     </el-dialog>
     <el-dialog title="添加试题" :visible.sync="dialog2FormVisible">
-      <div style="height: 300px;overflow: scroll;">
-        <el-table ref="table" :key="0" v-loading="tableLoading" :data="questionTableData" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
+      <el-scrollbar>
+        <el-table ref="table" :key="0" v-loading="tableLoading" :data="questionTableData" max-height="400" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
           <el-table-column type="selection" width="55" />
           <el-table-column label="问题类型" align="center" width="100">
             <template slot-scope="scope">
@@ -196,19 +202,104 @@
               <span>{{ scope.row.createTime }}</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" align="center" width="150">
-            <template slot-scope="{row}">
-              <el-button type="primary" size="mini" @click="handleUpdate(row)">编辑</el-button>
-              <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
-            </template>
-          </el-table-column>
         </el-table>
         <pagination v-show="questionTotal>0" :total="questionTotal" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getQuestionList" />
-      </div>
+      </el-scrollbar>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取消</el-button>
         <el-button type="primary" @click="dialogStatus==='create'?create():update()">添加到试卷</el-button>
       </div>
+    </el-dialog>
+    <el-dialog title="已添加试题配置" :visible.sync="dialog3FormVisible">
+      <el-scrollbar>
+        <el-table ref="table" :key="0" v-loading="tableLoading" :data="questionTableData" max-height="400" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
+          <el-table-column type="index" width="55" />
+          <el-table-column label="问题描述" align="center" min-width="300">
+            <template slot-scope="scope">
+              <span>{{ scope.row.description }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="选项A" align="center" min-width="100">
+            <template slot-scope="scope">
+              <span>{{ scope.row.a+'  -->  '+ scope.row.aJumpTo }}<i class="row-operate-icon el-icon-setting" title="跳题" @click.stop="handleJumpQuestion()" /></span>
+            </template>
+          </el-table-column>
+          <el-table-column label="选项B" align="center" min-width="100">
+            <template slot-scope="scope">
+              <span>{{ scope.row.b+'  -->  '+ scope.row.bJumpTo }}<i class="row-operate-icon el-icon-setting" title="跳题" @click.stop="handleJumpQuestion()" /></span>
+            </template>
+          </el-table-column>
+          <el-table-column label="选项C" align="center" min-width="100">
+            <template slot-scope="scope">
+              <span>{{ scope.row.c+'  -->  '+ scope.row.cJumpTo }}<i class="row-operate-icon el-icon-setting" title="跳题" @click.stop="handleJumpQuestion()" /></span>
+            </template>
+          </el-table-column>
+          <el-table-column label="选项D" align="center" min-width="100">
+            <template slot-scope="scope">
+              <span>{{ scope.row.d+'  -->  '+ scope.row.dJumpTo }}<i class="row-operate-icon el-icon-setting" title="跳题" @click.stop="handleJumpQuestion()" /></span>
+            </template>
+          </el-table-column>
+        </el-table>
+        <pagination v-show="questionTotal>0" :total="questionTotal" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getQuestionList" />
+      </el-scrollbar>
+    </el-dialog>
+    <el-dialog title="跳题设置" :visible.sync="dialog4FormVisible">
+      <el-form ref="groupSearchForm" label-width="120px">
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="问题描述">
+              <el-input class="filter-item" placeholder="问题描述" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <div class="fr">
+              <el-button type="primary" @click="()=>{}">查询</el-button>
+              <el-button type="info" @click="resetQuery">重置</el-button>
+            </div>
+          </el-col>
+        </el-row>
+      </el-form>
+      <el-scrollbar>
+        <el-table ref="table" :key="0" v-loading="tableLoading" :data="questionTableData" max-height="400" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
+          <el-table-column type="index" width="55" />
+          <el-table-column label="问题类型" align="center" width="100">
+            <template slot-scope="scope">
+              <span>{{ scope.row.type }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="问题描述" align="center" min-width="500">
+            <template slot-scope="scope">
+              <span>{{ scope.row.description }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="状态" align="center" width="100">
+            <template slot-scope="scope">
+              <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="创建时间" align="center" width="150">
+            <template slot-scope="scope">
+              <span>{{ scope.row.createTime }}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="操作" align="center" fixed="right" min-width="50">
+            <template slot-scope="{row}">
+              <i
+                class="row-operate-icon el-icon-check"
+                title="选择"
+                @click.stop="()=>{
+                  $message({
+                    message: '操作成功',
+                    type: 'success'
+                  })
+                  dialog4FormVisible=false
+                }"
+              />
+            </template>
+          </el-table-column>
+        </el-table>
+        <pagination v-show="questionTotal>0" :total="questionTotal" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getQuestionList" />
+      </el-scrollbar>
     </el-dialog>
   </div>
 </template>
@@ -243,10 +334,18 @@ export default {
       questionTotal: 0,
       dialogFormVisible: false,
       dialog2FormVisible: false,
+      dialog3FormVisible: false,
+      dialog4FormVisible: false,
       dialogStatus: '',
       dialogTitleMap: {
         create: '新建',
         update: '编辑'
+      },
+      operate: {
+        addQuestion: 'addQuestion',
+        questionSettings: 'questionSettings',
+        edit: 'edit',
+        remove: 'remove'
       },
       temp: {
         id: null,
@@ -422,8 +521,25 @@ export default {
     handleAddQuestion() {
       this.dialog2FormVisible = true
     },
+    handleQuestionSettings() {
+      this.dialog3FormVisible = true
+    },
     selectionChange(rows) {
       this.selectionData = rows
+    },
+    handleOperate(command) { // 触发操作下拉
+      if (command.operate === this.operate.addQuestion) {
+        this.handleAddQuestion()
+      } else if (command.operate === this.operate.questionSettings) {
+        this.handleQuestionSettings()
+      } else if (command.operate === this.operate.edit) {
+        this.handleUpdate(command.row)
+      } else if (command.operate === this.operate.remove) {
+        this.handleRemove(command.row)
+      }
+    },
+    handleJumpQuestion() {
+      this.dialog4FormVisible = true
     }
   }
 }

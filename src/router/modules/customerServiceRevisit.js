@@ -8,7 +8,7 @@ const customerServiceRevisitRouter =
     name: 'customerServiceRevisit',
     meta: {
       title: '保全回访',
-      icon: 'edit'
+      icon: 'fa fa-microphone'
     },
     children: [
       {

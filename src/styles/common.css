@@ -66,21 +66,21 @@
 }
 
 /*webkit内核自定义滚动条样式*/
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
+/*::-webkit-scrollbar {*/
+  /*width: 6px;*/
+  /*height: 6px;*/
+/*}*/
 
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: rgba(135, 141, 153, .3);
-  -webkit-box-shadow: inset 0 0 6px rgba(135, 141, 153, .3);
-}
+/*::-webkit-scrollbar-thumb {*/
+  /*-webkit-border-radius: 10px;*/
+  /*border-radius: 10px;*/
+  /*background: rgba(135, 141, 153, .3);*/
+  /*-webkit-box-shadow: inset 0 0 6px rgba(135, 141, 153, .3);*/
+/*}*/
 
-::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(135, 141, 153, .3);
-}
+/*::-webkit-scrollbar-thumb:window-inactive {*/
+  /*background: rgba(135, 141, 153, .3);*/
+/*}*/
 
 /*分页插件右侧显示*/
 .pagination-container {
@@ -105,4 +105,9 @@
 /*保单详情页面,table左侧区域填充色*/
 .table-left-bg {
   background-color: #e9e9ea;
+}
+
+.row-operate-icon {
+  margin-left: 5px;
+  cursor: pointer;
 }

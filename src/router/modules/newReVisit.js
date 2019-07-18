@@ -8,7 +8,7 @@ const newReVisitRouter =
     name: 'newReVisit',
     meta: {
       title: '新单回访',
-      icon: 'edit'
+      icon: 'fa fa-microphone'
     },
     children: [
       {

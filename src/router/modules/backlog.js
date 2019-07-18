@@ -8,7 +8,7 @@ const backlogRouter =
     name: 'backlog',
     meta: {
       title: '待办事项',
-      icon: 'edit'
+      icon: 'fa fa-list-alt'
     },
     children: [
       {

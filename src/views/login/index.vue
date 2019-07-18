@@ -4,7 +4,7 @@
 
       <div class="title-container">
         <h3 class="title">
-          <nsf-icon nsf-class="tianchongxing-" />
+          <nsf-icon nsf-class="wodekefu-1" />
           中科软悦客联络平台</h3>
       </div>
 

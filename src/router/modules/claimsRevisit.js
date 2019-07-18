@@ -8,7 +8,7 @@ const claimsRevisitRouter =
     name: 'claimsRevisit',
     meta: {
       title: '理赔回访',
-      icon: 'edit'
+      icon: 'fa fa-microphone'
     },
     children: [
       {

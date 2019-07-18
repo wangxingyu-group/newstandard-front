@@ -103,7 +103,7 @@ export const asyncRoutes = [
         path: 'index',
         component: () => import('@/views/huanxin/index'),
         name: 'huanxin',
-        meta: { title: '环信', icon: 'dashboard', role: 'admin' }
+        meta: { title: '在线客服', icon: 'fa fa-headphones', role: 'admin' }
       }
     ]
   },
@@ -113,6 +113,7 @@ export const asyncRoutes = [
 
 const createRouter = () => new Router({
   scrollBehavior: () => ({ y: 0 }),
+  mode: 'history',
   routes: constantRoutes
 })
 

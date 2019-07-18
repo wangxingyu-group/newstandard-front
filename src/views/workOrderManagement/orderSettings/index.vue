@@ -32,7 +32,7 @@
           </div>
           <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
             <div class="fit-height-211">
-              <el-table ref="table" :key="tableKey" :data="tableData" row-key="id" stripe highlight-current-row @selection-change="selectionChange" @row-click="toggleSelection">
+              <el-table ref="table" :key="tableKey" :data="tableData" row-key="id" stripe highlight-current-row default-expand-all @selection-change="selectionChange" @row-click="toggleSelection">
                 <el-table-column type="selection" width="55" />
                 <el-table-column label="编号" align="center">
                   <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
@@ -126,6 +126,7 @@ export default {
           tableData.push({ id: current.id, parentId: current.parentId, label: current.label })
           return tableData
         }, [])
+        this.tableData=response.data.items
         setTimeout(() => {
           this.listLoading = false
           this.$refs.treeScrollbar.update()

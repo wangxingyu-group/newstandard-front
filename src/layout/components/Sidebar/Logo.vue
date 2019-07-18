@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       title: '中科软悦客联络平台',
-      logo: require('../Sidebar/phone_call.png')
+      logo: '/logo.png'
     }
   }
 }

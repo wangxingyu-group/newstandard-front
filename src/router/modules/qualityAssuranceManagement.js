@@ -8,7 +8,7 @@ const qualityAssuranceManagementRouter =
     name: 'qualityAssuranceManagement',
     meta: {
       title: '质检管理',
-      icon: 'component'
+      icon: 'fa fa-calendar-check-o'
     },
     children: [
       {

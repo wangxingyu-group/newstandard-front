@@ -55,6 +55,26 @@
                 <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
               </template>
             </el-table-column>
+            <el-table-column label="选项A" align="center" min-width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.a }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="选项B" align="center" min-width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.b }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="选项C" align="center" min-width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.c }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column label="选项D" align="center" min-width="100">
+              <template slot-scope="scope">
+                <span>{{ scope.row.d }}</span>
+              </template>
+            </el-table-column>
             <el-table-column label="创建时间" align="center" min-width="160">
               <template slot-scope="scope">
                 <span>{{ scope.row.createTime }}</span>
@@ -88,6 +108,18 @@
             <el-option label="有效" value="effective" />
             <el-option label="无效" value="noneffective" />
           </el-select>
+        </el-form-item>
+        <el-form-item label="选项A" prop="status">
+          <el-input v-model="temp.a" />
+        </el-form-item>
+        <el-form-item label="选项B" prop="status">
+          <el-input v-model="temp.B" />
+        </el-form-item>
+        <el-form-item label="选项C" prop="status">
+          <el-input v-model="temp.C" />
+        </el-form-item>
+        <el-form-item label="选项D" prop="status">
+          <el-input v-model="temp.D" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

@@ -6,7 +6,8 @@ const announceRouter = {
   redirect: '/system/notification/index',
   name: 'notification',
   meta: {
-    title: '公告板管理'
+    title: '公告板管理',
+    icon: 'fa fa-newspaper-o'
   },
   children: [
     {
