@@ -36,7 +36,7 @@
             <el-table-column label="类型名称" align="center" min-width="400">
               <template slot-scope="scope"><span>{{ scope.row.dictionaryName }}</span></template>
             </el-table-column>
-            <el-table-column label="操作" align="center" min-width="300">
+            <el-table-column label="操作" align="center" fixed="right" min-width="300">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">修改</el-button>
               </template>

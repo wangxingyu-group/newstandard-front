@@ -67,7 +67,7 @@
             <el-table-column label="创建时间" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.datetime }}</span></template>
             </el-table-column>
-            <el-table-column label="操作" align="center" min-width="200">
+            <el-table-column label="操作" align="center" fixed="right" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.operate }}</span></template>
             </el-table-column>
           </el-table>

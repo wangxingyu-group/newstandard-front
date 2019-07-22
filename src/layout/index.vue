@@ -83,6 +83,8 @@
 <script>
 import RightPanel from '@/components/RightPanel'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
+import Naranja from '@/components/demo/naranja'
+import '@/components/demo/naranja/css/naranja.min.css'
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
@@ -96,7 +98,7 @@ export default {
     // Settings,
     Sidebar,
     TagsView,
-    Pagination
+    Pagination,
   },
   directives: { nsfDrag },
   mixins: [ResizeMixin],
@@ -151,14 +153,47 @@ export default {
     }
   },
   created() {
+    const that = this
     document.addEventListener('keydown', (e) => {
       if (e.ctrlKey && e.shiftKey && (e.key.toUpperCase() === 'L' || e.keyCode === 76)) {
         this.showDrag = !this.showDrag
       }
+      if (e.key.toUpperCase() === 'B' || e.keyCode === 66) {
+        Naranja.log({
+          title: '138****0758',
+          text: '【北京 北京】',
+          icon: true,
+          timeout: 'keep',
+          buttons: [
+            {
+              text: '接听',
+              click: function(e) {
+                const temp = {
+                  id: 1,
+                  name: '张三',
+                  gender: '男',
+                  callInNo: '1381060758',
+                  region: '北京',
+                  customerType: '准客户',
+                  idNo: '152106198903040034',
+                  callInTime: '2019-05-16 14:05:34'
+                }
+                that.$store.commit('nsfCommon/SET_CURRENT_CUSTOMER', temp)
+                that.$notify({
+                  title: temp.name,
+                  message: '当前客户',
+                  type: 'success',
+                  duration: 1000
+                })
+                e.closeNotification()
+              }
+            }
+          ]
+        })
+      }
     })
   },
   mounted() {
-    this.callNotification(this.device, this.callInNo, null, false, 'keep', this.$store, this.$notify)
     this.$store.commit('commonData/SET_CLIENT_WIDTH', `${document.documentElement.clientWidth}`)
     window.onresize = () => {
       this.$store.commit('commonData/SET_CLIENT_WIDTH', `${document.documentElement.clientWidth}`)

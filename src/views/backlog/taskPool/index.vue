@@ -49,7 +49,7 @@
             <el-table-column label="责任人" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="操作" align="center" min-width="200">
+            <el-table-column label="操作" align="center" fixed="right" min-width="200">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">查看</el-button>
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">处理</el-button>

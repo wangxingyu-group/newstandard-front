@@ -24,7 +24,7 @@ import * as filters from './filters' // global filters
  * please remove it before going online! ! !
  */
 import { mockXHR } from '../mock'
-import callNotification from '@/components/demo/callNotification'
+// import callNotification from '@/components/demo/callNotification'
 import './assets/nsf-icon/iconfont.js'
 import './assets/nsf-icon/temp.js'
 import nsfIcon from '@/components/demo/nsfIcon'
@@ -43,7 +43,7 @@ Object.keys(filters).forEach(key => {
 
 Vue.config.productionTip = false
 
-Vue.use(callNotification)
+// Vue.use(callNotification)
 Vue.component('nsf-icon', nsfIcon)
 new Vue({
   el: '#app',

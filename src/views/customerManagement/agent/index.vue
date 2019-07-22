@@ -55,7 +55,7 @@
             <el-table-column label="客户身份" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
             </el-table-column>
-            <el-table-column label="操作" align="center" min-width="200">
+            <el-table-column label="操作" align="center" fixed="right" min-width="200">
               <template slot-scope="{row}">
                 <el-button type="primary" size="small " width="100" @click="confirmCustomer(row)">
                   确认

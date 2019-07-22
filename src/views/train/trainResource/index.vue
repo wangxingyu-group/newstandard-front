@@ -39,7 +39,7 @@
             <el-table-column label="上级分类编码" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.parentId }}</span></template>
             </el-table-column>
-            <el-table-column label="操作" align="center" min-width="300">
+            <el-table-column label="操作" align="center" fixed="right" min-width="300">
               <template slot-scope="{row}">
                 <el-button type="primary" size="mini" @click="handleUpdate(row)">修改</el-button>
                 <el-button type="danger" size="mini" @click="handleDelete(row)">删除</el-button>
@@ -96,7 +96,7 @@
         <el-table-column label="字典顺序" align="center" min-width="100">
           <template slot-scope="scope"><span>{{ scope.row.sort }}</span></template>
         </el-table-column>
-        <el-table-column label="操作" align="center" min-width="200">
+        <el-table-column label="操作" align="center" fixed="right" min-width="200">
           <template slot-scope="{row}">
             <el-button type="primary" size="mini" @click="handleDetailUpdate(row)">编辑</el-button>
             <el-button type="danger" size="mini" @click="handleDetailDelete(row)">删除</el-button>

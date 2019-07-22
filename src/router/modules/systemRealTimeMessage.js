@@ -38,24 +38,24 @@ const systemRealTimeMessageRouter =
           roles: ['admin']
         }
       },
-      {
-        path: 'systemUsageInformation',
-        component: () => import('@/views/systemRealTimeMessage/systemUsageInformation.vue'),
-        name: 'systemRealTimeMessageSystemUsageInformation',
-        meta: {
-          title: '系统使用信息',
-          roles: ['admin']
-        }
-      },
-      {
-        path: 'systemInformation',
-        component: () => import('@/views/systemRealTimeMessage/systemInformation.vue'),
-        name: 'systemRealTimeMessageSystemInformation',
-        meta: {
-          title: '系统信息',
-          roles: ['admin']
-        }
-      },
+      // {
+      //   path: 'systemUsageInformation',
+      //   component: () => import('@/views/systemRealTimeMessage/systemUsageInformation.vue'),
+      //   name: 'systemRealTimeMessageSystemUsageInformation',
+      //   meta: {
+      //     title: '系统使用信息',
+      //     roles: ['admin']
+      //   }
+      // },
+      // {
+      //   path: 'systemInformation',
+      //   component: () => import('@/views/systemRealTimeMessage/systemInformation.vue'),
+      //   name: 'systemRealTimeMessageSystemInformation',
+      //   meta: {
+      //     title: '系统信息',
+      //     roles: ['admin']
+      //   }
+      // },
       {
         path: 'realtimeUseOfRelay ',
         component: () => import('@/views/systemRealTimeMessage/realtimeUseOfRelay.vue'),

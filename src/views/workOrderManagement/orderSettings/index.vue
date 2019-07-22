@@ -40,7 +40,7 @@
                 <el-table-column label="名称" align="center">
                   <template slot-scope="scope"><span>{{ scope.row.label }}</span></template>
                 </el-table-column>
-                <el-table-column label="操作" align="center">
+                <el-table-column label="操作" align="center" fixed="right" width="200">
                   <template slot-scope="{row}">
                     <el-button type="primary" size="mini" @click="handleUpdate(row)">
                       编辑

@@ -44,7 +44,7 @@
             <el-table-column label="启用控制" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.control }}</span></template>
             </el-table-column>
-            <el-table-column label="操作" align="center" min-width="200">
+            <el-table-column label="操作" align="center" fixed="right" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.operate }}</span></template>
             </el-table-column>
           </el-table>

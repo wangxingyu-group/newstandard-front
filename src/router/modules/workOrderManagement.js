@@ -43,7 +43,7 @@ const workOrderManagementRouter =
         component: () => import('@/views/workOrderManagement/orderTransfer'),
         name: 'orderTransfer',
         meta: {
-          title: '转办单管理(业务管理岗)',
+          title: '转办单管理',
           roles: ['admin']
         }
       },
