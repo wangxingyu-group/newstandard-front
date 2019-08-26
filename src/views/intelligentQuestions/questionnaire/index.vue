@@ -179,35 +179,51 @@
       </div>
     </el-dialog>
     <el-dialog title="添加试题" :visible.sync="dialog2FormVisible">
-      <el-scrollbar>
-        <el-table ref="table" :key="0" v-loading="tableLoading" :data="questionTableData" max-height="400" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
-          <el-table-column type="selection" width="55" />
-          <el-table-column label="问题类型" align="center" width="100">
-            <template slot-scope="scope">
-              <span>{{ scope.row.type }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="问题描述" align="center" min-width="500">
-            <template slot-scope="scope">
-              <span>{{ scope.row.description }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="状态" align="center" width="100">
-            <template slot-scope="scope">
-              <span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>
-            </template>
-          </el-table-column>
-          <el-table-column label="创建时间" align="center" width="150">
-            <template slot-scope="scope">
-              <span>{{ scope.row.createTime }}</span>
-            </template>
-          </el-table-column>
-        </el-table>
-        <pagination v-show="questionTotal>0" :total="questionTotal" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getQuestionList" />
-      </el-scrollbar>
+      <el-form ref="groupSearchForm" :model="{}" label-width="120px">
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="试题描述">
+              <el-input :model="{}" class="filter-item" placeholder="试题描述" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <div class="fr">
+              <el-button type="primary" @click="()=>{}">查询</el-button>
+              <el-button type="info" @click="()=>{}">重置</el-button>
+            </div>
+          </el-col>
+        </el-row>
+      </el-form>
+      <!--<el-scrollbar>-->
+      <dnd-list :list1="questionTableData" :list2="list2" list1-title="试题库" list2-title="已选中实试题" />
+      <!--<el-table ref="table" :key="0" v-loading="tableLoading" :data="questionTableData" max-height="400" row-key="id" stripe highlight-current-row @selection-change="selectionChange">-->
+      <!--<el-table-column type="selection" width="55" />-->
+      <!--<el-table-column label="问题类型" align="center" width="100">-->
+      <!--<template slot-scope="scope">-->
+      <!--<span>{{ scope.row.type }}</span>-->
+      <!--</template>-->
+      <!--</el-table-column>-->
+      <!--<el-table-column label="问题描述" align="center" min-width="500">-->
+      <!--<template slot-scope="scope">-->
+      <!--<span>{{ scope.row.description }}</span>-->
+      <!--</template>-->
+      <!--</el-table-column>-->
+      <!--<el-table-column label="状态" align="center" width="100">-->
+      <!--<template slot-scope="scope">-->
+      <!--<span>{{ scope.row.status==='effective'?'有效':'无效' }}</span>-->
+      <!--</template>-->
+      <!--</el-table-column>-->
+      <!--<el-table-column label="创建时间" align="center" width="150">-->
+      <!--<template slot-scope="scope">-->
+      <!--<span>{{ scope.row.createTime }}</span>-->
+      <!--</template>-->
+      <!--</el-table-column>-->
+      <!--</el-table>-->
+      <!--<pagination v-show="questionTotal>0" :total="questionTotal" :page.sync="queryForm.page" :limit.sync="queryForm.limit" @pagination="getQuestionList" />-->
+      <!--</el-scrollbar>-->
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取消</el-button>
-        <el-button type="primary" @click="dialogStatus==='create'?create():update()">添加到试卷</el-button>
+        <el-button type="primary" @click="dialogStatus==='create'?create():update()">确认</el-button>
       </div>
     </el-dialog>
     <el-dialog title="已添加试题配置" :visible.sync="dialog3FormVisible">
@@ -308,11 +324,12 @@
 import { create, fetchList, update } from '@/api/intelligentQuestions/questionnaire'
 import question from '@/api/intelligentQuestions/question'
 import Pagination from '@/components/Pagination'
+import DndList from '@/components/DndList'
 import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Question',
-  components: { Pagination },
+  components: { Pagination, DndList },
   data() {
     return {
       queryForm: {
@@ -325,11 +342,13 @@ export default {
         status: null,
         type: null,
         page: 1,
-        limit: 10
+        limit: 20
       },
       tableLoading: true,
       tableData: null,
       questionTableData: null,
+      list1: [],
+      list2: [],
       total: 0,
       questionTotal: 0,
       dialogFormVisible: false,

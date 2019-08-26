@@ -2,28 +2,32 @@
   <div class="dndList">
     <div :style="{width:width1}" class="dndList-list">
       <h3>{{ list1Title }}</h3>
-      <draggable :set-data="setData" :list="list1" group="article" class="dragArea">
-        <div v-for="element in list1" :key="element.id" class="list-complete-item">
-          <div class="list-complete-item-handle">
-            {{ element.id }}[{{ element.author }}] {{ element.title }}
+      <el-scrollbar ref="scrollbar1">
+        <draggable :set-data="setData" :list="list1" group="article" class="dragArea" :style="{maxHeight:'400px',minHeight:'400px'}">
+          <div v-for="element in list1" :key="element.id" class="list-complete-item">
+            <div class="list-complete-item-handle">
+              [{{ element.type }}]   {{ element.description }}
+            </div>
+          <!--<div style="position:absolute;right:0px;">-->
+            <!--<span style="float: right ;margin-top: -20px;margin-right:5px;" @click="deleteEle(element)">-->
+            <!--<i style="color:#ff4949" class="el-icon-delete" />-->
+            <!--</span>-->
+          <!--</div>-->
           </div>
-          <div style="position:absolute;right:0px;">
-            <span style="float: right ;margin-top: -20px;margin-right:5px;" @click="deleteEle(element)">
-              <i style="color:#ff4949" class="el-icon-delete" />
-            </span>
-          </div>
-        </div>
-      </draggable>
+        </draggable>
+      </el-scrollbar>
     </div>
     <div :style="{width:width2}" class="dndList-list">
       <h3>{{ list2Title }}</h3>
-      <draggable :list="list2" group="article" class="dragArea">
-        <div v-for="element in list2" :key="element.id" class="list-complete-item">
-          <div class="list-complete-item-handle2" @click="pushEle(element)">
-            {{ element.id }} [{{ element.author }}] {{ element.title }}
+      <el-scrollbar ref="scrollbar2">
+        <draggable :list="list2" group="article" class="dragArea" :style="{maxHeight:'400px',minHeight:'400px'}">
+          <div v-for="element in list2" :key="element.id" class="list-complete-item">
+            <div class="list-complete-item-handle2" @click="pushEle(element)">
+              [{{ element.type }}]   {{ element.description }}
+            </div>
           </div>
-        </div>
-      </draggable>
+        </draggable>
+      </el-scrollbar>
     </div>
   </div>
 </template>
@@ -62,6 +66,15 @@ export default {
     width2: {
       type: String,
       default: '48%'
+    }
+  },
+  watch: {
+    list1() {
+      console.log('aaaaaaa')
+      this.$refs.scrollbar1.update()
+    },
+    list2() {
+      this.$refs.scrollbar2.update()
     }
   },
   methods: {
