@@ -12,7 +12,8 @@ for (let i = 0; i < count; i++) {
     callInNo: /^1[385][1-9]\d{8}/,
     callInTime: '@datetime',
     customerType: '准客户',
-    remark: '@ctitle'
+    remark: '@ctitle',
+    email: /\d{9,11}@\w{3}\.com\.cn/,
   }))
 }
 

@@ -6,7 +6,9 @@ const state = {
     withoutAnimation: false
   },
   device: 'desktop',
-  size: Cookies.get('size') || 'medium'
+  size: Cookies.get('size') || 'medium',
+  timeStr: '00:00:00',
+  showHangUp: false // 显示挂断按钮
 }
 
 const mutations = {
@@ -30,6 +32,12 @@ const mutations = {
   SET_SIZE: (state, size) => {
     state.size = size
     Cookies.set('size', size)
+  },
+  SET_TIME_STR: (state, timeStr) => {
+    state.timeStr = timeStr
+  },
+  SET_SHOW_HANG_UP: (state, showHangUp) => {
+    state.showHangUp = showHangUp
   }
 }
 
@@ -45,6 +53,12 @@ const actions = {
   },
   setSize({ commit }, size) {
     commit('SET_SIZE', size)
+  },
+  setTimeStr({ commit }, timeStr) {
+    commit('SET_TIME_STR', timeStr)
+  },
+  setShowHangUp({ commit }, showHangUp) {
+    commit('SET_SHOW_HANG_UP', showHangUp)
   }
 }
 

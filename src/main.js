@@ -28,6 +28,8 @@ import { mockXHR } from '../mock'
 import './assets/nsf-icon/iconfont.js'
 import './assets/nsf-icon/temp.js'
 import nsfIcon from '@/components/demo/nsfIcon'
+import Timer from '@/components/demo/timer'
+
 if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
@@ -45,9 +47,15 @@ Vue.config.productionTip = false
 
 // Vue.use(callNotification)
 Vue.component('nsf-icon', nsfIcon)
+Vue.prototype.$Timer = Timer
+
 new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  data: {
+    eventHub: new Vue(),
+    charts: []
+  }
 })

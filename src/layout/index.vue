@@ -46,6 +46,21 @@
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
         <tags-view v-if="needTagsView" />
+        <marquee
+          v-if="marqueeShow"
+          :style="{textAlign:'center'}"
+          :marquee-list="list"
+          height="36px"
+          width="100%"
+          color="#5AB1EF"
+          font-size="14px"
+          :show-speed="50"
+          :pause-time="3000"
+          :scroll-speed="50"
+          :pause-on-hover="true"
+          :show-times="2"
+          @destroy="()=>{this.marqueeShow=false}"
+        />
       </div>
       <app-main />
       <right-panel v-if="showSettings">
@@ -89,6 +104,7 @@ import ResizeMixin from './mixin/ResizeHandler'
 import { mapGetters, mapState } from 'vuex'
 import Pagination from '@/components/Pagination'
 import nsfDrag from '@/directive/nsf-drag' // base on element-ui
+import Marquee from '@/components/demo/marquee'
 export default {
   name: 'Layout',
   components: {
@@ -99,6 +115,7 @@ export default {
     Sidebar,
     TagsView,
     Pagination,
+    Marquee
   },
   directives: { nsfDrag },
   mixins: [ResizeMixin],
@@ -127,7 +144,12 @@ export default {
         { name: '张丽艳', status: '忙碌' },
         { name: '张丽艳', status: '忙碌' },
         { name: '王夏丽', status: '空闲' }
-
+      ],
+      marqueeShow: false,
+      list: [
+        '【公告通知】 关于《2019年中国保险行业人力资源报告》合作单位比选结果的公告',
+        '【公告通知】 2018中国保险行业人身险服务大使结果发布',
+        '【公告通知】 各会员单位：为庆祝中国改革开放四十周年，在当前全面推行“营改增”改革、结构性减税、进一步显著减轻企业税负的背景下，对现行有关保险行业的税收政策进行梳理成为必然。为此，中国保险行业协会组织编纂了《中国保险行业税收政策汇编》。本书是对保险行业现行的税收法规、公告、通知、解释等的汇总结集。全书共分为六章。第一章是总则，介绍了我国税收制度的构成；第二章至第五章按照税种分别介绍了增值税、企业所得税、个人所得税和印花税，为了查阅的方便，我们对税收政策按照相关性进行了归类，并按照时间倒序的方式排序；第六章是其他，主要介绍了增值税附加税、车船税、房产税等与保险行业相关的其他税种。'
       ]
     }
   },
@@ -158,6 +180,9 @@ export default {
       if (e.ctrlKey && e.shiftKey && (e.key.toUpperCase() === 'L' || e.keyCode === 76)) {
         this.showDrag = !this.showDrag
       }
+      if (e.key.toUpperCase() === 'C' || e.keyCode === 67) {
+        this.marqueeShow = !this.marqueeShow
+      }
       if (e.key.toUpperCase() === 'B' || e.keyCode === 66) {
         Naranja.log({
           title: '138****0758',
@@ -168,6 +193,8 @@ export default {
             {
               text: '接听',
               click: function(e) {
+                that.$Timer.start()
+                that.$store.commit('app/SET_SHOW_HANG_UP', true)
                 const temp = {
                   id: 1,
                   name: '张三',
@@ -178,7 +205,7 @@ export default {
                   idNo: '152106198903040034',
                   callInTime: '2019-05-16 14:05:34'
                 }
-                that.$store.commit('nsfCommon/SET_CURRENT_CUSTOMER', temp)
+                that.$store.commit('commonData/SET_CURRENT_CUSTOMER', temp)
                 that.$notify({
                   title: temp.name,
                   message: '当前客户',

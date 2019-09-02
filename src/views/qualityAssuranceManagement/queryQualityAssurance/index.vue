@@ -50,9 +50,6 @@
                     <el-button class="filter-item" size="small" style="margin-left: 10px;" type="primary" icon="el-icon-remove-outline" @click="handleCreate">
                       重置
                     </el-button>
-                    <el-button class="filter-item" size="small" style="margin-left: 10px;" type="danger" icon="el-icon-upload" @click="handleBatchDelete">
-                      申诉
-                    </el-button>
                   </div>
                 </el-col>
               </el-row>

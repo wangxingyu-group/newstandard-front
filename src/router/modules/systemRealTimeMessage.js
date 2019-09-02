@@ -12,6 +12,15 @@ const systemRealTimeMessageRouter =
     },
     children: [
       {
+        path: 'monitoring',
+        component: () => import('@/views/systemRealTimeMessage/monitoring.vue'),
+        name: 'systemRealTimeMessageMonitoring.js',
+        meta: {
+          title: '监控平台',
+          roles: ['admin']
+        }
+      },
+      {
         path: 'onlineSeating',
         component: () => import('@/views/systemRealTimeMessage/onlineSeating.vue'),
         name: 'systemRealTimeMessageOnlineSeating',

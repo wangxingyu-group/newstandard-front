@@ -38,7 +38,6 @@ export default {
     },
     show: {
       get() {
-        console.log('get:' + this.$store.state.commonData.rightPanelShow)
         return this.$store.state.commonData.rightPanelShow
       },
       set(val) {

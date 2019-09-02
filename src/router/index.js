@@ -10,6 +10,7 @@ import chartRouter from './modules/chart'
 import systemRouter from './modules/system/system'
 
 import messageManagementRouter from './modules/messageManagement'
+import emailManagementRouter from './modules/emailManagement'
 import intelligentQuestionsRouter from './modules/intelligentQuestions'
 import newReVisitRouter from './modules/newReVisit'
 import claimsRevisitRouter from './modules/claimsRevisit'
@@ -21,7 +22,9 @@ import activitiRouter from './modules/activiti'
 import schedule from './modules/schedule'
 import systemRealTimeMessage from './modules/systemRealTimeMessage'
 import knowledgeBase from './modules/knowledgeBase'
+import verbalTrick from './modules/verbalTrick'
 import train from './modules/train'
+
 Vue.use(Router)
 
 // 静态路由
@@ -82,6 +85,7 @@ export const asyncRoutes = [
   chartRouter,
   systemRouter,
   messageManagementRouter,
+  emailManagementRouter,
   intelligentQuestionsRouter,
   newReVisitRouter,
   claimsRevisitRouter,
@@ -93,6 +97,7 @@ export const asyncRoutes = [
   schedule,
   systemRealTimeMessage,
   knowledgeBase,
+  verbalTrick,
   train,
   {
     path: '/huanxin',

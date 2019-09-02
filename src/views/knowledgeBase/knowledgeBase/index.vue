@@ -67,7 +67,7 @@
                     <el-button type="warning" icon="el-icon-star-off" circle />
                     <el-button type="success" icon="el-icon-download" circle />
                     <el-button type="success" icon="el-icon-tickets" circle />
-                    <el-button type="danger" size="mini" icon="el-icon-delete" circle @click="handleDelete(row)" />
+                    <el-button type="danger" icon="el-icon-delete" circle @click="handleDelete(row)" />
                   </template>
                 </el-table-column>
               </el-table>

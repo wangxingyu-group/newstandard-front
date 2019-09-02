@@ -110,7 +110,7 @@ export default {
             show: false
           },
           axisLabel: {
-            interval: 0
+            timeInterval: 0
 
           },
           data: xData
@@ -129,7 +129,7 @@ export default {
             show: false
           },
           axisLabel: {
-            interval: 0
+            timeInterval: 0
           },
           splitArea: {
             show: false

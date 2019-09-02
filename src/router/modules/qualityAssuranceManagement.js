@@ -48,6 +48,15 @@ const qualityAssuranceManagementRouter =
         }
       },
       {
+        path: 'qualityComplain',
+        component: () => import('@/views/qualityAssuranceManagement/qualityComplain'),
+        name: 'queryQualityAssurance',
+        meta: {
+          title: '质检申诉',
+          roles: ['admin']
+        }
+      },
+      {
         path: 'voiceToText',
         component: () => import('@/views/qualityAssuranceManagement/voiceToText'),
         name: 'voiceToText',

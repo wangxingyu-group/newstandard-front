@@ -53,6 +53,10 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
 
       this.chart.setOption({
+        title: {
+          x: 'center',
+          text: '工作周报'
+        },
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -79,6 +83,7 @@ export default {
             show: false
           }
         }],
+
         series: [{
           name: '满意',
           type: 'bar',
@@ -92,7 +97,7 @@ export default {
           stack: 'vistors',
           barWidth: '60%',
           data: [2, 5, 4, 4, 4, 4, 2],
-          color:['#FFB980'],
+          color: ['#FFB980'],
           animationDuration
         }, {
           name: '很差',
@@ -100,7 +105,7 @@ export default {
           stack: 'vistors',
           barWidth: '60%',
           data: [0, 1, 2, 3, 4, 4, 2],
-          color:['#D87A80'],
+          color: ['#D87A80'],
           animationDuration
         }]
       })

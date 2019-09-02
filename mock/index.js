@@ -18,8 +18,10 @@ import qualityAssurance from './demo/quality/qualityAssurance/qualityAssurance' 
 import queryQualityAssurance from './demo/quality/queryQualityAssurance/queryQualityAssurance' // 质检查询
 import voiceToText from './demo/quality/voiceToText/voiceToText' // 语音转文本
 import history from './messageManagement/history' // 已发送短信
-import personalInsurance from './integratedQuery/personalInsurance' // 个人保单查询
 import messageTemplate from './messageManagement/messageTemplate' // 短信模板
+import emailHistory from './emailManagement/history' // 已发送邮件
+import emailTemplate from './emailManagement/messageTemplate' // 邮件模板
+import personalInsurance from './integratedQuery/personalInsurance' // 个人保单查询
 import riskSettings from './intelligentQuestions/riskSettings' // 短信模板
 import dictionary from './demo/system/base/dictionary/dictionary' // 数据字典
 import dictionary_detail from './demo/system/base/dictionary/dictionary_detail' // 数据字典详细数据
@@ -75,6 +77,7 @@ import chart16 from './demo/chart/chart16' // 报表=>DID报表
 import chart17 from './demo/chart/chart17' // 报表=>地区分析报表
 import seatGroupMonitoring from './systemRealTimeMessage/seatGroupMonitoring' // 坐席组监控
 import knowledgeBase from './knowledgeBase/knowledgeBase' // 知识库
+import verbalTrick from './verbalTrick/verbalTrick' // 话术库
 import trainPlan from './train/trainPlan' // 培训=>培训计划
 import trainResource from './train/trainResource' // 培训=> 培训资源
 const mocks = [
@@ -96,8 +99,10 @@ const mocks = [
   ...queryQualityAssurance,
   ...voiceToText,
   ...history,
-  ...personalInsurance,
   ...messageTemplate,
+  ...emailHistory,
+  ...emailTemplate,
+  ...personalInsurance,
   ...riskSettings,
   ...dictionary,
   ...dictionary_detail,
@@ -155,6 +160,7 @@ const mocks = [
   ...chart17,
   ...seatGroupMonitoring,
   ...knowledgeBase,
+  ...verbalTrick,
   ...trainPlan,
   ...trainResource
 ]

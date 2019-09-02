@@ -2,7 +2,7 @@
   <div class="wapper">
     <el-input v-model="timeStr" readonly>
       <template slot="prepend">
-        <el-select v-model="value" @change="start">
+        <el-select v-model="value" @change="$Timer.start()">
           <el-option
             v-for="item in allStatus"
             :key="item.status"
@@ -12,6 +12,7 @@
         </el-select>
       </template>
     </el-input>
+    <el-button v-show="showHangUp" class="phone-button mr-10" @click="hangUp()"><img src="./img/satisfaction.png">满意度</el-button>
     <el-input placeholder="电话号码" />
     <el-button class="phone-button"><img src="./img/call-out.png">外呼</el-button>
     <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/consultation.png">咨询</el-button>
@@ -19,7 +20,7 @@
     <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/transfer.png">转移</el-button>
     <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/hold-on.png">音乐</el-button>
     <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/mute.png">静音</el-button>
-    <el-button v-if="clientWidth>=minClientWidth" class="phone-button"><img src="./img/satisfaction.png">满意度</el-button>
+
     <el-dropdown v-if="clientWidth<minClientWidth" style="margin-left: 10px;">
       <el-button>功能<i class="el-icon-arrow-down el-icon--right" /></el-button>
       <el-dropdown-menu slot="dropdown">
@@ -28,16 +29,19 @@
         <el-dropdown-item class="phone-button"><img src="./img/transfer.png">转移</el-dropdown-item>
         <el-dropdown-item class="phone-button"><img src="./img/hold-on.png">音乐</el-dropdown-item>
         <el-dropdown-item class="phone-button"><img src="./img/mute.png">静音</el-dropdown-item>
-        <el-dropdown-item class="phone-button"><img src="./img/satisfaction.png">满意度</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
+    <call-summary :visible="callSummaryVisible" @setCallSummaryVisible="setCallSummaryVisible" />
   </div>
 </template>
 
 <script>
+import CallSummary from './callSummary'
 import { mapGetters } from 'vuex'
 
 export default {
+  name: 'TopToolsBar',
+  components: { CallSummary },
   data() {
     return {
       allStatus: [{
@@ -51,82 +55,26 @@ export default {
         label: '间休'
       }],
       value: '2',
-      timeStr: '',
-      h: 0,
-      m: 0,
-      s: 0,
-      ms: 0,
-      timeMark: 0,
-      timer: null
+      callSummaryVisible: false
     }
   },
   computed: {
     ...mapGetters([
       'device',
       'clientWidth',
-      'minClientWidth'
+      'minClientWidth',
+      'timeStr',
+      'showHangUp'
     ])
   },
-  mounted() {
-    this.start()
-  },
   methods: {
-    forward() {
-      if (new Date().getTime() - this.timeMark > 50) {
-        this.ms = this.ms + (new Date().getTime() - this.timeMark)
-      } else {
-        this.ms = this.ms + 50
-      }
-      if (this.ms >= 1000) {
-        this.ms = 0
-        this.s = this.s + 1
-      }
-      if (this.s >= 60) {
-        this.s = 0
-        this.m = this.m + 1
-      }
-      if (this.m >= 60) {
-        this.m = 0
-        this.h = this.h + 1
-      }
-      this.timeStr = this.toDub(this.h) + ':' + this.toDub(this.m) + ':' + this.toDub(this.s) + ''/* +this.toDubms(this.ms)+"毫秒"*/
-      this.timeMark = new Date().getTime()
+    hangUp() {
+      this.$Timer.stop()
+      this.$store.commit('app/SET_SHOW_HANG_UP', false)
+      this.setCallSummaryVisible(true)
     },
-
-    reset() {
-      clearInterval(this.timer)
-      this.h = 0
-      this.m = 0
-      this.ms = 0
-      this.s = 0
-      this.timeStr = '00:00:00'
-    },
-
-    start() {
-      if (!this.timer) {
-        this.timeMark = new Date().getTime()
-        this.timer = setInterval(this.forward, 50)
-      }
-    },
-
-    stop() {
-      clearInterval(this.timer)
-    },
-
-    toDub(n) {
-      if (n < 10) {
-        return '0' + n
-      } else {
-        return '' + n
-      }
-    },
-
-    toDubms(n) {
-      if (n < 10) {
-        return '00' + n
-      } else {
-        return '0' + n
-      }
+    setCallSummaryVisible(value) {
+      this.callSummaryVisible = value
     }
   }
 }

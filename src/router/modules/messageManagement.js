@@ -8,7 +8,7 @@ const messageManagementRouter =
     name: 'messageManagement',
     meta: {
       title: '短信管理',
-      icon: 'fa fa-envelope-o'
+      icon: 'fa fa-mobile-phone fa-lg'
     },
     children: [
       {

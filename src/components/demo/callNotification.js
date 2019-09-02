@@ -11,6 +11,7 @@ export default {
       document.onkeydown = function(event) {
         var e = event || window.event
         if (e && e.keyCode === 66) { // 按 b
+          Vue.prototype.$Timer.stop()
           if (device !== 'mobile') {
             naranja()['log']({
               title: title.replace(/(\d{3})(\d{4})(\d{4})/, '$1****$3') + '【北京】',

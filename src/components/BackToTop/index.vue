@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       visible: false,
-      interval: null,
+      timeInterval: null,
       isMoving: false
     }
   },
