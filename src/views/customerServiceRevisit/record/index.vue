@@ -7,8 +7,8 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
-                    <el-input v-model="listQuery.name" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号">
+                    <el-input v-model="listQuery.name" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -56,7 +56,7 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow2" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="保单号" prop="id" sortable="custom" align="center" width="150">
+            <el-table-column label="订单号" prop="id" sortable="custom" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
             </el-table-column>
             <el-table-column label="投保人客户号" align="center" width="200">

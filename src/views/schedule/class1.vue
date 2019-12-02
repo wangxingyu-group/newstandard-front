@@ -61,7 +61,7 @@
             <el-table-column label="创建人" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.name2 }}</span></template>
             </el-table-column>
-            <el-table-column label="保单状态" align="center" min-width="200">
+            <el-table-column label="订单状态" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.Status }}</span></template>
             </el-table-column>
             <el-table-column label="创建时间" align="center" min-width="200">

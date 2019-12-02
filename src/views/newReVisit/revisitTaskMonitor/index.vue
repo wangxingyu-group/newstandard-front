@@ -12,8 +12,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单分配时间从" label-width="150px">
-                      <el-date-picker v-model="listQuery.name" placeholder="保单分配时间从" class="filter-item" @keyup.enter.native="handleFilter" style="width:100%"/>
+                  <el-form-item label="订单分配时间从" label-width="150px">
+                      <el-date-picker v-model="listQuery.name" placeholder="订单分配时间从" class="filter-item" @keyup.enter.native="handleFilter" style="width:100%"/>
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">

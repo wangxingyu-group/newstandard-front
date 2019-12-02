@@ -109,7 +109,7 @@ export default {
         {
           id: '质检',
           type: '质检流程图',
-          status: '保单质检流程描述',
+          status: '订单质检流程描述',
           seats: 'system',
           callDuration: '2018-11-08 18:31:32',
           callInName: '',

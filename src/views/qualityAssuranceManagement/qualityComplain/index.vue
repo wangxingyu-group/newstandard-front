@@ -13,7 +13,6 @@
                       class="filter-item"
                       type="date"
                       placeholder="时间区间起"
-                      :picker-options="pickerOptions0"
                       style="width:100%;min-width:135px"
                     />
                   </el-form-item>
@@ -25,7 +24,6 @@
                       class="filter-item"
                       type="date"
                       placeholder="时间区间止"
-                      :picker-options="pickerOptions1"
                       style="width:100%;min-width:135px"
                     />
                   </el-form-item>

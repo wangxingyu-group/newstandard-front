@@ -36,7 +36,16 @@ const baseRouter = {
         title: '查询条件配置',
         roles: ['admin']
       }
-    }
+    },
+    {
+      path: 'revisitBlackListManagement',
+      component: () => import('@/views/newReVisit/revisitBlackListManagement'),
+      name: 'revisitBlackListManagement ',
+      meta: {
+        title: '黑名单管理',
+        roles: ['admin']
+      }
+    },
   ]
 }
 export default baseRouter

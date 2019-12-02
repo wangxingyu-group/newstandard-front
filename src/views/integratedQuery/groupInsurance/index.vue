@@ -9,13 +9,13 @@
                 <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
                   <el-row>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="团体保单号" label-width="130px">
-                        <el-input v-model="listQuery.groupContractNo" placeholder="团体保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="团体订单号" label-width="130px">
+                        <el-input v-model="listQuery.groupContractNo" placeholder="团体订单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="投保单号" label-width="130px">
-                        <el-input v-model="listQuery.groupPreContractNo" placeholder="投保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="流水号" label-width="130px">
+                        <el-input v-model="listQuery.groupPreContractNo" placeholder="流水号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
@@ -24,8 +24,8 @@
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
-                      <el-form-item label="个人保单号" label-width="130px">
-                        <el-input v-model="listQuery.contractNo" placeholder="个人保单号" class="filter-item" @keyup.enter.native="()=>{}" />
+                      <el-form-item label="个人订单号" label-width="130px">
+                        <el-input v-model="listQuery.contractNo" placeholder="个人订单号" class="filter-item" @keyup.enter.native="()=>{}" />
                       </el-form-item>
                     </el-col>
                     <el-col :sm="12" :lg="8">
@@ -51,7 +51,7 @@
               </div>
               <el-row :gutter="20" class="flex-accordant-height">
                 <el-col :sm="24" :lg="4" class="flex-center table-left-bg">
-                  团体保单信息
+                  团体订单信息
                 </el-col>
                 <el-col :sm="24" :lg="20">
                   <el-table ref="groupContractInfoTable" height="264" :data="groupContractInfo" row-key="id" stripe highlight-current-row>
@@ -64,7 +64,7 @@
                     <el-table-column label="险种名称 " align="center" min-width="100">
                       <template slot-scope="scope"><span>{{ scope.row.groupRiskName }}</span></template>
                     </el-table-column>
-                    <el-table-column label="投保人名称 " align="center" min-width="100">
+                    <el-table-column label="客户名称 " align="center" min-width="100">
                       <template slot-scope="scope"><span>{{ scope.row.applicant }}</span></template>
                     </el-table-column>
                     <el-table-column label="生效日期 " align="center" min-width="200">
@@ -79,7 +79,7 @@
                     <el-table-column label="总保额 " align="center" min-width="100">
                       <template slot-scope="scope"><span>{{ scope.row.totalAmount }}</span></template>
                     </el-table-column>
-                    <el-table-column label="保单状态 " align="center" min-width="100">
+                    <el-table-column label="订单状态 " align="center" min-width="100">
                       <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
                     </el-table-column>
                   </el-table>
@@ -88,11 +88,11 @@
               </el-row>
               <el-row :gutter="20" class="flex-accordant-height mt-10">
                 <el-col :sm="24" :lg="4" class="flex-center table-left-bg">
-                  个人保单信息
+                  个人订单信息
                 </el-col>
                 <el-col :sm="24" :lg="20">
                   <el-table ref="personalContractInfoTable" :data="personalContractInfo" height="264" row-key="id" stripe highlight-current-row>
-                    <el-table-column label="个人保单号" align="center" min-width="150">
+                    <el-table-column label="个人订单号" align="center" min-width="150">
                       <template slot-scope="scope"><span>{{ scope.row.contractNo }}</span></template>
                     </el-table-column>
                     <el-table-column label="个人客户号 " align="center" min-width="150">

@@ -48,6 +48,16 @@ const qualityAssuranceManagementRouter =
         }
       },
       {
+        path: 'queryAssuranceListen',
+        component: () => import('@/views/qualityAssuranceManagement/qualityAssurance/listen.vue'),
+        name: 'queryAssuranceListen',
+        hide: true,
+        meta: {
+          title: '质检调听',
+          roles: ['admin']
+        }
+      },
+      {
         path: 'qualityComplain',
         component: () => import('@/views/qualityAssuranceManagement/qualityComplain'),
         name: 'queryQualityAssurance',

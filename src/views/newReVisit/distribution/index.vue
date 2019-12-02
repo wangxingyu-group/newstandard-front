@@ -35,8 +35,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号" label-width="140px">
-                    <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号" label-width="140px">
+                    <el-input v-model="listQuery.policyNo" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -86,7 +86,7 @@
             <el-table-column label="签单日期" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.signDate }}</span></template>
             </el-table-column>
-            <el-table-column label="保单号" align="center" min-width="200">
+            <el-table-column label="订单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.policyNo }}</span></template>
             </el-table-column>
             <el-table-column label="客户签收日期" align="center" min-width="150">
@@ -113,7 +113,7 @@
             <el-table-column label="销售渠道" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.channel }}</span></template>
             </el-table-column>
-            <el-table-column label="保单状态" align="center" min-width="100">
+            <el-table-column label="订单状态" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
             </el-table-column>
             <el-table-column label="呼叫结果" align="center" min-width="100">
@@ -142,8 +142,8 @@
     </el-row>
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="120px" style="width: 500px; margin-left:80px;">
-        <el-form-item label="保单号" prop="policyNo">
-          <el-input v-model="temp.policyNo" placeholder="保单号" />
+        <el-form-item label="订单号" prop="policyNo">
+          <el-input v-model="temp.policyNo" placeholder="订单号" />
         </el-form-item>
         <el-form-item label="投保人姓名" prop="appName">
           <el-input v-model="temp.appName" placeholder="投保人姓名" />

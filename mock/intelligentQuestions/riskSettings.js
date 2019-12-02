@@ -7,7 +7,7 @@ for (let i = 0; i < count; i++) {
   list.push(Mock.mock({
     id: '@increment',
     riskCode: '@Integer(310120,32540)',
-    riskName: '投连险',
+    riskName: '产品1',
     startTime: '@datetime',
     endTime: '@datetime'
   }))

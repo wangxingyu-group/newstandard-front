@@ -11,15 +11,15 @@ const chartRouter =
       icon: 'fa fa-bar-chart'
     },
     children: [
-      {
-        path: 'chart1',
-        component: () => import('@/views/chart/chart1'),
-        name: 'chart1',
-        meta: {
-          title: '保监服务指标',
-          roles: ['admin']
-        }
-      },
+      // {
+      //       //   path: 'chart1',
+      //       //   component: () => import('@/views/chart/chart1'),
+      //       //   name: 'chart1',
+      //       //   meta: {
+      //       //     title: '保监服务指标',
+      //       //     roles: ['admin']
+      //       //   }
+      //       // },
       {
         path: 'chart2',
         component: () => import('@/views/chart/chart2'),

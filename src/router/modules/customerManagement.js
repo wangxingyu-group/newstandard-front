@@ -16,7 +16,7 @@ const customerRouter =
         component: () => import('@/views/customerManagement/preCustomer'),
         name: 'preCustomer',
         meta: {
-          title: '准客户',
+          title: '潜在客户',
           roles: ['admin']
         }
       },
@@ -25,7 +25,7 @@ const customerRouter =
         component: () => import('@/views/customerManagement/customer'),
         name: 'customer',
         meta: {
-          title: '客户',
+          title: '正常客户',
           roles: ['admin']
         }
       },
@@ -44,7 +44,7 @@ const customerRouter =
         component: () => import('@/views/customerManagement/agent'),
         name: 'agent',
         meta: {
-          title: '代理人',
+          title: '衰退客户',
           roles: ['admin']
         }
       },
@@ -54,7 +54,26 @@ const customerRouter =
         name: 'agentDetails',
         hidden: true,
         meta: {
-          title: '代理人详情',
+          title: '客户详情',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'custom2',
+        component: () => import('@/views/customerManagement/customer2'),
+        name: 'custom2',
+        meta: {
+          title: '流失客户',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'custom2/details',
+        component: () => import('@/views/customerManagement/customer2/details'),
+        name: 'custom2Details',
+        hidden: true,
+        meta: {
+          title: '客户详情',
           roles: ['admin']
         }
       }

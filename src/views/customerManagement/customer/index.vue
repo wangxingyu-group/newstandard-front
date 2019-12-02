@@ -17,13 +17,13 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
-                    <el-input v-model="listQuery.callInNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号">
+                    <el-input v-model="listQuery.callInNo" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单角色">
-                    <el-input v-model="listQuery.customerType" placeholder="保单角色" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单角色">
+                    <el-input v-model="listQuery.customerType" placeholder="订单角色" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>

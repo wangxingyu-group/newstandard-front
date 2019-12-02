@@ -8,7 +8,7 @@
         <el-form v-model="cancellationTrial" label-width="150px" size="small">
           <el-row>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="保单生效日期">
+              <el-form-item label="订单生效日期">
                 <el-input v-model="cancellationTrial.effectiveDate" :readonly="true" />
               </el-form-item>
             </el-col>
@@ -23,7 +23,7 @@
               </el-form-item>
             </el-col>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="已满保单年度">
+              <el-form-item label="已满订单年度">
                 <el-input v-model="cancellationTrial.pastPolicyYear" :readonly="true" />
               </el-form-item>
             </el-col>

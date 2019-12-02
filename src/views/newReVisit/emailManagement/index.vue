@@ -21,8 +21,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
-                    <el-input v-model="listQuery.policyno" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号">
+                    <el-input v-model="listQuery.policyno" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="6" :lg="8">
@@ -37,8 +37,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="投保单号">
-                    <el-input v-model="listQuery.appno" placeholder="投保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="流水号">
+                    <el-input v-model="listQuery.appno" placeholder="流水号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -58,10 +58,10 @@
             <el-table-column label="工单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.fbserviceno }}</span></template>
             </el-table-column>
-            <el-table-column label="投保单号" align="center" min-width="200">
+            <el-table-column label="流水号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.appno }}</span></template>
             </el-table-column>
-            <el-table-column label="保单号" align="center" min-width="200">
+            <el-table-column label="订单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.policyno }}</span></template>
             </el-table-column>
             <el-table-column label="信函件状态" align="center" min-width="150">
@@ -135,12 +135,12 @@ export default {
       agents: ['综合电商部', '江苏分公司', '北京分公司', '上海分公司'],
       emailStatues: ['需发信函', '已发信函', '已收信函', '邮寄信函', '上门信函', '信函件返回'],
       listQuery: {
-        appno: '', // 投保单号
+        appno: '', // 流水号
         emailStatue: '', // 信函件状态
         agent: '', // 归属机构
         from: '', // 起始时间
         to: '', // 结束时间
-        policyno: '', // 保单号
+        policyno: '', // 订单号
         page: 1,
         limit: 10
       }
@@ -207,12 +207,12 @@ export default {
     },
     reset() {
       this.listQuery = {
-        appno: '', // 投保单号
+        appno: '', // 流水号
         emailStatue: '', // 信函件状态
         agent: '', // 归属机构
         from: '', // 起始时间
         to: '', // 结束时间
-        policyno: '', // 保单号
+        policyno: '', // 订单号
         page: 1,
         limit: 10
       }

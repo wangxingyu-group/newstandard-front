@@ -34,7 +34,7 @@ const intelligentQuestionsRouter =
         component: () => import('@/views/intelligentQuestions/riskSettings'),
         name: 'riskSettings',
         meta: {
-          title: '险种设置',
+          title: '产品设置',
           roles: ['admin']
         }
       },

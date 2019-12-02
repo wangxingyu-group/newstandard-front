@@ -18,8 +18,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
-                    <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号">
+                    <el-input v-model="listQuery.policyNo" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -69,7 +69,7 @@
             <el-table-column label="客户姓名" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="保单号" align="center" min-width="200">
+            <el-table-column label="订单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.policyNo }}</span></template>
             </el-table-column>
             <el-table-column label="来电时间" align="center" min-width="200">

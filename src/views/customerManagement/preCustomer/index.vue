@@ -31,7 +31,7 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="准客户编号" prop="id" sortable="custom" align="center" width="150">
+            <el-table-column label="客户编号" prop="id" sortable="custom" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
             </el-table-column>
             <el-table-column label="姓名" align="center" width="100">

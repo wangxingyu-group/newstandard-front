@@ -15,7 +15,7 @@ const searchRouter = {
       component: () => import('@/views/integratedQuery/personalInsurance'),
       name: 'personalInsurance',
       meta: {
-        title: '个人保单查询',
+        title: '个人订单查询',
         roles: ['admin']
       }
     },
@@ -29,15 +29,15 @@ const searchRouter = {
         roles: ['admin']
       }
     },
-    {
-      path: 'groupInsurance',
-      component: () => import('@/views/integratedQuery/groupInsurance'),
-      name: 'groupInsurance',
-      meta: {
-        title: '团险查询',
-        roles: ['admin']
-      }
-    },
+    // {
+    //   path: 'groupInsurance',
+    //   component: () => import('@/views/integratedQuery/groupInsurance'),
+    //   name: 'groupInsurance',
+    //   meta: {
+    //     title: '团险查询',
+    //     roles: ['admin']
+    //   }
+    // },
     {
       path: 'whiteList',
       component: () => import('@/views/integratedQuery/whiteList'),
@@ -52,7 +52,7 @@ const searchRouter = {
       component: () => import('@/views/integratedQuery/electroDocument'),
       name: 'electroDocument',
       meta: {
-        title: '单证下载',
+        title: '客户积分',
         roles: ['admin']
       }
     },

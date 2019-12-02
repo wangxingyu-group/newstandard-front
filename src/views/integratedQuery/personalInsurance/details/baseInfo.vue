@@ -8,12 +8,12 @@
         <el-form v-model="contract" label-width="150px" size="small">
           <el-row>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="保单号">
+              <el-form-item label="订单号">
                 <el-input v-model="contract.contractNo" :readonly="true" />
               </el-form-item>
             </el-col>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="投保单号">
+              <el-form-item label="流水号">
                 <el-input v-model="contract.preContractNo" :readonly="true" />
               </el-form-item>
             </el-col>
@@ -53,7 +53,7 @@
               </el-form-item>
             </el-col>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="保单服务状态">
+              <el-form-item label="订单服务状态">
                 <el-input v-model="contract.serviceStatus" :readonly="true" />
               </el-form-item>
             </el-col>
@@ -73,7 +73,7 @@
               </el-form-item>
             </el-col>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="保单打印日期">
+              <el-form-item label="订单打印日期">
                 <el-input v-model="contract.printDate" :readonly="true" />
               </el-form-item>
             </el-col>
@@ -93,7 +93,7 @@
               </el-form-item>
             </el-col>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="保单补发次数">
+              <el-form-item label="订单补发次数">
                 <el-input v-model="contract.reissueCount" :readonly="true" />
               </el-form-item>
             </el-col>
@@ -123,7 +123,7 @@
               </el-form-item>
             </el-col>
             <el-col :sm="12" :lg="8">
-              <el-form-item label="保单状态">
+              <el-form-item label="订单状态">
                 <el-input v-model="contract.contractStatus" :readonly="true" />
               </el-form-item>
             </el-col>
@@ -132,10 +132,10 @@
       </el-card>
       <el-card class="mt-10">
         <div slot="header" class="clearfix">
-          <span>保单险种信息</span>
+          <span>订单险种信息</span>
         </div>
         <el-table ref="riskInfoTable" :data="risk" row-key="id" stripe highlight-current-row>
-          <el-table-column label="保单状态" align="center" min-width="100">
+          <el-table-column label="订单状态" align="center" min-width="100">
             <template slot-scope="scope"><span>{{ scope.row.contractStatus }}</span></template>
           </el-table-column>
           <el-table-column label="保额" align="center" min-width="100">
@@ -274,10 +274,10 @@
       </el-card>
       <el-card class="mt-10">
         <div slot="header" class="clearfix">
-          <span>被保人信息</span>
+          <span>客户信息</span>
         </div>
         <el-table ref="insuredTable" :data="insureds" row-key="id" stripe highlight-current-row>
-          <el-table-column label="被保人姓名" align="center" min-width="100">
+          <el-table-column label="客户姓名" align="center" min-width="100">
             <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
           </el-table-column>
           <el-table-column label="客户号" align="center" min-width="100">
@@ -378,7 +378,7 @@ export default {
         contractNo: '86410020190210026668', preContractNo: '11010210867392', serviceOrganization: '北京本部营销服务部',
         saleChannel: '银行代理', ybflag: '否', signForContractDate: '2019-05-24',
         agentCode: '8641300087', agentName: '张三', agentCompany: '中国银行支行',
-        serviceStatus: '正常保单', signCompany: '北京本部营销服务部', signDate: '2019-05-23',
+        serviceStatus: '正常订单', signCompany: '北京本部营销服务部', signDate: '2019-05-23',
         saleCompany: '北京本部营销服务部', printDate: '2019-05-23', receiptDate: '2019-05-24',
         receiptBankAccount: '6217858000065413585', receiptAccountName: null, reissueCount: '0',
         bankPledge: null, saleType: '中行手机银行', receiptBankName: '中国银行',

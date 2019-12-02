@@ -7,8 +7,8 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
-                    <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号">
+                    <el-input v-model="listQuery.policyNo" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -66,7 +66,7 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 280px;" :data="list" fit stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
-            <el-table-column label="保单号" align="center" min-width="200">
+            <el-table-column label="订单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.contno }}</span></template>
             </el-table-column>
             <el-table-column label="回访方式" align="center" min-width="150">
@@ -117,7 +117,7 @@
             <el-table-column label="销售方式" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.selltype }}</span></template>
             </el-table-column>
-            <el-table-column label="保单状态" align="center" min-width="150">
+            <el-table-column label="订单状态" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.appflag }}</span></template>
             </el-table-column>
             <el-table-column label="是否犹豫期内回访成功" align="center" min-width="220">
@@ -160,7 +160,7 @@ export default {
         to: '', // 结束时间
         from1: '',
         to1: '',
-        policyNo: '', // 保单号
+        policyNo: '', // 订单号
         reVisitType: '', // 回访方式
         page: 1,
         limit: 10
@@ -234,7 +234,7 @@ export default {
         to: '', // 结束时间
         from1: '',
         to1: '',
-        policyNo: '', // 保单号
+        policyNo: '', // 订单号
         reVisitType: '', // 回访方式
         page: 1,
         limit: 10

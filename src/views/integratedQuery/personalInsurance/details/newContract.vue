@@ -11,7 +11,7 @@
           </el-col>
           <el-col :sm="24" :lg="20">
             <el-table ref="underwritingTrackTable" height="264" :data="underwritingTrack" row-key="id" stripe highlight-current-row>
-              <el-table-column label="投保单号" align="center" min-width="100">
+              <el-table-column label="流水号" align="center" min-width="100">
                 <template slot-scope="scope"><span>{{ scope.row.preContractNo }}</span></template>
               </el-table-column>
               <el-table-column label="操作员" align="center" min-width="100">
@@ -128,7 +128,7 @@
         </el-row>
         <el-row :gutter="20" class="flex-accordant-height mt-10">
           <el-col :sm="24" :lg="4" class="flex-center table-left-bg">
-            电子保单查询
+            电子订单查询
           </el-col>
           <el-col :sm="24" :lg="20">
             <el-table ref="eContractTable" height="264" :data="eContract" row-key="id" stripe highlight-current-row>

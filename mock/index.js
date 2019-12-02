@@ -21,7 +21,7 @@ import history from './messageManagement/history' // 已发送短信
 import messageTemplate from './messageManagement/messageTemplate' // 短信模板
 import emailHistory from './emailManagement/history' // 已发送邮件
 import emailTemplate from './emailManagement/messageTemplate' // 邮件模板
-import personalInsurance from './integratedQuery/personalInsurance' // 个人保单查询
+import personalInsurance from './integratedQuery/personalInsurance' // 个人订单查询
 import riskSettings from './intelligentQuestions/riskSettings' // 短信模板
 import dictionary from './demo/system/base/dictionary/dictionary' // 数据字典
 import dictionary_detail from './demo/system/base/dictionary/dictionary_detail' // 数据字典详细数据
@@ -161,7 +161,7 @@ const mocks = [
   ...seatGroupMonitoring,
   ...knowledgeBase,
   ...verbalTrick,
-  ...trainPlan,
+  // ...trainPlan,
   ...trainResource
 ]
 

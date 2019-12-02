@@ -43,8 +43,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
-                    <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号">
+                    <el-input v-model="listQuery.policyNo" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="16" :lg="16" style="align:right" class="fr">
@@ -64,7 +64,7 @@
             <el-table-column label="工单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.fbserviceno }}</span></template>
             </el-table-column>
-            <el-table-column label="保单号" align="center" min-width="200">
+            <el-table-column label="订单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.policyno }}</span></template>
             </el-table-column>
             <el-table-column label="签单日期" align="center" min-width="200">
@@ -88,7 +88,7 @@
             <el-table-column label="描述" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.quescontent }}</span></template>
             </el-table-column>
-            <el-table-column label="保单状态" align="center" min-width="100">
+            <el-table-column label="订单状态" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.appflag }}</span></template>
             </el-table-column>
             <el-table-column label="代理机构" align="center" min-width="150">

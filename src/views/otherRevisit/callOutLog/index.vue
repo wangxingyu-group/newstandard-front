@@ -7,8 +7,8 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="投保人姓名" label-width="130px">
-                    <el-input v-model="listQuery.name" placeholder="投保人姓名" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="客户姓名" label-width="130px">
+                    <el-input v-model="listQuery.name" placeholder="客户人姓名" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -17,8 +17,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="保单号">
-                    <el-input v-model="listQuery.policyNo" placeholder="保单号" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="订单号">
+                    <el-input v-model="listQuery.policyNo" placeholder="订单号" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -38,13 +38,13 @@
             <el-table-column label="外呼服务编号" align="center" min-width="150">
               <template slot-scope="scope"><span>{{ scope.row.outNo }}</span></template>
             </el-table-column>
-            <el-table-column label="保单号" align="center" min-width="200">
+            <el-table-column label="订单号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.policyNo }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人姓名" align="center" min-width="100">
+            <el-table-column label="客户姓名" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
-            <el-table-column label="投保人身份证号" align="center" min-width="200">
+            <el-table-column label="客户身份证号" align="center" min-width="200">
               <template slot-scope="scope"><span>{{ scope.row.idCard }}</span></template>
             </el-table-column>
             <el-table-column label="电话号码" align="center" min-width="130">

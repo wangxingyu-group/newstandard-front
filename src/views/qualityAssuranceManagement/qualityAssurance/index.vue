@@ -31,7 +31,6 @@
                       class="filter-item"
                       type="date"
                       placeholder="时间区间起"
-                      :picker-options="pickerOptions0"
                     />
                   </el-form-item>
                 </el-col>
@@ -43,7 +42,6 @@
                       class="filter-item"
                       type="date"
                       placeholder="时间区间止"
-                      :picker-options="pickerOptions1"
                     />
                   </el-form-item>
 
@@ -104,7 +102,7 @@
               <template slot-scope="scope"><span>{{ scope.row.gender }}</span></template>
             </el-table-column>
             <el-table-column label="录音url" align="center" width="300">
-              <template slot-scope="scope"><span>{{ scope.row.url }}</span></template>
+              <template slot-scope="scope"><a class="el-tag--success" @click="$router.push('/qualityAssuranceManagement/queryAssuranceListen')"><span>{{ scope.row.url }}</span></a></template>
             </el-table-column>
             <el-table-column label="客户姓名" align="center" width="200">
               <template slot-scope="scope"><span>{{ scope.row.nameCus }}</span></template>

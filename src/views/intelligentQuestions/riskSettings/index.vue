@@ -7,22 +7,22 @@
             <el-form ref="queryForm" :model="queryForm" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="险种编码">
-                    <el-input placeholder="险种编码" />
+                  <el-form-item label="产品编码">
+                    <el-input placeholder="产品编码" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="险种名称">
-                    <el-input placeholder="险种名称" />
+                  <el-form-item label="产品名称">
+                    <el-input placeholder="产品名称" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="险种类型">
+                  <el-form-item label="产品类型">
                     <el-select v-model="queryForm.status" style="width:100%;" placeholder="---请选择---">
-                      <el-option label="传统险" value="传统险" />
-                      <el-option label="投连险" value="投连险" />
-                      <el-option label="分红险" value="分红险" />
-                      <el-option label="万能险" value="万能险" />
+                      <el-option label="产品1" value="产品1" />
+                      <el-option label="产品2" value="产品2" />
+                      <el-option label="产品3" value="产品3" />
+                      <el-option label="产品4" value="产品4" />
                     </el-select>
                   </el-form-item>
                 </el-col>
@@ -39,12 +39,12 @@
           </div>
           <el-table ref="table" :key="0" v-loading="tableLoading" :data="tableData" :height="searchRow1" row-key="id" stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="险种编码" align="center" width="100">
+            <el-table-column label="产品编码" align="center" width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.riskCode }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="险种名称" align="center" min-width="100">
+            <el-table-column label="产品名称" align="center" min-width="100">
               <template slot-scope="scope">
                 <span>{{ scope.row.riskName }}</span>
               </template>
@@ -72,13 +72,13 @@
 
     <el-dialog title="配置问卷" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="temp" label-position="left" label-width="100px" style="width: 500px; margin-left:100px;">
-        <el-form-item label="险种编码" prop="description">
+        <el-form-item label="产品编码" prop="description">
           <el-input v-model="temp.description" />
         </el-form-item>
         <el-form-item label="问卷类型" prop="status">
           <el-select v-model="temp.status" placeholder="---请选择---">
             <el-option label="公共回访问卷" value="effective" />
-            <el-option label="理赔外呼问卷" value="noneffective" />
+            <el-option label="产品调研外呼问卷" value="noneffective" />
           </el-select>
         </el-form-item>
       </el-form>

@@ -101,16 +101,16 @@
                       </el-card>
                       <el-card class="mt-10">
                         <div slot="header" class="clearfix">
-                          <span>取回保单</span>
+                          <span>取回订单</span>
                         </div>
                         <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
                           <div style="height:244px">
                             <el-table ref="table" :key="0" :data="policyData" row-key="id" stripe highlight-current-row>
                               <el-table-column type="selection" min-width="55" />
-                              <el-table-column label="保单号码" align="center" min-width="150">
+                              <el-table-column label="订单号码" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
                               </el-table-column>
-                              <el-table-column label="投保人" align="center" min-width="100">
+                              <el-table-column label="客户" align="center" min-width="100">
                                 <template slot-scope="scope"><span>{{ scope.row.applicant }}</span></template>
                               </el-table-column>
                               <el-table-column label="客户号" align="center" min-width="150">
@@ -134,16 +134,16 @@
                               <el-table-column label="募集计划名称" align="center" min-width="150">
                                 <template slot-scope="scope"><span>{{ scope.row.planck }}</span></template>
                               </el-table-column>
-                              <el-table-column label="保单状态" align="center" min-width="100">
+                              <el-table-column label="订单状态" align="center" min-width="100">
                                 <template slot-scope="scope"><span>{{ scope.row.status }}</span></template>
                               </el-table-column>
                               <el-table-column label="操作" align="center" fixed="right" min-width="250">
                                 <template>
                                   <el-button type="primary" size="mini">
-                                    取回保单
+                                    取回订单
                                   </el-button>
                                   <el-button type="danger" size="mini">
-                                    删除保单
+                                    删除订单
                                   </el-button>
                                 </template>
                               </el-table-column>

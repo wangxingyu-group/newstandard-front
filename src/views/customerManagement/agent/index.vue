@@ -7,8 +7,8 @@
             <el-form ref="queryForm" :model="listQuery" label-width="100px" size="small">
               <el-row>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="代理人姓名">
-                    <el-input v-model="listQuery.name" placeholder="代理人姓名" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="客户姓名">
+                    <el-input v-model="listQuery.name" placeholder="客户姓名" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
@@ -17,8 +17,8 @@
                   </el-form-item>
                 </el-col>
                 <el-col :sm="12" :lg="8">
-                  <el-form-item label="代理机构">
-                    <el-input v-model="listQuery.gender" placeholder="代理机构" class="filter-item" @keyup.enter.native="handleFilter" />
+                  <el-form-item label="分支机构">
+                    <el-input v-model="listQuery.gender" placeholder="分支机构" class="filter-item" @keyup.enter.native="handleFilter" />
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -34,10 +34,10 @@
           </div>
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" :data="list" fit stripe highlight-current-row style="width: 100%;" @sort-change="sortChange" @selection-change="selectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column label="代理人编号" prop="id" sortable="custom" align="center" width="150">
+            <el-table-column label="客户编号" prop="id" sortable="custom" align="center" width="150">
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
             </el-table-column>
-            <el-table-column label="代理人姓名" align="center" min-width="100">
+            <el-table-column label="客户姓名" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
             </el-table-column>
             <el-table-column label="性别" align="center" min-width="80">
