@@ -34,7 +34,7 @@ const qualityAssuranceManagementRouter =
         component: () => import('@/views/qualityAssuranceManagement/history'),
         name: 'searchRecord',
         meta: {
-          title: '记录查询',
+          title: '质检查询',
           roles: ['admin']
         }
       },
@@ -43,7 +43,7 @@ const qualityAssuranceManagementRouter =
         component: () => import('@/views/qualityAssuranceManagement/queryQualityAssurance'),
         name: 'queryQualityAssurance',
         meta: {
-          title: '质检查询',
+          title: '质检复核',
           roles: ['admin']
         }
       },
@@ -55,7 +55,7 @@ const qualityAssuranceManagementRouter =
           title: '质检申诉',
           roles: ['admin']
         }
-      },
+      }/*,
       {
         path: 'voiceToText',
         component: () => import('@/views/qualityAssuranceManagement/voiceToText'),
@@ -64,7 +64,7 @@ const qualityAssuranceManagementRouter =
           title: '语音转文本质检',
           roles: ['admin']
         }
-      }
+      }*/
     ]
   }
 
