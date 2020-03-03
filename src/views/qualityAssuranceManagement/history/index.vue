@@ -77,8 +77,8 @@
                     <el-button class="filter-item" size="small" style="margin-left: 10px;" type="primary" icon="el-icon-remove-outline" @click="handleCreate">
                       重置
                     </el-button>
-                    <el-button class="filter-item" size="small" style="margin-left: 10px;" type="danger" icon="el-icon-edit" @click="handleBatchDelete">
-                      案例库添加
+                    <el-button class="filter-item" size="small" style="margin-left: 10px;" type="danger" icon="el-icon-close" @click="handleBatchDelete">
+                      复核失败
                     </el-button>
                     <el-button class="filter-item" size="small" style="margin-left: 10px;" type="danger" icon="el-icon-check" @click="handleBatchDelete">
                       复核
@@ -94,7 +94,7 @@
               <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
             </el-table-column>
             <el-table-column label="服务单号" align="center" width="200">
-              <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>
+              <template slot-scope="scope"><span>{{ scope.row.idNo }}</span></template>
             </el-table-column>
             <el-table-column label="坐席工号" align="center" width="180">
               <template slot-scope="scope"><span>{{ scope.row.customerType }}</span></template>

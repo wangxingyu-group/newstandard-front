@@ -71,10 +71,10 @@
                       查询
                     </el-button>
                     <el-button class="filter-item" size="small" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
-                      添加
+                      重置
                     </el-button>
-                    <el-button class="filter-item" size="small" style="margin-left: 10px;" type="danger" icon="el-icon-close" @click="handleBatchDelete">
-                      开启/关闭
+                    <el-button class="filter-item" size="small" style="margin-left: 10px;" type="danger" icon="el-icon-check" @click="handleBatchDelete">
+                      添加到案例库
                     </el-button>
                   </div>
                 </el-col>

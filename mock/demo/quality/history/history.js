@@ -28,7 +28,7 @@ for (let i = 0; i < count; i++) { // List付值
 
 export default [
   {
-    url: '/history/list',
+    url: '/qualityhistory/list',
     type: 'get',
     response: config => {
       const { name, idNo, page = 1, limit = 20, sort } = config.query
@@ -55,7 +55,7 @@ export default [
   },
 
   {
-    url: '/history/detail',
+    url: '/qualityhistory/detail',
     type: 'get',
     response: config => {
       const { id } = config.query
@@ -71,7 +71,7 @@ export default [
   },
 
   {
-    url: '/history/pv',
+    url: '/qualityhistory/pv',
     type: 'get',
     response: _ => {
       return {
@@ -89,7 +89,7 @@ export default [
   },
 
   {
-    url: '/history/create',
+    url: '/qualityhistory/create',
     type: 'post',
     response: _ => {
       return {
@@ -100,7 +100,7 @@ export default [
   },
 
   {
-    url: '/history/update',
+    url: '/qualityhistory/update',
     type: 'post',
     response: _ => {
       return {
