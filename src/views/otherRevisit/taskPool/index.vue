@@ -29,7 +29,7 @@
               <el-row>
                 <el-col :span="24">
                   <div class="fr">
-                    <el-button type="primary" size="small" @click="handleBatchSubmit">分析数据</el-button>
+                    <!--<el-button type="primary" size="small" @click="handleBatchSubmit">分析数据</el-button>-->
                     <el-button type="info" size="small" @click="clearList">清空</el-button>
                     <el-button type="primary" size="small" @click="handleFilter">查询</el-button>
                   </div>

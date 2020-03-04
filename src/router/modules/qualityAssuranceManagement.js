@@ -34,7 +34,7 @@ const qualityAssuranceManagementRouter =
         component: () => import('@/views/qualityAssuranceManagement/history'),
         name: 'searchRecord',
         meta: {
-          title: '质检查询',
+          title: '质检复核',
           roles: ['admin']
         }
       },
@@ -43,7 +43,7 @@ const qualityAssuranceManagementRouter =
         component: () => import('@/views/qualityAssuranceManagement/queryQualityAssurance'),
         name: 'queryQualityAssurance',
         meta: {
-          title: '质检复核',
+          title: '质检查询',
           roles: ['admin']
         }
       },
