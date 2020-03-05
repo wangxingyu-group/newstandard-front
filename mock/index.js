@@ -30,6 +30,7 @@ import underwritingOutTask from './demo/underwritingRevisit/underwritingOutTask/
 import underwritingOutRecord from './demo/underwritingRevisit/underwritingOutRecord/underwritingOutRecord' // 核保外呼记录
 import callOutSettings from './demo/underwritingRevisit/callOutSettings/callOutSettings' // 核保内容配置管理
 import taskPool from './demo/otherRevisit/taskPool/taskPool' // 任务池
+import call from './demo/otherRevisit/call/call' // 外呼
 import callOutLog from './demo/otherRevisit/callOutLog/callOutLog'
 import quickSearch from './demo/otherRevisit/quickSearch/quickSearch' // 外呼日志
 import customerServiceQuestion from './demo/customerServiceRevisit/customerServiceQuestion' // 保全问题管理
@@ -77,6 +78,7 @@ import chart16 from './demo/chart/chart16' // 报表=>DID报表
 import chart17 from './demo/chart/chart17' // 报表=>地区分析报表
 import seatGroupMonitoring from './systemRealTimeMessage/seatGroupMonitoring' // 坐席组监控
 import knowledgeBase from './knowledgeBase/knowledgeBase' // 知识库
+import fullTextSearch from './knowledgeBase/fullTextSearch' // 全文检索
 import verbalTrick from './verbalTrick/verbalTrick' // 话术库
 import trainPlan from './train/trainPlan' // 培训=>培训计划
 import trainResource from './train/trainResource' // 培训=> 培训资源
@@ -111,6 +113,7 @@ const mocks = [
   ...underwritingOutRecord,
   ...callOutSettings,
   ...taskPool,
+  ...call,
   ...callOutLog,
   ...quickSearch,
   ...customerServiceQuestion,
@@ -160,6 +163,7 @@ const mocks = [
   ...chart17,
   ...seatGroupMonitoring,
   ...knowledgeBase,
+  ...fullTextSearch,
   ...verbalTrick,
   // ...trainPlan,
   ...trainResource

@@ -40,7 +40,7 @@
           <el-table :key="tableKey" v-loading="listLoading" :height="searchRow1" style="min-height: 300px;" :data="list" fit stripe highlight-current-row @selection-change="selectionChange">
             <el-table-column type="selection" min-width="55" />
             <el-table-column label="订单号" align="center" min-width="150">
-              <template slot-scope="scope"><span>{{ scope.row.policyNo }}</span></template>
+              <template slot-scope="scope"><el-link type="success" @click.stop="goToCallPage(scope.row)" style="color: #42b983; cursor: pointer"><span>{{ scope.row.policyNo }}</span></el-link></template>
             </el-table-column>
             <el-table-column label="客户姓名" align="center" min-width="100">
               <template slot-scope="scope"><span>{{ scope.row.name }}</span></template>
@@ -150,6 +150,9 @@ export default {
     },
     clearList() {
       this.list = []
+    },
+    goToCallPage(order) {
+      this.$router.push({ path: '/otherRevisit/call' })
     }
   }
 }

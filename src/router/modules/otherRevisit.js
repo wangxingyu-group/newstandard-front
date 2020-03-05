@@ -21,6 +21,16 @@ const otherRevisitRouter =
         }
       },
       {
+        path: 'call',
+        component: () => import('@/views/otherRevisit/call'),
+        name: 'Call',
+        hidden: true,
+        meta: {
+          title: '外呼',
+          roles: ['admin']
+        }
+      },
+      {
         path: 'callOutLog',
         component: () => import('@/views/otherRevisit/callOutLog'),
         name: 'callOutLog',

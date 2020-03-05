@@ -22,59 +22,99 @@
         </el-card>
       </el-col>
       <el-col :span="20">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix">
-            <el-form ref="form" :model="listQuery" label-width="100px" size="small">
+        <sticky :z-index="10">
+          <el-card>
+            <el-form ref="queryForm" :inline="true" :model="query" label-width="120px">
               <el-row>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="当前选择项" label-width="130px">
-                    <el-input v-model="displayLabel" :disabled="false" placeholder="当前选择项" />
+                <el-col :span="24">
+                  <el-form-item label="">
+                    <el-input v-model="search" placeholder="全文检索" style="width: 600px;" :clearable="true" />
                   </el-form-item>
-                </el-col>
-                <el-col :sm="12" :lg="8">
-                  <el-form-item label="查询条件">
-                    <el-input v-model="listQuery.name" :disabled="false" placeholder="查询条件" />
-                  </el-form-item>
+                  <el-button type="primary" icon="fa fa-search" circle title="查询" @click="goToSearch" />
                 </el-col>
               </el-row>
             </el-form>
-            <div class="fr">
-              <el-button type="success" size="mini" @click="getDetail">查询</el-button>
-              <el-button type="danger" size="mini" @click="handleBatchDelete">批量删除</el-button>
+          </el-card>
+        </sticky>
+        <el-row :gutter="10" class="mt-10">
+          <el-col :span="8">  <el-card class="mt-10">
+            <div slot="header">
+              日点击排行
             </div>
-          </div>
-          <el-scrollbar ref="tableScrollbar" wrap-class="scrollbar-wrapper">
-            <div class="fit-height-211">
-              <el-table ref="table" :key="tableKey" :data="detailList" row-key="id" :height="searchRow1" stripe highlight-current-row @selection-change="selectionChange" @row-click="toggleSelection">
-                <el-table-column type="selection" min-width="55" />
-                <el-table-column label="编号" align="center" min-width="80">
-                  <template slot-scope="scope"><span>{{ scope.row.id }}</span></template>
-                </el-table-column>
-                <el-table-column label="题名" align="center" min-width="150">
-                  <template slot-scope="scope"><span>{{ scope.row.title }}</span></template>
-                </el-table-column>
-                <el-table-column label="作者" align="center" min-width="100">
-                  <template slot-scope="scope"><span>{{ scope.row.author }}</span></template>
-                </el-table-column>
-                <el-table-column label="发表时间" align="center" min-width="180">
-                  <template slot-scope="scope"><span>{{ scope.row.time }}</span></template>
-                </el-table-column>
-                <el-table-column label="下载" align="center" min-width="80">
-                  <template slot-scope="scope"><span>{{ scope.row.download }}</span></template>
-                </el-table-column>
-                <el-table-column label="操作" align="center" fixed="right" min-width="180">
-                  <template slot-scope="{row}">
-                    <el-button type="warning" icon="el-icon-star-off" circle />
-                    <el-button type="success" icon="el-icon-download" circle />
-                    <el-button type="success" icon="el-icon-tickets" circle />
-                    <el-button type="danger" icon="el-icon-delete" circle @click="handleDelete(row)" />
-                  </template>
-                </el-table-column>
-              </el-table>
-              <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+            <div style="min-height: 200px;">
+              1.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              2.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              3.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              4.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              5.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              6.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              7.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              8.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
             </div>
-          </el-scrollbar>
-        </el-card>
+          </el-card></el-col>
+          <el-col :span="8">  <el-card class="mt-10">
+            <div slot="header">
+              周点击排行
+            </div>
+            <div style="min-height: 200px;">
+              1.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              2.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              3.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              4.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              5.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              6.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              7.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              8.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+            </div>
+          </el-card></el-col>
+          <el-col :span="8">  <el-card class="mt-10">
+            <div slot="header">
+              最新上传
+            </div>
+            <div style="min-height: 200px;">
+              1.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              2.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              3.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              4.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              5.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              6.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              7.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              8.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+            </div>
+          </el-card></el-col>
+        </el-row>
+        <el-row :gutter="10" class="mt-10">
+          <el-col :span="8">  <el-card class="mt-10">
+            <div slot="header">
+              最新知识
+            </div>
+            <div style="min-height: 200px;">
+              1.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              2.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              3.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              4.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              5.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              6.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              7.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              8.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+            </div>
+          </el-card></el-col>
+          <el-col :span="8">  <el-card class="mt-10">
+            <div slot="header">
+              收藏排行
+            </div>
+            <div style="min-height: 200px;">
+              1.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              2.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              3.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              4.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              5.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              6.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              7.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+              8.<i class="fa fa-book ml-10 mr-10 mt-10" />暂无记录<el-badge :value="0" type="primary" style="right: -5px;top: 4px;" /><br>
+            </div>
+          </el-card></el-col>
+        </el-row>
       </el-col>
     </el-row>
 
@@ -100,6 +140,7 @@
 </template>
 <script>
 import { createServiceDetails, fetchList, updateServiceDetails, fetchServiceDetails } from '@/api/knowledgeBase/knowledgeBase'
+import { search } from '@/api/knowledgeBase/fullTextSearch'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 import { mapState } from 'vuex'
 export default {
@@ -107,6 +148,7 @@ export default {
   components: { Pagination },
   data() {
     return {
+      search: null,
       treeData: null, // tree数据
       selectionTreeList: null,
       currentNode: null, // tree当前选中节点
@@ -121,6 +163,16 @@ export default {
         name: '',
         page: 1,
         limit: 10
+      },
+      query: {
+        name: '',
+        page: 1,
+        limit: 10
+      },
+      pagination: {
+        page: 1,
+        limit: 10,
+        total: 0
       },
       temp: {// 操作时的临时对象
         id: undefined,
@@ -160,7 +212,6 @@ export default {
       this.listLoading = true
       fetchServiceDetails(this.listQuery).then((response) => {
         this.detailList = response.data.items
-        this.total = response.data.total
         setTimeout(() => {
           this.listLoading = false
           this.$refs.treeScrollbar.update()
@@ -177,6 +228,14 @@ export default {
           tableData.push({ id: current.id, parentId: current.parentId, label: current.label })
           return tableData
         }, [])
+        search(this.pagination).then((response) => {
+          this.tableData = response.data.list
+          this.pagination.total = response.data.total
+          // 模拟延迟
+          setTimeout(() => {
+            this.tableLoading = false
+          }, 0.5 * 1000)
+        })
         setTimeout(() => {
           this.listLoading = false
           this.$refs.treeScrollbar.update()
@@ -334,6 +393,11 @@ export default {
           }
         }
       }
+    },
+    rowClick(row, column, event) {
+    },
+    goToSearch() {
+      this.$router.push('/knowledgeBase/fullTextSearch')
     }
   }
 }

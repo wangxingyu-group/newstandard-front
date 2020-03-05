@@ -10,11 +10,6 @@ for (let i = 0; i < count; i++) {
     name: '@cname()',
     callInNo: /^1[385][1-9]\d{8}/,
     description: '@ctitle(5, 15)',
-    idNo: '@integer(152106199001010011, 152106199012319999)',
-    datetime: '@datetime',
-    name: '@cname()',
-    callInNo: /^1[385][1-9]\d{8}/
-
   }))
 }
 

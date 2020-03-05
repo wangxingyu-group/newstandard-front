@@ -51,7 +51,7 @@ const qualityAssuranceManagementRouter =
         path: 'queryAssuranceListen',
         component: () => import('@/views/qualityAssuranceManagement/qualityAssurance/listen.vue'),
         name: 'queryAssuranceListen',
-        hide: true,
+        hidden: true,
         meta: {
           title: '质检调听',
           roles: ['admin']
